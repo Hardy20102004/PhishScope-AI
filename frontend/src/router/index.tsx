@@ -77,11 +77,6 @@ import CloudInvestigationDashboard from "@/features/cloud-investigation/componen
 
 export const router = createBrowserRouter([
   {
-    path: "/",
-    element: <Navigate to="/dashboard" replace />,
-  },
-  {
-    path: "/",
     element: <AuthLayout />,
     children: [
       {
@@ -95,13 +90,15 @@ export const router = createBrowserRouter([
     ],
   },
   {
-    path: "/",
     element: <AuthGuard />,
     children: [
       {
-        path: "",
         element: <DashboardLayout />,
         children: [
+          {
+            path: "/",
+            element: <Navigate to="/dashboard" replace />,
+          },
           {
             path: "dashboard",
             element: <Dashboard />,
