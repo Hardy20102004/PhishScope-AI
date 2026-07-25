@@ -9,10 +9,6 @@ export function CaseList() {
   const [cases, setCases] = useState<Case[]>([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    loadCases();
-  }, []);
-
   const loadCases = async () => {
     try {
       const data = await listCases();
@@ -23,6 +19,10 @@ export function CaseList() {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    loadCases();
+  }, []);
 
   const handleCreateNew = async () => {
     setLoading(true);

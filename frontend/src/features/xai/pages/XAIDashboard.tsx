@@ -8,10 +8,6 @@ export const XAIDashboard: React.FC = () => {
   const [explanations, setExplanations] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   
-  useEffect(() => {
-    fetchExplanations();
-  }, []);
-
   const fetchExplanations = async () => {
     try {
       const res = await api.get('/xai/');
@@ -22,6 +18,10 @@ export const XAIDashboard: React.FC = () => {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    fetchExplanations();
+  }, []);
 
   return (
     <div className="flex-1 p-8 overflow-y-auto bg-[#0a0a0b] text-gray-100 min-h-screen">
