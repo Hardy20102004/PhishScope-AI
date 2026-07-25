@@ -18,11 +18,11 @@ export function Sidebar() {
     { name: "Explainable AI", path: "/xai", icon: <Lightbulb size={20} /> },
     { name: "Model Manager", path: "/models", icon: <Cpu size={20} /> },
     { name: "Cases", path: "/cases", icon: <ShieldAlert size={20} /> },
-    { name: "Investigations", path: "/investigations", icon: <ShieldAlert size={20} /> },
+    { name: "Investigations", path: "/investigations/new", icon: <ShieldAlert size={20} /> },
     { name: "Threat Intel", path: "/threat-intel/dashboard", icon: <Activity size={20} /> },
     { name: "Automation", path: "/automation", icon: <GitBranch size={20} /> },
     { name: "Policies", path: "/admin/policies", icon: <ShieldCheck size={20} /> },
-    { name: "Settings", path: "/settings", icon: <Settings size={20} /> },
+    { name: "Settings", path: "/admin/dashboard", icon: <Settings size={20} /> },
   ]
 
   return (

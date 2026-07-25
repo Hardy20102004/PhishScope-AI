@@ -11,7 +11,7 @@ export default function AdminLayout() {
     { to: '/admin/observability/health', icon: Activity, label: 'System Health' },
     { to: '/admin/observability/incidents', icon: AlertTriangle, label: 'Incidents' },
     { to: '/admin/observability/metrics', icon: BarChart3, label: 'Metrics Explorer' },
-    { to: '/admin/settings', icon: Settings, label: 'Settings' },
+    { to: '/admin/dashboard', icon: Settings, label: 'Settings' },
   ];
 
   return (
