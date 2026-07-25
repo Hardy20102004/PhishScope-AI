@@ -28,3 +28,39 @@ from app.models.knowledge_graph import GraphEntity, GraphRelationship
 from app.models.decision import DecisionRecord, DecisionEvidenceLink, ApprovalWorkflow
 from app.models.xai import ExplanationRecord, EvidenceAttribution
 from app.models.model_manager import AIProvider, AIModel, RoutingPolicy, ModelCostLog
+from app.models.url_intelligence import (
+    URLInvestigationDetails, ParsedURL, RedirectChain,
+    DomainInfrastructure, CertificateData, BrandIntelligence
+)
+from app.models.website_investigation import (
+    WebsiteInvestigation, PageSnapshot, JavaScriptMetadata,
+    FormMetadata, SecurityHeaderData, VisualAnalysisData
+)
+from app.models.email_intelligence import (
+    EmailInvestigation, EmailHeaderData, AuthenticationResult,
+    RoutingHop, AttachmentMetadata, ExtractedURL, CampaignCorrelation
+)
+from app.models.qr_intelligence import (
+    QRInvestigation, DecodedQRPayload, QRImageMetadata,
+    VisualTamperingData, QRPaymentMetadata
+)
+from app.models.malware_intelligence import (
+    MalwareInvestigation, MalwareMetadata, MalwareHashes,
+    StaticAnalysisData, SignatureMatch, ExtractedIOC, ThreatCorrelation
+)
+from app.models.mobile_investigation import (
+    MobileInvestigation, DeviceMetadata, MobileApplication,
+    MobileCommunication, MobileLocation, MobileTimelineEvent, ExtractedMobileIOC
+)
+from app.models.browser_investigation import (
+    BrowserInvestigation, BrowserHistoryRecord, BrowserCookie,
+    BrowserExtension, BrowserDownload, BrowserTimelineEvent, ExtractedBrowserIOC
+)
+from app.models.network_investigation import (
+    NetworkInvestigation, NetworkFlowRecord, DNSRecord,
+    HTTPMetadata, TLSMetadata, NetworkTimelineEvent, ExtractedNetworkIOC
+)
+from app.models.cloud_investigation import (
+    CloudInvestigation, CloudAsset, CloudIdentity,
+    CloudConfiguration, CloudAuditEvent, CloudTimelineEvent, ExtractedCloudIOC
+)

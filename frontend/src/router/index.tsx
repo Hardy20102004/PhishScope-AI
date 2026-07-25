@@ -48,6 +48,33 @@ import AIObservabilityAudit from "@/pages/ai-brain/AIObservabilityAudit";
 // Multi-Agent Framework
 import { AIWorkforceDashboard } from "@/features/multi-agent/pages/AIWorkforceDashboard";
 
+// URL Intelligence
+import URLInvestigationDashboard from "@/features/url-intelligence/components/URLInvestigationDashboard";
+
+// Website Investigation
+import WebsiteInvestigationDashboard from "@/features/website-investigation/components/WebsiteInvestigationDashboard";
+
+// Email Intelligence
+import EmailInvestigationDashboard from "@/features/email-intelligence/components/EmailInvestigationDashboard";
+
+// QR Intelligence
+import QRInvestigationDashboard from "@/features/qr-intelligence/components/QRInvestigationDashboard";
+
+// Malware Intelligence
+import MalwareInvestigationDashboard from "@/features/malware-intelligence/components/MalwareInvestigationDashboard";
+
+// Mobile Device Investigation
+import MobileInvestigationDashboard from "@/features/mobile-investigation/components/MobileInvestigationDashboard";
+
+// Browser Investigation
+import BrowserInvestigationDashboard from "@/features/browser-investigation/components/BrowserInvestigationDashboard";
+
+// Network Investigation
+import NetworkInvestigationDashboard from "@/features/network-investigation/components/NetworkInvestigationDashboard";
+
+// Cloud Investigation
+import CloudInvestigationDashboard from "@/features/cloud-investigation/components/CloudInvestigationDashboard";
+
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -182,6 +209,42 @@ export const router = createBrowserRouter([
           {
             path: "investigations/:id",
             element: <Workspace />,
+          },
+          {
+            path: "url-intelligence",
+            element: <URLInvestigationDashboard />,
+          },
+          {
+            path: "website-investigation",
+            element: <WebsiteInvestigationDashboard />,
+          },
+          {
+            path: "email-intelligence",
+            element: <EmailInvestigationDashboard />,
+          },
+          {
+            path: "qr-intelligence",
+            element: <QRInvestigationDashboard />,
+          },
+          {
+            path: "malware-intelligence",
+            element: <MalwareInvestigationDashboard />,
+          },
+          {
+            path: "mobile-investigation",
+            element: <MobileInvestigationDashboard />,
+          },
+          {
+            path: "browser-investigation",
+            element: <BrowserInvestigationDashboard />,
+          },
+          {
+            path: "network-investigation",
+            element: <NetworkInvestigationDashboard />,
+          },
+          {
+            path: "cloud-investigation",
+            element: <CloudInvestigationDashboard />,
           },
           {
             path: "threat-intel/dashboard",

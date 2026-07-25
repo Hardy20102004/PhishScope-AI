@@ -24,7 +24,16 @@ from app.api.v1.endpoints import (
     knowledge_graph,
     decision,
     xai,
-    models
+    models,
+    url_intelligence,
+    website_investigation,
+    email_intelligence,
+    qr_intelligence,
+    malware_intelligence,
+    mobile_investigation,
+    browser_investigation,
+    network_investigation,
+    cloud_investigation
 )
 
 api_router = APIRouter()
@@ -37,6 +46,15 @@ api_router.include_router(users.router, prefix="/users", tags=["users"])
 api_router.include_router(dashboard.router, prefix="/dashboard", tags=["dashboard"])
 api_router.include_router(investigations.router, prefix="/investigations", tags=["investigations"])
 api_router.include_router(threat_intel.router, prefix="/threat-intel", tags=["threat-intel"])
+api_router.include_router(url_intelligence.router, prefix="/url-intelligence", tags=["url-intelligence"])
+api_router.include_router(website_investigation.router, prefix="/website-investigation", tags=["website-investigation"])
+api_router.include_router(email_intelligence.router, prefix="/email-intelligence", tags=["email-intelligence"])
+api_router.include_router(qr_intelligence.router, prefix="/qr-intelligence", tags=["qr-intelligence"])
+api_router.include_router(malware_intelligence.router, prefix="/malware-intelligence", tags=["malware-intelligence"])
+api_router.include_router(mobile_investigation.router, prefix="/mobile-investigation", tags=["mobile-investigation"])
+api_router.include_router(browser_investigation.router, prefix="/browser-investigation", tags=["browser-investigation"])
+api_router.include_router(network_investigation.router, prefix="/network-investigation", tags=["network-investigation"])
+api_router.include_router(cloud_investigation.router, prefix="/cloud-investigation", tags=["cloud-investigation"])
 api_router.include_router(copilot.router, prefix="/copilot", tags=["copilot"])
 api_router.include_router(cases.router, prefix="/cases", tags=["cases"])
 api_router.include_router(reports.router, prefix="/reports", tags=["reports"])

@@ -1,7 +1,14 @@
 import pytest
 from httpx import AsyncClient, ASGITransport
 from app.main import app
-from app.db.session import SessionLocal
+from app.db.base import Base
+from app.db.session import SessionLocal, engine
+
+@pytest.fixture(autouse=True)
+def setup_database():
+    Base.metadata.create_all(bind=engine)
+    yield
+    Base.metadata.drop_all(bind=engine)
 
 @pytest.fixture
 def db_session():

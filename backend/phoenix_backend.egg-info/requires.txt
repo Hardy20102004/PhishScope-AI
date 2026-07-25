@@ -10,6 +10,7 @@ celery>=5.3.6
 redis>=5.0.3
 python-jose[cryptography]>=3.3.0
 passlib[bcrypt]>=1.7.4
+numpy>=1.26.0
 
 [dev]
 pytest>=8.1.1
