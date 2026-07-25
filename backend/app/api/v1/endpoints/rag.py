@@ -1,19 +1,15 @@
 import time
-from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, Form
-from sqlalchemy.orm import Session
 from typing import List, Optional
 
+from fastapi import APIRouter, Depends, File, Form, HTTPException, UploadFile
+from sqlalchemy.orm import Session
+
 from app.api import deps
-from app.schemas.rag import (
-    KnowledgeAssetResponse,
-    RAGSearchRequest,
-    RAGSearchResponse
-)
 from app.models.rag import KnowledgeAssetStatus, RAGAnalyticsLog
+from app.rag.governance import KnowledgeManager
 from app.rag.ingestion import DocumentIngestionEngine
 from app.rag.retrieval import HybridRetrievalEngine
-from app.rag.governance import KnowledgeManager
-from app.rag.citation import CitationEngine
+from app.schemas.rag import KnowledgeAssetResponse, RAGSearchRequest, RAGSearchResponse
 
 router = APIRouter()
 

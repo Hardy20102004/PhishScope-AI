@@ -1,12 +1,19 @@
-from fastapi import APIRouter, Depends, HTTPException, BackgroundTasks
-from typing import List, Dict, Any
+from typing import List
+
+from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException
 from sqlalchemy.orm import Session
 
-from app.schemas.multi_agent import PlanRequest, PlanResponse, AgentDefinitionResponse, HumanApprovalResponse, HumanApprovalSubmit
-from app.api import deps
-from app.models.multi_agent import AgentDefinition, HumanApprovalRequest, ApprovalStatus
-from app.multi_agent.manager import AgentManager
 from app.ai_brain.governance import AIAuditEngine
+from app.api import deps
+from app.models.multi_agent import AgentDefinition, ApprovalStatus, HumanApprovalRequest
+from app.multi_agent.manager import AgentManager
+from app.schemas.multi_agent import (
+    AgentDefinitionResponse,
+    HumanApprovalResponse,
+    HumanApprovalSubmit,
+    PlanRequest,
+    PlanResponse,
+)
 
 router = APIRouter()
 

@@ -1,6 +1,7 @@
 import time
+from typing import Any, Dict, List, Tuple
+
 import structlog
-from typing import Dict, Any, Optional, List, Tuple
 
 logger = structlog.get_logger("phoenix.ai_brain.reasoning")
 

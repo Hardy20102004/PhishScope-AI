@@ -1,7 +1,8 @@
-import httpx
 import logging
+from typing import Any, Dict
+
+import httpx
 from bs4 import BeautifulSoup
-from typing import Dict, Any
 
 logger = logging.getLogger(__name__)
 

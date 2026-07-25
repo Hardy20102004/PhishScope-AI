@@ -1,7 +1,9 @@
+from typing import List, Optional
+
 import structlog
-from typing import List, Optional, Dict, Any
 from sqlalchemy.orm import Session
-from app.models.prompt_platform import PromptTemplate, PromptVersion, PromptLifecycleState
+
+from app.models.prompt_platform import PromptLifecycleState, PromptTemplate, PromptVersion
 
 logger = structlog.get_logger("phoenix.prompt_platform.registry")
 

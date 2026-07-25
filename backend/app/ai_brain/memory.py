@@ -1,10 +1,12 @@
-import time
 import json
+import time
 import uuid
+from typing import Any, Dict, List, Optional
+
 import structlog
-from typing import Dict, Any, Optional, List, Union
-from app.models.ai_brain import MemoryTier
+
 from app.ai_brain.optimization import ContextCompressor
+from app.models.ai_brain import MemoryTier
 
 logger = structlog.get_logger("phoenix.ai_brain.memory")
 

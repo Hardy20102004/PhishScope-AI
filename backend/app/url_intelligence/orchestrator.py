@@ -1,15 +1,15 @@
 import asyncio
-from typing import Dict, Any
 import logging
+from typing import Any, Dict
 
-from app.url_intelligence.engines.parser import URLParser
-from app.url_intelligence.engines.normalizer import URLNormalizationEngine
-from app.url_intelligence.engines.intelligence import URLIntelligenceEngine
-from app.url_intelligence.engines.redirect import RedirectAnalysisEngine
-from app.url_intelligence.engines.infrastructure import InfrastructureCorrelationEngine
-from app.url_intelligence.engines.brand import BrandProtectionEngine
-from app.url_intelligence.engines.scoring import RiskScoringEngine
 from app.url_intelligence.ai_integration import URLAIIntegration
+from app.url_intelligence.engines.brand import BrandProtectionEngine
+from app.url_intelligence.engines.infrastructure import InfrastructureCorrelationEngine
+from app.url_intelligence.engines.intelligence import URLIntelligenceEngine
+from app.url_intelligence.engines.normalizer import URLNormalizationEngine
+from app.url_intelligence.engines.parser import URLParser
+from app.url_intelligence.engines.redirect import RedirectAnalysisEngine
+from app.url_intelligence.engines.scoring import RiskScoringEngine
 
 logger = logging.getLogger(__name__)
 

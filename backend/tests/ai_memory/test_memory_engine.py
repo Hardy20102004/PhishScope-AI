@@ -1,9 +1,9 @@
-import pytest
+from app.ai_memory.graph import RelationshipEngine
 from app.ai_memory.manager import MemoryManager
 from app.ai_memory.search import HybridSearchEngine
-from app.ai_memory.graph import RelationshipEngine
+from app.models.ai_memory import MemoryType, RelationType, SecurityClassification
 from app.schemas.ai_memory import MemoryCreate
-from app.models.ai_memory import MemoryType, SecurityClassification, RelationType
+
 
 def test_memory_creation_and_search(db_session):
     manager = MemoryManager(db_session)

@@ -1,6 +1,7 @@
-import structlog
-from typing import List
 import re
+from typing import List
+
+import structlog
 
 logger = structlog.get_logger("phoenix.rag.chunking")
 

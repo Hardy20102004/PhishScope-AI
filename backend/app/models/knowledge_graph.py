@@ -1,9 +1,12 @@
-from sqlalchemy import Column, String, Integer, Float, Boolean, ForeignKey, Enum, JSON, DateTime, UniqueConstraint
-from sqlalchemy.orm import relationship
-import uuid
 import enum
+import uuid
 from datetime import datetime
+
+from sqlalchemy import JSON, Column, DateTime, Enum, Float, ForeignKey, String, UniqueConstraint
+from sqlalchemy.orm import relationship
+
 from app.db.base_class import Base
+
 
 class EntityStatus(str, enum.Enum):
     ACTIVE = "ACTIVE"

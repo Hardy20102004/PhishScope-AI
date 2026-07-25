@@ -1,5 +1,7 @@
 from typing import List
+
 from app.schemas.rag import RAGSearchResult
+
 
 class CitationEngine:
     def format_citations(self, results: List[RAGSearchResult]) -> str:

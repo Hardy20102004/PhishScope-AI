@@ -1,14 +1,16 @@
 import asyncio
-from typing import Dict, Any, List
-from sqlalchemy.orm import Session
+from datetime import datetime, timedelta, timezone
+from typing import Any, Dict
+
 from sqlalchemy import select
-from datetime import datetime, timezone, timedelta
+from sqlalchemy.orm import Session
 
 from app.models.threat_intel import Indicator, ThreatFeedResult
+from app.services.threat_intel.connectors.google_safe_browsing import GoogleSafeBrowsingConnector
+from app.services.threat_intel.connectors.virustotal import VirusTotalConnector
 from app.services.threat_intel.normalization import IndicatorNormalizationEngine
 from app.services.threat_intel.reputation import ReputationEngine
-from app.services.threat_intel.connectors.virustotal import VirusTotalConnector
-from app.services.threat_intel.connectors.google_safe_browsing import GoogleSafeBrowsingConnector
+
 
 class ThreatIntelManager:
     """Orchestrates threat intelligence gathering and caching."""

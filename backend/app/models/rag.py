@@ -1,9 +1,12 @@
-from sqlalchemy import Column, String, Integer, Float, Boolean, ForeignKey, Enum, JSON, DateTime
-from sqlalchemy.orm import relationship
-import uuid
 import enum
+import uuid
 from datetime import datetime
+
+from sqlalchemy import JSON, Boolean, Column, DateTime, Enum, Float, ForeignKey, Integer, String
+from sqlalchemy.orm import relationship
+
 from app.db.base_class import Base
+
 
 class KnowledgeAssetStatus(str, enum.Enum):
     DRAFT = "DRAFT"

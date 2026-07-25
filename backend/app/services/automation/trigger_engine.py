@@ -1,9 +1,11 @@
-from sqlalchemy.orm import Session
-from sqlalchemy import select
-from typing import Dict, Any
+from typing import Any, Dict
 
-from app.models.automation import Workflow, TriggerType, WorkflowVersion
+from sqlalchemy import select
+from sqlalchemy.orm import Session
+
+from app.models.automation import TriggerType, Workflow, WorkflowVersion
 from app.services.automation.execution_engine import ExecutionEngine
+
 
 class TriggerEngine:
     def __init__(self, db: Session):

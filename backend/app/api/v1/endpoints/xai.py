@@ -1,12 +1,13 @@
-from fastapi import APIRouter, Depends, HTTPException
-from sqlalchemy.orm import Session
 from typing import List
 
+from fastapi import APIRouter, Depends, HTTPException
+from sqlalchemy.orm import Session
+
 from app.api import deps
+from app.models.decision import DecisionRecord
+from app.models.xai import ExplanationRecord
 from app.schemas.xai import ExplanationResponse
 from app.xai.manager import ExplanationManager
-from app.models.xai import ExplanationRecord
-from app.models.decision import DecisionRecord
 
 router = APIRouter()
 

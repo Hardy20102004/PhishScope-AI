@@ -1,8 +1,8 @@
-import pytest
-from app.email_intelligence.engines.parser import EmailParserEngine
+from app.email_intelligence.engines.attachments import AttachmentIntelligenceEngine
 from app.email_intelligence.engines.auth import AuthenticationAnalysisEngine
 from app.email_intelligence.engines.conversation import ConversationAnalysisEngine
-from app.email_intelligence.engines.attachments import AttachmentIntelligenceEngine
+from app.email_intelligence.engines.parser import EmailParserEngine
+
 
 def test_parser_engine():
     raw_eml = """Date: Mon, 25 Jul 2026 10:00:00 +0000

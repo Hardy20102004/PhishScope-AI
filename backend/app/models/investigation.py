@@ -1,9 +1,13 @@
+import enum
 import uuid
 from datetime import datetime, timezone
-from sqlalchemy import Column, String, Integer, DateTime, ForeignKey, Enum as SQLEnum, JSON, Uuid
+
+from sqlalchemy import JSON, Column, DateTime, ForeignKey, Integer, String, Uuid
+from sqlalchemy import Enum as SQLEnum
 from sqlalchemy.orm import relationship
+
 from app.db.base_class import Base
-import enum
+
 
 class InvestigationType(str, enum.Enum):
     URL = "URL"

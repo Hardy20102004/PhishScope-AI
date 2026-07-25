@@ -1,11 +1,12 @@
-from sqlalchemy.orm import Session
-from sqlalchemy import select
 import uuid
-from typing import Optional, List
+
+from sqlalchemy import select
+from sqlalchemy.orm import Session
 
 from app.models.case_management import CaseTask, TaskStatus
-from app.schemas.case_management import CaseTaskCreate, CaseTaskUpdate
+from app.schemas.case_management import CaseTaskCreate
 from app.services.timeline_engine import TimelineEngine
+
 
 class TaskEngine:
     def __init__(self, db: Session):

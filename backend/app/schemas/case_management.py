@@ -1,8 +1,11 @@
-from pydantic import BaseModel, ConfigDict
+from datetime import datetime
 from typing import List, Optional
 from uuid import UUID
-from datetime import datetime
-from app.models.case_management import CaseStatus, CasePriority, TaskStatus
+
+from pydantic import BaseModel, ConfigDict
+
+from app.models.case_management import CasePriority, CaseStatus, TaskStatus
+
 
 class CaseCreate(BaseModel):
     title: str

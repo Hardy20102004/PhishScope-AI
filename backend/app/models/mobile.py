@@ -1,8 +1,11 @@
 import uuid
 from datetime import datetime, timezone
-from sqlalchemy import Column, String, DateTime, ForeignKey, Uuid, Boolean, JSON
+
+from sqlalchemy import JSON, Boolean, DateTime, ForeignKey, String, Uuid
 from sqlalchemy.orm import Mapped, mapped_column
+
 from app.db.base_class import Base
+
 
 class MobileDevice(Base):
     __tablename__ = "mobile_devices"

@@ -1,5 +1,6 @@
 import abc
-from typing import Dict, Any, Optional
+from typing import Any, Dict
+
 
 class BaseConnector(abc.ABC):
     """Base class for all threat intelligence connectors."""

@@ -1,15 +1,15 @@
 import logging
-from typing import Dict, Any
+from typing import Any, Dict
 
-from app.cloud_investigation.engines.parser import CloudArtifactParserEngine
-from app.cloud_investigation.engines.asset import CloudAssetEngine
-from app.cloud_investigation.engines.identity import CloudIdentityEngine
-from app.cloud_investigation.engines.configuration import ConfigurationAnalysisEngine
-from app.cloud_investigation.engines.audit import AuditLogAnalysisEngine
-from app.cloud_investigation.engines.timeline import TimelineEngine
-from app.cloud_investigation.engines.ioc import IOCExtractionEngine
-from app.cloud_investigation.engines.risk import RiskAssessmentEngine
 from app.cloud_investigation.ai_integration import CloudAIIntegration
+from app.cloud_investigation.engines.asset import CloudAssetEngine
+from app.cloud_investigation.engines.audit import AuditLogAnalysisEngine
+from app.cloud_investigation.engines.configuration import ConfigurationAnalysisEngine
+from app.cloud_investigation.engines.identity import CloudIdentityEngine
+from app.cloud_investigation.engines.ioc import IOCExtractionEngine
+from app.cloud_investigation.engines.parser import CloudArtifactParserEngine
+from app.cloud_investigation.engines.risk import RiskAssessmentEngine
+from app.cloud_investigation.engines.timeline import TimelineEngine
 
 logger = logging.getLogger(__name__)
 

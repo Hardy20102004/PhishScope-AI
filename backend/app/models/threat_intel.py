@@ -1,11 +1,13 @@
+import uuid
 from datetime import datetime, timezone
 from typing import List, Optional
-from sqlalchemy import String, Integer, Float, Boolean, DateTime, ForeignKey, Text, JSON
-from sqlalchemy.orm import Mapped, mapped_column, relationship
+
+from sqlalchemy import JSON, Boolean, DateTime, Float, ForeignKey, Integer, String
 from sqlalchemy.dialects.postgresql import UUID
-import uuid
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.db.base_class import Base
+
 
 class Indicator(Base):
     __tablename__ = "indicator"

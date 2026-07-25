@@ -1,15 +1,15 @@
 import logging
-from typing import Dict, Any
+from typing import Any, Dict
 
-from app.email_intelligence.engines.parser import EmailParserEngine
-from app.email_intelligence.engines.headers import HeaderAnalysisEngine
-from app.email_intelligence.engines.auth import AuthenticationAnalysisEngine
-from app.email_intelligence.engines.routing import RoutingAnalysisEngine
-from app.email_intelligence.engines.conversation import ConversationAnalysisEngine
-from app.email_intelligence.engines.attachments import AttachmentIntelligenceEngine
-from app.email_intelligence.engines.campaign import CampaignCorrelationEngine
-from app.email_intelligence.engines.scoring import EmailRiskScoringEngine
 from app.email_intelligence.ai_integration import EmailAIIntegration
+from app.email_intelligence.engines.attachments import AttachmentIntelligenceEngine
+from app.email_intelligence.engines.auth import AuthenticationAnalysisEngine
+from app.email_intelligence.engines.campaign import CampaignCorrelationEngine
+from app.email_intelligence.engines.conversation import ConversationAnalysisEngine
+from app.email_intelligence.engines.headers import HeaderAnalysisEngine
+from app.email_intelligence.engines.parser import EmailParserEngine
+from app.email_intelligence.engines.routing import RoutingAnalysisEngine
+from app.email_intelligence.engines.scoring import EmailRiskScoringEngine
 
 logger = logging.getLogger(__name__)
 

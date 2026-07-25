@@ -1,8 +1,11 @@
-from pydantic import BaseModel, ConfigDict
-from typing import List, Optional, Any
-from uuid import UUID
 from datetime import datetime
-from app.models.reporting import ReportStatus, ExportFormat
+from typing import Optional
+from uuid import UUID
+
+from pydantic import BaseModel, ConfigDict
+
+from app.models.reporting import ExportFormat, ReportStatus
+
 
 class ReportTemplateSchema(BaseModel):
     id: UUID

@@ -1,7 +1,7 @@
-import pytest
 from app.ai_context.builder import ContextManager
-from app.schemas.ai_context import ContextRequest
 from app.models.ai_context import ContextPolicy, ContextPolicyType
+from app.schemas.ai_context import ContextRequest
+
 
 def test_context_compression():
     # We can test compression logic independently or via manager

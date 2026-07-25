@@ -1,10 +1,16 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.core.config import settings
-from app.core.logging import setup_logging
-from app.core.exceptions import PhoenixException, phoenix_exception_handler, unhandled_exception_handler
-from app.middleware.request_context import RequestContextMiddleware
+
 from app.api.router import api_router
+from app.core.config import settings
+from app.core.exceptions import (
+    PhoenixException,
+    phoenix_exception_handler,
+    unhandled_exception_handler,
+)
+from app.core.logging import setup_logging
+from app.middleware.request_context import RequestContextMiddleware
+
 
 def create_app() -> FastAPI:
     """

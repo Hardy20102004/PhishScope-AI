@@ -1,13 +1,15 @@
-from sqlalchemy.orm import Session
-from sqlalchemy import select
 import uuid
-from typing import List, Dict
+from typing import List
+
+from sqlalchemy import select
+from sqlalchemy.orm import Session
 
 from app.models.copilot import CopilotConversation, CopilotMessage, MessageRole
 from app.models.investigation import Investigation
-from app.services.ai.llm_service import MockLLMService
 from app.services.ai.context_builder import ContextBuilder
+from app.services.ai.llm_service import MockLLMService
 from app.services.ai.prompt_manager import PromptManager
+
 
 class ConversationManager:
     """Manages chat history and coordinates LLM responses."""

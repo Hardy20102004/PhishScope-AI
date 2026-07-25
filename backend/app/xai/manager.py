@@ -1,8 +1,8 @@
 import structlog
 from sqlalchemy.orm import Session
+
 from app.models.decision import DecisionRecord
-from app.models.xai import ExplanationRecord, EvidenceAttribution
-from app.schemas.xai import ExplanationCreate
+from app.models.xai import EvidenceAttribution, ExplanationRecord
 from app.xai.attribution import EvidenceAttributionEngine
 from app.xai.confidence_explainer import ConfidenceExplanationEngine
 from app.xai.feature_importance import FeatureImportanceEngine

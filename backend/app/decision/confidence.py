@@ -1,5 +1,7 @@
-import structlog
 from typing import List
+
+import structlog
+
 from app.schemas.decision import EvidenceLinkBase
 
 logger = structlog.get_logger("phoenix.decision.confidence")

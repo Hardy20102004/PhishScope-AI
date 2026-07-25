@@ -1,13 +1,13 @@
 import logging
-from typing import Dict, Any
+from typing import Any, Dict
 
+from app.qr_intelligence.ai_integration import QRAIIntegration
 from app.qr_intelligence.engines.decoder import QRDecoderEngine
 from app.qr_intelligence.engines.image import ImageProcessingEngine
-from app.qr_intelligence.engines.visual import VisualAnalysisEngine
-from app.qr_intelligence.engines.tampering import TamperingDetectionEngine
 from app.qr_intelligence.engines.payment import PaymentQRAnalyzer
 from app.qr_intelligence.engines.scoring import QRRiskScoringEngine
-from app.qr_intelligence.ai_integration import QRAIIntegration
+from app.qr_intelligence.engines.tampering import TamperingDetectionEngine
+from app.qr_intelligence.engines.visual import VisualAnalysisEngine
 
 logger = logging.getLogger(__name__)
 

@@ -1,8 +1,21 @@
 import uuid
-from datetime import datetime, timezone
-from sqlalchemy import Column, String, Integer, Float, DateTime, ForeignKey, JSON, Uuid, Boolean, Text
+
+from sqlalchemy import (
+    JSON,
+    Boolean,
+    Column,
+    DateTime,
+    Float,
+    ForeignKey,
+    Integer,
+    String,
+    Text,
+    Uuid,
+)
 from sqlalchemy.orm import relationship
+
 from app.db.base_class import Base
+
 
 class MobileInvestigation(Base):
     __tablename__ = "mobile_investigations"

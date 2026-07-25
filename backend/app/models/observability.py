@@ -1,8 +1,11 @@
 import uuid
 from datetime import datetime, timezone
-from sqlalchemy import Column, String, DateTime, ForeignKey, Uuid, JSON, Float, Integer
+
+from sqlalchemy import JSON, DateTime, Float, String, Uuid
 from sqlalchemy.orm import Mapped, mapped_column
+
 from app.db.base_class import Base
+
 
 class Incident(Base):
     __tablename__ = "incidents"

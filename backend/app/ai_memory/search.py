@@ -1,9 +1,11 @@
+from typing import Any, Dict, List, Optional
+
 import structlog
-from typing import List, Dict, Any, Optional
-from sqlalchemy.orm import Session
 from sqlalchemy import or_
-from app.models.ai_memory import MemoryItem
+from sqlalchemy.orm import Session
+
 from app.ai_memory.embeddings import embedding_service, vector_store
+from app.models.ai_memory import MemoryItem
 
 logger = structlog.get_logger("phoenix.ai_memory.search")
 

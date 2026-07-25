@@ -1,6 +1,8 @@
-from typing import List, Optional, Any
-from pydantic_settings import BaseSettings, SettingsConfigDict
+from typing import Any, List, Optional
+
 from pydantic import AnyHttpUrl, PostgresDsn, validator
+from pydantic_settings import BaseSettings, SettingsConfigDict
+
 
 class Settings(BaseSettings):
     """

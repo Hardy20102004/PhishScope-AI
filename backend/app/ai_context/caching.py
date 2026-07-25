@@ -1,8 +1,10 @@
 import hashlib
-import structlog
-from typing import Optional
-from sqlalchemy.orm import Session
 from datetime import datetime, timedelta
+from typing import Optional
+
+import structlog
+from sqlalchemy.orm import Session
+
 from app.models.ai_context import ContextCacheEntry
 
 logger = structlog.get_logger("phoenix.ai_context.caching")

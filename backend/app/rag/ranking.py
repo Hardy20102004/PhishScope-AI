@@ -1,5 +1,7 @@
+from typing import List
+
 import structlog
-from typing import List, Dict, Any
+
 from app.schemas.rag import RAGSearchResult
 
 logger = structlog.get_logger("phoenix.rag.ranking")

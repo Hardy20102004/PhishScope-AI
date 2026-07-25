@@ -1,6 +1,7 @@
 import structlog
 from sqlalchemy.orm import Session
-from app.models.model_manager import ModelCostLog, AIModel
+
+from app.models.model_manager import AIModel, ModelCostLog
 
 logger = structlog.get_logger("phoenix.model_manager.cost")
 

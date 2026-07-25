@@ -1,7 +1,9 @@
+from typing import List, Optional
+
 from pydantic import BaseModel
-from typing import Optional, List, Dict, Any
-from datetime import datetime
+
 from app.models.ai_context import ContextPolicyType
+
 
 class OptimizationMetrics(BaseModel):
     original_tokens: int

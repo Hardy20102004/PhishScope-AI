@@ -1,6 +1,8 @@
 import re
-from typing import Dict, Any
+from typing import Any, Dict
+
 from app.services.investigations.collectors.base import BaseCollector
+
 
 class MessageParserCollector(BaseCollector):
     

@@ -1,5 +1,7 @@
+from typing import List
+
 import structlog
-from typing import List, Dict, Any
+
 from app.models.ai_memory import MemoryItem
 
 logger = structlog.get_logger("phoenix.ai_context.ranking")

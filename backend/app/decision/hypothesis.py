@@ -1,5 +1,7 @@
-import structlog
 from typing import List
+
+import structlog
+
 from app.schemas.decision import AlternativeHypothesis
 
 logger = structlog.get_logger("phoenix.decision.hypothesis")

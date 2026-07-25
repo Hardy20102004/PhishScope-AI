@@ -1,7 +1,7 @@
-import re
-import socket
-from urllib.parse import urlparse
 import ipaddress
+import re
+from urllib.parse import urlparse
+
 
 class IndicatorNormalizationEngine:
     """Normalizes and categorizes indicators."""

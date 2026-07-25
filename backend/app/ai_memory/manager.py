@@ -1,13 +1,15 @@
-import uuid
 import enum
-import structlog
+import uuid
 from datetime import datetime, timedelta
+
+import structlog
 from sqlalchemy.orm import Session
-from app.models.ai_memory import MemoryItem, MemoryAuditLog
-from app.schemas.ai_memory import MemoryCreate, MemoryUpdate
-from app.ai_memory.embeddings import embedding_service, vector_store
+
 from app.ai_memory.compression import MemoryCompressionEngine
+from app.ai_memory.embeddings import embedding_service, vector_store
 from app.ai_memory.graph import RelationshipEngine
+from app.models.ai_memory import MemoryAuditLog, MemoryItem
+from app.schemas.ai_memory import MemoryCreate, MemoryUpdate
 
 logger = structlog.get_logger("phoenix.ai_memory.manager")
 

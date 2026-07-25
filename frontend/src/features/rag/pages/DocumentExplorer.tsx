@@ -9,14 +9,10 @@ export const DocumentExplorer: React.FC = () => {
   const [uploading, setUploading] = useState(false);
   const [uploadFile, setUploadFile] = useState<File | null>(null);
   
-  useEffect(() => {
-    fetchDocuments();
-  }, []);
-  
   const fetchDocuments = async () => {
     try {
       setLoading(true);
-      const res = await api.get('/rag/assets');
+      const res = await api.get('/rag/documents');
       setDocuments(res.data);
     } catch (err) {
       console.error(err);
@@ -25,6 +21,10 @@ export const DocumentExplorer: React.FC = () => {
     }
   };
 
+  useEffect(() => {
+    fetchDocuments();
+  }, []);
+  
   const handleUpload = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!uploadFile) return;

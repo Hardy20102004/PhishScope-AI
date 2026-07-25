@@ -1,5 +1,7 @@
+from typing import Any, List
+
 import structlog
-from typing import List, Any
+
 from app.schemas.xai import ConfidenceFactor
 
 logger = structlog.get_logger("phoenix.xai.confidence")

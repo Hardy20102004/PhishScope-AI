@@ -1,7 +1,9 @@
 import asyncio
-from typing import Dict, Any
 import random
+from typing import Any, Dict
+
 from app.services.threat_intel.connectors.base import BaseConnector
+
 
 class VirusTotalConnector(BaseConnector):
     

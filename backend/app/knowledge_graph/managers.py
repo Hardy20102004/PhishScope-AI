@@ -1,9 +1,16 @@
+from typing import Any, Dict, Optional
+
 import structlog
-from typing import Optional, List, Dict, Any
-from sqlalchemy.orm import Session
 from sqlalchemy.exc import IntegrityError
-from app.models.knowledge_graph import GraphEntity, GraphRelationship, EntityStatus, RelationshipStatus
+from sqlalchemy.orm import Session
+
 from app.knowledge_graph.ontology import OntologyManager
+from app.models.knowledge_graph import (
+    EntityStatus,
+    GraphEntity,
+    GraphRelationship,
+    RelationshipStatus,
+)
 
 logger = structlog.get_logger("phoenix.kg.managers")
 

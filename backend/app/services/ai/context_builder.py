@@ -1,5 +1,7 @@
 import json
+
 from app.models.investigation import Investigation
+
 
 class ContextBuilder:
     """Builds structured context strings from database records for the LLM."""

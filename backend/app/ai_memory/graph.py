@@ -1,7 +1,9 @@
+from typing import Any, Dict, List, Optional
+
 import structlog
-from typing import List, Dict, Any, Optional
 from sqlalchemy.orm import Session
-from app.models.ai_memory import MemoryRelationship, MemoryItem
+
+from app.models.ai_memory import MemoryItem, MemoryRelationship
 
 logger = structlog.get_logger("phoenix.ai_memory.graph")
 

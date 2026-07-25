@@ -1,18 +1,21 @@
-from fastapi import APIRouter, Depends, HTTPException, BackgroundTasks
+from typing import List
+
+from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException
 from sqlalchemy.orm import Session
-from typing import List, Dict, Any
 
 from app.api import deps
-from app.schemas.knowledge_graph import (
-    GraphEntityCreate, GraphEntityResponse,
-    GraphRelationshipCreate, GraphRelationshipResponse,
-    SubgraphResponse
-)
+from app.knowledge_graph.analytics import GraphAnalyticsEngine
+from app.knowledge_graph.inference import InferenceEngine
 from app.knowledge_graph.managers import EntityManager, RelationshipManager
 from app.knowledge_graph.traversal import TraversalEngine
-from app.knowledge_graph.inference import InferenceEngine
-from app.knowledge_graph.analytics import GraphAnalyticsEngine
-from app.models.knowledge_graph import GraphEntity, EntityStatus
+from app.models.knowledge_graph import EntityStatus, GraphEntity
+from app.schemas.knowledge_graph import (
+    GraphEntityCreate,
+    GraphEntityResponse,
+    GraphRelationshipCreate,
+    GraphRelationshipResponse,
+    SubgraphResponse,
+)
 
 router = APIRouter()
 

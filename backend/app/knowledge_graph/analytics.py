@@ -1,8 +1,15 @@
-import structlog
+from typing import Dict, List
+
 import networkx as nx
-from typing import Dict, Any, List
+import structlog
 from sqlalchemy.orm import Session
-from app.models.knowledge_graph import GraphEntity, GraphRelationship, EntityStatus, RelationshipStatus
+
+from app.models.knowledge_graph import (
+    EntityStatus,
+    GraphEntity,
+    GraphRelationship,
+    RelationshipStatus,
+)
 
 logger = structlog.get_logger("phoenix.kg.analytics")
 

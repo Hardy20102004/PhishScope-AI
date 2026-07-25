@@ -1,6 +1,7 @@
 import structlog
 from sqlalchemy.orm import Session
-from app.models.decision import DecisionRecord, DecisionState, ApprovalWorkflow
+
+from app.models.decision import ApprovalWorkflow, DecisionRecord, DecisionState
 
 logger = structlog.get_logger("phoenix.decision.human_review")
 

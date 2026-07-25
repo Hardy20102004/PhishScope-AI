@@ -1,16 +1,20 @@
 from fastapi import APIRouter, Depends, HTTPException
-from sqlalchemy.orm import Session
 from sqlalchemy import select
+from sqlalchemy.orm import Session
 
-from app.api.deps import get_db, get_current_user
-from app.models.user import User
+from app.api.deps import get_current_user, get_db
 from app.models.extension import ExtensionDevice
-from app.schemas.extension import ExtensionDeviceRegister, ExtensionDeviceSchema, QuickInvestigateRequest
+from app.models.investigation import InvestigationType
+from app.models.user import User
+from app.schemas.extension import (
+    ExtensionDeviceRegister,
+    ExtensionDeviceSchema,
+    QuickInvestigateRequest,
+)
+from app.schemas.investigation import InvestigationCreate
 
 # Using the unified investigation engine to trigger on "Quick Investigate"
 from app.services.investigations.url_engine import URLEngine
-from app.schemas.investigation import InvestigationCreate
-from app.models.investigation import InvestigationType
 
 router = APIRouter()
 

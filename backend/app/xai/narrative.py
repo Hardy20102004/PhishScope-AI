@@ -1,5 +1,6 @@
+from typing import Any
+
 import structlog
-from typing import Dict, Any
 
 logger = structlog.get_logger("phoenix.xai.narrative")
 

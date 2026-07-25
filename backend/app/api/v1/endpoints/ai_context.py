@@ -1,11 +1,12 @@
-from fastapi import APIRouter, Depends, HTTPException
-from typing import List, Any
+from typing import List
+
+from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 
-from app.api import deps
-from app.schemas.ai_context import ContextRequest, ContextResponse, ContextPolicyResponse
-from app.models.ai_context import ContextPolicy, ContextAuditLog
 from app.ai_context.builder import ContextManager
+from app.api import deps
+from app.models.ai_context import ContextAuditLog, ContextPolicy
+from app.schemas.ai_context import ContextPolicyResponse, ContextRequest, ContextResponse
 
 router = APIRouter()
 

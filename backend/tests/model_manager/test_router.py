@@ -1,6 +1,8 @@
 import pytest
+
 from app.model_manager.router import RoutingEngine
-from app.models.model_manager import AIProvider, AIModel, RoutingPolicy
+from app.models.model_manager import AIModel, AIProvider, RoutingPolicy
+
 
 def test_routing_engine(db_session):
     # Setup Data

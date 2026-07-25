@@ -1,5 +1,7 @@
+from typing import Any, List
+
 import structlog
-from typing import List, Dict, Any
+
 from app.schemas.xai import EvidenceAttributionBase
 
 logger = structlog.get_logger("phoenix.xai.attribution")

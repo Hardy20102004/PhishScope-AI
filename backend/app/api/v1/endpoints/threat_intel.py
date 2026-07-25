@@ -1,11 +1,12 @@
-from fastapi import APIRouter, Depends, HTTPException, Query
-from sqlalchemy.orm import Session
 from typing import Any
 
-from app.api.deps import get_db, get_current_user
+from fastapi import APIRouter, Depends, HTTPException
+from sqlalchemy.orm import Session
+
+from app.api.deps import get_current_user, get_db
+from app.models.user import User
 from app.schemas.threat_intel import IndicatorResponse, IndicatorSearchRequest
 from app.services.threat_intel.manager import ThreatIntelManager
-from app.models.user import User
 
 router = APIRouter()
 

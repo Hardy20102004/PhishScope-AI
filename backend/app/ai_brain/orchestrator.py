@@ -1,18 +1,17 @@
 import time
 import uuid
-import asyncio
-import structlog
-from typing import Dict, Any, Optional, List, AsyncGenerator, Tuple, Union
+from typing import Any, AsyncGenerator, Dict, List, Optional, Tuple
 
-from app.models.ai_brain import MemoryTier
-from app.ai_brain.providers import ProviderManager, ProviderException
-from app.ai_brain.registry import ModelRegistry, CapabilityRegistry
+import structlog
+
 from app.ai_brain.context import ContextBuilder
-from app.ai_brain.prompts import PromptManager
-from app.ai_brain.memory import MemoryManager, ConversationManager
-from app.ai_brain.reasoning import ReasoningEngine, RecommendationEngine
-from app.ai_brain.governance import PolicyEngine, ResponseValidator, AIAuditEngine
+from app.ai_brain.governance import AIAuditEngine, PolicyEngine, ResponseValidator
+from app.ai_brain.memory import ConversationManager, MemoryManager
 from app.ai_brain.optimization import TokenManager
+from app.ai_brain.prompts import PromptManager
+from app.ai_brain.providers import ProviderException, ProviderManager
+from app.ai_brain.reasoning import ReasoningEngine, RecommendationEngine
+from app.ai_brain.registry import CapabilityRegistry, ModelRegistry
 
 logger = structlog.get_logger("phoenix.ai_brain.orchestrator")
 

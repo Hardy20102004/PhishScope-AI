@@ -1,14 +1,20 @@
-from fastapi import APIRouter, Depends, HTTPException
-from sqlalchemy.orm import Session
 from typing import List
 from uuid import UUID
 
-from app.api.deps import get_db, get_current_user
+from fastapi import APIRouter, Depends, HTTPException
+from sqlalchemy.orm import Session
+
+from app.api.deps import get_current_user, get_db
 from app.models.user import User
 from app.schemas.case_management import (
-    CaseCreate, CaseUpdate, CaseSchema,
-    CaseTaskCreate, CaseTaskUpdate, CaseTaskSchema,
-    TimelineEventSchema, DecisionLogCreate, DecisionLogSchema
+    CaseCreate,
+    CaseSchema,
+    CaseTaskCreate,
+    CaseTaskSchema,
+    CaseTaskUpdate,
+    CaseUpdate,
+    DecisionLogCreate,
+    DecisionLogSchema,
 )
 from app.services.case_engine import CaseEngine
 from app.services.task_engine import TaskEngine

@@ -1,9 +1,10 @@
-import ssl
 import socket
-from typing import Dict, Any
+import ssl
+from typing import Any, Dict
 from urllib.parse import urlparse
-from datetime import datetime
+
 from app.services.investigations.collectors.base import BaseCollector
+
 
 class TLSCollector(BaseCollector):
     
@@ -31,7 +32,7 @@ class TLSCollector(BaseCollector):
                     # We must briefly reconnect with verification to get the dict, 
                     # but we catch errors if the cert is invalid so we can still report it.
                     pass
-        except Exception as e:
+        except Exception:
             pass # fallback to trying to get cert details anyway
             
         try:

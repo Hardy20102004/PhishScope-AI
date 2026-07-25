@@ -1,10 +1,12 @@
-import uuid
 import enum
+import uuid
 from datetime import datetime
-from sqlalchemy import Column, String, DateTime, Enum, ForeignKey, Float, Text, Boolean, Integer
+
+from sqlalchemy import Column, DateTime, Float, ForeignKey, Integer, String, Text
 from sqlalchemy.orm import relationship
 
 from app.db.base_class import Base
+
 
 class MemoryType(str, enum.Enum):
     WORKING = "WORKING"

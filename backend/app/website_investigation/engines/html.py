@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 
+
 class HTMLAnalysisEngine:
     """
     Analyzes HTML structure, identifying hidden elements, iframes, meta refreshes, and suspicious tags.

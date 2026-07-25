@@ -1,6 +1,7 @@
 import structlog
 from sqlalchemy.orm import Session
-from app.models.model_manager import RoutingPolicy, AIModel
+
+from app.models.model_manager import AIModel, RoutingPolicy
 from app.schemas.model_manager import RoutingResponse
 
 logger = structlog.get_logger("phoenix.model_manager.router")

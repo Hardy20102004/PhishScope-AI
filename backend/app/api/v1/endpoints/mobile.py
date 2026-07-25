@@ -1,12 +1,13 @@
-from fastapi import APIRouter, Depends, HTTPException
-from sqlalchemy.orm import Session
-from sqlalchemy import select
 from datetime import datetime, timezone
 
-from app.api.deps import get_db, get_current_user
-from app.models.user import User
+from fastapi import APIRouter, Depends, HTTPException
+from sqlalchemy import select
+from sqlalchemy.orm import Session
+
+from app.api.deps import get_current_user, get_db
 from app.models.mobile import MobileDevice
-from app.schemas.mobile import MobileEnrollmentRequest, MobileDeviceSchema, SyncRequest
+from app.models.user import User
+from app.schemas.mobile import MobileDeviceSchema, MobileEnrollmentRequest, SyncRequest
 
 router = APIRouter()
 

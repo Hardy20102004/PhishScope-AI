@@ -1,16 +1,16 @@
-from fastapi import APIRouter, Depends, HTTPException, status
-from sqlalchemy.orm import Session
+from datetime import datetime, timezone
 from typing import Any, List
 from uuid import UUID
-from datetime import datetime, timezone
 
-from app.api.deps import get_db, get_current_user
-from app.models.user import User
+from fastapi import APIRouter, Depends, HTTPException, status
+from sqlalchemy.orm import Session
+
+from app.api.deps import get_current_user, get_db
+from app.api.responses import success_response
 from app.models.investigation import Investigation, InvestigationStatus
-from app.schemas.investigation import InvestigationCreate, InvestigationResponse
+from app.models.user import User
 from app.schemas.base import APIResponse
-from app.api.responses import success_response, error_response
-from app.services.investigations.url_engine import URLEngine
+from app.schemas.investigation import InvestigationCreate, InvestigationResponse
 
 router = APIRouter()
 

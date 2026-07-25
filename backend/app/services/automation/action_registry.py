@@ -1,4 +1,5 @@
-from typing import Callable, Dict, Any
+from typing import Callable, Dict
+
 
 class ActionRegistry:
     def __init__(self):

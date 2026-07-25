@@ -1,5 +1,6 @@
+from typing import Set, Tuple
+
 import structlog
-from typing import List, Set, Tuple
 
 logger = structlog.get_logger("phoenix.kg.ontology")
 

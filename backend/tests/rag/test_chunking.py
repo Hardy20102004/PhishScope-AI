@@ -1,5 +1,6 @@
 from app.rag.chunking import ChunkingEngine
 
+
 def test_chunk_fixed():
     engine = ChunkingEngine(default_chunk_size=10, default_overlap=2)
     text = "0123456789ABCDEF"

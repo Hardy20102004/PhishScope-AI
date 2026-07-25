@@ -1,16 +1,17 @@
-from fastapi import APIRouter, Depends, HTTPException
-from sqlalchemy.orm import Session
 from typing import List
 from uuid import UUID
 
-from app.api.deps import get_db, get_current_user
+from fastapi import APIRouter, Depends, HTTPException
+from sqlalchemy.orm import Session
+
+from app.api.deps import get_current_user, get_db
 from app.models.user import User
 from app.schemas.copilot import (
     ChatMessageRequest,
     CopilotMessageSchema,
+    GeneratedReportSchema,
     RecommendationsResponse,
     ReportRequest,
-    GeneratedReportSchema
 )
 from app.services.ai.conversation_manager import ConversationManager
 from app.services.ai.recommendation_engine import RecommendationEngine

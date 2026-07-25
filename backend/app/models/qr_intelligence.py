@@ -1,8 +1,18 @@
 import uuid
-from datetime import datetime, timezone
-from sqlalchemy import Column, String, Integer, Float, DateTime, ForeignKey, JSON, Uuid, Boolean, Text
+
+from sqlalchemy import (
+    Boolean,
+    Column,
+    Float,
+    ForeignKey,
+    Integer,
+    String,
+    Uuid,
+)
 from sqlalchemy.orm import relationship
+
 from app.db.base_class import Base
+
 
 class QRInvestigation(Base):
     __tablename__ = "qr_investigations"

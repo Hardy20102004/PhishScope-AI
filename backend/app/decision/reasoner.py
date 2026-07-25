@@ -1,6 +1,6 @@
+from typing import Any, Dict, List
+
 import structlog
-from typing import List, Dict, Any
-from app.schemas.decision import ReasoningStep
 
 logger = structlog.get_logger("phoenix.decision.reasoner")
 

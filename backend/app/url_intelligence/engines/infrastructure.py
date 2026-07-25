@@ -1,8 +1,8 @@
-import dns.resolver
 import socket
 import ssl
-from datetime import datetime, timezone
-import json
+
+import dns.resolver
+
 
 class InfrastructureCorrelationEngine:
     """
@@ -53,7 +53,7 @@ class InfrastructureCorrelationEngine:
             cert_data = InfrastructureCorrelationEngine.get_certificate(domain)
             if cert_data:
                 infrastructure["certificates"].append(cert_data)
-        except Exception as e:
+        except Exception:
             pass
             
         return infrastructure

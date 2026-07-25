@@ -1,8 +1,10 @@
 import uuid
-from datetime import datetime, timezone
-from sqlalchemy import Column, String, Integer, Float, DateTime, ForeignKey, JSON, Uuid, Boolean
+
+from sqlalchemy import JSON, Boolean, Column, Float, ForeignKey, String, Uuid
 from sqlalchemy.orm import relationship
+
 from app.db.base_class import Base
+
 
 class WebsiteInvestigation(Base):
     __tablename__ = "website_investigations"

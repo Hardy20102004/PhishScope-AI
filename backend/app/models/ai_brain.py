@@ -1,9 +1,13 @@
+import enum
 import uuid
 from datetime import datetime, timezone
-import enum
-from sqlalchemy import String, DateTime, ForeignKey, Enum as SQLEnum, JSON, Uuid, Text, Boolean, Float, Integer
-from sqlalchemy.orm import relationship, Mapped, mapped_column
+
+from sqlalchemy import JSON, Boolean, DateTime, Float, ForeignKey, Integer, String, Text, Uuid
+from sqlalchemy import Enum as SQLEnum
+from sqlalchemy.orm import Mapped, mapped_column, relationship
+
 from app.db.base_class import Base
+
 
 class ProviderType(str, enum.Enum):
     OPENAI = "openai"

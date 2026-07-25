@@ -1,5 +1,7 @@
+from typing import Any, List
+
 import structlog
-from typing import List, Any
+
 from app.schemas.xai import FeatureRank
 
 logger = structlog.get_logger("phoenix.xai.feature_importance")

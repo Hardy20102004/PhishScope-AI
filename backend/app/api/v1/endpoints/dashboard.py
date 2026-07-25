@@ -1,9 +1,11 @@
-from fastapi import APIRouter, Depends
 from typing import Any
+
+from fastapi import APIRouter, Depends
+
 from app.api.deps import get_current_user
-from app.schemas.base import APIResponse
 from app.api.responses import success_response
 from app.models.user import User
+from app.schemas.base import APIResponse
 
 router = APIRouter()
 

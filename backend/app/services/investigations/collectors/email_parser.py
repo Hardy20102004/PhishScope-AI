@@ -1,7 +1,9 @@
 import email
 from email import policy
-from typing import Dict, Any, List
+from typing import Any, Dict
+
 from app.services.investigations.collectors.base import BaseCollector
+
 
 class EmailParserCollector(BaseCollector):
     

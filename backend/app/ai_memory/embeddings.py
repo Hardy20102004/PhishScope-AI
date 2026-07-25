@@ -1,7 +1,7 @@
-import uuid
-import structlog
+from typing import Any, Dict, List
+
 import numpy as np
-from typing import List, Dict, Any, Optional
+import structlog
 
 logger = structlog.get_logger("phoenix.ai_memory.embeddings")
 

@@ -1,6 +1,7 @@
-import uuid
+from typing import Any, Dict, List, Optional
+
 import structlog
-from typing import Dict, Any, Optional, List
+
 from app.models.ai_brain import ModelHealthStatus
 
 logger = structlog.get_logger("phoenix.ai_brain.registry")

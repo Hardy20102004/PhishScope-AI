@@ -1,5 +1,6 @@
 from app.knowledge_graph.ontology import OntologyManager
 
+
 def test_ontology_validation():
     ontology = OntologyManager()
     

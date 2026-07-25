@@ -1,5 +1,6 @@
+from typing import Any, Dict, List
+
 import structlog
-from typing import Dict, Any, List
 
 from app.ai_brain.governance import PolicyEngine
 

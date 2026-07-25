@@ -1,8 +1,8 @@
-import time
 import hashlib
-import json
+import time
+from typing import Any, Dict, List, Optional, Tuple, Union
+
 import structlog
-from typing import Dict, Any, Optional, List, Tuple, Union
 
 logger = structlog.get_logger("phoenix.ai_brain.optimization")
 

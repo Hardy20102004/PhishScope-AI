@@ -1,5 +1,6 @@
 from app.model_manager.cost import CostManager
-from app.models.model_manager import AIProvider, AIModel
+from app.models.model_manager import AIModel, AIProvider
+
 
 def test_cost_manager(db_session):
     provider = AIProvider(name="CostProvider")

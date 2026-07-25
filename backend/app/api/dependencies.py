@@ -1,4 +1,3 @@
-from fastapi import Depends, HTTPException, status
 # Placeholder for actual database session generator
 # from app.db.session import SessionLocal
 # from sqlalchemy.orm import Session

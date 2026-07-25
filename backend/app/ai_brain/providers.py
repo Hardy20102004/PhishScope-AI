@@ -1,10 +1,11 @@
 import abc
 import asyncio
 import time
-import uuid
+from typing import Any, AsyncGenerator, Dict, List, Optional, Tuple
+
 import structlog
-from typing import Dict, Any, Optional, List, AsyncGenerator, Tuple
-from app.models.ai_brain import ProviderType, ModelHealthStatus
+
+from app.models.ai_brain import ModelHealthStatus, ProviderType
 
 logger = structlog.get_logger("phoenix.ai_brain.providers")
 

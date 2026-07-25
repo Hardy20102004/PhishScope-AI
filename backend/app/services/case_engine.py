@@ -1,12 +1,14 @@
-from sqlalchemy.orm import Session, selectinload
-from sqlalchemy import select, update
 import uuid
 from typing import List
+
+from sqlalchemy import select
+from sqlalchemy.orm import Session, selectinload
 
 from app.models.case_management import Case, DecisionLog
 from app.models.investigation import Investigation
 from app.schemas.case_management import CaseCreate, CaseUpdate, DecisionLogCreate
 from app.services.timeline_engine import TimelineEngine
+
 
 class CaseEngine:
     def __init__(self, db: Session):

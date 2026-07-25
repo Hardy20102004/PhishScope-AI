@@ -1,8 +1,11 @@
-from pydantic import BaseModel, HttpUrl, Field
-from typing import Optional, Dict, Any, List
 from datetime import datetime
+from typing import Any, Dict, List, Optional
 from uuid import UUID
-from app.models.investigation import InvestigationType, InvestigationStatus
+
+from pydantic import BaseModel, Field
+
+from app.models.investigation import InvestigationStatus, InvestigationType
+
 
 class InvestigationCreate(BaseModel):
     target: str = Field(..., description="The URL, domain, IP, or hash to investigate")

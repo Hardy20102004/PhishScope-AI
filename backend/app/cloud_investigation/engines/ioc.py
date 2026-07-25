@@ -1,5 +1,6 @@
 import re
-from typing import Dict, Any, List
+from typing import Any, Dict, List
+
 
 class IOCExtractionEngine:
     @staticmethod
@@ -19,7 +20,7 @@ class IOCExtractionEngine:
                 iocs.append({
                     "ioc_type": "cloud_id",
                     "ioc_value": actor,
-                    "source_context": f"Audit Log Actor"
+                    "source_context": "Audit Log Actor"
                 })
                 
         # Deduplicate

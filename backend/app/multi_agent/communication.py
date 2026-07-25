@@ -1,7 +1,8 @@
 import uuid
-import structlog
-from typing import Dict, Any, List, Optional
 from datetime import datetime
+from typing import Any, Dict, List, Optional
+
+import structlog
 
 from app.models.multi_agent import MessageType
 

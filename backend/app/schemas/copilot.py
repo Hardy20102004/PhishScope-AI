@@ -1,7 +1,9 @@
-from pydantic import BaseModel, ConfigDict
-from typing import List, Optional
-from uuid import UUID
 from datetime import datetime
+from typing import List
+from uuid import UUID
+
+from pydantic import BaseModel, ConfigDict
+
 
 class ChatMessageRequest(BaseModel):
     content: str

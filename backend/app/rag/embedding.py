@@ -1,5 +1,6 @@
+from typing import List
+
 import structlog
-from typing import List, Dict, Any
 
 logger = structlog.get_logger("phoenix.rag.embedding")
 

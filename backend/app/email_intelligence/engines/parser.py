@@ -1,8 +1,8 @@
 import email
+import logging
 from email import policy
 from email.message import EmailMessage
-from typing import Dict, Any, List
-import logging
+from typing import Any, Dict
 
 logger = logging.getLogger(__name__)
 

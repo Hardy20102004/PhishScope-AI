@@ -1,5 +1,7 @@
+from typing import Dict, List
+
 import httpx
-from typing import List, Dict
+
 
 class RedirectAnalysisEngine:
     """

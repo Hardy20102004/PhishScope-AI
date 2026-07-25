@@ -8,10 +8,6 @@ export function ReportBuilder({ caseId }: { caseId: string }) {
   const [reports, setReports] = useState<Report[]>([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    loadReports();
-  }, [caseId]);
-
   const loadReports = async () => {
     try {
       const data = await listReports(caseId);
@@ -22,6 +18,10 @@ export function ReportBuilder({ caseId }: { caseId: string }) {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    loadReports();
+  }, [caseId]);
 
   const handleGenerate = async () => {
     setLoading(true);

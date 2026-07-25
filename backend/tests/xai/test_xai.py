@@ -1,7 +1,6 @@
 from app.xai.attribution import EvidenceAttributionEngine
 from app.xai.narrative import NarrativeGenerator
-from app.schemas.decision import EvidenceLinkBase
-from app.schemas.decision import DecisionResponse
+
 
 def test_attribution_engine():
     engine = EvidenceAttributionEngine()

@@ -11,12 +11,6 @@ export const EvidenceTrace: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   
-  useEffect(() => {
-    if (decisionId) {
-      fetchExplanation(decisionId);
-    }
-  }, [decisionId]);
-
   const fetchExplanation = async (id: string) => {
     try {
       setLoading(true);
@@ -28,6 +22,12 @@ export const EvidenceTrace: React.FC = () => {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    if (decisionId) {
+      fetchExplanation(decisionId);
+    }
+  }, [decisionId]);
 
   if (loading) return <div className="p-8 text-white">Loading Trace...</div>;
   if (error) return <div className="p-8 text-red-400">{error}</div>;

@@ -1,8 +1,8 @@
-import pytest
+from app.website_investigation.engines.forms_cookies import FormAnalysisEngine
 from app.website_investigation.engines.html import HTMLAnalysisEngine
 from app.website_investigation.engines.javascript import JavaScriptAnalysisEngine
-from app.website_investigation.engines.forms_cookies import FormAnalysisEngine, CookieAnalysisEngine
 from app.website_investigation.engines.security import SecurityHeaderAnalyzer
+
 
 def test_html_engine():
     html_mock = """

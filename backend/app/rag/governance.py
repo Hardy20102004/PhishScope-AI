@@ -1,7 +1,9 @@
+from typing import List, Optional
+
 import structlog
 from sqlalchemy.orm import Session
+
 from app.models.rag import KnowledgeAsset, KnowledgeAssetStatus
-from typing import Optional, List
 
 logger = structlog.get_logger("phoenix.rag.governance")
 

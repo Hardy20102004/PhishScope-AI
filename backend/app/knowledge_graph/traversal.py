@@ -1,8 +1,14 @@
+from typing import Any, Dict, List, Set
+
 import structlog
-from typing import List, Dict, Any, Set
 from sqlalchemy.orm import Session
-from sqlalchemy import text
-from app.models.knowledge_graph import GraphEntity, GraphRelationship, EntityStatus, RelationshipStatus
+
+from app.models.knowledge_graph import (
+    EntityStatus,
+    GraphEntity,
+    GraphRelationship,
+    RelationshipStatus,
+)
 
 logger = structlog.get_logger("phoenix.kg.traversal")
 

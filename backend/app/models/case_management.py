@@ -1,9 +1,13 @@
+import enum
 import uuid
 from datetime import datetime, timezone
-from sqlalchemy import Column, String, Integer, DateTime, ForeignKey, Enum as SQLEnum, JSON, Uuid, Text, Boolean
-from sqlalchemy.orm import relationship, Mapped, mapped_column
+
+from sqlalchemy import JSON, DateTime, ForeignKey, Integer, String, Text, Uuid
+from sqlalchemy import Enum as SQLEnum
+from sqlalchemy.orm import Mapped, mapped_column, relationship
+
 from app.db.base_class import Base
-import enum
+
 
 class CaseStatus(str, enum.Enum):
     OPEN = "OPEN"

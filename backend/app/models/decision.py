@@ -1,9 +1,12 @@
-from sqlalchemy import Column, String, Float, Enum, JSON, DateTime, ForeignKey, Text
-from sqlalchemy.orm import relationship
-import uuid
 import enum
+import uuid
 from datetime import datetime
+
+from sqlalchemy import JSON, Column, DateTime, Enum, Float, ForeignKey, String, Text
+from sqlalchemy.orm import relationship
+
 from app.db.base_class import Base
+
 
 class DecisionState(str, enum.Enum):
     DRAFT = "DRAFT"

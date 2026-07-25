@@ -1,7 +1,7 @@
-import pytest
 from app.qr_intelligence.engines.decoder import QRDecoderEngine
 from app.qr_intelligence.engines.payment import PaymentQRAnalyzer
 from app.qr_intelligence.engines.tampering import TamperingDetectionEngine
+
 
 def test_decoder_engine():
     result = QRDecoderEngine.decode("https://example.com")

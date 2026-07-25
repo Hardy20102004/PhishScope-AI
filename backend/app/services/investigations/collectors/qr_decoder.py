@@ -1,7 +1,9 @@
 import base64
 import io
-from typing import Dict, Any
+from typing import Any, Dict
+
 from app.services.investigations.collectors.base import BaseCollector
+
 
 class QRDecoderCollector(BaseCollector):
     
@@ -22,7 +24,7 @@ class QRDecoderCollector(BaseCollector):
             
         try:
             from PIL import Image
-            from pyzbar.pyzbar import decode, ZBarSymbol
+            from pyzbar.pyzbar import ZBarSymbol, decode
         except ImportError:
             evidence["error"] = "QR Decoder dependencies (Pillow, pyzbar) are not installed or C-library is missing."
             return evidence

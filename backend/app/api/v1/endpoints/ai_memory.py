@@ -1,17 +1,21 @@
+from typing import List
+
 from fastapi import APIRouter, Depends, HTTPException
-from typing import List, Any
 from sqlalchemy.orm import Session
 
-from app.api import deps
-from app.schemas.ai_memory import (
-    MemoryCreate, MemoryUpdate, MemoryResponse, 
-    MemorySearchQuery, RelationshipCreate, MemoryRelationshipResponse,
-    MemoryAnalytics
-)
+from app.ai_memory.graph import RelationshipEngine
 from app.ai_memory.manager import MemoryManager
 from app.ai_memory.search import HybridSearchEngine
-from app.ai_memory.graph import RelationshipEngine
+from app.api import deps
 from app.models.ai_memory import MemoryItem, MemoryRelationship
+from app.schemas.ai_memory import (
+    MemoryAnalytics,
+    MemoryCreate,
+    MemoryRelationshipResponse,
+    MemoryResponse,
+    MemorySearchQuery,
+    RelationshipCreate,
+)
 
 router = APIRouter()
 

@@ -1,5 +1,6 @@
 from enum import Enum
 
+
 class Roles(str, Enum):
     GUEST = "guest"
     USER = "user"

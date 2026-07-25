@@ -1,7 +1,8 @@
 import structlog
 from sqlalchemy.orm import Session
+
 from app.knowledge_graph.managers import EntityManager, RelationshipManager
-from app.models.knowledge_graph import GraphEntity, GraphRelationship, EntityStatus
+from app.models.knowledge_graph import EntityStatus, GraphEntity, GraphRelationship
 
 logger = structlog.get_logger("phoenix.kg.inference")
 

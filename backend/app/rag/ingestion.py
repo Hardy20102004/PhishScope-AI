@@ -1,10 +1,11 @@
+import json
+
 import structlog
-from typing import Dict, Any, List
 from sqlalchemy.orm import Session
-from app.models.rag import KnowledgeAsset, DocumentChunk, KnowledgeAssetStatus
+
+from app.models.rag import DocumentChunk, KnowledgeAsset, KnowledgeAssetStatus
 from app.rag.chunking import ChunkingEngine
 from app.rag.embedding import EmbeddingService
-import json
 
 logger = structlog.get_logger("phoenix.rag.ingestion")
 

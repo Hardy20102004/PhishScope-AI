@@ -1,7 +1,7 @@
-import pytest
-from app.cloud_investigation.engines.timeline import TimelineEngine
 from app.cloud_investigation.engines.ioc import IOCExtractionEngine
 from app.cloud_investigation.engines.risk import RiskAssessmentEngine
+from app.cloud_investigation.engines.timeline import TimelineEngine
+
 
 def test_timeline_engine():
     audits = [

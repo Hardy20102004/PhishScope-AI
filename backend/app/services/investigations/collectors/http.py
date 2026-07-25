@@ -1,6 +1,9 @@
+from typing import Any, Dict
+
 import httpx
-from typing import Dict, Any
+
 from app.services.investigations.collectors.base import BaseCollector
+
 
 class HTTPCollector(BaseCollector):
     

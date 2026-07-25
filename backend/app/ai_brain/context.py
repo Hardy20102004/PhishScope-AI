@@ -1,6 +1,8 @@
 import json
+from typing import Any, Dict, List, Optional
+
 import structlog
-from typing import Dict, Any, Optional, List
+
 from app.ai_brain.optimization import ContextCompressor
 
 logger = structlog.get_logger("phoenix.ai_brain.context")

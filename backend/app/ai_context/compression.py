@@ -1,5 +1,6 @@
-import structlog
 from typing import Tuple
+
+import structlog
 
 logger = structlog.get_logger("phoenix.ai_context.compression")
 

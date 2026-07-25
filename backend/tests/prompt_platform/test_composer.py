@@ -1,5 +1,7 @@
 import pytest
+
 from app.prompt_platform.composer import PromptComposer
+
 
 def test_prompt_composer():
     composer = PromptComposer()

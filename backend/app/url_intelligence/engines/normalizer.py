@@ -1,6 +1,7 @@
 import urllib.parse
 from posixpath import normpath
 
+
 class URLNormalizationEngine:
     """
     Normalizes URLs for canonical representation and deduplication.

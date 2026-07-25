@@ -1,6 +1,6 @@
-import pytest
-from app.rag.retrieval import HybridRetrievalEngine
 from app.rag.embedding import EmbeddingService
+from app.rag.retrieval import HybridRetrievalEngine
+
 
 def test_cosine_similarity_mock():
     # Mocking a session just to test the math

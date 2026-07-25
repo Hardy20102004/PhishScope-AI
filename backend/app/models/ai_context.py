@@ -1,10 +1,11 @@
-import uuid
 import enum
+import uuid
 from datetime import datetime
-from sqlalchemy import Column, String, DateTime, Enum, ForeignKey, Integer, Float, Text, Boolean
-from sqlalchemy.orm import relationship
+
+from sqlalchemy import Boolean, Column, DateTime, Float, Integer, String, Text
 
 from app.db.base_class import Base
+
 
 class ContextPolicyType(str, enum.Enum):
     REDACT_PII = "REDACT_PII"

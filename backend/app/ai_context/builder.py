@@ -1,15 +1,15 @@
 import time
+
 import structlog
-from typing import Optional
 from sqlalchemy.orm import Session
 
-from app.schemas.ai_context import ContextRequest, ContextResponse, OptimizationMetrics
-from app.models.ai_context import ContextAuditLog
 from app.ai_context.caching import ContextCache
-from app.ai_context.validation import ContextPolicyEngine, ContextValidator
 from app.ai_context.compression import ContextCompressionEngine
 from app.ai_context.ranking import ContextRankingEngine
+from app.ai_context.validation import ContextPolicyEngine, ContextValidator
 from app.ai_memory.search import HybridSearchEngine
+from app.models.ai_context import ContextAuditLog
+from app.schemas.ai_context import ContextRequest, ContextResponse, OptimizationMetrics
 
 logger = structlog.get_logger("phoenix.ai_context.builder")
 

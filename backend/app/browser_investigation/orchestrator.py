@@ -1,15 +1,15 @@
 import logging
-from typing import Dict, Any
+from typing import Any, Dict
 
-from app.browser_investigation.engines.parser import ProfileParserEngine
-from app.browser_investigation.engines.history import HistoryAnalysisEngine
-from app.browser_investigation.engines.cookie import CookieAnalysisEngine
-from app.browser_investigation.engines.extension import ExtensionAnalysisEngine
-from app.browser_investigation.engines.download import DownloadAnalysisEngine
-from app.browser_investigation.engines.timeline import TimelineEngine
-from app.browser_investigation.engines.ioc import IOCExtractionEngine
-from app.browser_investigation.engines.risk import RiskAssessmentEngine
 from app.browser_investigation.ai_integration import BrowserAIIntegration
+from app.browser_investigation.engines.cookie import CookieAnalysisEngine
+from app.browser_investigation.engines.download import DownloadAnalysisEngine
+from app.browser_investigation.engines.extension import ExtensionAnalysisEngine
+from app.browser_investigation.engines.history import HistoryAnalysisEngine
+from app.browser_investigation.engines.ioc import IOCExtractionEngine
+from app.browser_investigation.engines.parser import ProfileParserEngine
+from app.browser_investigation.engines.risk import RiskAssessmentEngine
+from app.browser_investigation.engines.timeline import TimelineEngine
 
 logger = logging.getLogger(__name__)
 

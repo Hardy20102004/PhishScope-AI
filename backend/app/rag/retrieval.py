@@ -1,11 +1,12 @@
+from typing import List, Optional
+
 import structlog
-from typing import List, Dict, Any, Optional
 from sqlalchemy.orm import Session
-from sqlalchemy import or_
-from app.models.rag import KnowledgeAsset, DocumentChunk, KnowledgeAssetStatus
-from app.schemas.rag import RAGSearchResult
+
+from app.models.rag import DocumentChunk, KnowledgeAsset, KnowledgeAssetStatus
 from app.rag.embedding import EmbeddingService
 from app.rag.ranking import RankingEngine
+from app.schemas.rag import RAGSearchResult
 
 logger = structlog.get_logger("phoenix.rag.retrieval")
 

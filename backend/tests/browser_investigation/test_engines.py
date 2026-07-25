@@ -1,7 +1,7 @@
-import pytest
-from app.browser_investigation.engines.timeline import TimelineEngine
 from app.browser_investigation.engines.ioc import IOCExtractionEngine
 from app.browser_investigation.engines.risk import RiskAssessmentEngine
+from app.browser_investigation.engines.timeline import TimelineEngine
+
 
 def test_timeline_engine():
     history = [

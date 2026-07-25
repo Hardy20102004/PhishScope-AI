@@ -1,5 +1,6 @@
 from app.prompt_platform.validator import PromptValidator
 
+
 def test_validator_injection():
     validator = PromptValidator()
     

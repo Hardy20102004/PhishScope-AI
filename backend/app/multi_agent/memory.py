@@ -1,10 +1,10 @@
-import uuid
-import structlog
-from typing import Dict, Any, List, Optional
 from datetime import datetime
+from typing import Any, Dict, List, Optional
 
-from app.models.multi_agent import MemoryTierExt
+import structlog
+
 from app.ai_brain.memory import MemoryManager as BaseMemoryManager
+from app.models.multi_agent import MemoryTierExt
 
 logger = structlog.get_logger("phoenix.multi_agent.memory")
 

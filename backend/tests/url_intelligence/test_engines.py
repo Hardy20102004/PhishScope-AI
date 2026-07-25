@@ -1,8 +1,8 @@
-import pytest
-from app.url_intelligence.engines.parser import URLParser
-from app.url_intelligence.engines.normalizer import URLNormalizationEngine
-from app.url_intelligence.engines.intelligence import URLIntelligenceEngine
 from app.url_intelligence.engines.brand import BrandProtectionEngine
+from app.url_intelligence.engines.intelligence import URLIntelligenceEngine
+from app.url_intelligence.engines.normalizer import URLNormalizationEngine
+from app.url_intelligence.engines.parser import URLParser
+
 
 def test_url_parser():
     url = "https://sub.example.com:8443/path?a=1&b=2#frag"

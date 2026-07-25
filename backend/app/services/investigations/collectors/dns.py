@@ -1,7 +1,10 @@
-import dns.resolver
-from typing import Dict, Any
+from typing import Any, Dict
 from urllib.parse import urlparse
+
+import dns.resolver
+
 from app.services.investigations.collectors.base import BaseCollector
+
 
 class DNSCollector(BaseCollector):
     

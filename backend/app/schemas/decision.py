@@ -1,6 +1,8 @@
-from pydantic import BaseModel, ConfigDict
-from typing import List, Optional, Dict, Any
 from datetime import datetime
+from typing import List, Optional
+
+from pydantic import BaseModel, ConfigDict
+
 from app.models.decision import DecisionState, DecisionType
 
 # Sub-components for reasoning JSON

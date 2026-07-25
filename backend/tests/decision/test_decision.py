@@ -1,8 +1,9 @@
 from app.decision.confidence import ConfidenceEngine
-from app.decision.policy import DecisionPolicyEngine
 from app.decision.hypothesis import HypothesisEngine
-from app.schemas.decision import EvidenceLinkBase, RecommendationItem
+from app.decision.policy import DecisionPolicyEngine
 from app.models.decision import DecisionState
+from app.schemas.decision import EvidenceLinkBase, RecommendationItem
+
 
 def test_confidence_engine():
     engine = ConfidenceEngine()

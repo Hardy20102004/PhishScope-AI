@@ -1,7 +1,9 @@
-from typing import List
 from uuid import UUID
+
 from sqlalchemy.orm import Session
+
 from app.models.threat_intel import IndicatorCorrelation
+
 
 class CorrelationEngine:
     """Finds and links related indicators."""

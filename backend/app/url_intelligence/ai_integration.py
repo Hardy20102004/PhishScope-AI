@@ -1,6 +1,5 @@
-import json
 import logging
-from typing import Dict, Any
+from typing import Dict
 
 # Assuming integration with existing AI modules, we'll mock the LLM call for this implementation
 # In a real environment, this would call app.services.ai_service or app.ai_brain.model_manager

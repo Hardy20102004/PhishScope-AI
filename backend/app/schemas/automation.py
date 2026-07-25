@@ -1,8 +1,11 @@
-from pydantic import BaseModel, ConfigDict
-from typing import List, Optional, Any
-from uuid import UUID
 from datetime import datetime
-from app.models.automation import TriggerType, ExecutionStatus
+from typing import List, Optional
+from uuid import UUID
+
+from pydantic import BaseModel, ConfigDict
+
+from app.models.automation import ExecutionStatus, TriggerType
+
 
 class WorkflowVersionBase(BaseModel):
     version_number: int

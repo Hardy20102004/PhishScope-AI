@@ -1,6 +1,8 @@
-import structlog
 from typing import List, Tuple
+
+import structlog
 from sqlalchemy.orm import Session
+
 from app.models.ai_context import ContextPolicy, ContextPolicyType
 from app.schemas.ai_context import ValidationResult
 

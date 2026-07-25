@@ -1,14 +1,14 @@
 import logging
-from typing import Dict, Any
+from typing import Any, Dict
 
+from app.website_investigation.ai_integration import WebsiteAIIntegration
 from app.website_investigation.engines.fetcher import PageFetchEngine
+from app.website_investigation.engines.forms_cookies import CookieAnalysisEngine, FormAnalysisEngine
 from app.website_investigation.engines.html import HTMLAnalysisEngine
 from app.website_investigation.engines.javascript import JavaScriptAnalysisEngine
-from app.website_investigation.engines.forms_cookies import FormAnalysisEngine, CookieAnalysisEngine
+from app.website_investigation.engines.scoring import WebsiteRiskScoringEngine
 from app.website_investigation.engines.security import SecurityHeaderAnalyzer
 from app.website_investigation.engines.visual import VisualAnalysisEngine
-from app.website_investigation.engines.scoring import WebsiteRiskScoringEngine
-from app.website_investigation.ai_integration import WebsiteAIIntegration
 
 logger = logging.getLogger(__name__)
 

@@ -1,13 +1,14 @@
 import asyncio
-import structlog
-from typing import Dict, Any, List
 from datetime import datetime
+from typing import Any, Dict, List
 
+import structlog
+
+from app.ai_brain.orchestrator import AIOrchestrator
 from app.models.multi_agent import TaskStatus
-from app.schemas.multi_agent import AgentTaskResponse
 from app.multi_agent.agents import instantiate_agent
 from app.multi_agent.manager import AgentManager
-from app.ai_brain.orchestrator import AIOrchestrator
+from app.schemas.multi_agent import AgentTaskResponse
 
 logger = structlog.get_logger("phoenix.multi_agent.engine")
 

@@ -1,6 +1,9 @@
+from typing import Any, Dict
+
 from bs4 import BeautifulSoup
-from typing import Dict, Any
+
 from app.services.investigations.collectors.base import BaseCollector
+
 
 class ContentCollector(BaseCollector):
     

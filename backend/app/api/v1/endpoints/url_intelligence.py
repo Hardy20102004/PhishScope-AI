@@ -1,6 +1,7 @@
-from fastapi import APIRouter, Depends, HTTPException, status
-from pydantic import BaseModel, HttpUrl
-from typing import Dict, Any
+from typing import Any, Dict
+
+from fastapi import APIRouter, HTTPException, status
+from pydantic import BaseModel
 
 from app.url_intelligence.orchestrator import InvestigationOrchestrator
 

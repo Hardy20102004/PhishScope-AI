@@ -1,7 +1,7 @@
-import pytest
-from app.network_investigation.engines.timeline import TimelineEngine
 from app.network_investigation.engines.ioc import IOCExtractionEngine
 from app.network_investigation.engines.risk import RiskAssessmentEngine
+from app.network_investigation.engines.timeline import TimelineEngine
+
 
 def test_timeline_engine():
     flows = [

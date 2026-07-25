@@ -1,8 +1,10 @@
 import uuid
-from datetime import datetime, timezone
-from sqlalchemy import Column, String, Integer, Float, DateTime, ForeignKey, Enum as SQLEnum, JSON, Uuid, Boolean
+
+from sqlalchemy import JSON, Boolean, Column, DateTime, Float, ForeignKey, Integer, String, Uuid
 from sqlalchemy.orm import relationship
+
 from app.db.base_class import Base
+
 
 class URLInvestigationDetails(Base):
     """Detailed structured data for URL investigations."""

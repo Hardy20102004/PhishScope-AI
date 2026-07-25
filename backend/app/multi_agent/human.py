@@ -1,12 +1,12 @@
 import uuid
-import structlog
-from typing import Dict, Any, List, Optional
 from datetime import datetime
+from typing import Dict, List, Optional
 
-from app.models.multi_agent import ApprovalStatus, TaskStatus
-from app.schemas.multi_agent import HumanApprovalResponse
+import structlog
+
+from app.models.multi_agent import ApprovalStatus, MessageType
 from app.multi_agent.communication import CommunicationBus
-from app.models.multi_agent import MessageType
+from app.schemas.multi_agent import HumanApprovalResponse
 
 logger = structlog.get_logger("phoenix.multi_agent.human")
 

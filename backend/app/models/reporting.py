@@ -1,9 +1,13 @@
+import enum
 import uuid
 from datetime import datetime, timezone
-from sqlalchemy import Column, String, Integer, DateTime, ForeignKey, Enum as SQLEnum, JSON, Uuid, Text
-from sqlalchemy.orm import relationship, Mapped, mapped_column
+
+from sqlalchemy import JSON, DateTime, ForeignKey, String, Text, Uuid
+from sqlalchemy import Enum as SQLEnum
+from sqlalchemy.orm import Mapped, mapped_column
+
 from app.db.base_class import Base
-import enum
+
 
 class ReportStatus(str, enum.Enum):
     DRAFT = "DRAFT"

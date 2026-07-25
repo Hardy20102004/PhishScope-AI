@@ -1,9 +1,11 @@
-from sqlalchemy import Column, String, Float, Enum, JSON, DateTime, ForeignKey, Text, Boolean, Integer
-from sqlalchemy.orm import relationship
 import uuid
 from datetime import datetime
+
+from sqlalchemy import JSON, Boolean, Column, DateTime, Float, ForeignKey, Integer, String
+from sqlalchemy.orm import relationship
+
 from app.db.base_class import Base
-import enum
+
 
 class AIProvider(Base):
     """

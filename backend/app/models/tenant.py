@@ -1,9 +1,11 @@
 import uuid
 from datetime import datetime, timezone
-from sqlalchemy import Column, String, DateTime, ForeignKey, Uuid, Boolean, JSON, Integer
+
+from sqlalchemy import JSON, Boolean, DateTime, ForeignKey, Integer, String, Uuid
 from sqlalchemy.orm import Mapped, mapped_column
-from sqlalchemy.orm import Mapped, mapped_column, relationship
+
 from app.db.base_class import Base
+
 
 class Organization(Base):
     __tablename__ = "organizations"

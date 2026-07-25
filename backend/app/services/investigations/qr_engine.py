@@ -1,8 +1,10 @@
 from typing import Optional
-from app.services.investigations.pipeline import BaseInvestigationEngine
+
 from app.schemas.investigation import Finding
 from app.services.investigations.collectors.qr_decoder import QRDecoderCollector
+from app.services.investigations.pipeline import BaseInvestigationEngine
 from app.services.investigations.url_engine import URLEngine
+
 
 class QREngine(BaseInvestigationEngine):
     

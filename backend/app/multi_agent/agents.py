@@ -1,9 +1,9 @@
 import json
+from typing import Any, Dict
+
 import structlog
-from typing import Dict, Any, Optional
 
 from app.ai_brain.orchestrator import AIOrchestrator
-from app.models.multi_agent import TaskStatus
 
 logger = structlog.get_logger("phoenix.multi_agent.agents")
 

@@ -1,8 +1,11 @@
-from datetime import datetime, timezone
 import uuid
+from datetime import datetime, timezone
 from typing import Any, Optional
+
 import structlog
-from app.schemas.base import APIResponse, APIErrorResponse, ResponseMeta, ErrorPayload, ErrorDetail
+
+from app.schemas.base import APIErrorResponse, APIResponse, ErrorPayload, ResponseMeta
+
 
 def generate_meta() -> ResponseMeta:
     """Helper to generate standard metadata for responses."""

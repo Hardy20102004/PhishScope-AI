@@ -1,13 +1,18 @@
-from fastapi import APIRouter, Depends, HTTPException
-from sqlalchemy.orm import Session
-from sqlalchemy import select
 from typing import List
-from datetime import datetime, timezone
 
-from app.api.deps import get_db, get_current_user
+from fastapi import APIRouter, Depends, HTTPException
+from sqlalchemy import select
+from sqlalchemy.orm import Session
+
+from app.api.deps import get_current_user, get_db
+from app.models.tenant import AuditLog, License, TenantSettings
 from app.models.user import User
-from app.models.tenant import TenantSettings, License, AuditLog
-from app.schemas.tenant import TenantSettingsUpdate, TenantSettingsSchema, LicenseSchema, AuditLogSchema
+from app.schemas.tenant import (
+    AuditLogSchema,
+    LicenseSchema,
+    TenantSettingsSchema,
+    TenantSettingsUpdate,
+)
 
 router = APIRouter()
 

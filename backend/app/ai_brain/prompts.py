@@ -1,6 +1,6 @@
+from typing import Any, Dict, List, Optional, Tuple
+
 import structlog
-from typing import Dict, Any, Optional, List, Tuple
-import string
 
 logger = structlog.get_logger("phoenix.ai_brain.prompts")
 

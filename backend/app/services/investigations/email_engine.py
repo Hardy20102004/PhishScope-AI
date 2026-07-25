@@ -1,10 +1,12 @@
-import re
 from typing import Optional
+
 from bs4 import BeautifulSoup
-from app.services.investigations.pipeline import BaseInvestigationEngine
+
 from app.schemas.investigation import Finding
-from app.services.investigations.collectors.email_parser import EmailParserCollector
 from app.services.investigations.collectors.email_auth import EmailAuthCollector
+from app.services.investigations.collectors.email_parser import EmailParserCollector
+from app.services.investigations.pipeline import BaseInvestigationEngine
+
 
 class EmailEngine(BaseInvestigationEngine):
     

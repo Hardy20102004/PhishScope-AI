@@ -1,5 +1,7 @@
-import structlog
 from typing import List
+
+import structlog
+
 from app.models.decision import DecisionState
 from app.schemas.decision import RecommendationItem
 

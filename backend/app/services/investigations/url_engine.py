@@ -1,9 +1,12 @@
-import httpx
 import re
 from urllib.parse import urlparse
-from app.services.investigations.pipeline import BaseInvestigationEngine
-from app.services.investigations.validators import SSRFValidator, SSRFError
+
+import httpx
+
 from app.schemas.investigation import Finding
+from app.services.investigations.pipeline import BaseInvestigationEngine
+from app.services.investigations.validators import SSRFError, SSRFValidator
+
 
 class URLEngine(BaseInvestigationEngine):
     

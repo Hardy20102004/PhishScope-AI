@@ -1,7 +1,10 @@
-from sqlalchemy.orm import Session
 import uuid
 from typing import Optional
+
+from sqlalchemy.orm import Session
+
 from app.models.case_management import TimelineEvent
+
 
 class TimelineEngine:
     def __init__(self, db: Session):

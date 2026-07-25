@@ -1,7 +1,8 @@
 import structlog
 from sqlalchemy.orm import Session
-from app.models.model_manager import AIProvider, AIModel
-from app.schemas.model_manager import AIProviderCreate, AIModelCreate
+
+from app.models.model_manager import AIModel, AIProvider
+from app.schemas.model_manager import AIModelCreate, AIProviderCreate
 
 logger = structlog.get_logger("phoenix.model_manager.registry")
 

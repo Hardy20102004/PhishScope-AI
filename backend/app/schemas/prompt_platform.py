@@ -1,7 +1,9 @@
+from typing import Any, Dict, List, Optional
+
 from pydantic import BaseModel, ConfigDict
-from typing import List, Optional, Dict, Any
-from datetime import datetime
+
 from app.models.prompt_platform import PromptLifecycleState
+
 
 class PromptVersionBase(BaseModel):
     version_number: str

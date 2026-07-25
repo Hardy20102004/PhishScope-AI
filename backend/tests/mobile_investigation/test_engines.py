@@ -1,7 +1,7 @@
-import pytest
-from app.mobile_investigation.engines.timeline import TimelineEngine
 from app.mobile_investigation.engines.ioc import IOCExtractionEngine
 from app.mobile_investigation.engines.risk import RiskAssessmentEngine
+from app.mobile_investigation.engines.timeline import TimelineEngine
+
 
 def test_timeline_engine():
     comms = [

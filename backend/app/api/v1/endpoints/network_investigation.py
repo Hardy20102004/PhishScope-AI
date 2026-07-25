@@ -1,6 +1,7 @@
+from typing import Any, Dict, List
+
 from fastapi import APIRouter, HTTPException, status
 from pydantic import BaseModel
-from typing import Dict, Any, List
 
 from app.network_investigation.orchestrator import NetworkInvestigationManager
 

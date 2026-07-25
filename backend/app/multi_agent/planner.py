@@ -1,12 +1,13 @@
 import uuid
-import structlog
-from typing import Dict, Any, List, Optional
 from datetime import datetime
+from typing import Any, Dict
 
+import structlog
 from sqlalchemy.orm import Session
-from app.models.multi_agent import TaskStatus, AgentTask
-from app.schemas.multi_agent import AgentTaskCreate, PlanResponse, AgentTaskResponse
+
 from app.ai_brain.orchestrator import AIOrchestrator
+from app.models.multi_agent import AgentTask, TaskStatus
+from app.schemas.multi_agent import AgentTaskResponse, PlanResponse
 
 logger = structlog.get_logger("phoenix.multi_agent.planner")
 

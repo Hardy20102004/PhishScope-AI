@@ -1,6 +1,7 @@
+import structlog
 from fastapi import Request, status
 from fastapi.responses import JSONResponse
-import structlog
+
 from app.api.responses import error_response
 
 logger = structlog.get_logger("phoenix.exceptions")

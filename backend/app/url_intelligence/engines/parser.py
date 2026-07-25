@@ -1,6 +1,5 @@
-from urllib.parse import urlparse, parse_qs
-import urllib.parse
-import re
+from urllib.parse import parse_qs, urlparse
+
 
 class URLParser:
     """

@@ -1,6 +1,7 @@
-import structlog
-from typing import Dict, Any, Tuple
+from typing import Any, Dict, Tuple
+
 import jinja2
+import structlog
 
 logger = structlog.get_logger("phoenix.prompt_platform.composer")
 

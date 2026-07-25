@@ -1,6 +1,7 @@
+from typing import Any, Dict, List
+
 from fastapi import APIRouter, HTTPException, status
 from pydantic import BaseModel
-from typing import Dict, Any, List
 
 from app.cloud_investigation.orchestrator import CloudInvestigationManager
 
