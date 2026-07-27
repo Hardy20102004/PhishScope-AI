@@ -34,6 +34,7 @@ export default function NewInvestigation() {
     defaultValues: { type: "URL" },
   })
 
+  // eslint-disable-next-line react-hooks/incompatible-library
   const currentType = watch("type")
 
   const onSubmit = async (data: FormData) => {

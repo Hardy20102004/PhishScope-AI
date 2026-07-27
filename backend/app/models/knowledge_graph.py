@@ -2,7 +2,7 @@ import enum
 import uuid
 from datetime import datetime
 
-from sqlalchemy import JSON, Column, DateTime, Enum, Float, ForeignKey, String, UniqueConstraint
+from sqlalchemy import JSON, Column, DateTime, Enum, Float, ForeignKey, String, UniqueConstraint, Boolean
 from sqlalchemy.orm import relationship
 
 from app.db.base_class import Base
@@ -30,6 +30,10 @@ class GraphEntity(Base):
     
     confidence = Column(Float, default=1.0)
     
+    # Timeline Integration
+    observed_start = Column(DateTime, nullable=True)
+    observed_end = Column(DateTime, nullable=True)
+    
     properties_json = Column(JSON, default=dict)
     
     created_at = Column(DateTime, default=datetime.utcnow)
@@ -50,8 +54,14 @@ class GraphRelationship(Base):
     relationship_type = Column(String, nullable=False, index=True) # e.g. BELONGS_TO, TARGETS, COMMUNICATES_WITH
     status = Column(Enum(RelationshipStatus), default=RelationshipStatus.ACTIVE)
     
+    is_inferred = Column(Boolean, default=False)
+    
     weight = Column(Float, default=1.0)
     confidence = Column(Float, default=1.0)
+    
+    # Timeline Integration
+    observed_start = Column(DateTime, nullable=True)
+    observed_end = Column(DateTime, nullable=True)
     
     properties_json = Column(JSON, default=dict)
     

@@ -7,10 +7,6 @@ import { apiClient as api } from '@/api/client';
 export const ApprovalCenter: React.FC = () => {
   const [pending, setPending] = useState<any[]>([]);
   
-  useEffect(() => {
-    fetchPending();
-  }, []);
-
   const fetchPending = async () => {
     try {
       const res = await api.get('/decision/');
@@ -19,6 +15,11 @@ export const ApprovalCenter: React.FC = () => {
       console.error(err);
     }
   };
+
+
+  useEffect(() => {
+    fetchPending();
+  }, []);
 
   return (
     <div className="flex-1 p-8 overflow-y-auto bg-[#0a0a0b] text-gray-100 min-h-screen">

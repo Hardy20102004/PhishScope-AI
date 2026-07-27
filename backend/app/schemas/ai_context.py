@@ -1,6 +1,6 @@
 from typing import List, Optional
 
-from pydantic import BaseModel
+from pydantic import ConfigDict, BaseModel
 
 from app.models.ai_context import ContextPolicyType
 
@@ -41,5 +41,5 @@ class ContextPolicyBase(BaseModel):
 class ContextPolicyResponse(ContextPolicyBase):
     id: str
 
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
+

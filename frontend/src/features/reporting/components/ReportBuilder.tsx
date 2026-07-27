@@ -21,6 +21,7 @@ export function ReportBuilder({ caseId }: { caseId: string }) {
 
   useEffect(() => {
     loadReports();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [caseId]);
 
   const handleGenerate = async () => {

@@ -36,6 +36,7 @@ from app.api.v1.endpoints import (
     website_investigation,
     xai,
 )
+from app.api.routers import ioc, ti_feed, threat_actor, campaign, attack_graph, reputation, cloud, timeline, predictive
 
 api_router = APIRouter()
 
@@ -74,3 +75,12 @@ api_router.include_router(knowledge_graph.router, prefix="/knowledge-graph", tag
 api_router.include_router(decision.router, prefix="/decision", tags=["AI Decision Engine"])
 api_router.include_router(xai.router, prefix="/xai", tags=["Explainable AI"])
 api_router.include_router(models.router, prefix="/models", tags=["AI Model Manager"])
+api_router.include_router(ioc.router, prefix="/ioc", tags=["Enterprise IOC Correlation Engine"])
+api_router.include_router(ti_feed.router, prefix="/ti-feed", tags=["Enterprise Threat Intelligence Feed Platform"])
+api_router.include_router(threat_actor.router, prefix="/threat-actor", tags=["Enterprise Threat Actor Intelligence Platform"])
+api_router.include_router(campaign.router, prefix="/campaign", tags=["Enterprise Campaign Detection Engine"])
+api_router.include_router(attack_graph.router, prefix="/attack-graph", tags=["Enterprise Attack Graph Generator"])
+api_router.include_router(reputation.router, prefix="/reputation", tags=["Enterprise Reputation Intelligence Platform"])
+api_router.include_router(cloud.router, prefix="/cloud", tags=["Enterprise Threat Intelligence Cloud"])
+api_router.include_router(timeline.router, prefix="/timeline", tags=["Enterprise Threat Timeline Intelligence"])
+api_router.include_router(predictive.router, prefix="/predictive", tags=["Enterprise Predictive Threat Intelligence"])

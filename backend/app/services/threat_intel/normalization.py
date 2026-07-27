@@ -16,7 +16,7 @@ class IndicatorNormalizationEngine:
             ip = ipaddress.ip_address(value)
             return f"ipv{ip.version}"
         except ValueError:
-            pass
+            pass  # intentionally silenced - non-critical enrichment failure
             
         # Check MD5/SHA1/SHA256
         if re.match(r'^[a-fA-F0-9]{32}$', value):

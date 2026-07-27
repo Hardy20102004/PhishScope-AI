@@ -1,3 +1,4 @@
+from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -12,6 +13,14 @@ from app.core.logging import setup_logging
 from app.middleware.request_context import RequestContextMiddleware
 
 
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    import structlog
+    logger = structlog.get_logger("phoenix.main")
+    logger.info("application_startup", env=settings.ENVIRONMENT, version=settings.VERSION)
+    yield
+    logger.info("application_shutdown")
+
 def create_app() -> FastAPI:
     """
     Application Factory for PHOENIX backend.
@@ -25,6 +34,7 @@ def create_app() -> FastAPI:
         version=settings.VERSION,
         openapi_url=f"{settings.API_V1_STR}/openapi.json",
         description="Core API for the AI-Powered Digital Scam Investigation Platform",
+        lifespan=lifespan,
     )
 
     # CORS Middleware
@@ -45,18 +55,6 @@ def create_app() -> FastAPI:
 
     # Routers
     app.include_router(api_router, prefix=settings.API_V1_STR)
-
-    @app.on_event("startup")
-    async def startup_event():
-        import structlog
-        logger = structlog.get_logger("phoenix.main")
-        logger.info("application_startup", env=settings.ENVIRONMENT, version=settings.VERSION)
-
-    @app.on_event("shutdown")
-    async def shutdown_event():
-        import structlog
-        logger = structlog.get_logger("phoenix.main")
-        logger.info("application_shutdown")
 
     return app
 

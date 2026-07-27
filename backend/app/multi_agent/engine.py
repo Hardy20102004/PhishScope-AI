@@ -1,5 +1,5 @@
 import asyncio
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Any, Dict, List
 
 import structlog
@@ -55,7 +55,7 @@ class ExecutionEngine:
                     task.output_findings_json = result.get("findings", {})
                     task.confidence_score = result.get("confidence", 0.0)
                     task.status = TaskStatus.COMPLETED
-                    task.ended_at = datetime.utcnow()
+                    task.ended_at = datetime.now(timezone.utc)
                     
                     # Record health metrics
                     self.manager.health_monitor.record_execution(
@@ -72,7 +72,7 @@ class ExecutionEngine:
     async def _execute_single_task(self, task: AgentTaskResponse, context: Dict[str, Any], previous_results: Dict[str, AgentTaskResponse]) -> Dict[str, Any]:
         """Executes an individual agent task, passing in outputs from its dependencies."""
         task.status = TaskStatus.RUNNING
-        task.started_at = datetime.utcnow()
+        task.started_at = datetime.now(timezone.utc)
         
         logger.info("executing_task", task_name=task.task_name, agent=task.assigned_agent_id)
         

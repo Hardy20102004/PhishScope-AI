@@ -7,10 +7,6 @@ export const EntityExplorer: React.FC = () => {
   const [entities, setEntities] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   
-  useEffect(() => {
-    fetchEntities();
-  }, []);
-  
   const fetchEntities = async () => {
     try {
       setLoading(true);
@@ -23,6 +19,11 @@ export const EntityExplorer: React.FC = () => {
     }
   };
 
+
+  useEffect(() => {
+    fetchEntities();
+  }, []);
+  
   return (
     <div className="flex-1 p-8 overflow-y-auto bg-[#0a0a0b] text-gray-100 min-h-screen">
       <div className="flex justify-between items-center mb-8 border-b border-gray-800 pb-6">

@@ -1,7 +1,8 @@
+import uuid
 from datetime import datetime
 from typing import Any, Dict, List, Optional
 
-from pydantic import UUID4, BaseModel, Field
+from pydantic import UUID4, BaseModel, Field, field_validator, ConfigDict
 
 from app.models.multi_agent import (
     AgentHealth,
@@ -91,6 +92,8 @@ class HumanApprovalSubmit(BaseModel):
     reviewer_feedback: Optional[str] = None
 
 class HumanApprovalResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
     id: UUID4
     task_id: UUID4
     requesting_agent_id: str
@@ -101,3 +104,10 @@ class HumanApprovalResponse(BaseModel):
     reviewer_feedback: Optional[str] = None
     created_at: datetime
     resolved_at: Optional[datetime] = None
+
+    @field_validator('reviewer_user_id', mode='before')
+    @classmethod
+    def coerce_reviewer_uuid(cls, v):
+        if isinstance(v, str):
+            return uuid.UUID(v)
+        return v

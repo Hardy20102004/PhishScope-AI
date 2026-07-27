@@ -1,7 +1,7 @@
 from datetime import datetime
 from typing import Any, Dict, List, Optional
 
-from pydantic import BaseModel
+from pydantic import ConfigDict, BaseModel
 
 from app.models.ai_memory import MemoryType, RelationType, SecurityClassification
 
@@ -35,8 +35,7 @@ class MemoryRelationshipResponse(BaseModel):
     relation_type: str
     weight: float
 
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
 
 class MemoryResponse(MemoryBase):
     id: str
@@ -49,8 +48,7 @@ class MemoryResponse(MemoryBase):
     vector_id: Optional[str]
     relationships: List[MemoryRelationshipResponse] = []
 
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
 
 class RelationshipCreate(BaseModel):
     target_id: str

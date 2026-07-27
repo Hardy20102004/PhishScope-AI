@@ -1,6 +1,6 @@
 import enum
 import uuid
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 
 import structlog
 from sqlalchemy.orm import Session
@@ -22,9 +22,9 @@ class RetentionEngine:
 
     def apply_retention_policy(self, memory: MemoryItem) -> MemoryItem:
         if memory.retention_policy == "ephemeral":
-            memory.expires_at = datetime.utcnow() + timedelta(hours=24)
+            memory.expires_at = datetime.now(timezone.utc) + timedelta(hours=24)
         elif memory.retention_policy == "session":
-            memory.expires_at = datetime.utcnow() + timedelta(days=7)
+            memory.expires_at = datetime.now(timezone.utc) + timedelta(days=7)
         else:
             # Persistent memory
             memory.expires_at = None
@@ -32,7 +32,7 @@ class RetentionEngine:
         
     def sweep_expired(self):
         """Runs periodically to delete expired memories from relational and vector stores."""
-        now = datetime.utcnow()
+        now = datetime.now(timezone.utc)
         expired = self.db.query(MemoryItem).filter(MemoryItem.expires_at <= now).all()
         for mem in expired:
             if mem.vector_id:

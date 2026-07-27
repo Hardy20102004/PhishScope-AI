@@ -1,5 +1,5 @@
 import uuid
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional
 
 import structlog
@@ -32,7 +32,7 @@ class CommunicationBus:
             "message_type": message_type.value,
             "content": content,
             "correlation_id": correlation_id or str(uuid.uuid4()),
-            "timestamp": datetime.utcnow().isoformat()
+            "timestamp": datetime.now(timezone.utc).isoformat()
         }
         
         self._message_ledger.append(message)

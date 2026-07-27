@@ -1,5 +1,5 @@
 import uuid
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Dict, List, Optional
 
 import structlog
@@ -32,7 +32,7 @@ class HumanInTheLoopEngine:
             description=description,
             risk_severity=severity,
             status=ApprovalStatus.PENDING,
-            created_at=datetime.utcnow()
+            created_at=datetime.now(timezone.utc)
         )
         
         self._pending_approvals[request_id] = req
@@ -40,14 +40,16 @@ class HumanInTheLoopEngine:
         
         # Broadcast the request so the frontend UI can pick it up via SSE
         import asyncio
-        asyncio.create_task(
-            self.comm_bus.publish(
-                sender_id="system-hitl",
-                message_type=MessageType.EVENT,
-                content={"event": "APPROVAL_REQUIRED", "request": req.dict()},
-                correlation_id=task_id
+        loop = asyncio.get_event_loop()
+        if loop.is_running():
+            asyncio.create_task(
+                self.comm_bus.publish(
+                    sender_id="system-hitl",
+                    message_type=MessageType.EVENT,
+                    content={"event": "APPROVAL_REQUIRED", "request": req.model_dump(mode="json")},
+                    correlation_id=task_id
+                )
             )
-        )
         
         return req
 
@@ -60,9 +62,9 @@ class HumanInTheLoopEngine:
             
         req = self._pending_approvals[request_id]
         req.status = status
-        req.reviewer_user_id = reviewer_id
+        req.reviewer_user_id = uuid.UUID(reviewer_id) if isinstance(reviewer_id, str) else reviewer_id
         req.reviewer_feedback = feedback
-        req.resolved_at = datetime.utcnow()
+        req.resolved_at = datetime.now(timezone.utc)
         
         logger.info("human_approval_resolved", request_id=request_id, status=status.value)
         
@@ -70,14 +72,16 @@ class HumanInTheLoopEngine:
         # an Event that resumes the paused asyncio task.
         
         import asyncio
-        asyncio.create_task(
-            self.comm_bus.publish(
-                sender_id="system-hitl",
-                message_type=MessageType.EVENT,
-                content={"event": "APPROVAL_RESOLVED", "request": req.dict()},
-                correlation_id=str(req.task_id)
+        loop = asyncio.get_event_loop()
+        if loop.is_running():
+            asyncio.create_task(
+                self.comm_bus.publish(
+                    sender_id="system-hitl",
+                    message_type=MessageType.EVENT,
+                    content={"event": "APPROVAL_RESOLVED", "request": req.model_dump(mode="json")},
+                    correlation_id=str(req.task_id)
+                )
             )
-        )
         
         del self._pending_approvals[request_id]
         return req

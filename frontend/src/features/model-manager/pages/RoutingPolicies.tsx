@@ -6,10 +6,6 @@ import { apiClient as api } from '@/api/client';
 export const RoutingPolicies: React.FC = () => {
   const [policies, setPolicies] = useState([]);
 
-  useEffect(() => {
-    fetchPolicies();
-  }, []);
-
   const fetchPolicies = async () => {
     try {
       const res = await api.get('/models/policies');
@@ -18,6 +14,11 @@ export const RoutingPolicies: React.FC = () => {
       console.error(e);
     }
   };
+
+
+  useEffect(() => {
+    fetchPolicies();
+  }, []);
 
   return (
     <div className="flex-1 p-8 overflow-y-auto bg-[#0a0a0b] text-gray-100 min-h-screen">

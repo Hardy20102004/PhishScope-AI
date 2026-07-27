@@ -10,10 +10,6 @@ export function WorkflowDashboard() {
   const [loading, setLoading] = useState(true);
   const [executing, setExecuting] = useState<string | null>(null);
 
-  useEffect(() => {
-    loadWorkflows();
-  }, []);
-
   const loadWorkflows = async () => {
     try {
       const data = await listWorkflows();
@@ -24,6 +20,11 @@ export function WorkflowDashboard() {
       setLoading(false);
     }
   };
+
+
+  useEffect(() => {
+    loadWorkflows();
+  }, []);
 
   const handleExecute = async (id: string) => {
     setExecuting(id);

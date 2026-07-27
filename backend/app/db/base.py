@@ -64,3 +64,23 @@ from app.models.cloud_investigation import (  # noqa: F401
     CloudInvestigation, CloudAsset, CloudIdentity,
     CloudConfiguration, CloudAuditEvent, CloudTimelineEvent, ExtractedCloudIOC
 )
+from app.ti_feed.models import (  # noqa: F401
+    FeedRegistry, FeedVersion, FeedIndicator, FeedAuditLog
+)
+from app.threat_actor.models import (  # noqa: F401
+    ThreatActor, ActorAlias, ThreatActorCampaign, TTPAssociation,
+    InfrastructureAssociation, MalwareAssociation, AttributionEvidence
+)
+from app.campaign_engine.models import (  # noqa: F401
+    Campaign as CampaignRegistry, CampaignInfrastructure, 
+    CampaignVictim, CampaignTimeline, CampaignEvidence
+)
+from app.attack_graph.models import (  # noqa: F401
+    GraphSnapshot, AttackPath, ImpactAnalysis
+)
+from app.reputation_engine.models import (  # noqa: F401
+    ReputationProfile, ReputationHistory, ReputationEvidence
+)
+from app.cloud.models import (  # noqa: F401
+    Tenant, Workspace, SharingPolicy, SharedIntelligenceObject, FederationSyncRecord
+)

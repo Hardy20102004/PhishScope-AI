@@ -7,10 +7,6 @@ import { apiClient as api } from '@/api/client';
 export const GraphDashboard: React.FC = () => {
   const [centrality, setCentrality] = useState<Record<string, number>>({});
   
-  useEffect(() => {
-    fetchAnalytics();
-  }, []);
-
   const fetchAnalytics = async () => {
     try {
       const res = await api.get('/knowledge-graph/analytics/centrality');
@@ -19,6 +15,11 @@ export const GraphDashboard: React.FC = () => {
       console.error(err);
     }
   };
+
+
+  useEffect(() => {
+    fetchAnalytics();
+  }, []);
 
   return (
     <div className="flex-1 p-8 overflow-y-auto bg-[#0a0a0b] text-gray-100 min-h-screen">

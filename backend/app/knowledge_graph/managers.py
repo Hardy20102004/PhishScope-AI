@@ -1,4 +1,5 @@
 from typing import Any, Dict, Optional
+from datetime import datetime
 
 import structlog
 from sqlalchemy.exc import IntegrityError
@@ -19,12 +20,20 @@ class EntityManager:
         self.db = db
         self.ontology = OntologyManager()
 
-    def create_entity(self, entity_type: str, name: str, tenant_id: Optional[str] = None, properties: Dict[str, Any] = None, confidence: float = 1.0) -> GraphEntity:
+    def create_entity(
+        self, 
+        entity_type: str, 
+        name: str, 
+        tenant_id: Optional[str] = None, 
+        properties: Dict[str, Any] = None, 
+        confidence: float = 1.0,
+        observed_start: Optional[datetime] = None,
+        observed_end: Optional[datetime] = None
+    ) -> GraphEntity:
+        
         if not self.ontology.validate_entity_type(entity_type):
             logger.warning("invalid_entity_type_created", type=entity_type)
-            # In strict mode we might raise an error here.
             
-        # Deduplication check (find active entity with same type/name/tenant)
         existing = self.db.query(GraphEntity).filter_by(
             entity_type=entity_type.upper(),
             name=name,
@@ -33,11 +42,15 @@ class EntityManager:
         ).first()
         
         if existing:
-            # Merge properties and return existing
             if properties:
                 existing.properties_json.update(properties)
-                self.db.commit()
-                self.db.refresh(existing)
+            if observed_start and (not existing.observed_start or observed_start < existing.observed_start):
+                existing.observed_start = observed_start
+            if observed_end and (not existing.observed_end or observed_end > existing.observed_end):
+                existing.observed_end = observed_end
+                
+            self.db.commit()
+            self.db.refresh(existing)
             return existing
 
         entity = GraphEntity(
@@ -45,6 +58,8 @@ class EntityManager:
             name=name,
             tenant_id=tenant_id,
             confidence=confidence,
+            observed_start=observed_start,
+            observed_end=observed_end,
             properties_json=properties or {}
         )
         self.db.add(entity)
@@ -62,7 +77,19 @@ class RelationshipManager:
         self.ontology = OntologyManager()
         self.entity_manager = EntityManager(db)
 
-    def create_relationship(self, source_id: str, target_id: str, rel_type: str, weight: float = 1.0, confidence: float = 1.0, properties: Dict[str, Any] = None) -> GraphRelationship:
+    def create_relationship(
+        self, 
+        source_id: str, 
+        target_id: str, 
+        rel_type: str, 
+        weight: float = 1.0, 
+        confidence: float = 1.0, 
+        is_inferred: bool = False,
+        observed_start: Optional[datetime] = None,
+        observed_end: Optional[datetime] = None,
+        properties: Dict[str, Any] = None
+    ) -> GraphRelationship:
+        
         source = self.entity_manager.get_entity(source_id)
         target = self.entity_manager.get_entity(target_id)
         
@@ -74,7 +101,6 @@ class RelationshipManager:
 
         self.ontology.is_valid_triple(source.entity_type, rel_type, target.entity_type)
 
-        # Check for existing relationship
         existing = self.db.query(GraphRelationship).filter_by(
             source_id=source_id,
             target_id=target_id,
@@ -82,12 +108,22 @@ class RelationshipManager:
         ).first()
 
         if existing:
-            # Update weight/confidence/properties
             existing.weight = max(existing.weight, weight)
             existing.confidence = max(existing.confidence, confidence)
+            if not existing.is_inferred and is_inferred:
+                pass # Confirmed edge overrides inferred
+            else:
+                existing.is_inferred = is_inferred
+                
+            if observed_start and (not existing.observed_start or observed_start < existing.observed_start):
+                existing.observed_start = observed_start
+            if observed_end and (not existing.observed_end or observed_end > existing.observed_end):
+                existing.observed_end = observed_end
+                
             if properties:
                 existing.properties_json.update(properties)
             existing.status = RelationshipStatus.ACTIVE
+            
             self.db.commit()
             self.db.refresh(existing)
             return existing
@@ -98,6 +134,9 @@ class RelationshipManager:
             relationship_type=rel_type.upper(),
             weight=weight,
             confidence=confidence,
+            is_inferred=is_inferred,
+            observed_start=observed_start,
+            observed_end=observed_end,
             properties_json=properties or {}
         )
         self.db.add(rel)
@@ -106,7 +145,6 @@ class RelationshipManager:
             self.db.refresh(rel)
         except IntegrityError:
             self.db.rollback()
-            # If concurrent creation happened
             return self.db.query(GraphRelationship).filter_by(
                 source_id=source_id, target_id=target_id, relationship_type=rel_type.upper()
             ).first()

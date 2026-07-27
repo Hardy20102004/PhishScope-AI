@@ -8,10 +8,6 @@ export const ModelDashboard: React.FC = () => {
   const [providers, setProviders] = useState([]);
   const [models, setModels] = useState([]);
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
   const fetchData = async () => {
     try {
       const [costRes, provRes, modRes] = await Promise.all([
@@ -26,6 +22,11 @@ export const ModelDashboard: React.FC = () => {
       console.error(e);
     }
   };
+
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
     <div className="flex-1 p-8 overflow-y-auto bg-[#0a0a0b] text-gray-100 min-h-screen">

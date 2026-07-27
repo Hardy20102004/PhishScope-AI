@@ -13,7 +13,7 @@ class ArtifactProcessingEngine:
             # If the payload is JSON (mocked), parse it
             data = json.loads(payload)
             return data
-        except:
+        except Exception:
             # Fallback mock for non-JSON strings (prototype behavior)
             return {
                 "device_metadata": {

@@ -12,7 +12,7 @@ class PCAPProcessingEngine:
         try:
             data = json.loads(payload)
             return data
-        except:
+        except Exception:
             # Fallback mock for testing
             return {
                 "conn": [

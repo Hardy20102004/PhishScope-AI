@@ -6,7 +6,7 @@ def test_ontology_validation():
     
     # Test valid entities
     assert ontology.validate_entity_type("THREAT_ACTOR") == True
-    assert ontology.validate_entity_type("IP_ADDRESS") == True
+    assert ontology.validate_entity_type("IPV4") == True
     
     # Test invalid entity
     assert ontology.validate_entity_type("INVALID_TYPE") == False

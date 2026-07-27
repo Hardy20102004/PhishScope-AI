@@ -34,8 +34,8 @@ class PaymentQRAnalyzer:
                 try:
                     amount = float(params["am"])
                     is_dynamic = True # Fixed amount specified usually implies dynamic generation
-                except:
-                    pass
+                except Exception:
+                    pass  # amount field is optional / malformed — continue without it
                     
             currency = params.get("cu", "INR")
             

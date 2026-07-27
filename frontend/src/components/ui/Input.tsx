@@ -1,5 +1,5 @@
 import * as React from "react"
-import { cn } from "./Button" // reusing cn utility for brevity
+import { cn } from "@/lib/utils"
 
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {}
 

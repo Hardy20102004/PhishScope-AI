@@ -1,5 +1,5 @@
 import uuid
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Any, Dict
 
 import structlog
@@ -81,8 +81,8 @@ class TaskPlanner:
                     output_findings_json={},
                     dependency_task_ids_json=t.dependency_task_ids_json,
                     retry_count=0,
-                    created_at=datetime.utcnow(),
-                    updated_at=datetime.utcnow()
+                    created_at=datetime.now(timezone.utc),
+                    updated_at=datetime.now(timezone.utc)
                 ))
             
             agents_involved = list(set([t.assigned_agent_id for t in tasks_response]))

@@ -6,42 +6,47 @@ logger = structlog.get_logger("phoenix.kg.ontology")
 
 class OntologyManager:
     """
-    Defines and enforces the schema rules for the Enterprise Knowledge Graph.
+    Defines and enforces the schema rules for the Enterprise IOC Knowledge Graph.
     Ensures that entities and relationships adhere to STIX 2.1-inspired logic.
     """
     
     VALID_ENTITY_TYPES = {
-        "INVESTIGATION", "CASE", "EVIDENCE", "THREAT_ACTOR", "CAMPAIGN",
-        "IOC", "URL", "DOMAIN", "SUBDOMAIN", "IP_ADDRESS", "ASN",
-        "TLS_CERTIFICATE", "WHOIS_RECORD", "EMAIL_ADDRESS", "EMAIL",
-        "PHONE_NUMBER", "QR_CODE", "WEBSITE", "FILE", "HASH",
-        "MALWARE_SAMPLE", "YARA_RULE", "SIGMA_RULE", "CLOUD_ASSET",
-        "USER", "ORGANIZATION", "TENANT", "AI_AGENT", "WORKFLOW",
-        "REPORT", "POLICY", "KNOWLEDGE_DOCUMENT", "MEMORY"
+        "THREAT_ACTOR", "ALIAS", "CAMPAIGN", "MALWARE_FAMILY", "TOOL",
+        "INFRASTRUCTURE", "DOMAIN", "SUBDOMAIN", "URL", "IPV4", "IPV6",
+        "CERTIFICATE", "EMAIL_ADDRESS", "WALLET_ADDRESS", "CLOUD_RESOURCE",
+        "VICTIM", "ORGANIZATION", "USER", "DEVICE", "APPLICATION", "APK",
+        "FILE", "HASH", "YARA_RULE", "SIGMA_RULE", "MITRE_TECHNIQUE",
+        "INVESTIGATION", "CASE", "EVIDENCE", "REPORT", "TI_SOURCE",
+        "FEED_PROVIDER", "DETECTION_RULE", "CUSTOM_OBJECT"
     }
 
     VALID_RELATIONSHIP_TYPES = {
-        "BELONGS_TO", "USES", "HOSTED_ON", "RESOLVES_TO", "RELATED_TO",
-        "ASSOCIATED_WITH", "TARGETS", "COMMUNICATES_WITH", "GENERATED_BY",
-        "REFERENCES", "CONTAINS", "LOCATED_IN", "PART_OF", "SIMILAR_TO",
-        "DUPLICATE_OF", "OBSERVED_IN", "LINKED_TO", "INDICATES",
-        "INVESTIGATED_BY", "REPORTED_IN", "CUSTOM_RELATIONSHIP"
+        "USES", "TARGETS", "HOSTED_ON", "COMMUNICATES_WITH", "PART_OF",
+        "BELONGS_TO", "ASSOCIATED_WITH", "RELATED_TO", "LINKED_TO",
+        "OBSERVED_IN", "DELIVERS", "DROPS", "EXECUTES", "DEPLOYS",
+        "INDICATES", "INVESTIGATED_BY", "MITIGATED_BY", "DETECTED_BY",
+        "REFERENCED_BY", "CUSTOM_RELATIONSHIP", "SHARED_INFRASTRUCTURE",
+        "SHARED_CERTIFICATE", "SHARED_MALWARE", "SHARED_VICTIM"
     }
 
     # Allowed triples: (SourceType, RelationshipType, TargetType)
     # If a triple is not in this list, it may be flagged.
     VALID_TRIPLES: Set[Tuple[str, str, str]] = {
-        ("THREAT_ACTOR", "USES", "MALWARE_SAMPLE"),
+        ("THREAT_ACTOR", "USES", "MALWARE_FAMILY"),
+        ("THREAT_ACTOR", "USES", "TOOL"),
+        ("THREAT_ACTOR", "TARGETS", "VICTIM"),
         ("THREAT_ACTOR", "TARGETS", "ORGANIZATION"),
-        ("CAMPAIGN", "ATTRIBUTED_TO", "THREAT_ACTOR"),
-        ("DOMAIN", "RESOLVES_TO", "IP_ADDRESS"),
+        ("CAMPAIGN", "ASSOCIATED_WITH", "THREAT_ACTOR"),
+        ("CAMPAIGN", "TARGETS", "ORGANIZATION"),
+        ("DOMAIN", "HOSTED_ON", "IPV4"),
         ("URL", "HOSTED_ON", "DOMAIN"),
         ("SUBDOMAIN", "PART_OF", "DOMAIN"),
-        ("IP_ADDRESS", "BELONGS_TO", "ASN"),
         ("FILE", "HAS_HASH", "HASH"),
-        ("EMAIL", "SENT_FROM", "EMAIL_ADDRESS"),
-        # ... We can populate this with thousands of STIX relationships.
-        # For this prototype, we'll allow anything but log a warning if it's "weird".
+        ("FILE", "DROPS", "FILE"),
+        ("MALWARE_FAMILY", "COMMUNICATES_WITH", "DOMAIN"),
+        ("MALWARE_FAMILY", "COMMUNICATES_WITH", "IPV4"),
+        ("YARA_RULE", "DETECTED_BY", "MALWARE_FAMILY"),
+        ("MITRE_TECHNIQUE", "USED_BY", "THREAT_ACTOR")
     }
 
     def validate_entity_type(self, entity_type: str) -> bool:

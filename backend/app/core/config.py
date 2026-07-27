@@ -1,6 +1,6 @@
 from typing import Any, List, Optional
 
-from pydantic import AnyHttpUrl, PostgresDsn, validator
+from pydantic import AnyHttpUrl, PostgresDsn, field_validator, ValidationInfo
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -25,10 +25,12 @@ class Settings(BaseSettings):
     POSTGRES_DB: str = "phoenix"
     SQLALCHEMY_DATABASE_URI: str = "sqlite:///./phoenix.db"
 
-    @validator("SQLALCHEMY_DATABASE_URI", pre=True)
-    def assemble_db_connection(cls, v: Optional[str], values: dict) -> Any:
+    @field_validator("SQLALCHEMY_DATABASE_URI", mode="before")
+    @classmethod
+    def assemble_db_connection(cls, v: Optional[str], info: ValidationInfo) -> Any:
         if isinstance(v, str) and v.startswith("postgres"):
             return v
+        values = info.data
         if values.get("POSTGRES_SERVER") and values.get("POSTGRES_SERVER") != "localhost":
             return PostgresDsn.build(
                 scheme="postgresql",

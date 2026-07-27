@@ -28,25 +28,25 @@ class InfrastructureCorrelationEngine:
             answers = dns.resolver.resolve(domain, 'A')
             infrastructure["ips"] = [rdata.address for rdata in answers]
         except Exception:
-            pass
+            pass  # intentionally silenced - non-critical enrichment failure
             
         try:
             answers = dns.resolver.resolve(domain, 'NS')
             infrastructure["nameservers"] = [rdata.to_text() for rdata in answers]
         except Exception:
-            pass
+            pass  # intentionally silenced - non-critical enrichment failure
             
         try:
             answers = dns.resolver.resolve(domain, 'MX')
             infrastructure["mx_records"] = [rdata.to_text() for rdata in answers]
         except Exception:
-            pass
+            pass  # intentionally silenced - non-critical enrichment failure
             
         try:
             answers = dns.resolver.resolve(domain, 'TXT')
             infrastructure["txt_records"] = [rdata.to_text() for rdata in answers]
         except Exception:
-            pass
+            pass  # intentionally silenced - non-critical enrichment failure
             
         # Certificate Analysis
         try:
@@ -54,7 +54,7 @@ class InfrastructureCorrelationEngine:
             if cert_data:
                 infrastructure["certificates"].append(cert_data)
         except Exception:
-            pass
+            pass  # intentionally silenced - non-critical enrichment failure
             
         return infrastructure
 
@@ -71,7 +71,7 @@ class InfrastructureCorrelationEngine:
                     # Actually, getpeercert() with CERT_NONE returns empty dict. Let's use CERT_REQUIRED to get details, or parse binary.
                     pass
         except Exception:
-            pass
+            pass  # intentionally silenced - non-critical enrichment failure
             
         # Refined certificate fetching for details
         context = ssl.create_default_context()

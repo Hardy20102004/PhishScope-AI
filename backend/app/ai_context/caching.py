@@ -1,5 +1,5 @@
 import hashlib
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from typing import Optional
 
 import structlog
@@ -25,7 +25,7 @@ class ContextCache:
     def get_cached_context(self, cache_key: str) -> Optional[ContextCacheEntry]:
         entry = self.db.query(ContextCacheEntry).filter(
             ContextCacheEntry.cache_key == cache_key,
-            ContextCacheEntry.expires_at > datetime.utcnow()
+            ContextCacheEntry.expires_at > datetime.now(timezone.utc)
         ).first()
         
         if entry:
@@ -36,7 +36,7 @@ class ContextCache:
         return entry
 
     def set_cached_context(self, cache_key: str, assembled_context: str, token_count: int, ttl_minutes: int = 60):
-        expires_at = datetime.utcnow() + timedelta(minutes=ttl_minutes)
+        expires_at = datetime.now(timezone.utc) + timedelta(minutes=ttl_minutes)
         
         # Upsert logic
         entry = self.db.query(ContextCacheEntry).filter(ContextCacheEntry.cache_key == cache_key).first()

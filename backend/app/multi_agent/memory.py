@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional
 
 import structlog
@@ -22,7 +22,7 @@ class SharedMemoryManager:
         cache_key = f"{tenant_id}:{tier.value}:{key}"
         self._local_cache[cache_key] = {
             "content": content,
-            "timestamp": datetime.utcnow()
+            "timestamp": datetime.now(timezone.utc)
         }
         logger.debug("memory_item_stored", tier=tier.value, key=key)
         

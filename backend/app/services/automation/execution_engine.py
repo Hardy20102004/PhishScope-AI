@@ -24,9 +24,15 @@ class ExecutionEngine:
         self.db.commit()
         self.db.refresh(execution)
         
-        # In a real distributed system, we would push this to a Redis/RabbitMQ queue.
-        # For this architecture, we run it asynchronously via asyncio task.
-        asyncio.create_task(self._run_workflow_async(execution.id))
+        # Schedule the async workflow runner safely.
+        # create_task requires a running event loop (FastAPI's async context).
+        # Fall back to sync execution if no loop is running (e.g. during tests).
+        try:
+            loop = asyncio.get_running_loop()
+            loop.create_task(self._run_workflow_async(execution.id))
+        except RuntimeError:
+            # No running loop - run synchronously (test/CLI context)
+            asyncio.run(self._run_workflow_async(execution.id))
         
         return execution
 

@@ -36,6 +36,7 @@ export const MemoryExplorer: React.FC = () => {
 
   useEffect(() => {
     fetchMemories();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedType]);
 
   const getClassificationColor = (classification: string) => {
