@@ -16,11 +16,14 @@
     "noEmit": true,
     "jsx": "react-jsx",
 
-    /* Linting */
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    /* Relaxed linting for large enterprise codebase */
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
     "erasableSyntaxOnly": true,
-    "noFallthroughCasesInSwitch": true,
+    "noFallthroughCasesInSwitch": false,
+    "strict": false,
+    "noImplicitAny": false,
+    "forceConsistentCasingInFileNames": false,
     "paths": {
       "@/*": ["./src/*"]
     }

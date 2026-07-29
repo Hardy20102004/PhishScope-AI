@@ -4,7 +4,7 @@ import { useAuthStore } from "../stores/authStore";
 export const apiClient = axios.create({
   baseURL: import.meta.env.VITE_API_URL || "http://localhost:8000/api/v1",
   timeout: 10000,
-  withCredentials: true, // Necessary to send/receive HttpOnly cookies
+  // withCredentials removed: we use JWT Bearer tokens in memory, not HttpOnly cookies
 });
 
 apiClient.interceptors.request.use((config) => {
@@ -29,7 +29,7 @@ apiClient.interceptors.response.use(
         const res = await axios.post(
           `${apiClient.defaults.baseURL}/auth/refresh`,
           {},
-          { withCredentials: true }
+          {}
         );
         
         // Ensure we parse our custom APIResponse envelope

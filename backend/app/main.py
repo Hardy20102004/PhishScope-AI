@@ -37,11 +37,13 @@ def create_app() -> FastAPI:
         lifespan=lifespan,
     )
 
-    # CORS Middleware
+    # CORS Middleware — allow all origins for development
+    # Note: allow_credentials=True cannot be used with allow_origins=["*"]
+    # We use JWT Bearer tokens stored in memory, NOT HttpOnly cookies, so credentials=False is correct
     app.add_middleware(
         CORSMiddleware,
-        allow_origins=[str(origin) for origin in settings.BACKEND_CORS_ORIGINS] if settings.BACKEND_CORS_ORIGINS else ["*"],
-        allow_credentials=True,
+        allow_origins=["*"],
+        allow_credentials=False,
         allow_methods=["*"],
         allow_headers=["*"],
     )

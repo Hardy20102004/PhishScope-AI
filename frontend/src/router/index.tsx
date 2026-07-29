@@ -98,7 +98,7 @@ import { DevSecOpsExecutiveDashboard } from "@/pages/devsecops/DevSecOpsExecutiv
 // SBOM
 import { SBOMExecutiveDashboard } from "@/pages/sbom/SBOMExecutiveDashboard";
 import { SBOMDashboard } from "@/pages/sbom/SBOMDashboard";
-import { DependencyExplorer } from "@/pages/sbom/DependencyExplorer";
+import { DependencyExplorer as SBOMDependencyExplorer } from "@/pages/sbom/DependencyExplorer";
 import { ArtifactInventory } from "@/pages/sbom/ArtifactInventory";
 import { ProvenanceDashboard } from "@/pages/sbom/ProvenanceDashboard";
 
@@ -116,7 +116,7 @@ import { APIAssessmentDashboard } from "@/pages/dast/APIAssessmentDashboard";
 
 // SCA
 import { SCAExecutiveDashboard } from "@/pages/sca/SCAExecutiveDashboard";
-import { DependencyExplorer } from "@/pages/sca/DependencyExplorer";
+import { DependencyExplorer as SCADependencyExplorer } from "@/pages/sca/DependencyExplorer";
 import { PackageIntelligenceDashboard } from "@/pages/sca/PackageIntelligenceDashboard";
 import { LicenseDashboard } from "@/pages/sca/LicenseDashboard";
 
@@ -369,7 +369,7 @@ export const router = createBrowserRouter([
           },
           {
             path: "sbom/dependencies",
-            element: <DependencyExplorer />,
+            element: <SBOMDependencyExplorer />,
           },
           {
             path: "sbom/artifacts",
@@ -417,7 +417,7 @@ export const router = createBrowserRouter([
           },
           {
             path: "sca/dependencies",
-            element: <DependencyExplorer />,
+            element: <SCADependencyExplorer />,
           },
           {
             path: "sca/packages",
