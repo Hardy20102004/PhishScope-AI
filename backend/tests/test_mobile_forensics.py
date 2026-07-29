@@ -2,7 +2,7 @@ import pytest
 import uuid
 from datetime import datetime, timezone
 
-from app.models.mobile_forensics import MobileDevice
+from app.models.mobile_forensics import ForensicMobileDevice
 from app.mobile_forensics.device_manager import DeviceManager
 from app.mobile_forensics.communication_engine import CommunicationEngine
 from app.mobile_forensics.location_engine import LocationEngine

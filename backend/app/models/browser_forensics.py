@@ -22,7 +22,7 @@ class BrowserProfile(Base):
     uploaded_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(timezone.utc))
     
     history_records = relationship("BrowserHistory", back_populates="profile", cascade="all, delete-orphan")
-    extensions = relationship("BrowserExtension", back_populates="profile", cascade="all, delete-orphan")
+    extensions = relationship("ForensicBrowserExtension", back_populates="profile", cascade="all, delete-orphan")
 
 
 class BrowserHistory(Base):
@@ -45,7 +45,7 @@ class BrowserHistory(Base):
     profile = relationship("BrowserProfile", back_populates="history_records")
 
 
-class BrowserExtension(Base):
+class ForensicBrowserExtension(Base):
     __tablename__ = "mf_browser_extensions"
     """
     Installed browser extensions/plugins.

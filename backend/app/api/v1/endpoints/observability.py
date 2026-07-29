@@ -5,7 +5,7 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from app.api.deps import get_current_user, get_db
-from app.models.observability import Incident, SystemMetric
+from app.models.observability import ObservabilityIncident, SystemMetric
 from app.models.user import User
 from app.schemas.observability import IncidentSchema, SystemMetricSchema
 
@@ -36,7 +36,7 @@ def get_incidents(
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user)
 ):
-    stmt = select(Incident).where(Incident.status == status).order_by(Incident.created_at.desc()).limit(limit)
+    stmt = select(ObservabilityIncident).where(ObservabilityIncident.status == status).order_by(ObservabilityIncident.created_at.desc()).limit(limit)
     incidents = db.execute(stmt).scalars().all()
     return incidents
 

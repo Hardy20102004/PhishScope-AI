@@ -46,7 +46,7 @@ class CloudDetection(Base):
     detected_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(timezone.utc))
 
 
-class CloudInvestigation(Base):
+class CDRCloudInvestigation(Base):
     __tablename__ = "mf_cdr_investigations"
     """
     Container linking multiple detections.

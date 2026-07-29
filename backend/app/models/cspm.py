@@ -6,7 +6,7 @@ from sqlalchemy.orm import Mapped, mapped_column
 
 from app.db.base_class import Base
 
-class CloudAsset(Base):
+class CSPMCloudAsset(Base):
     __tablename__ = "mf_cspm_assets"
     """
     Represents discovered multi-cloud resources.

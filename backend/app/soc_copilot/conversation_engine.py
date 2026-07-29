@@ -41,6 +41,7 @@ class ConversationEngine:
             evidence_citations=citations
         )
         self.db.add(ai_msg)
+        await self.db.flush()
         
         # 4. Attach Reasoning Log to AI Message
         log.message_id = ai_msg.id

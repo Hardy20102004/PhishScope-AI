@@ -19,3 +19,11 @@ class User(Base):
     is_superuser: Mapped[bool] = mapped_column(Boolean(), default=False)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(timezone.utc))
     updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(timezone.utc), onupdate=lambda: datetime.now(timezone.utc))
+
+    @property
+    def tenant_id(self):
+        return self.organization_id
+
+    @tenant_id.setter
+    def tenant_id(self, value):
+        self.organization_id = value

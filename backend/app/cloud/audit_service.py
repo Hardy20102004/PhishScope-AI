@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Session
-from app.cloud.models import CloudAuditLog
+from app.cloud.models import PlatformCloudAuditLog
 import uuid
 from typing import Dict, Any, List, Optional
 from loguru import logger
@@ -11,9 +11,9 @@ class AuditService:
     def __init__(self, db: Session):
         self.db = db
 
-    def log_action(self, user_id: uuid.UUID, action: str, resource_id: Optional[str] = None, tenant_id: Optional[uuid.UUID] = None, details: Dict[str, Any] = None) -> CloudAuditLog:
+    def log_action(self, user_id: uuid.UUID, action: str, resource_id: Optional[str] = None, tenant_id: Optional[uuid.UUID] = None, details: Dict[str, Any] = None) -> PlatformCloudAuditLog:
         logger.info(f"AUDIT [{action}] by User {user_id} on Resource {resource_id}")
-        log = CloudAuditLog(
+        log = PlatformCloudAuditLog(
             user_id=user_id,
             action=action,
             resource_id=resource_id,
@@ -25,8 +25,8 @@ class AuditService:
         self.db.refresh(log)
         return log
 
-    def get_logs(self, tenant_id: Optional[uuid.UUID] = None, limit: int = 100) -> List[CloudAuditLog]:
-        query = self.db.query(CloudAuditLog)
+    def get_logs(self, tenant_id: Optional[uuid.UUID] = None, limit: int = 100) -> List[PlatformCloudAuditLog]:
+        query = self.db.query(PlatformCloudAuditLog)
         if tenant_id:
-            query = query.filter(CloudAuditLog.tenant_id == tenant_id)
-        return query.order_by(CloudAuditLog.timestamp.desc()).limit(limit).all()
+            query = query.filter(PlatformCloudAuditLog.tenant_id == tenant_id)
+        return query.order_by(PlatformCloudAuditLog.timestamp.desc()).limit(limit).all()

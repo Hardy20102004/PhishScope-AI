@@ -6,7 +6,7 @@ from sqlalchemy import select
 
 from app.api import deps
 from app.models.user import User
-from app.models.cspm import CloudAsset, CloudMisconfiguration, ComplianceFinding
+from app.models.cspm import CSPMCloudAsset, CloudMisconfiguration, ComplianceFinding
 from app.schemas.cspm import (
     CloudAssetResponse,
     CloudMisconfigurationResponse,
@@ -24,7 +24,7 @@ async def get_cloud_assets(
     """
     Retrieves all discovered cloud assets.
     """
-    res = await db.execute(select(CloudAsset).where(CloudAsset.tenant_id == current_user.tenant_id))
+    res = await db.execute(select(CSPMCloudAsset).where(CSPMCloudAsset.tenant_id == current_user.tenant_id))
     return res.scalars().all()
 
 @router.get("/misconfigurations", response_model=List[CloudMisconfigurationResponse])

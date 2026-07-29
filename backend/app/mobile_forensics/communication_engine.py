@@ -1,7 +1,7 @@
 import uuid
 from datetime import datetime, timezone, timedelta
 from sqlalchemy.ext.asyncio import AsyncSession
-from app.models.mobile_forensics import MobileCommunication
+from app.models.mobile_forensics import ForensicMobileCommunication
 
 class CommunicationEngine:
     """
@@ -10,12 +10,12 @@ class CommunicationEngine:
     def __init__(self, db: AsyncSession):
         self.db = db
 
-    async def extract_messages(self, device_id: uuid.UUID) -> list[MobileCommunication]:
+    async def extract_messages(self, device_id: uuid.UUID) -> list[ForensicMobileCommunication]:
         now = datetime.now(timezone.utc)
         
         # Mocking an extracted SMS thread
         messages = [
-            MobileCommunication(
+            ForensicMobileCommunication(
                 device_id=device_id,
                 app_name="iMessage",
                 thread_id="THREAD_001",
@@ -26,7 +26,7 @@ class CommunicationEngine:
                 is_deleted=False,
                 timestamp=now - timedelta(days=1, hours=2)
             ),
-            MobileCommunication(
+            ForensicMobileCommunication(
                 device_id=device_id,
                 app_name="iMessage",
                 thread_id="THREAD_001",

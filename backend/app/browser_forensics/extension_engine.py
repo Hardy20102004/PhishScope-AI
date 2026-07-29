@@ -1,7 +1,7 @@
 import uuid
 from datetime import datetime, timezone, timedelta
 from sqlalchemy.ext.asyncio import AsyncSession
-from app.models.browser_forensics import BrowserExtension
+from app.models.browser_forensics import ForensicBrowserExtension
 
 class ExtensionEngine:
     """
@@ -10,12 +10,12 @@ class ExtensionEngine:
     def __init__(self, db: AsyncSession):
         self.db = db
 
-    async def extract_extensions(self, profile_id: uuid.UUID) -> list[BrowserExtension]:
+    async def extract_extensions(self, profile_id: uuid.UUID) -> list[ForensicBrowserExtension]:
         now = datetime.now(timezone.utc)
         
         # Mocking extracted extensions
         extensions = [
-            BrowserExtension(
+            ForensicBrowserExtension(
                 profile_id=profile_id,
                 extension_id="cjpalhdlnbpafiamejdnhcphjbkeiagm",
                 name="uBlock Origin",
@@ -25,7 +25,7 @@ class ExtensionEngine:
                 is_suspicious=False,
                 install_time=now - timedelta(days=100)
             ),
-            BrowserExtension(
+            ForensicBrowserExtension(
                 profile_id=profile_id,
                 extension_id="aohfdmjgnbmmghihhfgjkjehmfdjebhi",
                 name="Free PDF Converter Tool",

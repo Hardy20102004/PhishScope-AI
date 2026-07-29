@@ -6,7 +6,7 @@ from sqlalchemy import select
 
 from app.api import deps
 from app.models.user import User
-from app.models.cdr import CloudDetection, CloudInvestigation, CloudTelemetryEvent, ResponseAction
+from app.models.cdr import CloudDetection, CDRCloudInvestigation, CloudTelemetryEvent, ResponseAction
 from app.schemas.cdr import (
     CloudDetectionResponse,
     CloudInvestigationResponse,
@@ -37,7 +37,7 @@ async def get_investigations(
     """
     Retrieves correlated cloud investigation containers.
     """
-    res = await db.execute(select(CloudInvestigation).where(CloudInvestigation.tenant_id == current_user.tenant_id))
+    res = await db.execute(select(CDRCloudInvestigation).where(CDRCloudInvestigation.tenant_id == current_user.tenant_id))
     return res.scalars().all()
 
 @router.get("/telemetry", response_model=List[CloudTelemetryEventResponse])

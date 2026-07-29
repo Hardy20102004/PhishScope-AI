@@ -1,6 +1,6 @@
 import uuid
 from sqlalchemy.ext.asyncio import AsyncSession
-from app.models.cspm import CloudAsset, CloudMisconfiguration
+from app.models.cspm import CSPMCloudAsset, CloudMisconfiguration
 
 class RiskAssessmentEngine:
     """
@@ -9,7 +9,7 @@ class RiskAssessmentEngine:
     def __init__(self, db: AsyncSession):
         self.db = db
 
-    async def evaluate_asset_risk(self, asset: CloudAsset) -> CloudMisconfiguration:
+    async def evaluate_asset_risk(self, asset: CSPMCloudAsset) -> CloudMisconfiguration:
         """
         Simple evaluation logic for MVP.
         Checks configuration dict for known bad states.

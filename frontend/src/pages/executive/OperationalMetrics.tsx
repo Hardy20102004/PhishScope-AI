@@ -41,21 +41,21 @@ export default function OperationalMetrics() {
                 <CardContent className="space-y-6 pt-4">
                     <div>
                         <div className="flex justify-between text-sm text-slate-300 mb-2">
-                            <span>Critical Incidents (< 1 hr response)</span>
+                            <span>Critical Incidents (&lt; 1 hr response)</span>
                             <span className="text-emerald-400 font-mono">98.5%</span>
                         </div>
                         <Progress value={98.5} className="h-2 bg-slate-800" indicatorClassName="bg-emerald-500" />
                     </div>
                     <div>
                         <div className="flex justify-between text-sm text-slate-300 mb-2">
-                            <span>High Incidents (< 4 hr response)</span>
+                            <span>High Incidents (&lt; 4 hr response)</span>
                             <span className="text-emerald-400 font-mono">94.2%</span>
                         </div>
                         <Progress value={94.2} className="h-2 bg-slate-800" indicatorClassName="bg-emerald-500" />
                     </div>
                     <div>
                         <div className="flex justify-between text-sm text-slate-300 mb-2">
-                            <span>Medium Incidents (< 24 hr response)</span>
+                            <span>Medium Incidents (&lt; 24 hr response)</span>
                             <span className="text-amber-400 font-mono">82.1%</span>
                         </div>
                         <Progress value={82.1} className="h-2 bg-slate-800" indicatorClassName="bg-amber-500" />

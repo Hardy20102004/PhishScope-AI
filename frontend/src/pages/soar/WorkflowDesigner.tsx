@@ -60,7 +60,7 @@ export default function WorkflowDesigner() {
                       <div className="w-6 h-6 rounded bg-blue-500/20 flex items-center justify-center text-blue-400"><Play size={12}/></div>
                       <span className="text-sm font-semibold text-slate-200">On Incident Created</span>
                   </div>
-                  <p className="text-[10px] text-slate-500">Trigger: Severity >= HIGH</p>
+                  <p className="text-[10px] text-slate-500">Trigger: Severity &gt;= HIGH</p>
               </div>
 
               {/* Edge 1 */}

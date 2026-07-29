@@ -18,7 +18,7 @@ class PageFetchEngine:
     async def fetch(url: str) -> Dict[str, Any]:
         logger.info(f"Fetching page data for {url}")
         
-        snapshot = {
+        snapshot: Dict[str, Any] = {
             "html": "",
             "headers": {},
             "cookies": [],
@@ -66,7 +66,7 @@ class PageFetchEngine:
                     inputs = form.find_all('input')
                     snapshot["forms"].append({
                         "action": form.get('action', ''),
-                        "method": form.get('method', 'get').lower(),
+                        "method": str(form.get('method', 'get')).lower(),
                         "inputs": [{"name": i.get('name', ''), "type": i.get('type', 'text')} for i in inputs]
                     })
                     

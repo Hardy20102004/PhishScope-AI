@@ -6,7 +6,7 @@ from sqlalchemy.orm import Mapped, mapped_column
 
 from app.db.base_class import Base
 
-class CloudIdentity(Base):
+class CIEMCloudIdentity(Base):
     __tablename__ = "mf_ciem_identities"
     """
     Inventory of discovered Users, Groups, and Roles across providers.

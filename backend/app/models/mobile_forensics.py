@@ -6,7 +6,7 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.db.base_class import Base
 
-class MobileDevice(Base):
+class ForensicMobileDevice(Base):
     __tablename__ = "mf_mobile_devices"
     """
     Metadata about an acquired mobile device or backup (iOS/Android).
@@ -24,11 +24,11 @@ class MobileDevice(Base):
     
     uploaded_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(timezone.utc))
     
-    communications = relationship("MobileCommunication", back_populates="device", cascade="all, delete-orphan")
-    locations = relationship("MobileLocation", back_populates="device", cascade="all, delete-orphan")
+    communications = relationship("ForensicMobileCommunication", back_populates="device", cascade="all, delete-orphan")
+    locations = relationship("ForensicMobileLocation", back_populates="device", cascade="all, delete-orphan")
 
 
-class MobileCommunication(Base):
+class ForensicMobileCommunication(Base):
     __tablename__ = "mf_mobile_communications"
     """
     Extracted messages (SMS, iMessage, WhatsApp).
@@ -47,10 +47,10 @@ class MobileCommunication(Base):
     
     timestamp: Mapped[datetime] = mapped_column(DateTime(timezone=True))
     
-    device = relationship("MobileDevice", back_populates="communications")
+    device = relationship("ForensicMobileDevice", back_populates="communications")
 
 
-class MobileLocation(Base):
+class ForensicMobileLocation(Base):
     __tablename__ = "mf_mobile_locations"
     """
     Extracted GPS coordinates, cell tower pings, or Wi-Fi connections.
@@ -65,4 +65,4 @@ class MobileLocation(Base):
     
     timestamp: Mapped[datetime] = mapped_column(DateTime(timezone=True))
     
-    device = relationship("MobileDevice", back_populates="locations")
+    device = relationship("ForensicMobileDevice", back_populates="locations")

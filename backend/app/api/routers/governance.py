@@ -6,7 +6,7 @@ from sqlalchemy import select
 
 from app.api import deps
 from app.models.user import User
-from app.models.governance import SecurityPolicy, GovernanceWorkflow, ApprovalRecord, AutomationLog
+from app.models.governance import SecurityPolicy, GovernanceWorkflow, GovernanceApprovalRecord, AutomationLog
 from app.schemas.governance import (
     SecurityPolicyResponse,
     GovernanceWorkflowResponse,
@@ -49,5 +49,5 @@ async def get_approvals(
     """
     Retrieves approval records.
     """
-    res = await db.execute(select(ApprovalRecord).where(ApprovalRecord.tenant_id == current_user.tenant_id))
+    res = await db.execute(select(GovernanceApprovalRecord).where(GovernanceApprovalRecord.tenant_id == current_user.tenant_id))
     return res.scalars().all()

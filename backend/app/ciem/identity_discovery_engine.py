@@ -1,7 +1,7 @@
 import uuid
 from datetime import datetime, timezone
 from sqlalchemy.ext.asyncio import AsyncSession
-from app.models.ciem import CloudIdentity
+from app.models.ciem import CIEMCloudIdentity
 
 class IdentityDiscoveryEngine:
     """
@@ -19,8 +19,8 @@ class IdentityDiscoveryEngine:
         account_id: str,
         mfa: bool = False,
         last_login: datetime = None
-    ) -> CloudIdentity:
-        identity = CloudIdentity(
+    ) -> CIEMCloudIdentity:
+        identity = CIEMCloudIdentity(
             tenant_id=tenant_id,
             identity_name=name,
             identity_type=type,

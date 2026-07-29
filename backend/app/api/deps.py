@@ -19,6 +19,9 @@ def get_db() -> Generator:
     finally:
         db.close()
 
+async def get_async_db():
+    raise NotImplementedError("Async db not configured in this PoC phase.")
+
 def get_current_user(db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)) -> User:
     try:
         payload = jwt.decode(token, settings.SECRET_KEY, algorithms=[settings.ALGORITHM])
@@ -38,6 +41,11 @@ def get_current_user(db: Session = Depends(get_db), token: str = Depends(oauth2_
     if not user.is_active:
         raise HTTPException(status_code=400, detail="Inactive user")
     return user
+
+def get_current_active_user(current_user: User = Depends(get_current_user)) -> User:
+    if not current_user.is_active:
+        raise HTTPException(status_code=400, detail="Inactive user")
+    return current_user
 
 def get_current_active_superuser(current_user: User = Depends(get_current_user)) -> User:
     if not current_user.is_superuser:

@@ -1,6 +1,6 @@
 import pytest
 import uuid
-from app.cspm.asset_discovery_engine import CloudAssetDiscoveryEngine
+from app.cspm.asset_discovery_engine import CSPMCloudAssetDiscoveryEngine
 from app.cspm.compliance_engine import ComplianceEngine
 from app.cspm.risk_assessment_engine import RiskAssessmentEngine
 
@@ -10,7 +10,7 @@ async def test_cspm_workflows(db_session):
     tenant_id = uuid.uuid4()
     
     # 1. Test Asset Discovery
-    ade = CloudAssetDiscoveryEngine(db_session)
+    ade = CSPMCloudAssetDiscoveryEngine(db_session)
     config = {"publicly_accessible": True, "encrypted": False}
     asset = await ade.register_asset(tenant_id, "AWS", "Storage", "public-assets-bucket", "us-west-2", config)
     

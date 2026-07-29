@@ -31,6 +31,16 @@ class NetworkEngine:
                 remote_ip="103.11.42.19", # Mock Malicious C2
                 remote_port=4444,
                 state="ESTABLISHED"
+            ),
+            MemoryNetworkConnection(
+                memory_image_id=image_id,
+                pid=4, # System
+                protocol="TCP",
+                local_ip="0.0.0.0",
+                local_port=445,
+                remote_ip="0.0.0.0",
+                remote_port=0,
+                state="LISTENING"
             )
         ]
         

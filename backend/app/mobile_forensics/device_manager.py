@@ -1,6 +1,6 @@
 import uuid
 from sqlalchemy.ext.asyncio import AsyncSession
-from app.models.mobile_forensics import MobileDevice
+from app.models.mobile_forensics import ForensicMobileDevice
 
 class DeviceManager:
     """
@@ -9,8 +9,8 @@ class DeviceManager:
     def __init__(self, db: AsyncSession):
         self.db = db
 
-    async def register_device(self, tenant_id: uuid.UUID, name: str, os_type: str, os_version: str, acq_type: str, imei: str = None, inv_id: uuid.UUID = None) -> MobileDevice:
-        device = MobileDevice(
+    async def register_device(self, tenant_id: uuid.UUID, name: str, os_type: str, os_version: str, acq_type: str, imei: str = None, inv_id: uuid.UUID = None) -> ForensicMobileDevice:
+        device = ForensicMobileDevice(
             tenant_id=tenant_id,
             investigation_id=inv_id,
             device_name=name,

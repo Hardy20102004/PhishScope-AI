@@ -174,11 +174,11 @@ class ConflictRecord(Base):
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(timezone.utc))
 
 
-class CloudAuditLog(Base):
+class PlatformCloudAuditLog(Base):
     """
     Immutable audit trail for cloud operations (Sharing, Approvals, Admin changes).
     """
-    __tablename__ = "cloud_audit_logs"
+    __tablename__ = "cloud_platform_audit_logs"
     
     id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid.uuid4)
     tenant_id: Mapped[Optional[uuid.UUID]] = mapped_column(Uuid(as_uuid=True), nullable=True)

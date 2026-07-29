@@ -1,6 +1,6 @@
 import uuid
 from sqlalchemy.ext.asyncio import AsyncSession
-from app.models.governance import ApprovalRecord, GovernanceWorkflow
+from app.models.governance import GovernanceApprovalRecord, GovernanceWorkflow
 from sqlalchemy import select
 
 class ApprovalEngine:
@@ -10,8 +10,8 @@ class ApprovalEngine:
     def __init__(self, db: AsyncSession):
         self.db = db
 
-    async def submit_approval(self, tenant_id: uuid.UUID, workflow_id: uuid.UUID, approver_id: str, role: str, action: str, comments: str = None) -> ApprovalRecord:
-        record = ApprovalRecord(
+    async def submit_approval(self, tenant_id: uuid.UUID, workflow_id: uuid.UUID, approver_id: str, role: str, action: str, comments: str = None) -> GovernanceApprovalRecord:
+        record = GovernanceApprovalRecord(
             tenant_id=tenant_id,
             workflow_id=workflow_id,
             approver_id=approver_id,

@@ -1,6 +1,6 @@
 import uuid
 from sqlalchemy.ext.asyncio import AsyncSession
-from app.models.cdr import ResponseAction, CloudInvestigation
+from app.models.cdr import ResponseAction, CDRCloudInvestigation
 
 class ResponseCoordinationEngine:
     """
@@ -9,7 +9,7 @@ class ResponseCoordinationEngine:
     def __init__(self, db: AsyncSession):
         self.db = db
 
-    async def propose_containment(self, investigation: CloudInvestigation) -> ResponseAction:
+    async def propose_containment(self, investigation: CDRCloudInvestigation) -> ResponseAction:
         action = ResponseAction(
             tenant_id=investigation.tenant_id,
             investigation_id=investigation.id,

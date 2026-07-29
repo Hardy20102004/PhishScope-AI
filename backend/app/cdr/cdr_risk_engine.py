@@ -1,6 +1,6 @@
 import uuid
 from sqlalchemy.ext.asyncio import AsyncSession
-from app.models.cdr import CloudInvestigation
+from app.models.cdr import CDRCloudInvestigation
 
 class CDRRiskEngine:
     """
@@ -9,7 +9,7 @@ class CDRRiskEngine:
     def __init__(self, db: AsyncSession):
         self.db = db
 
-    async def calculate_investigation_priority(self, investigation: CloudInvestigation) -> str:
+    async def calculate_investigation_priority(self, investigation: CDRCloudInvestigation) -> str:
         # In a real system, this would evaluate the number of linked detections and resource criticality.
         investigation.priority = "HIGH"
         self.db.add(investigation)

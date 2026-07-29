@@ -48,7 +48,30 @@ async def test_alert_prioritization():
     assert scores["confidence"] == 80.0
     assert scores["priority_score"] == 66.0
 
-async def test_ingest_alert_api(client: AsyncClient, normal_user_token_headers: dict):
+from app.main import app
+
+from app.api.deps import get_current_active_user, get_async_db
+from app.models.user import User
+from app.db.session import SessionLocal
+from tests.conftest import AsyncMockSession
+
+async def mock_get_current_active_user():
+    user = User()
+    user.id = uuid.uuid4()
+    user.tenant_id = uuid.uuid4()
+    return user
+
+async def mock_get_async_db():
+    db = SessionLocal()
+    try:
+        yield AsyncMockSession(db)
+    finally:
+        db.close()
+
+app.dependency_overrides[get_current_active_user] = mock_get_current_active_user
+app.dependency_overrides[get_async_db] = mock_get_async_db
+
+async def test_ingest_alert_api(async_client: AsyncClient):
     payload = {
         "title": "Test SIEM Alert",
         "description": "Possible exfiltration",
@@ -59,10 +82,10 @@ async def test_ingest_alert_api(client: AsyncClient, normal_user_token_headers: 
         "tenant_id": str(uuid.uuid4()) # In real test this uses the test tenant
     }
     
-    response = await client.post(
+    response = await async_client.post(
         "/api/v1/alerts/",
         json=payload,
-        headers=normal_user_token_headers
+        headers={"Authorization": "Bearer TEST_TOKEN"}
     )
     
     assert response.status_code == 201

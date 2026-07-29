@@ -1,7 +1,7 @@
 import uuid
 from datetime import datetime, timezone, timedelta
 from sqlalchemy.ext.asyncio import AsyncSession
-from app.models.ciem import CloudIdentity, CloudEntitlement
+from app.models.ciem import CIEMCloudIdentity, CloudEntitlement
 from sqlalchemy import select
 
 class LeastPrivilegeEngine:
@@ -11,7 +11,7 @@ class LeastPrivilegeEngine:
     def __init__(self, db: AsyncSession):
         self.db = db
 
-    async def evaluate_identity_hygiene(self, identity: CloudIdentity) -> list[str]:
+    async def evaluate_identity_hygiene(self, identity: CIEMCloudIdentity) -> list[str]:
         """Returns a list of risk factors for the identity."""
         risk_factors = []
         
@@ -21,7 +21,10 @@ class LeastPrivilegeEngine:
             
         # Check Dormancy (90 days)
         if identity.last_login:
-            days_since_login = (datetime.now(timezone.utc) - identity.last_login).days
+            last_login = identity.last_login
+            if last_login.tzinfo is None:
+                last_login = last_login.replace(tzinfo=timezone.utc)
+            days_since_login = (datetime.now(timezone.utc) - last_login).days
             if days_since_login > 90:
                 risk_factors.append("Dormant Identity (>90 Days)")
                 

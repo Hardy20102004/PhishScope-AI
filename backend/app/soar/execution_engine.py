@@ -31,7 +31,9 @@ class ExecutionEngine:
         
         # Simulate executing the 'enrich' step
         self.connector.execute_action("VirusTotal Enrichment")
-        execution.execution_log.append({"step": "enrich", "status": "SUCCESS", "time": str(datetime.now(timezone.utc))})
+        new_log = list(execution.execution_log)
+        new_log.append({"step": "enrich", "status": "SUCCESS", "time": str(datetime.now(timezone.utc))})
+        execution.execution_log = new_log
         
         # Move to 'approval' step and pause
         execution.current_step_id = "approval"
@@ -57,12 +59,14 @@ class ExecutionEngine:
         execution = result.scalar_one_or_none()
         
         execution.status = "RUNNING"
-        execution.execution_log.append({"step": "approval", "status": "APPROVED", "time": str(datetime.now(timezone.utc))})
+        new_log = list(execution.execution_log) if execution.execution_log else []
+        new_log.append({"step": "approval", "status": "APPROVED", "time": str(datetime.now(timezone.utc))})
         
         # Execute 'isolate' step
         execution.current_step_id = "isolate"
         self.connector.execute_action("CrowdStrike Isolate Host")
-        execution.execution_log.append({"step": "isolate", "status": "SUCCESS", "time": str(datetime.now(timezone.utc))})
+        new_log.append({"step": "isolate", "status": "SUCCESS", "time": str(datetime.now(timezone.utc))})
+        execution.execution_log = new_log
         
         # Finish
         execution.status = "COMPLETED"

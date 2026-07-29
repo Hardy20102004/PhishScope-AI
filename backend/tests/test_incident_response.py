@@ -1,7 +1,7 @@
 import pytest
 import uuid
 
-from app.models.incident_response import DFIRCase
+from app.models.incident_response import DFIRCase, Incident
 from app.incident_response.evidence_manager import EvidenceManager
 from app.incident_response.incident_manager import IncidentManager
 
@@ -28,8 +28,11 @@ async def test_incident_creation_provisions_case(db_session):
     assert incident.cases[0].case_type == "FORENSICS"
 
 async def test_evidence_chain_of_custody(db_session):
+    incident = Incident(title="Mock Incident", tenant_id=uuid.uuid4())
+    db_session.add(incident)
+    await db_session.flush()
     # Setup mock case
-    case = DFIRCase(title="Mock Case", case_type="FORENSICS")
+    case = DFIRCase(title="Mock Case", case_type="FORENSICS", incident_id=incident.id)
     db_session.add(case)
     await db_session.commit()
     await db_session.refresh(case)

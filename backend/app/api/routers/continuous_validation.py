@@ -6,7 +6,7 @@ from sqlalchemy import select
 
 from app.api import deps
 from app.models.user import User
-from app.models.continuous_validation import OptimizationRecommendation
+from app.models.continuous_validation import CVOptimizationRecommendation
 from app.schemas.continuous_validation import (
     SecurityPostureSnapshotResponse,
     SecurityDriftRecordResponse,
@@ -56,5 +56,5 @@ async def get_optimizations(
     """
     Retrieves the prioritized list of optimizations.
     """
-    res = await db.execute(select(OptimizationRecommendation).where(OptimizationRecommendation.tenant_id == current_user.tenant_id))
+    res = await db.execute(select(CVOptimizationRecommendation).where(CVOptimizationRecommendation.tenant_id == current_user.tenant_id))
     return res.scalars().all()

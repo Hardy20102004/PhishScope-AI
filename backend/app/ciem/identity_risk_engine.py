@@ -1,6 +1,6 @@
 import uuid
 from sqlalchemy.ext.asyncio import AsyncSession
-from app.models.ciem import IdentityRiskScore, CloudIdentity
+from app.models.ciem import IdentityRiskScore, CIEMCloudIdentity
 from app.ciem.least_privilege_engine import LeastPrivilegeEngine
 from sqlalchemy import select
 
@@ -11,7 +11,7 @@ class IdentityRiskEngine:
     def __init__(self, db: AsyncSession):
         self.db = db
 
-    async def update_risk_score(self, tenant_id: uuid.UUID, identity: CloudIdentity) -> IdentityRiskScore:
+    async def update_risk_score(self, tenant_id: uuid.UUID, identity: CIEMCloudIdentity) -> IdentityRiskScore:
         lpe = LeastPrivilegeEngine(self.db)
         risk_factors = await lpe.evaluate_identity_hygiene(identity)
         

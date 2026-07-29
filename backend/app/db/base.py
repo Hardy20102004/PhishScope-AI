@@ -16,8 +16,8 @@ from app.models.soc_copilot import CopilotSession, CopilotChatMessage, CopilotRe
 from app.models.digital_twin import SimulationScenario, SimulationResult, OptimizationRecommendation  # noqa: F401
 from app.models.disk_forensics import DiskImage, DiskPartition, ForensicArtifact  # noqa: F401
 from app.models.memory_forensics import MemoryImage, MemoryProcess, MemoryNetworkConnection  # noqa: F401
-from app.models.mobile_forensics import MobileDevice, MobileCommunication, MobileLocation  # noqa: F401
-from app.models.browser_forensics import BrowserProfile, BrowserHistory, BrowserExtension  # noqa: F401
+from app.models.mobile_forensics import ForensicMobileDevice, ForensicMobileCommunication, ForensicMobileLocation  # noqa: F401
+from app.models.browser_forensics import BrowserProfile, BrowserHistory, ForensicBrowserExtension  # noqa: F401
 from app.models.email_forensics import Mailbox, EmailMessage, EmailHeader  # noqa: F401
 from app.models.malware_analysis import MalwareSample, StaticAnalysis, MalwareString, YaraMatch, MalwareCapability  # noqa: F401
 from app.models.cloud_forensics import CloudEnvironment, CloudAuditLog, ContainerMetadata, KubernetesPod  # noqa: F401
@@ -26,20 +26,20 @@ from app.models.reporting_engine import EvidenceItem, ChainOfCustodyRecord, Fore
 from app.models.bas_platform import BasScenario, BasSimulation, BasValidationResult  # noqa: F401
 from app.models.red_team import RedTeamCampaign, AuthorizationRecord, CampaignFinding  # noqa: F401
 from app.models.blue_team import ReadinessSnapshot, DetectionMetric, AnalystTeamMetric  # noqa: F401
-from app.models.continuous_validation import SecurityPostureSnapshot, SecurityDriftRecord, OptimizationRecommendation  # noqa: F401
+from app.models.continuous_validation import SecurityPostureSnapshot, SecurityDriftRecord, CVOptimizationRecommendation  # noqa: F401
 from app.models.attack_path import AssetNode, AssetRelationship, SimulatedAttackPath  # noqa: F401
 from app.models.detection_gap import MitreCoverageMetric, DetectionGapRecord, ControlOptimizationPlan  # noqa: F401
 from app.models.cyber_resilience import CyberResilienceScore, MaturityAssessment, ExecutiveKPI  # noqa: F401
 from app.models.executive_intelligence import GovernanceMetric, BusinessImpactIndicator, InvestmentROI, DecisionSupportBrief  # noqa: F401
 from app.models.strategic_defense import StrategicForecast, OptimizationRoadmap, StrategicRecommendation, DecisionApprovalLog  # noqa: F401
-from app.models.cspm import CloudAsset, CloudMisconfiguration, ComplianceFinding  # noqa: F401
+from app.models.cspm import CSPMCloudAsset, CloudMisconfiguration, ComplianceFinding  # noqa: F401
 from app.models.cwpp import CloudWorkload, RuntimeEvent, BehaviorAnomaly, WorkloadRiskScore  # noqa: F401
 from app.models.k8s_security import K8sCluster, K8sRBACPolicy, K8sRiskScore  # noqa: F401
-from app.models.ciem import CloudIdentity, CloudEntitlement, IdentityRiskScore, AccessReview  # noqa: F401
-from app.models.cdr import CloudTelemetryEvent, CloudDetection, CloudInvestigation, ResponseAction  # noqa: F401
+from app.models.ciem import CIEMCloudIdentity, CloudEntitlement, IdentityRiskScore, AccessReview  # noqa: F401
+from app.models.cdr import CloudTelemetryEvent, CloudDetection, CDRCloudInvestigation, ResponseAction  # noqa: F401
 from app.models.dspm import CloudDataAsset, DataClassification, DataExposureFinding, DataAccessGovernance  # noqa: F401
 from app.models.multi_cloud import UnifiedCloudAsset, CrossCloudRelationship, UnifiedRiskScore, ComplianceTrend  # noqa: F401
-from app.models.governance import SecurityPolicy, GovernanceWorkflow, ApprovalRecord, AutomationLog  # noqa: F401
+from app.models.governance import SecurityPolicy, GovernanceWorkflow, GovernanceApprovalRecord, AutomationLog  # noqa: F401
 from app.models.ctem import AttackSurfaceNode, BusinessContextBoundary, CloudExposureFinding, RemediationPlan  # noqa: F401
 from app.models.copilot import CopilotConversation, CopilotMessage, GeneratedReport  # noqa: F401
 from app.models.case_management import Case, CaseTask, TimelineEvent, DecisionLog  # noqa: F401
@@ -48,7 +48,7 @@ from app.models.automation import Workflow, WorkflowVersion, WorkflowExecution  
 from app.models.extension import ExtensionDevice  # noqa: F401
 from app.models.mobile import MobileDevice  # noqa: F401
 from app.models.tenant import Organization, TenantSettings, License, AuditLog  # noqa: F401
-from app.models.observability import Incident, SystemMetric  # noqa: F401
+from app.models.observability import ObservabilityIncident, SystemMetric  # noqa: F401
 from app.models.ai_brain import (  # noqa: F401
     AIProviderConfig, AIModelEntry, AICapabilityMapping, AIPromptTemplate,
     AIMemoryStore, AIPolicyRule, AIAuditLogRecord, TokenUsageRecord

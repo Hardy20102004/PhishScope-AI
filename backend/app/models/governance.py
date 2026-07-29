@@ -42,7 +42,7 @@ class GovernanceWorkflow(Base):
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(timezone.utc))
 
 
-class ApprovalRecord(Base):
+class GovernanceApprovalRecord(Base):
     __tablename__ = "mf_gov_approvals"
     """
     Tracks human approvals tied to a specific workflow step.

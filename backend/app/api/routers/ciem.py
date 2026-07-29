@@ -6,7 +6,7 @@ from sqlalchemy import select
 
 from app.api import deps
 from app.models.user import User
-from app.models.ciem import CloudIdentity, CloudEntitlement, IdentityRiskScore, AccessReview
+from app.models.ciem import CIEMCloudIdentity, CloudEntitlement, IdentityRiskScore, AccessReview
 from app.schemas.ciem import (
     CloudIdentityResponse,
     CloudEntitlementResponse,
@@ -25,7 +25,7 @@ async def get_identities(
     """
     Retrieves all discovered cloud identities.
     """
-    res = await db.execute(select(CloudIdentity).where(CloudIdentity.tenant_id == current_user.tenant_id))
+    res = await db.execute(select(CIEMCloudIdentity).where(CIEMCloudIdentity.tenant_id == current_user.tenant_id))
     return res.scalars().all()
 
 @router.get("/identities/{identity_id}/entitlements", response_model=List[CloudEntitlementResponse])

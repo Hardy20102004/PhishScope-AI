@@ -12,11 +12,69 @@ def setup_database():
     yield
     Base.metadata.drop_all(bind=engine)
 
+class AwaitableProxy:
+    def __init__(self, value):
+        self.value = value
+    def __await__(self):
+        yield
+        return self.value
+    def __getattr__(self, name):
+        return getattr(self.value, name)
+
+class AsyncMockSession:
+    def __init__(self, sync_session):
+        self._sync = sync_session
+        
+    def add(self, *args, **kwargs):
+        return self._sync.add(*args, **kwargs)
+        
+    def add_all(self, *args, **kwargs):
+        return self._sync.add_all(*args, **kwargs)
+        
+    def commit(self):
+        self._sync.commit()
+        return AwaitableProxy(None)
+        
+    def refresh(self, *args, **kwargs):
+        self._sync.refresh(*args, **kwargs)
+        return AwaitableProxy(None)
+        
+    def flush(self):
+        self._sync.flush()
+        return AwaitableProxy(None)
+        
+    def execute(self, *args, **kwargs):
+        res = self._sync.execute(*args, **kwargs)
+        return AwaitableProxy(res)
+        
+    def query(self, *args, **kwargs):
+        return self._sync.query(*args, **kwargs)
+
+    def scalar(self, *args, **kwargs):
+        res = self._sync.scalar(*args, **kwargs)
+        return AwaitableProxy(res)
+        
+    def scalars(self, *args, **kwargs):
+        res = self._sync.scalars(*args, **kwargs)
+        return AwaitableProxy(res)
+        
+    def delete(self, *args, **kwargs):
+        self._sync.delete(*args, **kwargs)
+        return AwaitableProxy(None)
+        
+    def get(self, *args, **kwargs):
+        res = self._sync.get(*args, **kwargs)
+        return AwaitableProxy(res)
+        
+    def expire_all(self):
+        self._sync.expire_all()
+        return AwaitableProxy(None)
+
 @pytest.fixture
 def db_session():
     db = SessionLocal()
     try:
-        yield db
+        yield AsyncMockSession(db)
     finally:
         db.close()
 
