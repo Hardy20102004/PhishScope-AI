@@ -1,12 +1,13 @@
 import { Link, useLocation } from "react-router-dom"
-import { ShieldAlert, LayoutDashboard, ShieldCheck, Activity, Settings, GitBranch, Cpu, Users, Database, FileText, FileCode, BookOpen, Share2, BrainCircuit, Lightbulb } from "lucide-react"
+import { ShieldAlert, LayoutDashboard, ShieldCheck, Activity, Settings, GitBranch, Cpu, Users, Database, FileText, FileCode, BookOpen, Share2, BrainCircuit, Lightbulb, CloudLightning, Globe } from "lucide-react"
 import { cn } from "@/utils/cn"
 
 export function Sidebar() {
   const location = useLocation()
   
   const navItems = [
-    { name: "Command Center", path: "/dashboard", icon: <LayoutDashboard size={20} /> },
+    { name: "Command Center", path: "/command-center", icon: <Globe size={20} /> },
+    { name: "SOC Dashboard", path: "/dashboard", icon: <LayoutDashboard size={20} /> },
     { name: "AI Workforce", path: "/multi-agent/dashboard", icon: <Users size={20} /> },
     { name: "AI Security Brain", path: "/ai-brain", icon: <Cpu size={20} /> },
     { name: "AI Memory Engine", path: "/ai-memory", icon: <Database size={20} /> },
@@ -21,6 +22,7 @@ export function Sidebar() {
     { name: "Investigations", path: "/investigations/new", icon: <ShieldAlert size={20} /> },
     { name: "Threat Intel", path: "/threat-intel/dashboard", icon: <Activity size={20} /> },
     { name: "Automation", path: "/automation", icon: <GitBranch size={20} /> },
+    { name: "Cloud Exposure", path: "/ctem/dashboard", icon: <CloudLightning size={20} /> },
     { name: "Policies", path: "/admin/policies", icon: <ShieldCheck size={20} /> },
     { name: "Settings", path: "/admin/dashboard", icon: <Settings size={20} /> },
   ]

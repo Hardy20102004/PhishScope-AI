@@ -75,6 +75,12 @@ import NetworkInvestigationDashboard from "@/features/network-investigation/comp
 // Cloud Investigation
 import CloudInvestigationDashboard from "@/features/cloud-investigation/components/CloudInvestigationDashboard";
 
+// CTEM
+import { CTEMDashboard } from "@/features/ctem/pages/CTEMDashboard";
+
+// Command Center
+import { CommandCenterDashboard } from "@/features/command-center/pages/CommandCenterDashboard";
+
 export const router = createBrowserRouter([
   {
     element: <AuthLayout />,
@@ -242,6 +248,14 @@ export const router = createBrowserRouter([
           {
             path: "cloud-investigation",
             element: <CloudInvestigationDashboard />,
+          },
+          {
+            path: "ctem/dashboard",
+            element: <CTEMDashboard />,
+          },
+          {
+            path: "command-center",
+            element: <CommandCenterDashboard />,
           },
           {
             path: "threat-intel/dashboard",
