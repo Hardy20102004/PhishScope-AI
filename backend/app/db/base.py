@@ -41,7 +41,6 @@ from app.models.dspm import CloudDataAsset, DataClassification, DataExposureFind
 from app.models.multi_cloud import UnifiedCloudAsset, CrossCloudRelationship, UnifiedRiskScore, ComplianceTrend  # noqa: F401
 from app.models.governance import SecurityPolicy, GovernanceWorkflow, GovernanceApprovalRecord, AutomationLog  # noqa: F401
 from app.models.ctem import AttackSurfaceNode, BusinessContextBoundary, CloudExposureFinding, RemediationPlan  # noqa: F401
-from app.models.copilot import CopilotConversation, CopilotMessage, GeneratedReport  # noqa: F401
 from app.models.case_management import Case, CaseTask, TimelineEvent, DecisionLog  # noqa: F401
 from app.models.reporting import ReportTemplate, Report, ExportRecord, EvidenceManifest  # noqa: F401
 from app.models.automation import Workflow, WorkflowVersion, WorkflowExecution  # noqa: F401
@@ -121,3 +120,13 @@ from app.reputation_engine.models import (  # noqa: F401
 from app.cloud.models import (  # noqa: F401
     Tenant, Workspace, SharingPolicy, SharedIntelligenceObject, FederationSyncRecord
 )
+from app.models.aspm import EnterpriseApplication, CodeRepository, ApplicationDependency, SecurityFinding, ApplicationRisk, ASPMAuditLog  # noqa: F401
+from app.models.devsecops import PipelineRun, SecurityGate, SDLCWorkflow, DeveloperMetric, DevSecOpsAuditLog  # noqa: F401
+from app.models.sbom import SBOMRecord, SoftwareArtifact, SoftwareDependency, ProvenanceMetadata, SupplyChainRiskScore, SBOMAuditLog  # noqa: F401
+from app.models.sast import SASTScan, SASTRule, SASTFinding, SASTGuidance, SASTAuditLog  # noqa: F401
+from app.models.dast import DASTTarget, DASTScan, DASTFinding, DASTGuidance, DASTAuditLog  # noqa: F401
+from app.models.sca import SCADependency, SCAPackageIntelligence, SCALicense, SCARiskScore, SCAGuidance, SCAAuditLog  # noqa: F401
+from app.models.secrets import SecretMetadata, SecretExposure, SecretPolicy, SecretGuidance, SecretsAuditLog  # noqa: F401
+from app.models.iac import IaCTemplate, IaCConfigurationFinding, IaCPolicy, IaCDeploymentGovernance, IaCGuidance, IaCAuditLog  # noqa: F401
+from app.models.copilot import DeveloperCopilotSession, CodeReviewRecord, CodeReviewFinding, DeveloperLearningProgress, EngineeringMetric, CopilotConversation, CopilotMessage, GeneratedReport  # noqa: F401
+from app.models.appsec_command_center import AppSecExecutiveMetric, EngineeringProductivityMetric, AppSecConsolidatedFinding, AppSecGovernanceDecision  # noqa: F401

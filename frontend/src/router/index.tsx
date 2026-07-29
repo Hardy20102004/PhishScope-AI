@@ -81,6 +81,68 @@ import { CTEMDashboard } from "@/features/ctem/pages/CTEMDashboard";
 // Command Center
 import { CommandCenterDashboard } from "@/features/command-center/pages/CommandCenterDashboard";
 
+// ASPM
+import ASPMDashboard from "@/pages/aspm/ASPMDashboard";
+import ApplicationInventory from "@/pages/aspm/ApplicationInventory";
+import RepositoryDashboard from "@/pages/aspm/RepositoryDashboard";
+import RiskDashboard from "@/pages/aspm/RiskDashboard";
+import PostureDashboard from "@/pages/aspm/PostureDashboard";
+
+// DevSecOps
+import { SecureSDLCDashboard } from "@/pages/devsecops/SecureSDLCDashboard";
+import { PipelineDashboard } from "@/pages/devsecops/PipelineDashboard";
+import { SecurityGatesDashboard } from "@/pages/devsecops/SecurityGatesDashboard";
+import { DeveloperDashboard } from "@/pages/devsecops/DeveloperDashboard";
+import { DevSecOpsExecutiveDashboard } from "@/pages/devsecops/DevSecOpsExecutiveDashboard";
+
+// SBOM
+import { SBOMExecutiveDashboard } from "@/pages/sbom/SBOMExecutiveDashboard";
+import { SBOMDashboard } from "@/pages/sbom/SBOMDashboard";
+import { DependencyExplorer } from "@/pages/sbom/DependencyExplorer";
+import { ArtifactInventory } from "@/pages/sbom/ArtifactInventory";
+import { ProvenanceDashboard } from "@/pages/sbom/ProvenanceDashboard";
+
+// SAST
+import { SASTExecutiveDashboard } from "@/pages/sast/SASTExecutiveDashboard";
+import { CodeFindingsDashboard } from "@/pages/sast/CodeFindingsDashboard";
+import { RuleCoverageDashboard } from "@/pages/sast/RuleCoverageDashboard";
+import { DeveloperGuidance } from "@/pages/sast/DeveloperGuidance";
+
+// DAST
+import { DASTExecutiveDashboard } from "@/pages/dast/DASTExecutiveDashboard";
+import { ApplicationTargetsDashboard } from "@/pages/dast/ApplicationTargetsDashboard";
+import { RuntimeFindingsDashboard } from "@/pages/dast/RuntimeFindingsDashboard";
+import { APIAssessmentDashboard } from "@/pages/dast/APIAssessmentDashboard";
+
+// SCA
+import { SCAExecutiveDashboard } from "@/pages/sca/SCAExecutiveDashboard";
+import { DependencyExplorer } from "@/pages/sca/DependencyExplorer";
+import { PackageIntelligenceDashboard } from "@/pages/sca/PackageIntelligenceDashboard";
+import { LicenseDashboard } from "@/pages/sca/LicenseDashboard";
+
+// Secrets
+import { SecretsExecutiveDashboard } from "@/pages/secrets/SecretsExecutiveDashboard";
+import { CredentialGovernanceDashboard } from "@/pages/secrets/CredentialGovernanceDashboard";
+import { CertificateDashboard } from "@/pages/secrets/CertificateDashboard";
+import { ExposureDashboard } from "@/pages/secrets/ExposureDashboard";
+
+// IaC
+import { IaCExecutiveDashboard } from "@/pages/iac/IaCExecutiveDashboard";
+import { TemplateExplorer } from "@/pages/iac/TemplateExplorer";
+import { ConfigurationDashboard } from "@/pages/iac/ConfigurationDashboard";
+import { DeploymentGovernanceDashboard } from "@/pages/iac/DeploymentGovernanceDashboard";
+
+// Copilot
+import { CopilotDashboard } from "@/pages/copilot/CopilotDashboard";
+import { CodeReviewDashboard } from "@/pages/copilot/CodeReviewDashboard";
+import { LearningDashboard } from "@/pages/copilot/LearningDashboard";
+import { DeveloperAssistantPanel } from "@/pages/copilot/DeveloperAssistantPanel";
+
+// AppSec Command Center
+import { UnifiedAppSecDashboard } from "@/pages/appsec-command-center/UnifiedAppSecDashboard";
+import { EngineeringIntelligenceDashboard } from "@/pages/appsec-command-center/EngineeringIntelligenceDashboard";
+import { AppSecExecutiveBoard } from "@/pages/appsec-command-center/AppSecExecutiveBoard";
+
 export const router = createBrowserRouter([
   {
     element: <AuthLayout />,
@@ -256,6 +318,174 @@ export const router = createBrowserRouter([
           {
             path: "command-center",
             element: <CommandCenterDashboard />,
+          },
+          {
+            path: "aspm/dashboard",
+            element: <ASPMDashboard />,
+          },
+          {
+            path: "aspm/applications",
+            element: <ApplicationInventory />,
+          },
+          {
+            path: "aspm/repositories",
+            element: <RepositoryDashboard />,
+          },
+          {
+            path: "aspm/risk",
+            element: <RiskDashboard />,
+          },
+          {
+            path: "aspm/posture",
+            element: <PostureDashboard />,
+          },
+          {
+            path: "devsecops/dashboard",
+            element: <DevSecOpsExecutiveDashboard />,
+          },
+          {
+            path: "devsecops/sdlc",
+            element: <SecureSDLCDashboard />,
+          },
+          {
+            path: "devsecops/pipelines",
+            element: <PipelineDashboard />,
+          },
+          {
+            path: "devsecops/gates",
+            element: <SecurityGatesDashboard />,
+          },
+          {
+            path: "devsecops/developers",
+            element: <DeveloperDashboard />,
+          },
+          {
+            path: "sbom/dashboard",
+            element: <SBOMExecutiveDashboard />,
+          },
+          {
+            path: "sbom/records",
+            element: <SBOMDashboard />,
+          },
+          {
+            path: "sbom/dependencies",
+            element: <DependencyExplorer />,
+          },
+          {
+            path: "sbom/artifacts",
+            element: <ArtifactInventory />,
+          },
+          {
+            path: "sbom/provenance",
+            element: <ProvenanceDashboard />,
+          },
+          {
+            path: "sast/dashboard",
+            element: <SASTExecutiveDashboard />,
+          },
+          {
+            path: "sast/findings",
+            element: <CodeFindingsDashboard />,
+          },
+          {
+            path: "sast/rules",
+            element: <RuleCoverageDashboard />,
+          },
+          {
+            path: "sast/guidance",
+            element: <DeveloperGuidance />,
+          },
+          {
+            path: "dast/dashboard",
+            element: <DASTExecutiveDashboard />,
+          },
+          {
+            path: "dast/targets",
+            element: <ApplicationTargetsDashboard />,
+          },
+          {
+            path: "dast/findings",
+            element: <RuntimeFindingsDashboard />,
+          },
+          {
+            path: "dast/api-assessment",
+            element: <APIAssessmentDashboard />,
+          },
+          {
+            path: "sca/dashboard",
+            element: <SCAExecutiveDashboard />,
+          },
+          {
+            path: "sca/dependencies",
+            element: <DependencyExplorer />,
+          },
+          {
+            path: "sca/packages",
+            element: <PackageIntelligenceDashboard />,
+          },
+          {
+            path: "sca/licenses",
+            element: <LicenseDashboard />,
+          },
+          {
+            path: "secrets/dashboard",
+            element: <SecretsExecutiveDashboard />,
+          },
+          {
+            path: "secrets/credentials",
+            element: <CredentialGovernanceDashboard />,
+          },
+          {
+            path: "secrets/certificates",
+            element: <CertificateDashboard />,
+          },
+          {
+            path: "secrets/exposures",
+            element: <ExposureDashboard />,
+          },
+          {
+            path: "iac/dashboard",
+            element: <IaCExecutiveDashboard />,
+          },
+          {
+            path: "iac/templates",
+            element: <TemplateExplorer />,
+          },
+          {
+            path: "iac/configurations",
+            element: <ConfigurationDashboard />,
+          },
+          {
+            path: "iac/governance",
+            element: <DeploymentGovernanceDashboard />,
+          },
+          {
+            path: "copilot/dashboard",
+            element: <CopilotDashboard />,
+          },
+          {
+            path: "copilot/code-review",
+            element: <CodeReviewDashboard />,
+          },
+          {
+            path: "copilot/learning",
+            element: <LearningDashboard />,
+          },
+          {
+            path: "copilot/assistant",
+            element: <DeveloperAssistantPanel />,
+          },
+          {
+            path: "appsec-command-center/dashboard",
+            element: <UnifiedAppSecDashboard />,
+          },
+          {
+            path: "appsec-command-center/engineering",
+            element: <EngineeringIntelligenceDashboard />,
+          },
+          {
+            path: "appsec-command-center/executive",
+            element: <AppSecExecutiveBoard />,
           },
           {
             path: "threat-intel/dashboard",

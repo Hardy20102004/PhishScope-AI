@@ -9,7 +9,6 @@ from app.api.v1.endpoints import (
     browser_investigation,
     cases,
     cloud_investigation,
-    copilot,
     dashboard,
     decision,
     email_intelligence,
@@ -36,7 +35,7 @@ from app.api.v1.endpoints import (
     website_investigation,
     xai,
 )
-from app.api.routers import ioc, ti_feed, threat_actor, campaign, attack_graph, reputation, cloud, timeline, predictive, alerts, detection, ai_triage, threat_hunting, incident_response, soar, collaboration, executive, soc_copilot, digital_twin, disk_forensics, memory_forensics, mobile_forensics, browser_forensics, email_forensics, malware_analysis, cloud_forensics, unified_timeline, reporting_engine, dfir_copilot, bas_platform, red_team, blue_team, continuous_validation, attack_path, detection_gap, cyber_resilience, executive_intelligence, strategic_defense, cspm, cwpp, k8s_security, ciem, cdr, dspm, multi_cloud, governance, ctem, command_center
+from app.api.routers import ioc, ti_feed, threat_actor, campaign, attack_graph, reputation, cloud, timeline, predictive, alerts, detection, ai_triage, threat_hunting, incident_response, soar, collaboration, executive, soc_copilot, digital_twin, disk_forensics, memory_forensics, mobile_forensics, browser_forensics, email_forensics, malware_analysis, cloud_forensics, unified_timeline, reporting_engine, dfir_copilot, bas_platform, red_team, blue_team, continuous_validation, attack_path, detection_gap, cyber_resilience, executive_intelligence, strategic_defense, cspm, cwpp, k8s_security, ciem, cdr, dspm, multi_cloud, governance, ctem, command_center, aspm, devsecops, sbom, sast, dast, sca, secrets, iac, copilot, appsec_command_center
 
 api_router = APIRouter()
 
@@ -57,7 +56,6 @@ api_router.include_router(mobile_investigation.router, prefix="/mobile-investiga
 api_router.include_router(browser_investigation.router, prefix="/browser-investigation", tags=["browser-investigation"])
 api_router.include_router(network_investigation.router, prefix="/network-investigation", tags=["network-investigation"])
 api_router.include_router(cloud_investigation.router, prefix="/cloud-investigation", tags=["cloud-investigation"])
-api_router.include_router(copilot.router, prefix="/copilot", tags=["copilot"])
 api_router.include_router(cases.router, prefix="/cases", tags=["cases"])
 api_router.include_router(reports.router, prefix="/reports", tags=["reports"])
 api_router.include_router(automation.router, prefix="/automation", tags=["automation"])
@@ -123,3 +121,13 @@ api_router.include_router(multi_cloud.router, prefix="/multi-cloud", tags=["Ente
 api_router.include_router(governance.router, prefix="/governance", tags=["Enterprise Cloud Security Governance"])
 api_router.include_router(ctem.router, prefix="/ctem", tags=["Enterprise Cloud Threat Exposure Management"])
 api_router.include_router(command_center.router, prefix="/command-center", tags=["Enterprise AI Cloud Security Command Center"])
+api_router.include_router(aspm.router, prefix="/aspm", tags=["Enterprise Application Security Posture Management"])
+api_router.include_router(devsecops.router, prefix="/devsecops", tags=["Enterprise Secure SDLC & DevSecOps"])
+api_router.include_router(sbom.router, prefix="/sbom", tags=["Enterprise Software Bill of Materials (SBOM)"])
+api_router.include_router(sast.router, prefix="/sast", tags=["Enterprise Static Application Security Testing (SAST)"])
+api_router.include_router(dast.router, prefix="/dast", tags=["Enterprise Dynamic Application Security Testing (DAST)"])
+api_router.include_router(sca.router, prefix="/sca", tags=["Enterprise Software Composition Analysis (SCA)"])
+api_router.include_router(secrets.router, prefix="/secrets", tags=["Enterprise Secrets Security"])
+api_router.include_router(iac.router, prefix="/iac", tags=["Enterprise IaC Security"])
+api_router.include_router(copilot.router, prefix="/copilot", tags=["Enterprise AI Developer Copilot"])
+api_router.include_router(appsec_command_center.router, prefix="/appsec-command-center", tags=["Enterprise AppSec Command Center"])
