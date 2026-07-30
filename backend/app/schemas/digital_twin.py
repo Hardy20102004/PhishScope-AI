@@ -1,50 +1,76 @@
 import uuid
 from datetime import datetime
 from typing import Any, Dict, List, Optional
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, Field
 
-# Recommendations
-class OptimizationRecommendationBase(BaseModel):
-    category: str
+from app.models.digital_twin import (
+    AssetNodeType, SimulationStatus, RiskLevel
+)
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Twin Assets
+# ─────────────────────────────────────────────────────────────────────────────
+class TwinAssetNodeBase(BaseModel):
+    asset_name: str
+    node_type: AssetNodeType
+    attributes: Dict[str, Any] = Field(default_factory=dict)
+
+class TwinAssetNodeResponse(TwinAssetNodeBase):
+    id: uuid.UUID
+    tenant_id: uuid.UUID
+    last_synced_at: datetime
+    class Config:
+        from_attributes = True
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Attack Paths
+# ─────────────────────────────────────────────────────────────────────────────
+class AttackPathGraphBase(BaseModel):
     title: str
-    description: str
-    expected_impact: str
+    description: Optional[str] = None
+    source_node_id: str
+    target_node_id: str
+    path_segments: List[Dict[str, Any]] = Field(default_factory=list)
+    risk_level: RiskLevel
+    is_simulated: bool = True
 
-class OptimizationRecommendationResponse(OptimizationRecommendationBase):
+class AttackPathGraphResponse(AttackPathGraphBase):
     id: uuid.UUID
-    result_id: uuid.UUID
-    model_config = ConfigDict(from_attributes=True)
+    tenant_id: uuid.UUID
+    discovered_at: datetime
+    class Config:
+        from_attributes = True
 
-# Simulation Results
-class SimulationResultBase(BaseModel):
-    forecasted_mttr_mins: float
-    forecasted_sla_breach_rate: float
-    analyst_utilization_rate: float
-
-class SimulationResultResponse(SimulationResultBase):
-    id: uuid.UUID
-    scenario_id: uuid.UUID
-    simulated_at: datetime
-    recommendations: List[OptimizationRecommendationResponse] = []
-    
-    model_config = ConfigDict(from_attributes=True)
-
-# Simulation Scenarios
+# ─────────────────────────────────────────────────────────────────────────────
+# Simulations
+# ─────────────────────────────────────────────────────────────────────────────
 class SimulationScenarioBase(BaseModel):
     name: str
-    description: str
-    alert_volume_multiplier: float
-    analyst_headcount: int
-    automation_rate: float
-
-class SimulationScenarioCreate(SimulationScenarioBase):
-    pass
+    hypothesis: str
+    parameters: Dict[str, Any] = Field(default_factory=dict)
 
 class SimulationScenarioResponse(SimulationScenarioBase):
     id: uuid.UUID
     tenant_id: uuid.UUID
+    status: SimulationStatus
+    results: Dict[str, Any]
     created_at: datetime
-    
-    results: List[SimulationResultResponse] = []
-    
-    model_config = ConfigDict(from_attributes=True)
+    completed_at: Optional[datetime] = None
+    class Config:
+        from_attributes = True
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Resilience Metrics
+# ─────────────────────────────────────────────────────────────────────────────
+class ResilienceMetricBase(BaseModel):
+    domain: str
+    score: float
+    confidence_level: float
+    contributing_factors: List[Dict[str, Any]] = Field(default_factory=list)
+
+class ResilienceMetricResponse(ResilienceMetricBase):
+    id: uuid.UUID
+    tenant_id: uuid.UUID
+    measured_at: datetime
+    class Config:
+        from_attributes = True

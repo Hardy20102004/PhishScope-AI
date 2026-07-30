@@ -1,61 +1,121 @@
+"""
+PHOENIX X — Phase X-093
+Enterprise Cyber Digital Twin, Predictive Security Simulation & Attack Path Intelligence Platform
+Database Models
+"""
+import enum
 import uuid
 from datetime import datetime, timezone
+from typing import Any, Dict, List, Optional
 
-from sqlalchemy import Column, DateTime, Float, ForeignKey, Integer, String, Text, JSON
-from sqlalchemy.orm import Mapped, mapped_column, relationship
+from sqlalchemy import (
+    Boolean, DateTime, Float, ForeignKey, Integer,
+    String, Text, JSON, Enum
+)
+from sqlalchemy.orm import Mapped, mapped_column
 
 from app.db.base_class import Base
 
-class SimulationScenario(Base):
-    __tablename__ = "dt_simulation_scenarios"
+# ─────────────────────────────────────────────────────────────────────────────
+# Enumerations
+# ─────────────────────────────────────────────────────────────────────────────
+
+class AssetNodeType(str, enum.Enum):
+    USER_IDENTITY = "USER_IDENTITY"
+    MACHINE_IDENTITY = "MACHINE_IDENTITY"
+    CLOUD_RESOURCE = "CLOUD_RESOURCE"
+    NETWORK_NODE = "NETWORK_NODE"
+    APPLICATION = "APPLICATION"
+
+class SimulationStatus(str, enum.Enum):
+    QUEUED = "QUEUED"
+    RUNNING = "RUNNING"
+    COMPLETED = "COMPLETED"
+    FAILED = "FAILED"
+
+class RiskLevel(str, enum.Enum):
+    CRITICAL = "CRITICAL"
+    HIGH = "HIGH"
+    MEDIUM = "MEDIUM"
+    LOW = "LOW"
+    NONE = "NONE"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Digital Twin Assets & Paths
+# ─────────────────────────────────────────────────────────────────────────────
+
+class TwinAssetNode(Base):
     """
-    Defines the parameters of a 'what-if' scenario.
+    Represents an entity in the digital twin (asset, identity, cloud resource).
     """
+    __tablename__ = "digital_twin_assets"
+
     id: Mapped[uuid.UUID] = mapped_column(primary_key=True, default=uuid.uuid4, index=True)
     tenant_id: Mapped[uuid.UUID] = mapped_column(ForeignKey("organizations.id", ondelete="CASCADE"), index=True)
     
-    name: Mapped[str] = mapped_column(String(255))
-    description: Mapped[str] = mapped_column(Text)
+    asset_name: Mapped[str] = mapped_column(String(255), nullable=False, index=True)
+    node_type: Mapped[AssetNodeType] = mapped_column(Enum(AssetNodeType), nullable=False)
+    attributes: Mapped[Dict[str, Any]] = mapped_column(JSON, default=dict)
     
-    # Parameters representing the 'what-if'
-    alert_volume_multiplier: Mapped[float] = mapped_column(Float, default=1.0) # e.g. 1.2 = 20% increase
-    analyst_headcount: Mapped[int] = mapped_column(Integer, default=10)
-    automation_rate: Mapped[float] = mapped_column(Float, default=0.5) # e.g. 0.5 = 50% automated
+    last_synced_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(timezone.utc))
+
+class AttackPathGraph(Base):
+    """
+    Represents an identified attack path within the environment.
+    """
+    __tablename__ = "digital_twin_attack_paths"
+
+    id: Mapped[uuid.UUID] = mapped_column(primary_key=True, default=uuid.uuid4, index=True)
+    tenant_id: Mapped[uuid.UUID] = mapped_column(ForeignKey("organizations.id", ondelete="CASCADE"), index=True)
+    
+    title: Mapped[str] = mapped_column(String(255), nullable=False)
+    description: Mapped[str] = mapped_column(Text, nullable=True)
+    
+    source_node_id: Mapped[str] = mapped_column(String(255), nullable=False) # Ext identifier or TwinAssetNode.id
+    target_node_id: Mapped[str] = mapped_column(String(255), nullable=False)
+    
+    path_segments: Mapped[List[Dict[str, Any]]] = mapped_column(JSON, default=list)
+    risk_level: Mapped[RiskLevel] = mapped_column(Enum(RiskLevel), default=RiskLevel.MEDIUM)
+    
+    is_simulated: Mapped[bool] = mapped_column(Boolean, default=True)
+    discovered_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(timezone.utc))
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Simulations & Analytics
+# ─────────────────────────────────────────────────────────────────────────────
+
+class SimulationScenario(Base):
+    """
+    Represents a "what-if" scenario and its predictive results.
+    """
+    __tablename__ = "digital_twin_simulations"
+
+    id: Mapped[uuid.UUID] = mapped_column(primary_key=True, default=uuid.uuid4, index=True)
+    tenant_id: Mapped[uuid.UUID] = mapped_column(ForeignKey("organizations.id", ondelete="CASCADE"), index=True)
+    
+    name: Mapped[str] = mapped_column(String(255), nullable=False)
+    hypothesis: Mapped[str] = mapped_column(Text, nullable=False)
+    
+    status: Mapped[SimulationStatus] = mapped_column(Enum(SimulationStatus), default=SimulationStatus.QUEUED)
+    parameters: Mapped[Dict[str, Any]] = mapped_column(JSON, default=dict)
+    results: Mapped[Dict[str, Any]] = mapped_column(JSON, default=dict)
     
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(timezone.utc))
+    completed_at: Mapped[Optional[datetime]] = mapped_column(DateTime(timezone=True), nullable=True)
 
-    results = relationship("SimulationResult", back_populates="scenario", cascade="all, delete-orphan")
-
-
-class SimulationResult(Base):
-    __tablename__ = "dt_simulation_results"
+class ResilienceMetric(Base):
     """
-    The forecasted output metrics for a given scenario.
+    Represents the assessed resilience score of an enterprise segment.
     """
+    __tablename__ = "digital_twin_resilience"
+
     id: Mapped[uuid.UUID] = mapped_column(primary_key=True, default=uuid.uuid4, index=True)
-    scenario_id: Mapped[uuid.UUID] = mapped_column(ForeignKey("dt_simulation_scenarios.id", ondelete="CASCADE"), index=True)
+    tenant_id: Mapped[uuid.UUID] = mapped_column(ForeignKey("organizations.id", ondelete="CASCADE"), index=True)
     
-    forecasted_mttr_mins: Mapped[float] = mapped_column(Float)
-    forecasted_sla_breach_rate: Mapped[float] = mapped_column(Float)
-    analyst_utilization_rate: Mapped[float] = mapped_column(Float)
+    domain: Mapped[str] = mapped_column(String(100), nullable=False) # e.g. "CLOUD", "IDENTITY", "ENTERPRISE"
+    score: Mapped[float] = mapped_column(Float, default=0.0) # 0-100
+    confidence_level: Mapped[float] = mapped_column(Float, default=0.0)
     
-    simulated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(timezone.utc))
-
-    scenario = relationship("SimulationScenario", back_populates="results")
-    recommendations = relationship("OptimizationRecommendation", back_populates="result", cascade="all, delete-orphan")
-
-
-class OptimizationRecommendation(Base):
-    __tablename__ = "dt_optimization_recommendations"
-    """
-    AI-generated strategic recommendations to mitigate bottlenecks found in a simulation.
-    """
-    id: Mapped[uuid.UUID] = mapped_column(primary_key=True, default=uuid.uuid4, index=True)
-    result_id: Mapped[uuid.UUID] = mapped_column(ForeignKey("dt_simulation_results.id", ondelete="CASCADE"), index=True)
-    
-    category: Mapped[str] = mapped_column(String(50)) # STAFFING, AUTOMATION, WORKFLOW
-    title: Mapped[str] = mapped_column(String(255))
-    description: Mapped[str] = mapped_column(Text)
-    expected_impact: Mapped[str] = mapped_column(Text) # e.g., "Reduces MTTR by 15 mins"
-    
-    result = relationship("SimulationResult", back_populates="recommendations")
+    contributing_factors: Mapped[List[Dict[str, Any]]] = mapped_column(JSON, default=list)
+    measured_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(timezone.utc))

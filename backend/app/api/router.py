@@ -35,7 +35,7 @@ from app.api.v1.endpoints import (
     website_investigation,
     xai,
 )
-from app.api.routers import ioc, ti_feed, threat_actor, campaign, attack_graph, reputation, cloud, timeline, predictive, alerts, detection, ai_triage, threat_hunting, incident_response, soar, collaboration, executive, soc_copilot, digital_twin, disk_forensics, memory_forensics, mobile_forensics, browser_forensics, email_forensics, malware_analysis, cloud_forensics, unified_timeline, reporting_engine, dfir_copilot, bas_platform, red_team, blue_team, continuous_validation, attack_path, detection_gap, cyber_resilience, executive_intelligence, strategic_defense, cspm, cwpp, k8s_security, ciem, cdr, dspm, multi_cloud, governance, ctem, command_center, aspm, devsecops, sbom, sast, dast, sca, secrets, iac, copilot, appsec_command_center
+from app.api.routers import ioc, ti_feed, threat_actor, campaign, attack_graph, reputation, cloud, timeline, predictive, alerts, detection, ai_triage, threat_hunting, incident_response, soar, collaboration, executive, soc_copilot, digital_twin, disk_forensics, memory_forensics, mobile_forensics, browser_forensics, email_forensics, malware_analysis, cloud_forensics, unified_timeline, reporting_engine, dfir_copilot, bas_platform, red_team, blue_team, continuous_validation, attack_path, detection_gap, cyber_resilience, executive_intelligence, strategic_defense, cspm, cwpp, k8s_security, ciem, cdr, dspm, multi_cloud, governance, ctem, command_center, aspm, devsecops, sbom, sast, dast, sca, secrets, iac, copilot, appsec_command_center, ispm, zta, pam, itdr, iga, nhi, authn, federation, identity_intel, identity_command_center, cyber_fusion, orchestration, digital_twin, predictive_risk
 
 api_router = APIRouter()
 
@@ -131,3 +131,18 @@ api_router.include_router(secrets.router, prefix="/secrets", tags=["Enterprise S
 api_router.include_router(iac.router, prefix="/iac", tags=["Enterprise IaC Security"])
 api_router.include_router(copilot.router, prefix="/copilot", tags=["Enterprise AI Developer Copilot"])
 api_router.include_router(appsec_command_center.router, prefix="/appsec-command-center", tags=["Enterprise AppSec Command Center"])
+api_router.include_router(ispm.router, prefix="/ispm", tags=["Enterprise Identity Security Posture Management (ISPM)"])
+api_router.include_router(zta.router, prefix="/zta", tags=["ZTA"])
+api_router.include_router(pam.router, prefix="/pam", tags=["Enterprise Privileged Access Management (PAM)"])
+api_router.include_router(itdr.router, prefix="/itdr", tags=["Identity Threat Detection & Response (ITDR)"])
+api_router.include_router(iga.router, prefix="/iga", tags=["Identity Governance & Administration (IGA)"])
+api_router.include_router(nhi.router, prefix="/nhi", tags=["Machine & Non-Human Identity (NHI)"])
+api_router.include_router(authn.router, prefix="/authn", tags=["Passwordless Authentication (AUTHN)"])
+api_router.include_router(federation.router, prefix="/federation", tags=["Federated Identity & SSO (FEDERATION)"])
+api_router.include_router(identity_intel.router, prefix="/identity-intel", tags=["Identity Intelligence & Trust (IDENTITY_INTEL)"])
+api_router.include_router(identity_command_center.router, prefix="/identity-cc", tags=["Unified Identity Command Center"])
+api_router.include_router(cyber_fusion.router, prefix="/cyber-fusion", tags=["Cyber Fusion Center (CYBER_FUSION)"])
+api_router.include_router(orchestration.router, prefix="/orchestration", tags=["AI Security Orchestration (ORCHESTRATION)"])
+api_router.include_router(digital_twin.router, prefix="/digital-twin", tags=["Cyber Digital Twin (DIGITAL_TWIN)"])
+api_router.include_router(predictive_risk.router, prefix="/predictive-risk", tags=["Predictive Cyber Risk (PREDICTIVE_RISK)"])
+api_router.include_router(cyber_resilience.router, prefix="/cyber-resilience", tags=["Cyber Resilience & BCP (CYBER_RESILIENCE)"])

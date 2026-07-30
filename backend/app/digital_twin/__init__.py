@@ -1,1 +1,3 @@
-# Digital Twin Module
+"""
+Enterprise Cyber Digital Twin & Attack Path Intelligence Platform
+"""

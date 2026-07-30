@@ -1,1 +1,3 @@
-# Cyber Resilience Module
+"""
+Enterprise Cyber Resilience, Business Continuity & Continuous Readiness Platform
+"""

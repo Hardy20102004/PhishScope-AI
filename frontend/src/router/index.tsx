@@ -143,6 +143,126 @@ import { UnifiedAppSecDashboard } from "@/pages/appsec-command-center/UnifiedApp
 import { EngineeringIntelligenceDashboard } from "@/pages/appsec-command-center/EngineeringIntelligenceDashboard";
 import { AppSecExecutiveBoard } from "@/pages/appsec-command-center/AppSecExecutiveBoard";
 
+// ISPM — Enterprise Identity Security Posture Management
+import ISPMDashboard from "@/pages/ispm/ISPMDashboard";
+import IdentityInventoryDashboard from "@/pages/ispm/IdentityInventoryDashboard";
+import AccessGovernanceDashboard from "@/pages/ispm/AccessGovernanceDashboard";
+import AuthenticationDashboard from "@/pages/ispm/AuthenticationDashboard";
+import ZeroTrustDashboard from "@/pages/ispm/ZeroTrustDashboard";
+import IdentityRiskDashboard from "@/pages/ispm/IdentityRiskDashboard";
+import ISPMAIAssistant from "@/pages/ispm/ISPMAIAssistant";
+
+// ZTA — Enterprise Zero Trust Architecture
+import ZTADashboard from "@/pages/zta/ZTADashboard";
+import ContinuousVerificationDashboard from "@/pages/zta/ContinuousVerificationDashboard";
+import AdaptiveAccessDashboard from "@/pages/zta/AdaptiveAccessDashboard";
+import PolicyGovernanceDashboard from "@/pages/zta/PolicyGovernanceDashboard";
+import SessionIntelligenceDashboard from "@/pages/zta/SessionIntelligenceDashboard";
+import ZTAAIAssistant from "@/pages/zta/ZTAAIAssistant";
+
+// PAM — Enterprise Privileged Access Management
+import PAMDashboard from "@/pages/pam/PAMDashboard";
+import PrivilegedIdentityDashboard from "@/pages/pam/PrivilegedIdentityDashboard";
+import JITAccessDashboard from "@/pages/pam/JITAccessDashboard";
+import AdministrativeSessionDashboard from "@/pages/pam/AdministrativeSessionDashboard";
+import CredentialGovernanceDashboard from "@/pages/pam/CredentialGovernanceDashboard";
+import PrivilegeRiskDashboard from "@/pages/pam/PrivilegeRiskDashboard";
+import PAMAIAssistant from "@/pages/pam/PAMAIAssistant";
+
+// ITDR — Enterprise Identity Threat Detection & Response
+import ITDRDashboard from "@/pages/itdr/ITDRDashboard";
+import IdentityTimelineDashboard from "@/pages/itdr/IdentityTimelineDashboard";
+import BehaviorAnalyticsDashboard from "@/pages/itdr/BehaviorAnalyticsDashboard";
+import CredentialDefenseDashboard from "@/pages/itdr/CredentialDefenseDashboard";
+import InvestigationDashboard from "@/pages/itdr/InvestigationDashboard";
+import IdentityRiskDashboard from "@/pages/itdr/IdentityRiskDashboard";
+import ITDRAIAssistant from "@/pages/itdr/ITDRAIAssistant";
+
+// IGA — Enterprise Identity Governance & Administration
+import IGADashboard from "@/pages/iga/IGADashboard";
+import IdentityLifecycleDashboard from "@/pages/iga/IdentityLifecycleDashboard";
+import AccessRequestDashboard from "@/pages/iga/AccessRequestDashboard";
+import CertificationDashboard from "@/pages/iga/CertificationDashboard";
+import EntitlementDashboard from "@/pages/iga/EntitlementDashboard";
+import SoDDashboard from "@/pages/iga/SoDDashboard";
+import IGAAIAssistant from "@/pages/iga/IGAAIAssistant";
+
+// NHI — Enterprise Machine & Non-Human Identity Security
+import NHIDashboard from "@/pages/nhi/NHIDashboard";
+import MachineIdentityDashboard from "@/pages/nhi/MachineIdentityDashboard";
+import WorkloadIdentityDashboard from "@/pages/nhi/WorkloadIdentityDashboard";
+import CertificateDashboard from "@/pages/nhi/CertificateDashboard";
+import TrustRelationshipDashboard from "@/pages/nhi/TrustRelationshipDashboard";
+import NHILifecycleDashboard from "@/pages/nhi/NHILifecycleDashboard";
+import NHIAIAssistant from "@/pages/nhi/NHIAIAssistant";
+
+// AUTHN — Enterprise Passwordless Authentication Platform
+import AuthnDashboard from "@/pages/authn/AuthnDashboard";
+import PasskeyDashboard from "@/pages/authn/PasskeyDashboard";
+import EnrollmentDashboard from "@/pages/authn/EnrollmentDashboard";
+import AssuranceDashboard from "@/pages/authn/AssuranceDashboard";
+import AuthnPolicyDashboard from "@/pages/authn/AuthnPolicyDashboard";
+import AuthnAIAssistant from "@/pages/authn/AuthnAIAssistant";
+
+// FEDERATION — Enterprise Federated Identity Platform
+import FederationDashboard from "@/pages/federation/FederationDashboard";
+import SSODashboard from "@/pages/federation/SSODashboard";
+import TrustDashboard from "@/pages/federation/TrustDashboard";
+import ProtocolDashboard from "@/pages/federation/ProtocolDashboard";
+import MetadataDashboard from "@/pages/federation/MetadataDashboard";
+import FederationAIAssistant from "@/pages/federation/FederationAIAssistant";
+
+// IDENTITY_INTEL — Enterprise Identity Intelligence Platform
+import IdentityIntelDashboard from "@/pages/identity_intel/IdentityIntelDashboard";
+import BehaviorDashboard from "@/pages/identity_intel/BehaviorDashboard";
+import AdaptiveTrustDashboard from "@/pages/identity_intel/AdaptiveTrustDashboard";
+import IdentityRiskDashboard from "@/pages/identity_intel/IdentityRiskDashboard";
+import ExecutiveIntelDashboard from "@/pages/identity_intel/ExecutiveIntelDashboard";
+import IdentityIntelAIAssistant from "@/pages/identity_intel/IdentityIntelAIAssistant";
+
+// IDENTITY_COMMAND_CENTER — Enterprise Unified Identity Security Command Center
+import IdentityCommandCenterDashboard from "@/pages/identity_cc/IdentityCommandCenterDashboard";
+import UnifiedZeroTrustDashboard from "@/pages/identity_cc/UnifiedZeroTrustDashboard";
+import UnifiedGovernanceDashboard from "@/pages/identity_cc/UnifiedGovernanceDashboard";
+import UnifiedRiskDashboard from "@/pages/identity_cc/UnifiedRiskDashboard";
+import BoardReportingDashboard from "@/pages/identity_cc/BoardReportingDashboard";
+import IdentityCCAIAssistant from "@/pages/identity_cc/IdentityCCAIAssistant";
+
+// CYBER_FUSION — Enterprise Cyber Fusion Center
+import CyberFusionDashboard from "@/pages/cyber_fusion/CyberFusionDashboard";
+import CrossDomainCorrelationDashboard from "@/pages/cyber_fusion/CrossDomainCorrelationDashboard";
+import AttackSurfaceDashboard from "@/pages/cyber_fusion/AttackSurfaceDashboard";
+import StrategicExecutiveDashboard from "@/pages/cyber_fusion/StrategicExecutiveDashboard";
+import CyberFusionAIAssistant from "@/pages/cyber_fusion/CyberFusionAIAssistant";
+
+// ORCHESTRATION — Enterprise AI Security Orchestration Platform
+import OrchestrationDashboard from "@/pages/orchestration/OrchestrationDashboard";
+import PlaybookDashboard from "@/pages/orchestration/PlaybookDashboard";
+import TaskDashboard from "@/pages/orchestration/TaskDashboard";
+import DecisionDashboard from "@/pages/orchestration/DecisionDashboard";
+import OrchestrationAIAssistant from "@/pages/orchestration/OrchestrationAIAssistant";
+
+// DIGITAL_TWIN — Enterprise Cyber Digital Twin Platform
+import DigitalTwinDashboard from "@/pages/digital_twin/DigitalTwinDashboard";
+import EnterpriseModelExplorer from "@/pages/digital_twin/EnterpriseModelExplorer";
+import AttackPathDashboard from "@/pages/digital_twin/AttackPathDashboard";
+import ScenarioSimulationDashboard from "@/pages/digital_twin/ScenarioSimulationDashboard";
+import DigitalTwinAIAssistant from "@/pages/digital_twin/DigitalTwinAIAssistant";
+
+// PREDICTIVE_RISK — Enterprise Predictive Cyber Risk & Strategy Platform
+import PredictiveRiskDashboard from "@/pages/predictive_risk/PredictiveRiskDashboard";
+import ExecutiveForecastDashboard from "@/pages/predictive_risk/ExecutiveForecastDashboard";
+import InvestmentPrioritizationDashboard from "@/pages/predictive_risk/InvestmentPrioritizationDashboard";
+import StrategicPlanningDashboard from "@/pages/predictive_risk/StrategicPlanningDashboard";
+import PredictiveAIAssistant from "@/pages/predictive_risk/PredictiveAIAssistant";
+
+// CYBER_RESILIENCE — Enterprise Cyber Resilience & BCP
+import ResilienceDashboard from "@/pages/cyber_resilience/ResilienceDashboard";
+import BusinessContinuityDashboard from "@/pages/cyber_resilience/BusinessContinuityDashboard";
+import DisasterRecoveryDashboard from "@/pages/cyber_resilience/DisasterRecoveryDashboard";
+import TabletopExerciseDashboard from "@/pages/cyber_resilience/TabletopExerciseDashboard";
+import ResilienceAIAssistant from "@/pages/cyber_resilience/ResilienceAIAssistant";
+
 export const router = createBrowserRouter([
   {
     element: <AuthLayout />,
@@ -487,6 +607,36 @@ export const router = createBrowserRouter([
             path: "appsec-command-center/executive",
             element: <AppSecExecutiveBoard />,
           },
+          // ── ISPM — Enterprise Identity Security Posture Management ──
+          {
+            path: "ispm",
+            element: <ISPMDashboard />,
+          },
+          {
+            path: "ispm/inventory",
+            element: <IdentityInventoryDashboard />,
+          },
+          {
+            path: "ispm/governance",
+            element: <AccessGovernanceDashboard />,
+          },
+          {
+            path: "ispm/authentication",
+            element: <AuthenticationDashboard />,
+          },
+          {
+            path: "ispm/zero-trust",
+            element: <ZeroTrustDashboard />,
+          },
+          {
+            path: "ispm/risk",
+            element: <IdentityRiskDashboard />,
+          },
+          {
+            path: "ispm/ai-assistant",
+            element: <ISPMAIAssistant />,
+          },
+
           {
             path: "threat-intel/dashboard",
             element: <ThreatIntelDashboard />,
@@ -510,6 +660,338 @@ export const router = createBrowserRouter([
           {
             path: "automation/builder/:id",
             element: <WorkflowBuilder />,
+          },
+          {
+            path: "zta",
+            element: <ZTADashboard />,
+          },
+          {
+            path: "zta/verify",
+            element: <ContinuousVerificationDashboard />,
+          },
+          {
+            path: "zta/access",
+            element: <AdaptiveAccessDashboard />,
+          },
+          {
+            path: "zta/policies",
+            element: <PolicyGovernanceDashboard />,
+          },
+          {
+            path: "zta/sessions",
+            element: <SessionIntelligenceDashboard />,
+          },
+          {
+            path: "zta/assistant",
+            element: <ZTAAIAssistant />,
+          },
+          {
+            path: "pam",
+            element: <PAMDashboard />,
+          },
+          {
+            path: "pam/identities",
+            element: <PrivilegedIdentityDashboard />,
+          },
+          {
+            path: "pam/jit",
+            element: <JITAccessDashboard />,
+          },
+          {
+            path: "pam/sessions",
+            element: <AdministrativeSessionDashboard />,
+          },
+          {
+            path: "pam/credentials",
+            element: <CredentialGovernanceDashboard />,
+          },
+          {
+            path: "pam/risk",
+            element: <PrivilegeRiskDashboard />,
+          },
+          {
+            path: "pam/assistant",
+            element: <PAMAIAssistant />,
+          },
+          {
+            path: "itdr",
+            element: <ITDRDashboard />,
+          },
+          {
+            path: "itdr/timeline",
+            element: <IdentityTimelineDashboard />,
+          },
+          {
+            path: "itdr/behavior",
+            element: <BehaviorAnalyticsDashboard />,
+          },
+          {
+            path: "itdr/credentials",
+            element: <CredentialDefenseDashboard />,
+          },
+          {
+            path: "itdr/investigations",
+            element: <InvestigationDashboard />,
+          },
+          {
+            path: "itdr/risk",
+            element: <IdentityRiskDashboard />,
+          },
+          {
+            path: "itdr/assistant",
+            element: <ITDRAIAssistant />,
+          },
+          {
+            path: "iga",
+            element: <IGADashboard />,
+          },
+          {
+            path: "iga/lifecycle",
+            element: <IdentityLifecycleDashboard />,
+          },
+          {
+            path: "iga/requests",
+            element: <AccessRequestDashboard />,
+          },
+          {
+            path: "iga/certifications",
+            element: <CertificationDashboard />,
+          },
+          {
+            path: "iga/entitlements",
+            element: <EntitlementDashboard />,
+          },
+          {
+            path: "iga/sod",
+            element: <SoDDashboard />,
+          },
+          {
+            path: "iga/assistant",
+            element: <IGAAIAssistant />,
+          },
+          {
+            path: "nhi",
+            element: <NHIDashboard />,
+          },
+          {
+            path: "nhi/identities",
+            element: <MachineIdentityDashboard />,
+          },
+          {
+            path: "nhi/workloads",
+            element: <WorkloadIdentityDashboard />,
+          },
+          {
+            path: "nhi/certificates",
+            element: <CertificateDashboard />,
+          },
+          {
+            path: "nhi/trust",
+            element: <TrustRelationshipDashboard />,
+          },
+          {
+            path: "nhi/lifecycle",
+            element: <NHILifecycleDashboard />,
+          },
+          {
+            path: "nhi/assistant",
+            element: <NHIAIAssistant />,
+          },
+          {
+            path: "authn",
+            element: <AuthnDashboard />,
+          },
+          {
+            path: "authn/passkeys",
+            element: <PasskeyDashboard />,
+          },
+          {
+            path: "authn/enrollments",
+            element: <EnrollmentDashboard />,
+          },
+          {
+            path: "authn/assurance",
+            element: <AssuranceDashboard />,
+          },
+          {
+            path: "authn/policies",
+            element: <AuthnPolicyDashboard />,
+          },
+          {
+            path: "authn/assistant",
+            element: <AuthnAIAssistant />,
+          },
+          {
+            path: "federation",
+            element: <FederationDashboard />,
+          },
+          {
+            path: "federation/sso",
+            element: <SSODashboard />,
+          },
+          {
+            path: "federation/trusts",
+            element: <TrustDashboard />,
+          },
+          {
+            path: "federation/protocols",
+            element: <ProtocolDashboard />,
+          },
+          {
+            path: "federation/metadata",
+            element: <MetadataDashboard />,
+          },
+          {
+            path: "federation/assistant",
+            element: <FederationAIAssistant />,
+          },
+          {
+            path: "identity-intel",
+            element: <IdentityIntelDashboard />,
+          },
+          {
+            path: "identity-intel/behavior",
+            element: <BehaviorDashboard />,
+          },
+          {
+            path: "identity-intel/trust",
+            element: <AdaptiveTrustDashboard />,
+          },
+          {
+            path: "identity-intel/risk",
+            element: <IdentityRiskDashboard />,
+          },
+          {
+            path: "identity-intel/executive",
+            element: <ExecutiveIntelDashboard />,
+          },
+          {
+            path: "identity-intel/assistant",
+            element: <IdentityIntelAIAssistant />,
+          },
+          {
+            path: "identity-cc",
+            element: <IdentityCommandCenterDashboard />,
+          },
+          {
+            path: "identity-cc/zero-trust",
+            element: <UnifiedZeroTrustDashboard />,
+          },
+          {
+            path: "identity-cc/governance",
+            element: <UnifiedGovernanceDashboard />,
+          },
+          {
+            path: "identity-cc/risk",
+            element: <UnifiedRiskDashboard />,
+          },
+          {
+            path: "identity-cc/board",
+            element: <BoardReportingDashboard />,
+          },
+          {
+            path: "identity-cc/assistant",
+            element: <IdentityCCAIAssistant />,
+          },
+          {
+            path: "cyber-fusion",
+            element: <CyberFusionDashboard />,
+          },
+          {
+            path: "cyber-fusion/correlation",
+            element: <CrossDomainCorrelationDashboard />,
+          },
+          {
+            path: "cyber-fusion/attack-surface",
+            element: <AttackSurfaceDashboard />,
+          },
+          {
+            path: "cyber-fusion/executive",
+            element: <StrategicExecutiveDashboard />,
+          },
+          {
+            path: "cyber-fusion/assistant",
+            element: <CyberFusionAIAssistant />,
+          },
+          {
+            path: "orchestration",
+            element: <OrchestrationDashboard />,
+          },
+          {
+            path: "orchestration/playbooks",
+            element: <PlaybookDashboard />,
+          },
+          {
+            path: "orchestration/tasks",
+            element: <TaskDashboard />,
+          },
+          {
+            path: "orchestration/decisions",
+            element: <DecisionDashboard />,
+          },
+          {
+            path: "orchestration/assistant",
+            element: <OrchestrationAIAssistant />,
+          },
+          {
+            path: "digital-twin",
+            element: <DigitalTwinDashboard />,
+          },
+          {
+            path: "digital-twin/explorer",
+            element: <EnterpriseModelExplorer />,
+          },
+          {
+            path: "digital-twin/attack-paths",
+            element: <AttackPathDashboard />,
+          },
+          {
+            path: "digital-twin/simulations",
+            element: <ScenarioSimulationDashboard />,
+          },
+          {
+            path: "digital-twin/assistant",
+            element: <DigitalTwinAIAssistant />,
+          },
+          {
+            path: "predictive-risk",
+            element: <PredictiveRiskDashboard />,
+          },
+          {
+            path: "predictive-risk/forecasts",
+            element: <ExecutiveForecastDashboard />,
+          },
+          {
+            path: "predictive-risk/investments",
+            element: <InvestmentPrioritizationDashboard />,
+          },
+          {
+            path: "predictive-risk/plans",
+            element: <StrategicPlanningDashboard />,
+          },
+          {
+            path: "predictive-risk/assistant",
+            element: <PredictiveAIAssistant />,
+          },
+          {
+            path: "cyber-resilience",
+            element: <ResilienceDashboard />,
+          },
+          {
+            path: "cyber-resilience/bcp",
+            element: <BusinessContinuityDashboard />,
+          },
+          {
+            path: "cyber-resilience/dr",
+            element: <DisasterRecoveryDashboard />,
+          },
+          {
+            path: "cyber-resilience/tabletops",
+            element: <TabletopExerciseDashboard />,
+          },
+          {
+            path: "cyber-resilience/assistant",
+            element: <ResilienceAIAssistant />,
           },
         ],
       },
