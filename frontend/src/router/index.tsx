@@ -263,6 +263,26 @@ import DisasterRecoveryDashboard from "@/pages/cyber_resilience/DisasterRecovery
 import TabletopExerciseDashboard from "@/pages/cyber_resilience/TabletopExerciseDashboard";
 import ResilienceAIAssistant from "@/pages/cyber_resilience/ResilienceAIAssistant";
 
+// DATA_FABRIC — Enterprise Security Data Fabric
+import { SecurityDataFabricDashboard } from "@/features/dataFabric";
+
+// KNOWLEDGE_EVOLUTION — Enterprise Autonomous Knowledge Graph Evolution
+import { KnowledgeEvolutionDashboard } from "@/features/knowledgeEvolution";
+
+// CYBER_GOVERNANCE — Enterprise Cyber Governance & Executive Strategy
+import { ExecutiveGovernanceDashboard } from "@/features/cyberGovernance";
+
+// CYBER_COMMAND — Enterprise Unified Cyber Command
+import { EnterpriseCommandDashboard } from "@/features/cyberCommand";
+
+// CYBER_OS — Enterprise Cyber Operating System
+import { CyberOSDesktop } from "@/features/cyberOS";
+
+
+
+
+
+
 export const router = createBrowserRouter([
   {
     element: <AuthLayout />,
@@ -992,6 +1012,26 @@ export const router = createBrowserRouter([
           {
             path: "cyber-resilience/assistant",
             element: <ResilienceAIAssistant />,
+          },
+          {
+            path: "data-fabric",
+            element: <SecurityDataFabricDashboard />,
+          },
+          {
+            path: "knowledge-evolution",
+            element: <KnowledgeEvolutionDashboard />,
+          },
+          {
+            path: "cyber-governance",
+            element: <ExecutiveGovernanceDashboard />,
+          },
+          {
+            path: "cyber-command",
+            element: <EnterpriseCommandDashboard />,
+          },
+          {
+            path: "cyber-os",
+            element: <CyberOSDesktop />,
           },
         ],
       },

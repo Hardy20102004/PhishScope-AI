@@ -130,3 +130,9 @@ from app.models.secrets import SecretMetadata, SecretExposure, SecretPolicy, Sec
 from app.models.iac import IaCTemplate, IaCConfigurationFinding, IaCPolicy, IaCDeploymentGovernance, IaCGuidance, IaCAuditLog  # noqa: F401
 from app.models.copilot import DeveloperCopilotSession, CodeReviewRecord, CodeReviewFinding, DeveloperLearningProgress, EngineeringMetric, CopilotConversation, CopilotMessage, GeneratedReport  # noqa: F401
 from app.models.appsec_command_center import AppSecExecutiveMetric, EngineeringProductivityMetric, AppSecConsolidatedFinding, AppSecGovernanceDecision  # noqa: F401
+from app.models.data_fabric import MetadataNode, LineageEdge, QualityMetric  # noqa: F401
+from app.models.knowledge_evolution import OntologyNode, SchemaRecommendation, EvolutionQualityMetric  # noqa: F401
+from app.models.cyber_governance import CyberGovernanceKPI, GovernancePolicy, RiskOversightMetric, BoardReportSummary  # noqa: F401
+from app.models.cyber_command import EnterpriseHealthMetric, StrategicPlan, ExecutiveCopilotSummary  # noqa: F401
+from app.models.cyber_os import PlatformRegistryEntry, UnifiedObservabilityMetric, GlobalSystemLog  # noqa: F401
+

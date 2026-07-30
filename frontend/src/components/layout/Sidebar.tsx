@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom"
-import { ShieldAlert, LayoutDashboard, ShieldCheck, Activity, Settings, GitBranch, Cpu, Users, Database, FileText, FileCode, BookOpen, Share2, BrainCircuit, Lightbulb, CloudLightning, Globe, Fingerprint, Target, Shield } from "lucide-react"
+import { ShieldAlert, LayoutDashboard, ShieldCheck, Activity, Settings, GitBranch, Cpu, Users, Database, FileText, FileCode, BookOpen, Share2, BrainCircuit, Lightbulb, CloudLightning, Globe, Fingerprint, Target, Shield, Network, LineChart, Briefcase, Crosshair } from "lucide-react"
 import { cn } from "@/utils/cn"
 
 export function Sidebar() {
@@ -17,7 +17,11 @@ export function Sidebar() {
       { name: "Cyber Digital Twin", path: "/digital-twin", icon: <Network size={20} /> },
       { name: "Predictive Risk & Strategy", path: "/predictive-risk", icon: <LineChart size={20} /> },
       { name: "Cyber Resilience & BCP", path: "/cyber-resilience", icon: <Shield size={20} /> },
+      { name: "Security Data Fabric", path: "/data-fabric", icon: <Database size={20} /> },
+      { name: "Knowledge Evolution", path: "/knowledge-evolution", icon: <BrainCircuit size={20} /> },
+      { name: "Cyber Governance", path: "/cyber-governance", icon: <Briefcase size={20} /> },
       { name: "Command Center", path: "/command-center", icon: <Globe size={20} /> },
+      { name: "Unified Cyber Command", path: "/cyber-command", icon: <Crosshair size={20} /> },
       { name: "SOC Dashboard", path: "/dashboard", icon: <LayoutDashboard size={20} /> },
     ],
     defensive: [

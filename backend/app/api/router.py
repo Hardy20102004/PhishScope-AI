@@ -9,12 +9,17 @@ from app.api.v1.endpoints import (
     browser_investigation,
     cases,
     cloud_investigation,
+    cyber_command,
+    cyber_governance,
+    cyber_os,
     dashboard,
+    data_fabric,
     decision,
     email_intelligence,
     extension,
     health,
     investigations,
+    knowledge_evolution,
     knowledge_graph,
     malware_intelligence,
     mobile,
@@ -45,6 +50,7 @@ api_router.include_router(version.router, prefix="/version", tags=["system"])
 api_router.include_router(auth.router, prefix="/auth", tags=["auth"])
 api_router.include_router(users.router, prefix="/users", tags=["users"])
 api_router.include_router(dashboard.router, prefix="/dashboard", tags=["dashboard"])
+api_router.include_router(data_fabric.router, prefix="/data-fabric", tags=["Enterprise Security Data Fabric"])
 api_router.include_router(investigations.router, prefix="/investigations", tags=["investigations"])
 api_router.include_router(threat_intel.router, prefix="/threat-intel", tags=["threat-intel"])
 api_router.include_router(url_intelligence.router, prefix="/url-intelligence", tags=["url-intelligence"])
@@ -146,3 +152,8 @@ api_router.include_router(orchestration.router, prefix="/orchestration", tags=["
 api_router.include_router(digital_twin.router, prefix="/digital-twin", tags=["Cyber Digital Twin (DIGITAL_TWIN)"])
 api_router.include_router(predictive_risk.router, prefix="/predictive-risk", tags=["Predictive Cyber Risk (PREDICTIVE_RISK)"])
 api_router.include_router(cyber_resilience.router, prefix="/cyber-resilience", tags=["Cyber Resilience & BCP (CYBER_RESILIENCE)"])
+api_router.include_router(knowledge_evolution.router, prefix="/knowledge-evolution", tags=["Enterprise Knowledge Evolution"])
+api_router.include_router(cyber_governance.router, prefix="/cyber-governance", tags=["Cyber Governance & Executive Strategy"])
+api_router.include_router(cyber_command.router, prefix="/cyber-command", tags=["Enterprise Cyber Command"])
+api_router.include_router(cyber_os.router, prefix="/cyber-os", tags=["CyberOS Kernel"])
+
