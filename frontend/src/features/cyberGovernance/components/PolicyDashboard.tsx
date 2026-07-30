@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { FileText, Plus, Search, Filter } from 'lucide-react';
-import { GovernancePolicy } from '../types';
+import type {  GovernancePolicy  } from "../types";
 
 export function PolicyDashboard() {
   const [policies, setPolicies] = useState<GovernancePolicy[]>([]);

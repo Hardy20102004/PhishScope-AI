@@ -5,12 +5,6 @@ import { cn } from "@/utils/cn"
 export function Sidebar() {
   const location = useLocation()
   
-  const navItems = [
-    { name: "Command Center", path: "/command-center", icon: <Globe size={20} /> },
-    { name: "SOC Dashboard", path: "/dashboard", icon: <LayoutDashboard size={20} /> },
-    { name: "AI Workforce", path: "/multi-agent/dashboard", icon: <Users size={20} /> },
-    { name: "AI Security Brain", path: "/ai-brain", icon: <Cpu size={20} /> },
-    { name: "AI Memory Engine", path: "/ai-memory", icon: <Database size={20} /> },
   const navItems = {
     unified: [
       { name: "Cyber Fusion Center", path: "/cyber-fusion", icon: <Target size={20} /> },
@@ -28,48 +22,26 @@ export function Sidebar() {
       { name: "Orchestration & SOAR", path: "/orchestration", icon: <GitBranch size={20} /> },
       { name: "AI Workforce", path: "/multi-agent/dashboard", icon: <Users size={20} /> },
       { name: "AI Security Brain", path: "/ai-brain", icon: <Cpu size={20} /> },
-      { name: "AI Memory Engine", path: "/ai-memory", icon: <Database size={20} /> },
-      { name: "AI Context Engine", path: "/ai-context", icon: <FileText size={20} /> },
-      { name: "Prompt Platform", path: "/prompt-platform", icon: <FileCode size={20} /> },
-      { name: "RAG Knowledge", path: "/rag", icon: <BookOpen size={20} /> },
-      { name: "Knowledge Graph", path: "/knowledge-graph", icon: <Share2 size={20} /> },
-      { name: "Decision Engine", path: "/decision", icon: <BrainCircuit size={20} /> },
-      { name: "Explainable AI", path: "/xai", icon: <Lightbulb size={20} /> },
-      { name: "Model Manager", path: "/models", icon: <Cpu size={20} /> },
-      { name: "Cases", path: "/cases", icon: <ShieldAlert size={20} /> },
-      { name: "Investigations", path: "/investigations/new", icon: <ShieldAlert size={20} /> },
-      { name: "Threat Intel", path: "/threat-intel/dashboard", icon: <Activity size={20} /> },
-      { name: "Automation", path: "/automation", icon: <GitBranch size={20} /> },
-      { name: "Cloud Exposure", path: "/ctem/dashboard", icon: <CloudLightning size={20} /> },
-      { name: "Identity Security (ISPM)", path: "/ispm", icon: <Fingerprint size={20} /> },
-      { name: "Zero Trust (ZTA)", path: "/zta", icon: <ShieldCheck size={20} /> },
-      { name: "Privileged Access (PAM)", path: "/pam", icon: <ShieldAlert size={20} /> },
-      { name: "Identity Threats (ITDR)", path: "/itdr", icon: <Target size={20} /> },
-      { name: "Identity Governance (IGA)", path: "/iga", icon: <BookOpen size={20} /> },
-      { name: "Machine Identity (NHI)", path: "/nhi", icon: <Cpu size={20} /> },
-      { name: "Passwordless (AUTHN)", path: "/authn", icon: <Fingerprint size={20} /> },
-      { name: "Federation & SSO", path: "/federation", icon: <Globe size={20} /> },
-      { name: "Identity Intel", path: "/identity-intel", icon: <BrainCircuit size={20} /> },
-      { name: "Command Center", path: "/identity-cc", icon: <Shield size={20} /> },
-      { name: "Policies", path: "/admin/policies", icon: <ShieldCheck size={20} /> },
-      { name: "Settings", path: "/admin/dashboard", icon: <Settings size={20} /> },
     ]
   }
 
-  const NavItem = ({ item, isActive }: { item: any, isActive: boolean }) => (
-    <Link
-      to={item.path}
-      className={cn(
-        "flex items-center rounded-md px-3 py-2 text-sm font-medium transition-colors",
-        isActive
-          ? "bg-primary/10 text-primary"
-          : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
-      )}
-    >
-      {item.icon}
-      <span className="ml-3">{item.name}</span>
-    </Link>
-  )
+  const NavItem = ({ item }: { item: any }) => {
+    const isActive = location.pathname === item.path || location.pathname.startsWith(`${item.path}/`)
+    return (
+      <Link
+        to={item.path}
+        className={cn(
+          "flex items-center rounded-md px-3 py-2 text-sm font-medium transition-colors",
+          isActive
+            ? "bg-primary/10 text-primary"
+            : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
+        )}
+      >
+        {item.icon}
+        <span className="ml-3">{item.name}</span>
+      </Link>
+    )
+  }
 
   const NavGroup = ({ label, children }: { label: string, children: React.ReactNode }) => (
     <div className="mb-6">
@@ -85,18 +57,18 @@ export function Sidebar() {
         <span className="text-lg font-bold tracking-tight">PHOENIX</span>
       </div>
       
-                className={cn(
-                  "flex items-center rounded-md px-3 py-2 text-sm font-medium transition-colors",
-                  isActive
-                    ? "bg-primary/10 text-primary"
-                    : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
-                )}
-              >
-                {item.icon}
-                <span className="ml-3">{item.name}</span>
-              </Link>
-            )
-          })}
+      <div className="flex-1 overflow-y-auto py-6 px-3">
+        <nav className="space-y-1">
+          <NavGroup label="Unified Command">
+            {navItems.unified.map((item, index) => (
+              <NavItem key={index} item={item} />
+            ))}
+          </NavGroup>
+          <NavGroup label="Defensive Operations">
+            {navItems.defensive.map((item, index) => (
+              <NavItem key={index} item={item} />
+            ))}
+          </NavGroup>
         </nav>
       </div>
       

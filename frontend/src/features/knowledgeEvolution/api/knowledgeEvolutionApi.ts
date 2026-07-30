@@ -1,5 +1,5 @@
 import { api } from '@/lib/api';
-import { OntologyNode, SchemaRecommendation, KnowledgeEvolutionSummary, DiscoveredRelationship } from '../types';
+import type {  OntologyNode, SchemaRecommendation, KnowledgeEvolutionSummary, DiscoveredRelationship  } from "../types";
 
 export const knowledgeEvolutionApi = {
   getOverview: () => 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { dataFabricApi } from '../api/dataFabricApi';
-import { DataFabricSummary } from '../types';
+import type {  DataFabricSummary  } from "../types";
 import MetadataCatalogDashboard from './MetadataCatalogDashboard';
 import KnowledgeMeshDashboard from './KnowledgeMeshDashboard';
 import DataLineageDashboard from './DataLineageDashboard';

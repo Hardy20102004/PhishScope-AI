@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { dataFabricApi } from '../api/dataFabricApi';
-import { MetadataNode } from '../types';
+import type {  MetadataNode  } from "../types";
 
 const MetadataCatalogDashboard: React.FC = () => {
   const [nodes, setNodes] = useState<MetadataNode[]>([]);

@@ -122,8 +122,8 @@ import { LicenseDashboard } from "@/pages/sca/LicenseDashboard";
 
 // Secrets
 import { SecretsExecutiveDashboard } from "@/pages/secrets/SecretsExecutiveDashboard";
-import { CredentialGovernanceDashboard } from "@/pages/secrets/CredentialGovernanceDashboard";
-import { CertificateDashboard } from "@/pages/secrets/CertificateDashboard";
+import { CredentialGovernanceDashboard as SecretsCredentialGovernanceDashboard } from "@/pages/secrets/CredentialGovernanceDashboard";
+import { CertificateDashboard as SecretsCertificateDashboard } from "@/pages/secrets/CertificateDashboard";
 import { ExposureDashboard } from "@/pages/secrets/ExposureDashboard";
 
 // IaC
@@ -149,7 +149,7 @@ import IdentityInventoryDashboard from "@/pages/ispm/IdentityInventoryDashboard"
 import AccessGovernanceDashboard from "@/pages/ispm/AccessGovernanceDashboard";
 import AuthenticationDashboard from "@/pages/ispm/AuthenticationDashboard";
 import ZeroTrustDashboard from "@/pages/ispm/ZeroTrustDashboard";
-import IdentityRiskDashboard from "@/pages/ispm/IdentityRiskDashboard";
+import ISPMIdentityRiskDashboard from "@/pages/ispm/IdentityRiskDashboard";
 import ISPMAIAssistant from "@/pages/ispm/ISPMAIAssistant";
 
 // ZTA — Enterprise Zero Trust Architecture
@@ -165,7 +165,7 @@ import PAMDashboard from "@/pages/pam/PAMDashboard";
 import PrivilegedIdentityDashboard from "@/pages/pam/PrivilegedIdentityDashboard";
 import JITAccessDashboard from "@/pages/pam/JITAccessDashboard";
 import AdministrativeSessionDashboard from "@/pages/pam/AdministrativeSessionDashboard";
-import CredentialGovernanceDashboard from "@/pages/pam/CredentialGovernanceDashboard";
+import PAMCredentialGovernanceDashboard from "@/pages/pam/CredentialGovernanceDashboard";
 import PrivilegeRiskDashboard from "@/pages/pam/PrivilegeRiskDashboard";
 import PAMAIAssistant from "@/pages/pam/PAMAIAssistant";
 
@@ -175,7 +175,7 @@ import IdentityTimelineDashboard from "@/pages/itdr/IdentityTimelineDashboard";
 import BehaviorAnalyticsDashboard from "@/pages/itdr/BehaviorAnalyticsDashboard";
 import CredentialDefenseDashboard from "@/pages/itdr/CredentialDefenseDashboard";
 import InvestigationDashboard from "@/pages/itdr/InvestigationDashboard";
-import IdentityRiskDashboard from "@/pages/itdr/IdentityRiskDashboard";
+import ITDRIdentityRiskDashboard from "@/pages/itdr/IdentityRiskDashboard";
 import ITDRAIAssistant from "@/pages/itdr/ITDRAIAssistant";
 
 // IGA — Enterprise Identity Governance & Administration
@@ -191,7 +191,7 @@ import IGAAIAssistant from "@/pages/iga/IGAAIAssistant";
 import NHIDashboard from "@/pages/nhi/NHIDashboard";
 import MachineIdentityDashboard from "@/pages/nhi/MachineIdentityDashboard";
 import WorkloadIdentityDashboard from "@/pages/nhi/WorkloadIdentityDashboard";
-import CertificateDashboard from "@/pages/nhi/CertificateDashboard";
+import NHICertificateDashboard from "@/pages/nhi/CertificateDashboard";
 import TrustRelationshipDashboard from "@/pages/nhi/TrustRelationshipDashboard";
 import NHILifecycleDashboard from "@/pages/nhi/NHILifecycleDashboard";
 import NHIAIAssistant from "@/pages/nhi/NHIAIAssistant";
@@ -216,7 +216,7 @@ import FederationAIAssistant from "@/pages/federation/FederationAIAssistant";
 import IdentityIntelDashboard from "@/pages/identity_intel/IdentityIntelDashboard";
 import BehaviorDashboard from "@/pages/identity_intel/BehaviorDashboard";
 import AdaptiveTrustDashboard from "@/pages/identity_intel/AdaptiveTrustDashboard";
-import IdentityRiskDashboard from "@/pages/identity_intel/IdentityRiskDashboard";
+import IntelIdentityRiskDashboard from "@/pages/identity_intel/IdentityRiskDashboard";
 import ExecutiveIntelDashboard from "@/pages/identity_intel/ExecutiveIntelDashboard";
 import IdentityIntelAIAssistant from "@/pages/identity_intel/IdentityIntelAIAssistant";
 
@@ -239,7 +239,7 @@ import CyberFusionAIAssistant from "@/pages/cyber_fusion/CyberFusionAIAssistant"
 import OrchestrationDashboard from "@/pages/orchestration/OrchestrationDashboard";
 import PlaybookDashboard from "@/pages/orchestration/PlaybookDashboard";
 import TaskDashboard from "@/pages/orchestration/TaskDashboard";
-import DecisionDashboard from "@/pages/orchestration/DecisionDashboard";
+import OrchestrationDecisionDashboard from "@/pages/orchestration/DecisionDashboard";
 import OrchestrationAIAssistant from "@/pages/orchestration/OrchestrationAIAssistant";
 
 // DIGITAL_TWIN — Enterprise Cyber Digital Twin Platform
@@ -573,11 +573,11 @@ export const router = createBrowserRouter([
           },
           {
             path: "secrets/credentials",
-            element: <CredentialGovernanceDashboard />,
+            element: <SecretsCredentialGovernanceDashboard />,
           },
           {
             path: "secrets/certificates",
-            element: <CertificateDashboard />,
+            element: <SecretsCertificateDashboard />,
           },
           {
             path: "secrets/exposures",
@@ -650,7 +650,7 @@ export const router = createBrowserRouter([
           },
           {
             path: "ispm/risk",
-            element: <IdentityRiskDashboard />,
+            element: <ISPMIdentityRiskDashboard />,
           },
           {
             path: "ispm/ai-assistant",
@@ -723,7 +723,7 @@ export const router = createBrowserRouter([
           },
           {
             path: "pam/credentials",
-            element: <CredentialGovernanceDashboard />,
+            element: <PAMCredentialGovernanceDashboard />,
           },
           {
             path: "pam/risk",
@@ -755,7 +755,7 @@ export const router = createBrowserRouter([
           },
           {
             path: "itdr/risk",
-            element: <IdentityRiskDashboard />,
+            element: <ITDRIdentityRiskDashboard />,
           },
           {
             path: "itdr/assistant",
@@ -803,7 +803,7 @@ export const router = createBrowserRouter([
           },
           {
             path: "nhi/certificates",
-            element: <CertificateDashboard />,
+            element: <NHICertificateDashboard />,
           },
           {
             path: "nhi/trust",
@@ -879,7 +879,7 @@ export const router = createBrowserRouter([
           },
           {
             path: "identity-intel/risk",
-            element: <IdentityRiskDashboard />,
+            element: <IntelIdentityRiskDashboard />,
           },
           {
             path: "identity-intel/executive",

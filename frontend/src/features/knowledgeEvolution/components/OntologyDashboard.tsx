@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Database, Plus, CheckCircle, Clock } from 'lucide-react';
 import { knowledgeEvolutionApi } from '../api/knowledgeEvolutionApi';
-import { OntologyNode } from '../types';
+import type {  OntologyNode  } from "../types";
 
 export function OntologyDashboard() {
   const [nodes, setNodes] = useState<OntologyNode[]>([]);

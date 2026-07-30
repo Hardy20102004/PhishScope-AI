@@ -1,5 +1,5 @@
 import React from 'react';
-import { DataFabricSummary } from '../types';
+import type {  DataFabricSummary  } from "../types";
 
 interface Props {
   summary: DataFabricSummary | null;

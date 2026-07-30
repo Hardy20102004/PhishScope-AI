@@ -1,15 +1,22 @@
-import { api } from '@/lib/api';
-import { 
+import axios from 'axios';
+import type {  
   CyberOSOverview, PlatformRegistryEntry, UnifiedObservabilityMetric 
-} from '../types';
+ } from "../types";
 
 export const cyberOsApi = {
-  getOverview: () => 
-    api.get<CyberOSOverview>('/api/v1/cyber-os/overview'),
+  getOverview: async (): Promise<CyberOSOverview> => {
+    const response = await axios.get('/api/v1/cyber-os/overview');
+    return response.data;
+  },
     
-  getRegistry: (skip = 0, limit = 100) =>
-    api.get<{status: string, data: PlatformRegistryEntry[], meta: any}>(`/api/v1/cyber-os/registry?skip=${skip}&limit=${limit}`),
+  getRegistry: async (skip = 0, limit = 100) => {
+    const response = await axios.get(`/api/v1/cyber-os/registry?skip=${skip}&limit=${limit}`);
+    return response.data;
+  },
     
-  getObservability: (skip = 0, limit = 100) =>
-    api.get<{status: string, data: UnifiedObservabilityMetric[], meta: any}>(`/api/v1/cyber-os/observability?skip=${skip}&limit=${limit}`),
+  getObservability: async (skip = 0, limit = 100) => {
+    const response = await axios.get(`/api/v1/cyber-os/observability?skip=${skip}&limit=${limit}`);
+    return response.data;
+  },
 };
+

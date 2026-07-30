@@ -37,13 +37,13 @@ export default function UnifiedZeroTrustDashboard() {
                 <td>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                     <div className="uzt-bar-bg">
-                      <div className="uzt-bar-fill" style={{ width: \`\${zt.score}%\`, background: zt.score < 80 ? '#f59e0b' : '#10b981' }}></div>
+                      <div className="uzt-bar-fill" style={{ width: `${zt.score}%`, background: zt.score < 80 ? '#f59e0b' : '#10b981' }}></div>
                     </div>
                     <span style={{ fontWeight: 700 }}>{zt.score}</span>
                   </div>
                 </td>
                 <td>
-                  <span className={\`uzt-status uzt-\${zt.status.toLowerCase()}\`}>
+                  <span className={`uzt-status uzt-${zt.status.toLowerCase()}`}>
                     {zt.status}
                   </span>
                 </td>
@@ -56,7 +56,7 @@ export default function UnifiedZeroTrustDashboard() {
   );
 }
 
-const UZT_STYLES = \`
+const UZT_STYLES = `
 .uzt-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
 .uzt-header-icon { width: 44px; height: 44px; background: linear-gradient(135deg, #10b981, #059669); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; }
 .uzt-title { font-size: 1.35rem; font-weight: 800; margin: 0 0 2px; }
@@ -72,4 +72,4 @@ const UZT_STYLES = \`
 .uzt-status { padding: 3px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: 700; }
 .uzt-healthy { background: rgba(16,185,129,0.15); color: #34d399; }
 .uzt-warning { background: rgba(245,158,11,0.15); color: #fbbf24; }
-\`;
+`;

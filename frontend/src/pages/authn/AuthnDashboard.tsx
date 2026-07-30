@@ -38,7 +38,7 @@ export default function AuthnDashboard() {
       <div className="authn-grid-5">
         {[
           { label: 'Total Enrollments', value: AUTHN_DATA.total_enrollments, color: '#8b5cf6' },
-          { label: 'Passkey Adoption', value: \`\${AUTHN_DATA.passkey_adoption_rate}%\`, color: '#10b981' },
+          { label: 'Passkey Adoption', value: `${AUTHN_DATA.passkey_adoption_rate}%`, color: '#10b981' },
           { label: 'High Assurance (AAL3)', value: AUTHN_DATA.high_assurance_identities, color: '#3b82f6' },
           { label: 'Legacy Auth (Passwords)', value: AUTHN_DATA.legacy_auth_count, color: '#f59e0b' },
           { label: 'Critical Risks', value: AUTHN_DATA.critical_risks, color: '#ef4444' }

@@ -38,7 +38,7 @@ export default function PrivilegeRiskDashboard() {
                 <td>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                     <div style={{ width: 40, height: 4, background: 'rgba(255,255,255,0.1)', borderRadius: 2 }}>
-                      <div style={{ width: \`\${r.score}%\`, height: '100%', background: r.level === 'CRITICAL' ? '#f87171' : r.level === 'HIGH' ? '#fbbf24' : '#60a5fa', borderRadius: 2 }} />
+                      <div style={{ width: `${r.score}%`, height: '100%', background: r.level === 'CRITICAL' ? '#f87171' : r.level === 'HIGH' ? '#fbbf24' : '#60a5fa', borderRadius: 2 }} />
                     </div>
                     <span style={{ fontSize: '0.8rem', fontWeight: 700 }}>{r.score}</span>
                   </div>

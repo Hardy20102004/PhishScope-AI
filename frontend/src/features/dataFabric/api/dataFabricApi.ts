@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { DataFabricSummary, MetadataNode, LineageEdge, QualityMetric } from '../types';
+import type {  DataFabricSummary, MetadataNode, LineageEdge, QualityMetric  } from "../types";
 
 const API_BASE_URL = '/api/v1/data-fabric';
 

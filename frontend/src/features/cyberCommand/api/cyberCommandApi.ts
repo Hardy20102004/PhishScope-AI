@@ -1,7 +1,7 @@
 import { api } from '@/lib/api';
-import { 
+import type {  
   CyberCommandOverview, EnterpriseHealthMetric, StrategicPlan 
-} from '../types';
+ } from "../types";
 
 export const cyberCommandApi = {
   getOverview: () => 

@@ -7,7 +7,7 @@ export default function AuthnAIAssistant() {
     {
       id: 1,
       role: 'ai',
-      content: 'Hello! I am the AUTHN AI Assistant. I can help analyze legacy authentication usage, recommend passkey migration paths, or assess your organization\\'s overall Authentication Assurance Level (AAL). How can I assist you?'
+      content: 'Hello! I am the AUTHN AI Assistant. I can help analyze legacy authentication usage, recommend passkey migration paths, or assess your organization\'s overall Authentication Assurance Level (AAL). How can I assist you?'
     }
   ]);
 

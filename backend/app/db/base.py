@@ -13,7 +13,7 @@ from app.models.soar import Playbook, ExecutionHistory, ApprovalRecord  # noqa: 
 from app.models.collaboration import CollabWorkspace, ChatMessage, AnalystNote, AnalystPresence  # noqa: F401
 from app.models.executive import ExecutiveMetric, BusinessRiskScore, ExecutiveReport  # noqa: F401
 from app.models.soc_copilot import CopilotSession, CopilotChatMessage, CopilotReasoningLog  # noqa: F401
-from app.models.digital_twin import SimulationScenario, SimulationResult, OptimizationRecommendation  # noqa: F401
+from app.models.digital_twin import SimulationScenario, TwinAssetNode, AttackPathGraph, ResilienceMetric  # noqa: F401
 from app.models.disk_forensics import DiskImage, DiskPartition, ForensicArtifact  # noqa: F401
 from app.models.memory_forensics import MemoryImage, MemoryProcess, MemoryNetworkConnection  # noqa: F401
 from app.models.mobile_forensics import ForensicMobileDevice, ForensicMobileCommunication, ForensicMobileLocation  # noqa: F401
@@ -29,7 +29,7 @@ from app.models.blue_team import ReadinessSnapshot, DetectionMetric, AnalystTeam
 from app.models.continuous_validation import SecurityPostureSnapshot, SecurityDriftRecord, CVOptimizationRecommendation  # noqa: F401
 from app.models.attack_path import AssetNode, AssetRelationship, SimulatedAttackPath  # noqa: F401
 from app.models.detection_gap import MitreCoverageMetric, DetectionGapRecord, ControlOptimizationPlan  # noqa: F401
-from app.models.cyber_resilience import CyberResilienceScore, MaturityAssessment, ExecutiveKPI  # noqa: F401
+from app.models.cyber_resilience import BusinessServiceNode, RecoveryObjective, DisasterRecoveryTest, ResilienceAssessment  # noqa: F401
 from app.models.executive_intelligence import GovernanceMetric, BusinessImpactIndicator, InvestmentROI, DecisionSupportBrief  # noqa: F401
 from app.models.strategic_defense import StrategicForecast, OptimizationRoadmap, StrategicRecommendation, DecisionApprovalLog  # noqa: F401
 from app.models.cspm import CSPMCloudAsset, CloudMisconfiguration, ComplianceFinding  # noqa: F401

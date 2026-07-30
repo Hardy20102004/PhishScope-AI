@@ -1,7 +1,7 @@
 import { api } from '@/lib/api';
-import { 
+import type {  
   CyberGovernanceOverview, GovernancePolicy, BoardReportSummary 
-} from '../types';
+ } from "../types";
 
 export const cyberGovernanceApi = {
   getOverview: () => 

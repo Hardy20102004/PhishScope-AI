@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Network, Search, Filter } from 'lucide-react';
 import { knowledgeEvolutionApi } from '../api/knowledgeEvolutionApi';
-import { DiscoveredRelationship } from '../types';
+import type {  DiscoveredRelationship  } from "../types";
 
 export function RelationshipExplorer() {
   const [relationships, setRelationships] = useState<DiscoveredRelationship[]>([]);

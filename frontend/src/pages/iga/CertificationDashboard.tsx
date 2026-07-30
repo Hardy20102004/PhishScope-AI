@@ -38,7 +38,7 @@ export default function CertificationDashboard() {
                 <td>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                     <div style={{ width: 100, height: 6, background: 'rgba(255,255,255,0.1)', borderRadius: 3 }}>
-                      <div style={{ width: \`\${cmp.progress}%\`, height: '100%', background: '#8b5cf6', borderRadius: 3 }} />
+                      <div style={{ width: `${cmp.progress}%`, height: '100%', background: '#8b5cf6', borderRadius: 3 }} />
                     </div>
                     <span style={{ fontSize: '0.75rem', color: '#94a3b8' }}>{cmp.completed} / {cmp.total}</span>
                   </div>
