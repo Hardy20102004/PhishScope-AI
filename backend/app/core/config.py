@@ -1,7 +1,9 @@
 from typing import Any, List, Optional
 
-from pydantic import AnyHttpUrl, PostgresDsn, field_validator, ValidationInfo
+from pydantic import AnyHttpUrl, PostgresDsn, field_validator, model_validator, ValidationInfo
 from pydantic_settings import BaseSettings, SettingsConfigDict
+
+_DEFAULT_SECRET = "CHANGE_THIS_IN_PRODUCTION"
 
 
 class Settings(BaseSettings):
@@ -13,7 +15,7 @@ class Settings(BaseSettings):
     VERSION: str = "0.1.0"
     ENVIRONMENT: str = "development"
     DEBUG: bool = True
-    
+
     # API Settings
     API_V1_STR: str = "/api/v1"
     BACKEND_CORS_ORIGINS: List[AnyHttpUrl] = []
@@ -31,22 +33,38 @@ class Settings(BaseSettings):
         if isinstance(v, str) and v.startswith("postgres"):
             return v
         values = info.data
-        if values.get("POSTGRES_SERVER") and values.get("POSTGRES_SERVER") != "localhost":
-            return PostgresDsn.build(
+        server = values.get("POSTGRES_SERVER")
+        if server and server != "localhost":
+            # Pydantic v2: parameter is `username`, not `user`
+            return str(PostgresDsn.build(
                 scheme="postgresql",
-                user=values.get("POSTGRES_USER"),
+                username=values.get("POSTGRES_USER"),
                 password=values.get("POSTGRES_PASSWORD"),
-                host=values.get("POSTGRES_SERVER"),
-                path=f"/{values.get('POSTGRES_DB') or ''}",
-            )
+                host=server,
+                path=values.get("POSTGRES_DB") or "",
+            ))
         return "sqlite:///./phoenix_test.db"
 
     # Security
-    SECRET_KEY: str = "CHANGE_THIS_IN_PRODUCTION"
+    SECRET_KEY: str = _DEFAULT_SECRET
     ALGORITHM: str = "HS256"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 15
     REFRESH_TOKEN_EXPIRE_DAYS: int = 7
 
+    @model_validator(mode="after")
+    def _guard_secret_key(self) -> "Settings":
+        """
+        Prevent startup with the default insecure SECRET_KEY in non-development environments.
+        This is a hard fail — if you see this error, set SECRET_KEY in your .env file.
+        """
+        if self.ENVIRONMENT != "development" and self.SECRET_KEY == _DEFAULT_SECRET:
+            raise ValueError(
+                "CRITICAL: SECRET_KEY must be changed from the default value in non-development environments. "
+                "Set a strong random SECRET_KEY in your .env file before deploying."
+            )
+        return self
+
     model_config = SettingsConfigDict(env_file=".env", case_sensitive=True)
 
 settings = Settings()
+

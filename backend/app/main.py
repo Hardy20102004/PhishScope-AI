@@ -16,7 +16,10 @@ from app.middleware.request_context import RequestContextMiddleware
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     import structlog
+    from app.core.startup_checks import run_all_checks
     logger = structlog.get_logger("phoenix.main")
+    # Run fail-fast validation before accepting any traffic
+    run_all_checks(settings)
     logger.info("application_startup", env=settings.ENVIRONMENT, version=settings.VERSION)
     yield
     logger.info("application_shutdown")
