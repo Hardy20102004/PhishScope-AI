@@ -8,8 +8,9 @@ const API_BASE = import.meta.env.VITE_API_URL ?? 'http://localhost:8000'
 async function getOrCreateFingerprint(): Promise<string> {
   return new Promise((resolve) => {
     chrome.storage.local.get(['phoenix_device_fingerprint'], (result) => {
-      if (result.phoenix_device_fingerprint) {
-        resolve(result.phoenix_device_fingerprint)
+      const existing = result.phoenix_device_fingerprint as string | undefined;
+      if (existing) {
+        resolve(existing)
       } else {
         const fp = 'ext-' + crypto.randomUUID()
         chrome.storage.local.set({ phoenix_device_fingerprint: fp })
@@ -69,9 +70,10 @@ function App() {
   useEffect(() => {
     // Restore session if token exists
     chrome.storage.local.get(['phoenix_token'], (result) => {
-      if (result.phoenix_token) {
+      const storedToken = result.phoenix_token as string | undefined;
+      if (storedToken) {
         setIsLoggedIn(true)
-        setToken(result.phoenix_token)
+        setToken(storedToken)
       }
     })
 

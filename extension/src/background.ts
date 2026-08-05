@@ -16,7 +16,7 @@ chrome.runtime.onInstalled.addListener(() => {
   console.log("PHOENIX Extension Installed and Context Menus created.");
 });
 
-chrome.contextMenus.onClicked.addListener(async (info, tab) => {
+chrome.contextMenus.onClicked.addListener(async (info, _tab) => {
   let contextType = "";
   let payload = "";
 

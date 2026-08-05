@@ -1,5 +1,5 @@
 // Listens for messages from the background script or popup
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+chrome.runtime.onMessage.addListener((request, _sender, sendResponse) => {
   if (request.action === "GET_DOM_METADATA") {
     const metaTags = Array.from(document.getElementsByTagName('meta')).map(meta => ({
       name: meta.getAttribute('name') || meta.getAttribute('property'),
