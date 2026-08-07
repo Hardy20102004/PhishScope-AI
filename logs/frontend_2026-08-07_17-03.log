@@ -1,0 +1,12 @@
+
+> frontend@0.0.0 dev
+> vite
+
+
+  VITE v8.1.5  ready in 68 ms
+
+  ➜  Local:   http://localhost:3000/
+  ➜  Network: http://192.168.1.99:3000/
+  ➜  press h + enter to show help
+5:25:17 PM [vite] (client) hmr update /src/styles/index.css, /src/pages/auth/Login.tsx
+5:25:26 PM [vite] (client) hmr update /src/styles/index.css, /src/pages/auth/Login.tsx, /src/pages/auth/Register.tsx, /src/features/rag/pages/DocumentExplorer.tsx, /src/features/knowledge-graph/pages/GraphDashboard.tsx, /src/features/knowledge-graph/pages/RelationshipViewer.tsx, /src/features/decision/pages/DecisionDashboard.tsx, /src/features/knowledge-graph/pages/EntityExplorer.tsx, /src/features/decision/pages/ApprovalCenter.tsx, /src/features/decision/components/ReasoningViewer.tsx, /src/features/xai/pages/XAIDashboard.tsx and 33 more

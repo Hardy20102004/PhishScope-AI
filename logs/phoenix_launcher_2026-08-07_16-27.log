@@ -1,0 +1,11 @@
+[16:27:17] PHOENIX launcher started — v0.1.0
+[16:27:17] Python OK: 3.11.9 (main, Apr 19 2026, 02:58:43) [Clang 21.0.0 (clang-2100.0.123.102)]
+[16:27:17] OS: Darwin 25.5.0 arm64
+[16:27:17] Node.js: v26.5.0
+[16:27:18] pip install: SUCCESS
+[16:27:24] npm install: SUCCESS
+[16:27:24] .env bootstrapped from .env.example
+[16:27:24] Backend: PID 94342 → /Users/umeshgupta/Downloads/PhishScope-AI-main/logs/backend_2026-08-07_16-27.log
+[16:27:24] Frontend: PID 94343 → /Users/umeshgupta/Downloads/PhishScope-AI-main/logs/frontend_2026-08-07_16-27.log
+[17:02:33] Shutdown initiated
+[17:02:34] Shutdown complete

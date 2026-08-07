@@ -1,0 +1,201 @@
+
+  ██████╗ ██╗  ██╗ ██████╗ ███████╗███╗   ██╗██╗██╗  ██╗
+  ██╔══██╗██║  ██║██╔═══██╗██╔════╝████╗  ██║██║╚██╗██╔╝
+  ██████╔╝███████║██║   ██║█████╗  ██╔██╗ ██║██║ ╚███╔╝ 
+  ██╔═══╝ ██╔══██║██║   ██║██╔══╝  ██║╚██╗██║██║ ██╔██╗ 
+  ██║     ██║  ██║╚██████╔╝███████╗██║ ╚████║██║██╔╝ ██╗
+  ╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚═╝  ╚═══╝╚═╝╚═╝  ╚═╝
+  PhishScope AI 2.0 — macOS Launcher
+
+  [1/4] Clearing ports 8000 & 3000...
+  [2/4] Starting backend (FastAPI on :8000)...
+         Backend PID: 99963
+  [3/4] Waiting for backend to be healthy...
+INFO:     Will watch for changes in these directories: ['/Users/umeshgupta/Downloads/PhishScope-AI-main/backend']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [99963] using WatchFiles
+2026-08-07 19:55:36 [info     ] vector_store_initialized       backend=in-memory-mock
+INFO:     Started server process [99967]
+INFO:     Waiting for application startup.
+[2m2026-08-07T14:25:37.149665Z[0m [[32m[1minfo     [0m] [1mstartup_checks_begin          [0m [[0m[1m[34mphoenix.startup[0m][0m [36menvironment[0m=[35mdevelopment[0m
+[2m2026-08-07T14:25:37.149728Z[0m [[33m[1mwarning  [0m] [1mweak_secret_key               [0m [[0m[1m[34mphoenix.startup[0m][0m [36mmessage[0m=[35m'SECRET_KEY appears shorter than recommended 256 bits. Consider regenerating with: secrets.token_hex(64)'[0m
+[2m2026-08-07T14:25:37.162373Z[0m [[32m[1minfo     [0m] [1mstartup_db_check              [0m [[0m[1m[34mphoenix.startup[0m][0m [36mstatus[0m=[35mconnected[0m [36muri_scheme[0m=[35msqlite[0m
+[2m2026-08-07T14:25:37.162418Z[0m [[32m[1minfo     [0m] [1mstartup_checks_passed         [0m [[0m[1m[34mphoenix.startup[0m][0m
+[2m2026-08-07T14:25:37.162450Z[0m [[32m[1minfo     [0m] [1mapplication_startup           [0m [[0m[1m[34mphoenix.main[0m][0m [36menv[0m=[35mdevelopment[0m [36mversion[0m=[35m0.1.0[0m
+INFO:     Application startup complete.
+[2m2026-08-07T14:25:37.522964Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m202.9[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/health/live[0m [36mrequest_id[0m=[35mb3cf4f1d-e648-414c-91d7-e58712c85946[0m [36mstatus_code[0m=[35m404[0m
+INFO:     127.0.0.1:59718 - "GET /api/v1/health/live HTTP/1.1" 404 Not Found
+[2m2026-08-07T14:25:38.554336Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m4.05[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/health/live[0m [36mrequest_id[0m=[35m16b30ba4-54a1-4583-be4a-1abb9c22e755[0m [36mstatus_code[0m=[35m404[0m
+INFO:     127.0.0.1:59725 - "GET /api/v1/health/live HTTP/1.1" 404 Not Found
+[2m2026-08-07T14:25:39.588597Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m3.7[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/health/live[0m [36mrequest_id[0m=[35m93a5a6da-5237-486b-b913-f2e30c4f0561[0m [36mstatus_code[0m=[35m404[0m
+INFO:     127.0.0.1:59729 - "GET /api/v1/health/live HTTP/1.1" 404 Not Found
+[2m2026-08-07T14:25:40.620976Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m3.45[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/health/live[0m [36mrequest_id[0m=[35m7e804a57-bd45-49b4-8e34-9297bede29d5[0m [36mstatus_code[0m=[35m404[0m
+INFO:     127.0.0.1:59733 - "GET /api/v1/health/live HTTP/1.1" 404 Not Found
+[2m2026-08-07T14:25:41.652522Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m3.47[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/health/live[0m [36mrequest_id[0m=[35mae4d83bb-da1e-4979-8f73-155054cc6626[0m [36mstatus_code[0m=[35m404[0m
+INFO:     127.0.0.1:59737 - "GET /api/v1/health/live HTTP/1.1" 404 Not Found
+[2m2026-08-07T14:25:42.669257Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m1.86[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/health/live[0m [36mrequest_id[0m=[35m328dd435-272e-4f55-b9bd-2a67cefb19e9[0m [36mstatus_code[0m=[35m404[0m
+INFO:     127.0.0.1:59741 - "GET /api/v1/health/live HTTP/1.1" 404 Not Found
+[2m2026-08-07T14:25:43.695660Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m2.9[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/health/live[0m [36mrequest_id[0m=[35m35be5a27-1a5d-4c8f-94f2-f95704ce92a3[0m [36mstatus_code[0m=[35m404[0m
+INFO:     127.0.0.1:59745 - "GET /api/v1/health/live HTTP/1.1" 404 Not Found
+[2m2026-08-07T14:25:44.727183Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m3.25[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/health/live[0m [36mrequest_id[0m=[35m8498f292-a43c-4cca-8446-4f063228c315[0m [36mstatus_code[0m=[35m404[0m
+INFO:     127.0.0.1:59749 - "GET /api/v1/health/live HTTP/1.1" 404 Not Found
+[2m2026-08-07T14:25:45.757385Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m2.98[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/health/live[0m [36mrequest_id[0m=[35md6173e31-2e3e-4f8b-8ce2-200a1f9a2bdd[0m [36mstatus_code[0m=[35m404[0m
+INFO:     127.0.0.1:59753 - "GET /api/v1/health/live HTTP/1.1" 404 Not Found
+[2m2026-08-07T14:25:46.785765Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m2.71[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/health/live[0m [36mrequest_id[0m=[35m9069c141-5fd0-4313-90a0-e47047bc65b3[0m [36mstatus_code[0m=[35m404[0m
+INFO:     127.0.0.1:59757 - "GET /api/v1/health/live HTTP/1.1" 404 Not Found
+[2m2026-08-07T14:25:47.818196Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m3.39[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/health/live[0m [36mrequest_id[0m=[35mea967326-9eaf-4c14-957b-ea566e26280c[0m [36mstatus_code[0m=[35m404[0m
+INFO:     127.0.0.1:59761 - "GET /api/v1/health/live HTTP/1.1" 404 Not Found
+[2m2026-08-07T14:25:48.849097Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m3.19[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/health/live[0m [36mrequest_id[0m=[35me61c5e01-11a3-40a7-a22b-02467eb746e8[0m [36mstatus_code[0m=[35m404[0m
+INFO:     127.0.0.1:59763 - "GET /api/v1/health/live HTTP/1.1" 404 Not Found
+[2m2026-08-07T14:25:49.881594Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m3.3[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/health/live[0m [36mrequest_id[0m=[35m13abc1cf-437f-4948-be96-640ce55a4f42[0m [36mstatus_code[0m=[35m404[0m
+INFO:     127.0.0.1:59767 - "GET /api/v1/health/live HTTP/1.1" 404 Not Found
+[2m2026-08-07T14:25:50.913826Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m3.12[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/health/live[0m [36mrequest_id[0m=[35m118b7160-21e0-4d92-a096-3a06bfa50dc0[0m [36mstatus_code[0m=[35m404[0m
+INFO:     127.0.0.1:59771 - "GET /api/v1/health/live HTTP/1.1" 404 Not Found
+[2m2026-08-07T14:25:51.944710Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m1.75[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/health/live[0m [36mrequest_id[0m=[35m225f3033-914b-4923-b127-5ec9b5f78d79[0m [36mstatus_code[0m=[35m404[0m
+INFO:     127.0.0.1:59775 - "GET /api/v1/health/live HTTP/1.1" 404 Not Found
+[2m2026-08-07T14:25:52.961015Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m1.59[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/health/live[0m [36mrequest_id[0m=[35md00549a1-8052-4137-a1c0-aba501f0687d[0m [36mstatus_code[0m=[35m404[0m
+INFO:     127.0.0.1:59779 - "GET /api/v1/health/live HTTP/1.1" 404 Not Found
+[2m2026-08-07T14:25:53.991212Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m3.43[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/health/live[0m [36mrequest_id[0m=[35m6de7a265-f0d4-421e-8ae0-da7af3f4917d[0m [36mstatus_code[0m=[35m404[0m
+INFO:     127.0.0.1:59783 - "GET /api/v1/health/live HTTP/1.1" 404 Not Found
+[2m2026-08-07T14:25:55.021486Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m3.06[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/health/live[0m [36mrequest_id[0m=[35m6facc9e7-86da-4092-8054-6ea814609f84[0m [36mstatus_code[0m=[35m404[0m
+INFO:     127.0.0.1:59787 - "GET /api/v1/health/live HTTP/1.1" 404 Not Found
+[2m2026-08-07T14:25:56.048426Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m2.84[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/health/live[0m [36mrequest_id[0m=[35mf322cfb8-6c77-40f6-9fea-ced3a31f94e9[0m [36mstatus_code[0m=[35m404[0m
+INFO:     127.0.0.1:59791 - "GET /api/v1/health/live HTTP/1.1" 404 Not Found
+[2m2026-08-07T14:25:57.067747Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m1.88[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/health/live[0m [36mrequest_id[0m=[35m1e9a86b4-4c0d-49bc-a753-0f45be95d566[0m [36mstatus_code[0m=[35m404[0m
+INFO:     127.0.0.1:59795 - "GET /api/v1/health/live HTTP/1.1" 404 Not Found
+[2m2026-08-07T14:25:58.087101Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m2.28[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/health/live[0m [36mrequest_id[0m=[35m2043972c-47e5-4b5c-bd58-d846d9622430[0m [36mstatus_code[0m=[35m404[0m
+INFO:     127.0.0.1:59800 - "GET /api/v1/health/live HTTP/1.1" 404 Not Found
+[2m2026-08-07T14:25:59.119696Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m3.56[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/health/live[0m [36mrequest_id[0m=[35m1ea36cda-3b69-466f-88b7-7057c540174a[0m [36mstatus_code[0m=[35m404[0m
+INFO:     127.0.0.1:59804 - "GET /api/v1/health/live HTTP/1.1" 404 Not Found
+[2m2026-08-07T14:26:00.152947Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m3.3[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/health/live[0m [36mrequest_id[0m=[35m610cc8a8-84e2-4321-85de-5fd741598986[0m [36mstatus_code[0m=[35m404[0m
+INFO:     127.0.0.1:59808 - "GET /api/v1/health/live HTTP/1.1" 404 Not Found
+[2m2026-08-07T14:26:01.186682Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m4.05[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/health/live[0m [36mrequest_id[0m=[35mfc7b78d6-4e6d-48d3-874d-5ee6f51a7300[0m [36mstatus_code[0m=[35m404[0m
+INFO:     127.0.0.1:59813 - "GET /api/v1/health/live HTTP/1.1" 404 Not Found
+[2m2026-08-07T14:26:02.212154Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m3.31[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/health/live[0m [36mrequest_id[0m=[35me4667bdc-cb2f-4014-8eda-dfe8c08f86a2[0m [36mstatus_code[0m=[35m404[0m
+INFO:     127.0.0.1:59817 - "GET /api/v1/health/live HTTP/1.1" 404 Not Found
+[2m2026-08-07T14:26:03.246100Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m3.97[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/health/live[0m [36mrequest_id[0m=[35m88bbd7bb-a2d6-48a7-a948-713261d5c721[0m [36mstatus_code[0m=[35m404[0m
+INFO:     127.0.0.1:59823 - "GET /api/v1/health/live HTTP/1.1" 404 Not Found
+[2m2026-08-07T14:26:04.263968Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m1.43[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/health/live[0m [36mrequest_id[0m=[35ma3d698c2-30ce-435c-a03c-e3e1dbb03c8d[0m [36mstatus_code[0m=[35m404[0m
+INFO:     127.0.0.1:59828 - "GET /api/v1/health/live HTTP/1.1" 404 Not Found
+[2m2026-08-07T14:26:05.284613Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m1.99[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/health/live[0m [36mrequest_id[0m=[35mf379e0c6-9cbd-4ded-bf2d-35c8727e958d[0m [36mstatus_code[0m=[35m404[0m
+INFO:     127.0.0.1:59833 - "GET /api/v1/health/live HTTP/1.1" 404 Not Found
+[2m2026-08-07T14:26:05.830830Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m0.97[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/health[0m [36mrequest_id[0m=[35m3efc9a2a-b7f5-4d74-a4a7-5df89107ac8f[0m [36mstatus_code[0m=[35m307[0m
+INFO:     127.0.0.1:59842 - "GET /api/v1/health HTTP/1.1" 307 Temporary Redirect
+[2m2026-08-07T14:26:05.835502Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m3.77[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/health/[0m [36mrequest_id[0m=[35m99bb9fc7-a6f8-47a9-9a1a-0ba19d9ed4dd[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:59844 - "GET /api/v1/health/ HTTP/1.1" 200 OK
+[2m2026-08-07T14:26:06.304225Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m2.17[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/health/live[0m [36mrequest_id[0m=[35m92e86e88-83ee-40ba-b966-a55889b87f53[0m [36mstatus_code[0m=[35m404[0m
+INFO:     127.0.0.1:59848 - "GET /api/v1/health/live HTTP/1.1" 404 Not Found
+  [4/4] Starting frontend (Vite on :3000)...
+         Frontend PID: 279
+
+> frontend@0.0.0 dev
+> vite
+
+Port 3000 is in use, trying another one...
+Port 3001 is in use, trying another one...
+7:56:07 PM [vite] (client) Re-optimizing dependencies because vite config has changed
+
+  VITE v8.1.5  ready in 174 ms
+
+  ➜  Local:   http://localhost:3002/
+  ➜  Network: http://192.168.1.5:3002/
+
+  ┌────────────────────────────────────────────────────┐
+  │  ✅  All systems operational!                       │
+  │                                                     │
+  │  Frontend   →  http://localhost:3000               │
+  │  Backend    →  http://localhost:8000               │
+  │  API Docs   →  http://localhost:8000/docs          │
+  │                                                     │
+  │  Admin Email    :  admin@phoenix.ai                │
+  │  Admin Password :  Phoenix@Admin123                │
+  │  ⚠  Change password after first login!            │
+  └────────────────────────────────────────────────────┘
+
+  Press Ctrl+C to stop all services.
+
+detected 'bcrypt' backend, version '4.0.1'
+'bcrypt' backend lacks $2$ support, enabling workaround
+/Users/umeshgupta/Downloads/PhishScope-AI-main/backend/.venv/lib/python3.11/site-packages/jwt/api_jwt.py:147: InsecureKeyLengthWarning: The HMAC key is 25 bytes long, which is below the minimum recommended length of 32 bytes for SHA256. See RFC 7518 Section 3.2.
+  return self._jws.encode(
+[2m2026-08-07T14:26:10.596970Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m348.55[0m [36mmethod[0m=[35mPOST[0m [36mpath[0m=[35m/api/v1/auth/login[0m [36mrequest_id[0m=[35m3605154d-9fb3-4a8b-bae0-2a16979450ba[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:59859 - "POST /api/v1/auth/login HTTP/1.1" 200 OK
+[2m2026-08-07T14:26:10.637366Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m0.13[0m [36mmethod[0m=[35mOPTIONS[0m [36mpath[0m=[35m/api/v1/users/me[0m [36mrequest_id[0m=[35m49969e28-2749-4b28-9649-64a794516b37[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:59859 - "OPTIONS /api/v1/users/me HTTP/1.1" 200 OK
+/Users/umeshgupta/Downloads/PhishScope-AI-main/backend/.venv/lib/python3.11/site-packages/jwt/api_jwt.py:368: InsecureKeyLengthWarning: The HMAC key is 25 bytes long, which is below the minimum recommended length of 32 bytes for SHA256. See RFC 7518 Section 3.2.
+  decoded = self.decode_complete(
+[2m2026-08-07T14:26:10.642293Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m3.83[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/users/me[0m [36mrequest_id[0m=[35mb5e5fcf9-b218-415d-91c1-00096678d214[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:59859 - "GET /api/v1/users/me HTTP/1.1" 200 OK
+[2m2026-08-07T14:26:10.654385Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m0.28[0m [36mmethod[0m=[35mOPTIONS[0m [36mpath[0m=[35m/api/v1/investigations[0m [36mrequest_id[0m=[35m26f00e30-da10-4959-a64e-2acc3ae80048[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:59859 - "OPTIONS /api/v1/investigations HTTP/1.1" 200 OK
+[2m2026-08-07T14:26:10.658334Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m2.16[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/investigations[0m [36mrequest_id[0m=[35mdd5b85aa-3fd0-4bbf-b2f6-37ee312e7282[0m [36mstatus_code[0m=[35m307[0m
+INFO:     127.0.0.1:59859 - "GET /api/v1/investigations HTTP/1.1" 307 Temporary Redirect
+[2m2026-08-07T14:26:10.660173Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m0.11[0m [36mmethod[0m=[35mOPTIONS[0m [36mpath[0m=[35m/api/v1/investigations/[0m [36mrequest_id[0m=[35m9c4cf2ad-f997-4db6-b5ea-e4cf89bf6415[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:59860 - "OPTIONS /api/v1/investigations/ HTTP/1.1" 200 OK
+[2m2026-08-07T14:26:10.684295Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m4.0[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/investigations/[0m [36mrequest_id[0m=[35mc30fc7ac-1499-4625-8f4d-e50954ad12e6[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:59860 - "GET /api/v1/investigations/ HTTP/1.1" 200 OK
+[2m2026-08-07T14:26:25.894979Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m2.43[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/investigations[0m [36mrequest_id[0m=[35m8ef71549-0fe3-4d4b-a2e4-3fa5d23ca126[0m [36mstatus_code[0m=[35m307[0m
+INFO:     127.0.0.1:59863 - "GET /api/v1/investigations HTTP/1.1" 307 Temporary Redirect
+[2m2026-08-07T14:26:25.900679Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m3.97[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/investigations/[0m [36mrequest_id[0m=[35mb44b1632-95b1-40e1-85f9-c78f6015e699[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:59863 - "GET /api/v1/investigations/ HTTP/1.1" 200 OK
+[2m2026-08-07T14:29:18.886340Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m1.1[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/health[0m [36mrequest_id[0m=[35m6ec65dc2-f169-478c-8331-27289866f47a[0m [36mstatus_code[0m=[35m307[0m
+INFO:     127.0.0.1:59927 - "GET /api/v1/health HTTP/1.1" 307 Temporary Redirect
+[2m2026-08-07T14:29:18.888366Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m0.8[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/health/[0m [36mrequest_id[0m=[35m02478195-c7d1-49f4-ac4a-f511fbeaa98d[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:59929 - "GET /api/v1/health/ HTTP/1.1" 200 OK
+[2m2026-08-07T14:29:23.045798Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m206.15[0m [36mmethod[0m=[35mPOST[0m [36mpath[0m=[35m/api/v1/auth/login[0m [36mrequest_id[0m=[35mfc17baba-61f3-4902-8541-1fbd9b6f809f[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:59938 - "POST /api/v1/auth/login HTTP/1.1" 200 OK
+[2m2026-08-07T14:29:23.064648Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m1.49[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/users/me[0m [36mrequest_id[0m=[35m12239a35-d4dd-423f-a704-860a92dc831b[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:59938 - "GET /api/v1/users/me HTTP/1.1" 200 OK
+[2m2026-08-07T14:29:23.075815Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m1.66[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/investigations[0m [36mrequest_id[0m=[35m35f77afd-93a2-4ec0-ad39-bc5755b70dc1[0m [36mstatus_code[0m=[35m307[0m
+INFO:     127.0.0.1:59938 - "GET /api/v1/investigations HTTP/1.1" 307 Temporary Redirect
+[2m2026-08-07T14:29:23.100747Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m2.8[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/investigations/[0m [36mrequest_id[0m=[35m68d8806b-0395-400c-b87a-2128a636bb0a[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:59938 - "GET /api/v1/investigations/ HTTP/1.1" 200 OK
+[2m2026-08-07T14:29:41.219991Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m0.18[0m [36mmethod[0m=[35mOPTIONS[0m [36mpath[0m=[35m/api/v1/data-fabric/overview[0m [36mrequest_id[0m=[35mfe527e8b-5f4a-4b65-bb6d-89e8832db272[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:59962 - "OPTIONS /api/v1/data-fabric/overview HTTP/1.1" 200 OK
+[2m2026-08-07T14:29:41.224371Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m2.29[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/data-fabric/overview[0m [36mrequest_id[0m=[35m5cbdcc9e-0765-4264-96b8-bd8d8507c448[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:59962 - "GET /api/v1/data-fabric/overview HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'test_ke_api.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+[2m2026-08-07T14:36:05.889736Z[0m [[32m[1minfo     [0m] [1mapplication_shutdown          [0m [[0m[1m[34mphoenix.main[0m][0m
+INFO:     Application shutdown complete.
+INFO:     Finished server process [99967]
+2026-08-07 20:06:06 [info     ] vector_store_initialized       backend=in-memory-mock
+INFO:     Started server process [1224]
+INFO:     Waiting for application startup.
+[2m2026-08-07T14:36:07.362890Z[0m [[32m[1minfo     [0m] [1mstartup_checks_begin          [0m [[0m[1m[34mphoenix.startup[0m][0m [36menvironment[0m=[35mdevelopment[0m
+[2m2026-08-07T14:36:07.362948Z[0m [[33m[1mwarning  [0m] [1mweak_secret_key               [0m [[0m[1m[34mphoenix.startup[0m][0m [36mmessage[0m=[35m'SECRET_KEY appears shorter than recommended 256 bits. Consider regenerating with: secrets.token_hex(64)'[0m
+[2m2026-08-07T14:36:07.365668Z[0m [[32m[1minfo     [0m] [1mstartup_db_check              [0m [[0m[1m[34mphoenix.startup[0m][0m [36mstatus[0m=[35mconnected[0m [36muri_scheme[0m=[35msqlite[0m
+[2m2026-08-07T14:36:07.365714Z[0m [[32m[1minfo     [0m] [1mstartup_checks_passed         [0m [[0m[1m[34mphoenix.startup[0m][0m
+[2m2026-08-07T14:36:07.365748Z[0m [[32m[1minfo     [0m] [1mapplication_startup           [0m [[0m[1m[34mphoenix.main[0m][0m [36menv[0m=[35mdevelopment[0m [36mversion[0m=[35m0.1.0[0m
+INFO:     Application startup complete.
+[2m2026-08-07T14:37:59.041939Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m236.85[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/health[0m [36mrequest_id[0m=[35m07f4e0aa-139b-4505-b4b6-bb8d2f8bae4a[0m [36mstatus_code[0m=[35m307[0m
+INFO:     127.0.0.1:60924 - "GET /api/v1/health HTTP/1.1" 307 Temporary Redirect
+[2m2026-08-07T14:37:59.054792Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m11.22[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/health/[0m [36mrequest_id[0m=[35m6f02c2ff-b5bd-4eb8-a78c-d23cb26329e6[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:60926 - "GET /api/v1/health/ HTTP/1.1" 200 OK
+detected 'bcrypt' backend, version '4.0.1'
+'bcrypt' backend lacks $2$ support, enabling workaround
+/Users/umeshgupta/Downloads/PhishScope-AI-main/backend/.venv/lib/python3.11/site-packages/jwt/api_jwt.py:147: InsecureKeyLengthWarning: The HMAC key is 25 bytes long, which is below the minimum recommended length of 32 bytes for SHA256. See RFC 7518 Section 3.2.
+  return self._jws.encode(
+[2m2026-08-07T14:38:03.640059Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m347.76[0m [36mmethod[0m=[35mPOST[0m [36mpath[0m=[35m/api/v1/auth/login[0m [36mrequest_id[0m=[35mfbb190e0-56e3-47f4-b1b9-e5f99a551dc3[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:60935 - "POST /api/v1/auth/login HTTP/1.1" 200 OK
+[2m2026-08-07T14:38:03.671822Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m0.21[0m [36mmethod[0m=[35mOPTIONS[0m [36mpath[0m=[35m/api/v1/users/me[0m [36mrequest_id[0m=[35m51338290-0951-4f5e-8f5d-d7fc53fcac4e[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:60935 - "OPTIONS /api/v1/users/me HTTP/1.1" 200 OK
+/Users/umeshgupta/Downloads/PhishScope-AI-main/backend/.venv/lib/python3.11/site-packages/jwt/api_jwt.py:368: InsecureKeyLengthWarning: The HMAC key is 25 bytes long, which is below the minimum recommended length of 32 bytes for SHA256. See RFC 7518 Section 3.2.
+  decoded = self.decode_complete(
+[2m2026-08-07T14:38:03.679558Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m6.33[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/users/me[0m [36mrequest_id[0m=[35mb7cc63ea-73ae-4bf7-982a-25605b0e6588[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:60935 - "GET /api/v1/users/me HTTP/1.1" 200 OK
+[2m2026-08-07T14:38:03.692895Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m0.16[0m [36mmethod[0m=[35mOPTIONS[0m [36mpath[0m=[35m/api/v1/investigations[0m [36mrequest_id[0m=[35mf5971fc5-4775-4068-8749-9f9edcdb2297[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:60935 - "OPTIONS /api/v1/investigations HTTP/1.1" 200 OK
+[2m2026-08-07T14:38:03.695398Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m1.11[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/investigations[0m [36mrequest_id[0m=[35mbc1853a1-4619-4595-b6e1-3846236b7a24[0m [36mstatus_code[0m=[35m307[0m
+INFO:     127.0.0.1:60935 - "GET /api/v1/investigations HTTP/1.1" 307 Temporary Redirect
+[2m2026-08-07T14:38:03.697080Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m0.1[0m [36mmethod[0m=[35mOPTIONS[0m [36mpath[0m=[35m/api/v1/investigations/[0m [36mrequest_id[0m=[35mce2447c3-af34-402a-868c-e399277a8764[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:60936 - "OPTIONS /api/v1/investigations/ HTTP/1.1" 200 OK
+[2m2026-08-07T14:38:03.723594Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m3.63[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/investigations/[0m [36mrequest_id[0m=[35m6ffc0b89-aa00-4135-be35-26997778ab1b[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:60936 - "GET /api/v1/investigations/ HTTP/1.1" 200 OK
+[2m2026-08-07T14:38:28.738131Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m3.41[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/data-fabric/overview[0m [36mrequest_id[0m=[35m4713f29f-7d70-4837-ba30-376074873040[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:60941 - "GET /api/v1/data-fabric/overview HTTP/1.1" 200 OK
+[2m2026-08-07T14:38:34.108873Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m10.66[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/knowledge-evolution/ontology[0m [36mrequest_id[0m=[35mca7fb02c-e734-4142-8046-3bfaea223cf1[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:60944 - "GET /api/v1/knowledge-evolution/ontology?skip=0&limit=100 HTTP/1.1" 200 OK
+[2m2026-08-07T14:38:37.218964Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m8.26[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/knowledge-evolution/ontology[0m [36mrequest_id[0m=[35m97baa4ef-de0d-4fdc-8679-f4fc0ed70c6f[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:60947 - "GET /api/v1/knowledge-evolution/ontology?skip=0&limit=100 HTTP/1.1" 200 OK

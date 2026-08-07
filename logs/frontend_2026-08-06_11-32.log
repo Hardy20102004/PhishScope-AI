@@ -1,0 +1,21 @@
+
+> frontend@0.0.0 dev
+> vite
+
+
+  VITE v8.1.5  ready in 223 ms
+
+  ➜  Local:   http://localhost:3000/
+  ➜  Network: http://192.168.1.99:3000/
+  ➜  press h + enter to show help
+11:46:04 AM [vite] (client) hmr update /src/router/index.tsx, /src/styles/index.css
+11:46:04 AM [vite] (client) hmr invalidate /src/router/index.tsx Could not Fast Refresh ("router" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+11:46:04 AM [vite] (client) hmr update /src/App.tsx
+11:48:53 AM [vite] (client) hmr update /src/styles/index.css, /src/pages/forensics/disk/DiskDashboard.tsx
+11:49:04 AM [vite] (client) hmr update /src/router/index.tsx, /src/styles/index.css
+11:49:04 AM [vite] (client) hmr invalidate /src/router/index.tsx Could not Fast Refresh ("router" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+11:49:04 AM [vite] (client) hmr update /src/App.tsx
+11:54:18 AM [vite] (client) hmr update /src/styles/index.css, /src/pages/forensics/disk/DiskDashboard.tsx
+12:01:41 PM [vite] (client) hmr update /src/styles/index.css, /src/pages/forensics/disk/DiskDashboard.tsx
+12:02:10 PM [vite] (client) hmr update /src/styles/index.css, /src/pages/forensics/disk/FileExplorer.tsx
+12:02:30 PM [vite] (client) hmr update /src/styles/index.css, /src/pages/forensics/disk/ForensicTimeline.tsx

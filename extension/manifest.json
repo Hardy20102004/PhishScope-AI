@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "PHOENIX Investigation Assistant",
+  "version": "1.0.0",
+  "description": "Real-Time Investigation Assistant for the PHOENIX Platform",
+  "action": {
+    "default_popup": "index.html"
+  },
+  "background": {
+    "service_worker": "src/background.ts"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["src/content.ts"]
+    }
+  ],
+  "permissions": [
+    "activeTab",
+    "contextMenus",
+    "storage"
+  ],
+  "host_permissions": [
+    "http://localhost:8000/*",
+    "http://localhost:5173/*"
+  ]
+}

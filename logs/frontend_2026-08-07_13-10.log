@@ -1,0 +1,15 @@
+
+> frontend@0.0.0 dev
+> vite
+
+
+  VITE v8.1.5  ready in 185 ms
+
+  ➜  Local:   http://localhost:3000/
+  ➜  Network: http://192.168.1.99:3000/
+  ➜  press h + enter to show help
+1:19:18 PM [vite] (client) hmr update /src/styles/index.css, /src/features/dataFabric/components/MetadataCatalogDashboard.tsx
+1:19:35 PM [vite] (client) hmr update /src/styles/index.css, /src/features/dataFabric/components/KnowledgeMeshDashboard.tsx
+1:19:56 PM [vite] (client) hmr update /src/styles/index.css, /src/features/dataFabric/components/DataLineageDashboard.tsx
+1:26:53 PM [vite] (client) hmr update /src/styles/index.css, /src/features/cyberCommand/components/AICopilotPanel.tsx
+1:49:14 PM [vite] (client) hmr update /src/styles/index.css, /src/App.tsx, /src/features/dataFabric/components/SecurityDataFabricDashboard.tsx, /src/features/dataFabric/components/MetadataCatalogDashboard.tsx

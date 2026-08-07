@@ -1,0 +1,45 @@
+[19:56:03] PHOENIX launcher started — v0.1.0
+[19:56:03] Python OK: 3.11.9 (main, Apr 19 2026, 02:58:43) [Clang 21.0.0 (clang-2100.0.123.102)]
+[19:56:03] OS: Darwin 25.5.0 arm64
+[19:56:03] Node.js: v26.5.0
+[19:56:04] pip install: SUCCESS
+[19:56:05] npm install: SUCCESS
+[19:56:05] Backend: PID 252 → /Users/umeshgupta/Downloads/PhishScope-AI-main/logs/backend_2026-08-07_19-56.log
+[19:56:05] Frontend: PID 253 → /Users/umeshgupta/Downloads/PhishScope-AI-main/logs/frontend_2026-08-07_19-56.log
+[19:56:05] Backend health: OK
+[19:56:06] Process PID 252 died unexpectedly (code 3)
+[19:56:11] Process PID 252 died unexpectedly (code 3)
+[19:56:16] Process PID 252 died unexpectedly (code 3)
+[19:56:22] Process PID 252 died unexpectedly (code 3)
+[19:56:27] Process PID 252 died unexpectedly (code 3)
+[19:56:32] Process PID 252 died unexpectedly (code 3)
+[19:56:37] Process PID 252 died unexpectedly (code 3)
+[19:56:42] Process PID 252 died unexpectedly (code 3)
+[19:56:47] Process PID 252 died unexpectedly (code 3)
+[19:56:52] Process PID 252 died unexpectedly (code 3)
+[19:56:57] Process PID 252 died unexpectedly (code 3)
+[19:57:02] Process PID 252 died unexpectedly (code 3)
+[19:57:07] Process PID 252 died unexpectedly (code 3)
+[19:57:12] Process PID 252 died unexpectedly (code 3)
+[19:57:17] Process PID 252 died unexpectedly (code 3)
+[19:57:22] Process PID 252 died unexpectedly (code 3)
+[19:57:27] Process PID 252 died unexpectedly (code 3)
+[19:57:32] Process PID 252 died unexpectedly (code 3)
+[19:57:37] Process PID 252 died unexpectedly (code 3)
+[19:57:42] Process PID 252 died unexpectedly (code 3)
+[19:57:47] Process PID 252 died unexpectedly (code 3)
+[19:57:52] Process PID 252 died unexpectedly (code 3)
+[19:57:57] Process PID 252 died unexpectedly (code 3)
+[19:58:02] Process PID 252 died unexpectedly (code 3)
+[19:58:07] Process PID 252 died unexpectedly (code 3)
+[19:58:12] Process PID 252 died unexpectedly (code 3)
+[19:58:17] Process PID 252 died unexpectedly (code 3)
+[19:58:22] Process PID 252 died unexpectedly (code 3)
+[19:58:27] Process PID 252 died unexpectedly (code 3)
+[19:58:32] Process PID 252 died unexpectedly (code 3)
+[19:58:37] Process PID 252 died unexpectedly (code 3)
+[19:58:42] Process PID 252 died unexpectedly (code 3)
+[19:58:47] Process PID 252 died unexpectedly (code 3)
+[19:58:52] Process PID 252 died unexpectedly (code 3)
+[19:58:56] Shutdown initiated
+[19:58:57] Shutdown complete

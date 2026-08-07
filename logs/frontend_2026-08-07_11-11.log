@@ -1,0 +1,15 @@
+
+> frontend@0.0.0 dev
+> vite
+
+
+  VITE v8.1.5  ready in 254 ms
+
+  ➜  Local:   http://localhost:3000/
+  ➜  Network: http://192.168.1.60:3000/
+  ➜  press h + enter to show help
+11:40:52 AM [vite] (client) hmr update /src/styles/index.css, /src/components/CommandPalette.tsx
+11:45:07 AM [vite] (client) hmr update /src/styles/index.css, /src/components/CommandPalette.tsx
+11:45:09 AM [vite] (client) hmr update /src/styles/index.css, /src/pages/threat-intel/IndicatorSearch.tsx
+11:49:28 AM [vite] (client) hmr update /src/router/index.tsx, /src/styles/index.css
+11:50:13 AM [vite] (client) hmr update /src/App.tsx, /src/styles/index.css

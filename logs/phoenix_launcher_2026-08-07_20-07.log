@@ -1,0 +1,27 @@
+[20:07:56] PHOENIX launcher started — v0.1.0
+[20:07:56] Python OK: 3.11.9 (main, Apr 19 2026, 02:58:43) [Clang 21.0.0 (clang-2100.0.123.102)]
+[20:07:56] OS: Darwin 25.5.0 arm64
+[20:07:56] Node.js: v26.5.0
+[20:07:57] pip install: SUCCESS
+[20:07:58] npm install: SUCCESS
+[20:07:58] Backend: PID 1439 → /Users/umeshgupta/Downloads/PhishScope-AI-main/logs/backend_2026-08-07_20-07.log
+[20:07:58] Frontend: PID 1440 → /Users/umeshgupta/Downloads/PhishScope-AI-main/logs/frontend_2026-08-07_20-07.log
+[20:07:59] Backend health: OK
+[20:08:00] Process PID 1439 died unexpectedly (code 3)
+[20:08:05] Process PID 1439 died unexpectedly (code 3)
+[20:08:10] Process PID 1439 died unexpectedly (code 3)
+[20:08:15] Process PID 1439 died unexpectedly (code 3)
+[20:08:20] Process PID 1439 died unexpectedly (code 3)
+[20:08:25] Process PID 1439 died unexpectedly (code 3)
+[20:08:30] Process PID 1439 died unexpectedly (code 3)
+[20:08:35] Process PID 1439 died unexpectedly (code 3)
+[20:08:40] Process PID 1439 died unexpectedly (code 3)
+[20:08:45] Process PID 1439 died unexpectedly (code 3)
+[20:08:50] Process PID 1439 died unexpectedly (code 3)
+[20:08:55] Process PID 1439 died unexpectedly (code 3)
+[20:09:00] Process PID 1439 died unexpectedly (code 3)
+[20:09:05] Process PID 1439 died unexpectedly (code 3)
+[20:09:10] Process PID 1439 died unexpectedly (code 3)
+[20:09:15] Process PID 1439 died unexpectedly (code 3)
+[20:09:15] Shutdown initiated
+[20:09:16] Shutdown complete

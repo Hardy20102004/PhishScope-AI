@@ -1,0 +1,20 @@
+
+> frontend@0.0.0 dev
+> vite
+
+
+  VITE v8.1.5  ready in 72 ms
+
+  ➜  Local:   http://localhost:3000/
+  ➜  Network: http://192.168.1.99:3000/
+  ➜  press h + enter to show help
+8:33:14 PM [vite] (client) hmr update /src/styles/index.css, /src/components/ui/Input.tsx, /src/components/ui/Button.tsx, /src/components/ui/button.tsx
+8:33:31 PM [vite] (client) hmr update /src/styles/index.css, /src/features/dashboard/components/RecentInvestigations.tsx
+8:33:47 PM [vite] (client) hmr update /src/styles/index.css, /src/pages/investigations/Workspace.tsx
+10:36:11 AM [vite] (client) hmr update /src/styles/index.css, /src/pages/predictive_risk/PredictiveRiskDashboard.tsx
+10:36:21 AM [vite] (client) hmr update /src/styles/index.css, /src/pages/cyber_fusion/StrategicExecutiveDashboard.tsx
+10:36:38 AM [vite] (client) hmr update /src/styles/index.css, /src/features/cyberGovernance/components/ExecutiveGovernanceDashboard.tsx
+10:41:43 AM [vite] (client) hmr update /src/styles/index.css, /src/features/command-center/pages/CommandCenterDashboard.tsx
+10:45:13 AM [vite] (client) hmr update /src/styles/index.css, /src/features/cyberCommand/components/EnterpriseCommandDashboard.tsx
+10:45:29 AM [vite] (client) hmr update /src/styles/index.css, /src/features/knowledgeEvolution/components/KnowledgeEvolutionDashboard.tsx
+10:45:29 AM [vite] (client) hmr update /src/styles/index.css, /src/features/cyberGovernance/components/ExecutiveGovernanceDashboard.tsx

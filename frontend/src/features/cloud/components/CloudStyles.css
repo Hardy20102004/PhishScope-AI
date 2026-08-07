@@ -1,0 +1,221 @@
+:root {
+  --cloud-bg: #0f172a;
+  --cloud-glass-bg: rgba(30, 41, 59, 0.7);
+  --cloud-glass-border: rgba(255, 255, 255, 0.1);
+  --cloud-primary: #3b82f6;
+  --cloud-primary-hover: #2563eb;
+  --cloud-text-main: #f8fafc;
+  --cloud-text-muted: #94a3b8;
+  --cloud-success: #10b981;
+  --cloud-warning: #f59e0b;
+  --cloud-danger: #ef4444;
+  --cloud-amber: #d97706;
+}
+
+.cloud-container {
+  padding: 2rem;
+  background: var(--cloud-bg);
+  min-height: 100vh;
+  color: var(--cloud-text-main);
+  font-family: 'Inter', -apple-system, sans-serif;
+}
+
+.cloud-header {
+  margin-bottom: 2.5rem;
+}
+
+.cloud-header h1, .cloud-header h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
+  background: linear-gradient(135deg, #60a5fa, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  color: var(--cloud-text-muted);
+  font-size: 1.125rem;
+  margin-top: 0.5rem;
+}
+
+.glassmorphism {
+  background: var(--cloud-glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--cloud-glass-border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cloud-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.metric-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.metric-icon {
+  font-size: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  border-radius: 12px;
+}
+
+.metric-content h3 {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--cloud-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.metric-value {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: 0.25rem;
+}
+
+.health-optimal {
+  color: var(--cloud-success);
+}
+
+.cloud-content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.activity-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.activity-list li {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--cloud-glass-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.activity-time {
+  color: var(--cloud-text-muted);
+  font-size: 0.875rem;
+}
+
+.badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.badge-success { background: rgba(16, 185, 129, 0.2); color: var(--cloud-success); }
+.badge-warning { background: rgba(245, 158, 11, 0.2); color: var(--cloud-warning); }
+.badge-neutral { background: rgba(255, 255, 255, 0.1); color: var(--cloud-text-main); }
+
+.tlp-badge {
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.tlp-amber { background: var(--cloud-amber); color: #fff; }
+.tlp-red { background: var(--cloud-danger); color: #fff; }
+
+.btn-primary, .btn-secondary {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background: var(--cloud-primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--cloud-primary-hover);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid var(--cloud-glass-border);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.tenant-list, .workspace-grid, .node-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.search-input {
+  background: transparent;
+  border: none;
+  color: white;
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1.125rem;
+}
+
+.search-input:focus {
+  outline: none;
+}
+
+.search-bar {
+  display: flex;
+  margin-bottom: 2rem;
+}
+
+.exchange-row {
+  margin-bottom: 1rem;
+}
+
+.sync-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.sync-table th, .sync-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--cloud-glass-border);
+}
+
+.sync-table th {
+  color: var(--cloud-text-muted);
+}

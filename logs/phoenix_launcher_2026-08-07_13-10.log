@@ -1,0 +1,9 @@
+[13:10:43] PHOENIX launcher started — v0.1.0
+[13:10:43] Python OK: 3.11.9 (main, Apr 19 2026, 02:58:43) [Clang 21.0.0 (clang-2100.0.123.102)]
+[13:10:43] OS: Darwin 25.5.0 arm64
+[13:10:43] Node.js: v26.5.0
+[13:10:45] pip install: SUCCESS
+[13:10:47] npm install: SUCCESS
+[13:10:47] Backend: PID 70959 → /Users/umeshgupta/PhishScope AI/PhishScope AI2.0/logs/backend_2026-08-07_13-10.log
+[13:10:47] Frontend: PID 70960 → /Users/umeshgupta/PhishScope AI/PhishScope AI2.0/logs/frontend_2026-08-07_13-10.log
+[13:10:51] Backend health: OK

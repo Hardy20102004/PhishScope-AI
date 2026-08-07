@@ -1,0 +1,19 @@
+[19:27:19] PHOENIX launcher started — v0.1.0
+[19:27:19] Python OK: 3.11.9 (main, Apr 19 2026, 02:58:43) [Clang 21.0.0 (clang-2100.0.123.102)]
+[19:27:19] OS: Darwin 25.5.0 arm64
+[19:27:19] Node.js: v26.5.0
+[19:27:20] pip install: SUCCESS
+[19:27:22] npm install: SUCCESS
+[19:27:22] Backend: PID 99511 → /Users/umeshgupta/Downloads/PhishScope-AI-main/logs/backend_2026-08-07_19-27.log
+[19:27:22] Frontend: PID 99512 → /Users/umeshgupta/Downloads/PhishScope-AI-main/logs/frontend_2026-08-07_19-27.log
+[19:27:22] Backend health: OK
+[19:27:23] Process PID 99511 died unexpectedly (code 3)
+[19:27:28] Process PID 99511 died unexpectedly (code 3)
+[19:27:33] Process PID 99511 died unexpectedly (code 3)
+[19:27:38] Process PID 99511 died unexpectedly (code 3)
+[19:27:43] Process PID 99511 died unexpectedly (code 3)
+[19:27:48] Process PID 99511 died unexpectedly (code 3)
+[19:27:53] Process PID 99511 died unexpectedly (code 3)
+[19:27:58] Process PID 99511 died unexpectedly (code 3)
+[19:27:59] Shutdown initiated
+[19:28:00] Shutdown complete

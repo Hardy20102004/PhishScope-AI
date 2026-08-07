@@ -1,0 +1,1047 @@
+INFO:     Will watch for changes in these directories: ['/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [70959] using WatchFiles
+2026-08-07 13:10:48 [info     ] vector_store_initialized       backend=in-memory-mock
+INFO:     Started server process [70981]
+INFO:     Waiting for application startup.
+[2m2026-08-07T07:40:50.829561Z[0m [[32m[1minfo     [0m] [1mstartup_checks_begin          [0m [[0m[1m[34mphoenix.startup[0m][0m [36menvironment[0m=[35mdevelopment[0m
+[2m2026-08-07T07:40:50.829681Z[0m [[33m[1mwarning  [0m] [1mweak_secret_key               [0m [[0m[1m[34mphoenix.startup[0m][0m [36mmessage[0m=[35m'SECRET_KEY appears shorter than recommended 256 bits. Consider regenerating with: secrets.token_hex(64)'[0m
+[2m2026-08-07T07:40:50.844639Z[0m [[32m[1minfo     [0m] [1mstartup_db_check              [0m [[0m[1m[34mphoenix.startup[0m][0m [36mstatus[0m=[35mconnected[0m [36muri_scheme[0m=[35msqlite[0m
+[2m2026-08-07T07:40:50.844744Z[0m [[32m[1minfo     [0m] [1mstartup_checks_passed         [0m [[0m[1m[34mphoenix.startup[0m][0m
+[2m2026-08-07T07:40:50.844818Z[0m [[32m[1minfo     [0m] [1mapplication_startup           [0m [[0m[1m[34mphoenix.main[0m][0m [36menv[0m=[35mdevelopment[0m [36mversion[0m=[35m0.1.0[0m
+INFO:     Application startup complete.
+[2m2026-08-07T07:40:51.764401Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m370.35[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/health[0m [36mrequest_id[0m=[35m8d65efd9-a803-4025-bad2-0b3041dfeee7[0m [36mstatus_code[0m=[35m307[0m
+INFO:     127.0.0.1:53471 - "GET /api/v1/health HTTP/1.1" 307 Temporary Redirect
+[2m2026-08-07T07:40:51.773671Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m7.46[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/health/[0m [36mrequest_id[0m=[35m04942bba-3d56-4a74-8e58-837db7db97be[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:53474 - "GET /api/v1/health/ HTTP/1.1" 200 OK
+detected 'bcrypt' backend, version '4.0.1'
+'bcrypt' backend lacks $2$ support, enabling workaround
+[2m2026-08-07T07:40:58.245398Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m657.0[0m [36mmethod[0m=[35mPOST[0m [36mpath[0m=[35m/api/v1/auth/login[0m [36mrequest_id[0m=[35md8efbfb4-846f-4488-9b1e-f9aa4ec066fc[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:53484 - "POST /api/v1/auth/login HTTP/1.1" 200 OK
+[2m2026-08-07T07:40:58.266932Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m0.29[0m [36mmethod[0m=[35mOPTIONS[0m [36mpath[0m=[35m/api/v1/users/me[0m [36mrequest_id[0m=[35maaf54814-f15f-479e-b347-e8e8e5e292f4[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:53484 - "OPTIONS /api/v1/users/me HTTP/1.1" 200 OK
+[2m2026-08-07T07:40:58.278137Z[0m [[31m[1merror    [0m] [1munhandled_exception           [0m [[0m[1m[34mphoenix.exceptions[0m][0m [36merror[0m=[35m'1 validation error:\n  {\'type\': \'string_type\', \'loc\': (\'response\', \'data\', \'id\'), \'msg\': \'Input should be a valid string\', \'input\': UUID(\'50e41929-bd67-4fc6-aac5-2c401a5ff515\')}\n\n  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/app/api/v1/endpoints/users.py", line 13, in read_users_me\n    GET /api/v1/users/me'[0m [36mpath[0m=[35m/api/v1/users/me[0m [36mrequest_id[0m=[35m5af90da6-3e66-46ed-9e99-cfaa379f01e8[0m
+INFO:     127.0.0.1:53484 - "GET /api/v1/users/me HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/uvicorn/protocols/http/httptools_impl.py", line 422, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/uvicorn/middleware/proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/applications.py", line 1163, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/applications.py", line 90, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/app/middleware/request_context.py", line 22, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/cors.py", line 96, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/cors.py", line 154, in simple_response
+    await self.app(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/routing.py", line 660, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 2685, in app
+    await route.handle(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 1766, in handle
+    await self.original_router.handle(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 2740, in handle
+    await included_router._handle_selected(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 1777, in _handle_selected
+    await route.handle(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 1766, in handle
+    await self.original_router.handle(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 2740, in handle
+    await included_router._handle_selected(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 1786, in _handle_selected
+    await original_route.handle(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 1265, in handle
+    await app(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 151, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 137, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 712, in app
+    content = await serialize_response(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 317, in serialize_response
+    raise ResponseValidationError(
+fastapi.exceptions.ResponseValidationError: 1 validation error:
+  {'type': 'string_type', 'loc': ('response', 'data', 'id'), 'msg': 'Input should be a valid string', 'input': UUID('50e41929-bd67-4fc6-aac5-2c401a5ff515')}
+
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/app/api/v1/endpoints/users.py", line 13, in read_users_me
+    GET /api/v1/users/me
+[2m2026-08-07T07:40:58.302398Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m0.2[0m [36mmethod[0m=[35mOPTIONS[0m [36mpath[0m=[35m/api/v1/investigations[0m [36mrequest_id[0m=[35m0ef133ba-49e4-4bde-a465-3257937f314e[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:53486 - "OPTIONS /api/v1/investigations HTTP/1.1" 200 OK
+[2m2026-08-07T07:40:58.307232Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m3.06[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/investigations[0m [36mrequest_id[0m=[35mcf192019-89b7-49d8-9efc-4ef3f0795f51[0m [36mstatus_code[0m=[35m307[0m
+INFO:     127.0.0.1:53486 - "GET /api/v1/investigations HTTP/1.1" 307 Temporary Redirect
+[2m2026-08-07T07:40:58.311605Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m0.27[0m [36mmethod[0m=[35mOPTIONS[0m [36mpath[0m=[35m/api/v1/investigations/[0m [36mrequest_id[0m=[35m290dcd45-a997-4c8f-8767-422c96876ed9[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:53487 - "OPTIONS /api/v1/investigations/ HTTP/1.1" 200 OK
+[2m2026-08-07T07:40:58.346201Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m8.06[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/investigations/[0m [36mrequest_id[0m=[35mb885c289-536d-43b4-acad-c8e41c180855[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:53487 - "GET /api/v1/investigations/ HTTP/1.1" 200 OK
+[2m2026-08-07T07:41:11.885601Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m0.24[0m [36mmethod[0m=[35mOPTIONS[0m [36mpath[0m=[35m/api/v1/investigations[0m [36mrequest_id[0m=[35m75b04a70-158f-447b-9605-1a98826fc581[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:53489 - "OPTIONS /api/v1/investigations HTTP/1.1" 200 OK
+[2m2026-08-07T07:41:11.892359Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m4.2[0m [36mmethod[0m=[35mPOST[0m [36mpath[0m=[35m/api/v1/investigations[0m [36mrequest_id[0m=[35m2d32cd4f-9e54-4dd7-b6bd-2ee5eb9c8716[0m [36mstatus_code[0m=[35m307[0m
+INFO:     127.0.0.1:53489 - "POST /api/v1/investigations HTTP/1.1" 307 Temporary Redirect
+[2m2026-08-07T07:41:11.895106Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m0.21[0m [36mmethod[0m=[35mOPTIONS[0m [36mpath[0m=[35m/api/v1/investigations/[0m [36mrequest_id[0m=[35mafafba52-5dba-4aa9-8119-356b3e52f73b[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:53490 - "OPTIONS /api/v1/investigations/ HTTP/1.1" 200 OK
+connect_tcp.started host='youtube.com' port=443 local_address=None timeout=5.0 socket_options=None
+connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x11045ef50>
+start_tls.started ssl_context=<ssl.SSLContext object at 0x1116f2d50> server_hostname='youtube.com' timeout=5.0
+start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x1117014d0>
+send_request_headers.started request=<Request [b'GET']>
+send_request_headers.complete
+send_request_body.started request=<Request [b'GET']>
+send_request_body.complete
+receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.complete return_value=(b'HTTP/1.1', 301, b'Moved Permanently', [(b'Content-Type', b'application/binary'), (b'X-Content-Type-Options', b'nosniff'), (b'Expires', b'Fri, 07 Aug 2026 07:41:12 GMT'), (b'Date', b'Fri, 07 Aug 2026 07:41:12 GMT'), (b'Cache-Control', b'private, max-age=31536000'), (b'Location', b'https://www.youtube.com/'), (b'P3P', b'CP="This is not a P3P policy! See g.co/p3phelp for more info."'), (b'Strict-Transport-Security', b'max-age=31536000; includeSubDomains; preload'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'Cross-Origin-Opener-Policy', b'same-origin-allow-popups; report-to="youtube_main"'), (b'Permissions-Policy', b'ch-ua-arch=*, ch-ua-bitness=*, ch-ua-full-version=*, ch-ua-full-version-list=*, ch-ua-model=*, ch-ua-wow64=*, ch-ua-form-factors=*, ch-ua-platform=*, ch-ua-platform-version=*'), (b'Accept-CH', b'Sec-CH-Viewport-Width, Sec-CH-DPR, Device-Memory'), (b'Vary', b'Sec-CH-Viewport-Width, Sec-CH-DPR, Device-Memory'), (b'Report-To', b'{"group":"youtube_main","max_age":2592000,"endpoints":[{"url":"https://csp.withgoogle.com/csp/report-to/youtube_main"}]}'), (b'Content-Security-Policy', b"base-uri 'self';object-src 'none';script-src 'report-sample' 'nonce-jTyje0KyQqN2suoaiCDxtg' 'unsafe-inline' 'strict-dynamic' https: http: 'unsafe-eval';report-uri https://csp.withgoogle.com/csp/youtube_main/strict"), (b'Content-Security-Policy', b"require-trusted-types-for 'script'"), (b'Origin-Trial', b'AmhMBR6zCLzDDxpW+HfpP67BqwIknWnyMOXOQGfzYswFmJe+fgaI6XZgAzcxOrzNtP7hEDsOo1jdjFnVr2IdxQ4AAAB4eyJvcmlnaW4iOiJodHRwczovL3lvdXR1YmUuY29tOjQ0MyIsImZlYXR1cmUiOiJXZWJWaWV3WFJlcXVlc3RlZFdpdGhEZXByZWNhdGlvbiIsImV4cGlyeSI6MTc1ODA2NzE5OSwiaXNTdWJkb21haW4iOnRydWV9'), (b'Origin-Trial', b'AiDEBptUfVeO93q48VdVMe/ubupazdAl8AaHP+NBzdnW8quUcHdzJUyGSfrmtpKJu7EOvwRp9ug2rEo3XU+WMAMAAAB2eyJvcmlnaW4iOiJodHRwczovL3lvdXR1YmUuY29tOjQ0MyIsImZlYXR1cmUiOiJEZXZpY2VCb3VuZFNlc3Npb25DcmVkZW50aWFsczIiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlfQ=='), (b'Server', b'ESF'), (b'Content-Length', b'0'), (b'X-XSS-Protection', b'0'), (b'Set-Cookie', b'__Secure-YNID=20.YT=KXdkpZH9qXGjcyw8KfE5l4-Khy7zGLe-i1Kf3g1u3hIlgiB39GbbpA-7HauOjYioftSfmTdecXOfGU1y6LXee7YUVX8hDtxFTRVuKi2BlojFf8LZMJ1PxuZbosqscGcKOzDcEswA1M2dtkRuGq1TCXzDUmKGOLuJ6vffy6IhGObfSvnoajg1th-AUviU60CMxMoNY5S24TqqAQjC75USbILw1rm_vzXevbNdfpYKF9SK4h3xG3jj5-aNXVPJZY_GAhWEMHyGP5NnMLWUxQxzlDg-ra7Caqcz0BZUIBe5BJeueDp5z9-5JXodbionXWr8RsyBJnaqQTZyF4vLbLarig; expires=Wed, 03-Feb-2027 07:41:12 GMT; path=/; domain=.youtube.com; Secure; HttpOnly; SameSite=none'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000')])
+HTTP Request: GET https://youtube.com "HTTP/1.1 301 Moved Permanently"
+receive_response_body.started request=<Request [b'GET']>
+receive_response_body.complete
+response_closed.started
+response_closed.complete
+connect_tcp.started host='www.youtube.com' port=443 local_address=None timeout=5.0 socket_options=None
+connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x116833910>
+start_tls.started ssl_context=<ssl.SSLContext object at 0x1116f2d50> server_hostname='www.youtube.com' timeout=5.0
+start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x116833b90>
+send_request_headers.started request=<Request [b'GET']>
+send_request_headers.complete
+send_request_body.started request=<Request [b'GET']>
+send_request_body.complete
+receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'text/html; charset=utf-8'), (b'X-Content-Type-Options', b'nosniff'), (b'Cache-Control', b'no-cache, no-store, max-age=0, must-revalidate'), (b'Pragma', b'no-cache'), (b'Expires', b'Mon, 01 Jan 1990 00:00:00 GMT'), (b'Date', b'Fri, 07 Aug 2026 07:41:12 GMT'), (b'P3P', b'CP="This is not a P3P policy! See http://support.google.com/accounts/answer/151657?hl=en-GB for more info."'), (b'Strict-Transport-Security', b'max-age=31536000'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'Accept-CH', b'Sec-CH-Viewport-Width, Sec-CH-DPR, Device-Memory'), (b'Vary', b'Sec-CH-Viewport-Width, Sec-CH-DPR, Device-Memory'), (b'Permissions-Policy', b'ch-ua-arch=*, ch-ua-bitness=*, ch-ua-full-version=*, ch-ua-full-version-list=*, ch-ua-model=*, ch-ua-wow64=*, ch-ua-form-factors=*, ch-ua-platform=*, ch-ua-platform-version=*'), (b'Report-To', b'{"group":"youtube_main","max_age":2592000,"endpoints":[{"url":"https://csp.withgoogle.com/csp/report-to/youtube_main"}]}'), (b'Origin-Trial', b'AmhMBR6zCLzDDxpW+HfpP67BqwIknWnyMOXOQGfzYswFmJe+fgaI6XZgAzcxOrzNtP7hEDsOo1jdjFnVr2IdxQ4AAAB4eyJvcmlnaW4iOiJodHRwczovL3lvdXR1YmUuY29tOjQ0MyIsImZlYXR1cmUiOiJXZWJWaWV3WFJlcXVlc3RlZFdpdGhEZXByZWNhdGlvbiIsImV4cGlyeSI6MTc1ODA2NzE5OSwiaXNTdWJkb21haW4iOnRydWV9'), (b'Origin-Trial', b'AiDEBptUfVeO93q48VdVMe/ubupazdAl8AaHP+NBzdnW8quUcHdzJUyGSfrmtpKJu7EOvwRp9ug2rEo3XU+WMAMAAAB2eyJvcmlnaW4iOiJodHRwczovL3lvdXR1YmUuY29tOjQ0MyIsImZlYXR1cmUiOiJEZXZpY2VCb3VuZFNlc3Npb25DcmVkZW50aWFsczIiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlfQ=='), (b'Content-Security-Policy', b"base-uri 'self';object-src 'none';script-src 'report-sample' 'nonce-Kw4JlcZPsN2txlO6Hr0IQw' 'unsafe-inline' 'strict-dynamic' https: http: 'unsafe-eval';report-uri https://csp.withgoogle.com/csp/youtube_main/strict"), (b'Content-Security-Policy', b"require-trusted-types-for 'script'"), (b'Cross-Origin-Opener-Policy', b'same-origin-allow-popups; report-to="youtube_main"'), (b'reporting-endpoints', b'crash-reporting="/web-reports?context=eJwNzX1MVXUcx3EO743RvcK95557zzm_37Gt6KZpu3qlYOXoScpMBrGcZZGDC5FRPChdLrg5Lasly0iYLskEV4sYE9qihxmplA9YwzIoYzyYsWnTCCcRIMTq98drn-37sI9rMiG4plzb4qrQnl1cqe1eHdWmWqJae1dUG7slpuWlxLTS32q0Ju-G-JprLvLudNO_1s1YjpsvPnbT9ambkT_cpFUt4GhjEpHRJFqPJJPbk0y9Mj6fTPp9HmLFHtwxD-_Veljxrgfrew9Hg176Dngpa_cyPO0lkqZTp7y_XmckXyd7k862bTqvK6vqdI636TgdOk8f0Vl4RWd0Rue_tT6y83xk9Kl0DEJpBjOPG7gqDC69YtDeYvB1p8HqAYO9Ewb_zhlc9_jJtfwURv1sb_TTccjPWI-f8l4_ZYN-DsYFeNgMcJsd4KF1AXJqAmj7Apw9G-Ar3SRomMwtN4msMEnMMdlTZNJbajL9ssmJKpPWnSaNV0wm4y1iSRbdSyw6HrM4_IzFjRqL8VqLN45ZJB63uPCtxdApi7JhlSMWfRMW839b1E9bvD1joc1aZLpscm0bkWGzd4NNb4FNda1NgzJaZ1PQZNPXatP0iY2v0-bqSZvaMzanf7Cp-9VGG7BpVi7FCzIRdCcIupIFd_gEp1IF8XcLsu9VM-VwhuCB-wWDqwST6wQ9EbV_UfDaFsGHlYKG7YIhZWqHYPwtQcsBwdWPBBMdgsTPBLu61P8JQeC0IHhO8NOAoHlQ_VwQ3HRRsOl3QYnSellQNib48Zq6nxDIOEmGYnsk3T7J0M0Sbpd8uVTSqywNSR5ZLnlUyVLCGZJzOZJdT0q0pyQn8yU_RyTHyiRvVkhmKyXpVZK7tkrSlI17JDsbJNX7JA0HJTnNkpVtks2fS-r7Vc-wZP1FyTtjkrm_JNcnJZf_keyYkmTekJyfVV1zkl_mJUGXwxPJDgu9Dmt0hyzl1Vsd2lIcFgcddi9xeCnkULDSwXjQ4YMsh_mNDt-9oMQc_lwUl-BbkLh___n-BO-Zhm8641NCWyuqolWFxcuqiwtDz1dWlEdDxeXPhYoqS6IlRZHS_NRwanr4nnDqsnBa_ubw_3V5EoA"'), (b'document-policy', b'include-js-call-stacks-in-crash-reports'), (b'Content-Encoding', b'gzip'), (b'Server', b'ESF'), (b'X-XSS-Protection', b'0'), (b'Set-Cookie', b'__Secure-YNID=20.YT=iCfU-yjZz6FR_ddOOUDQFCHHwbGgdOw9ncY08lo5qhBWz8fyrlBjUDSJZFfJHTCsoWqGl6n0NH7oA8DYRhaBmhxhszttXE2urkzY2zujMagLTvRhcgqgm6qT-jpGC-8bsn4SW5Mst2OvStHHIPgL60eJ9eLfBTcuMubkPiKzYiNgnBBxvGcjUJWQIx7HtfvGDsUZVjdo4JDiq1dVMA1zomkDFkd7268CUgaEApsoOv4V6h3ywTvHBOyAmj-lAOZHrS4qQ6QgXAMlnoIgMQEEzyMo7cUgnFg1ZHdtL8YulvFOXgHQUur57Z7_2kZP_Cwcih0Sg7oGFKq9pJl4g0TXqw; expires=Wed, 03-Feb-2027 07:41:12 GMT; path=/; domain=.youtube.com; Secure; HttpOnly; SameSite=none'), (b'Set-Cookie', b'GPS=1; Domain=.youtube.com; Expires=Fri, 07-Aug-2026 08:11:12 GMT; Path=/; Secure; HttpOnly'), (b'Set-Cookie', b'YSC=5K2qP6P2XtE; Domain=.youtube.com; Path=/; Secure; HttpOnly; SameSite=none'), (b'Set-Cookie', b'__Secure-ROLLOUT_TOKEN=CLSL85i2s9m9MBDS4seHgo6WAxjS4seHgo6WAw%3D%3D; Domain=youtube.com; Expires=Wed, 03-Feb-2027 07:41:12 GMT; Path=/; Secure; HttpOnly; SameSite=none; Partitioned'), (b'Set-Cookie', b'__Secure-YEC=; Domain=.youtube.com; Expires=Sat, 11-Nov-2023 07:41:12 GMT; Path=/; Secure; HttpOnly; SameSite=lax'), (b'Set-Cookie', b'VISITOR_INFO1_LIVE=BuPRvmwtsbs; Domain=.youtube.com; Expires=Wed, 03-Feb-2027 07:41:12 GMT; Path=/; Secure; HttpOnly; SameSite=none'), (b'Set-Cookie', b'VISITOR_PRIVACY_METADATA=CgJJThIEGgAgUg%3D%3D; Domain=.youtube.com; Expires=Wed, 03-Feb-2027 07:41:12 GMT; Path=/; Secure; HttpOnly; SameSite=none'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+HTTP Request: GET https://www.youtube.com/ "HTTP/1.1 200 OK"
+receive_response_body.started request=<Request [b'GET']>
+receive_response_body.complete
+response_closed.started
+response_closed.complete
+close.started
+close.complete
+close.started
+close.complete
+[2m2026-08-07T07:41:13.124737Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m1227.48[0m [36mmethod[0m=[35mPOST[0m [36mpath[0m=[35m/api/v1/investigations/[0m [36mrequest_id[0m=[35m550b5aa1-3600-4cc0-9427-f289b252a648[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:53490 - "POST /api/v1/investigations/ HTTP/1.1" 200 OK
+[2m2026-08-07T07:41:13.152365Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m0.16[0m [36mmethod[0m=[35mOPTIONS[0m [36mpath[0m=[35m/api/v1/investigations/08dff067-cc36-4cde-8e45-44b4fd9f3dc3[0m [36mrequest_id[0m=[35m2c5ba05b-d0d5-4ac4-b9b6-4abf817b3946[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:53489 - "OPTIONS /api/v1/investigations/08dff067-cc36-4cde-8e45-44b4fd9f3dc3 HTTP/1.1" 200 OK
+[2m2026-08-07T07:41:13.157564Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m3.76[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/investigations/08dff067-cc36-4cde-8e45-44b4fd9f3dc3[0m [36mrequest_id[0m=[35m288b7fc4-84ad-437a-b720-d981e815ac24[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:53490 - "GET /api/v1/investigations/08dff067-cc36-4cde-8e45-44b4fd9f3dc3 HTTP/1.1" 200 OK
+[2m2026-08-07T07:41:40.352265Z[0m [[31m[1merror    [0m] [1munhandled_exception           [0m [[0m[1m[34mphoenix.exceptions[0m][0m [36merror[0m=[35m'1 validation error:\n  {\'type\': \'string_type\', \'loc\': (\'response\', \'data\', \'id\'), \'msg\': \'Input should be a valid string\', \'input\': UUID(\'50e41929-bd67-4fc6-aac5-2c401a5ff515\')}\n\n  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/app/api/v1/endpoints/users.py", line 13, in read_users_me\n    GET /api/v1/users/me'[0m [36mpath[0m=[35m/api/v1/users/me[0m [36mrequest_id[0m=[35me33c980a-95f4-4cfa-a8b6-5719f1ac9b25[0m
+INFO:     127.0.0.1:53497 - "GET /api/v1/users/me HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/uvicorn/protocols/http/httptools_impl.py", line 422, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/uvicorn/middleware/proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/applications.py", line 1163, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/applications.py", line 90, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/app/middleware/request_context.py", line 22, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/cors.py", line 96, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/cors.py", line 154, in simple_response
+    await self.app(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/routing.py", line 660, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 2685, in app
+    await route.handle(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 1766, in handle
+    await self.original_router.handle(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 2740, in handle
+    await included_router._handle_selected(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 1777, in _handle_selected
+    await route.handle(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 1766, in handle
+    await self.original_router.handle(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 2740, in handle
+    await included_router._handle_selected(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 1786, in _handle_selected
+    await original_route.handle(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 1265, in handle
+    await app(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 151, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 137, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 712, in app
+    content = await serialize_response(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 317, in serialize_response
+    raise ResponseValidationError(
+fastapi.exceptions.ResponseValidationError: 1 validation error:
+  {'type': 'string_type', 'loc': ('response', 'data', 'id'), 'msg': 'Input should be a valid string', 'input': UUID('50e41929-bd67-4fc6-aac5-2c401a5ff515')}
+
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/app/api/v1/endpoints/users.py", line 13, in read_users_me
+    GET /api/v1/users/me
+[2m2026-08-07T07:41:40.371907Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m2.06[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/investigations[0m [36mrequest_id[0m=[35m4a93cbc1-b106-490a-a9d2-157019e21252[0m [36mstatus_code[0m=[35m307[0m
+INFO:     127.0.0.1:53499 - "GET /api/v1/investigations HTTP/1.1" 307 Temporary Redirect
+[2m2026-08-07T07:41:40.391211Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m6.23[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/investigations/[0m [36mrequest_id[0m=[35mbb5e34fb-a42f-47ad-97e4-e01bd9afc0fe[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:53499 - "GET /api/v1/investigations/ HTTP/1.1" 200 OK
+[2m2026-08-07T07:41:49.205903Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m0.19[0m [36mmethod[0m=[35mOPTIONS[0m [36mpath[0m=[35m/api/v1/threat-intel/indicators/search[0m [36mrequest_id[0m=[35m951f76e0-f270-49d6-9df9-1c6fb1766c1f[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:53501 - "OPTIONS /api/v1/threat-intel/indicators/search HTTP/1.1" 200 OK
+[2m2026-08-07T07:41:49.206794Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m0.18[0m [36mmethod[0m=[35mOPTIONS[0m [36mpath[0m=[35m/api/v1/threat-intel/indicators/search[0m [36mrequest_id[0m=[35md2b37c0f-f075-4f46-afce-0fb91d31fc00[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:53502 - "OPTIONS /api/v1/threat-intel/indicators/search HTTP/1.1" 200 OK
+[2m2026-08-07T07:41:49.250937Z[0m [[31m[1merror    [0m] [1munhandled_exception           [0m [[0m[1m[34mphoenix.exceptions[0m][0m [36merror[0m=[35m"can't subtract offset-naive and offset-aware datetimes"[0m [36mpath[0m=[35m/api/v1/threat-intel/indicators/search[0m [36mrequest_id[0m=[35m92879fc5-2cdf-46a2-ae51-ccdc554da94a[0m
+INFO:     127.0.0.1:53502 - "POST /api/v1/threat-intel/indicators/search HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/uvicorn/protocols/http/httptools_impl.py", line 422, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/uvicorn/middleware/proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/applications.py", line 1163, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/applications.py", line 90, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/app/middleware/request_context.py", line 22, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/cors.py", line 96, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/cors.py", line 154, in simple_response
+    await self.app(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/routing.py", line 660, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 2685, in app
+    await route.handle(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 1766, in handle
+    await self.original_router.handle(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 2740, in handle
+    await included_router._handle_selected(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 1777, in _handle_selected
+    await route.handle(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 1766, in handle
+    await self.original_router.handle(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 2740, in handle
+    await included_router._handle_selected(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 1786, in _handle_selected
+    await original_route.handle(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 1265, in handle
+    await app(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 151, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 137, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 691, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 345, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/app/api/v1/endpoints/threat_intel.py", line 42, in search_indicator
+    indicator = await manager.get_indicator(request.value)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/app/services/threat_intel/manager.py", line 52, in get_indicator
+    if datetime.now(timezone.utc) - indicator.last_updated > timedelta(hours=24):
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: can't subtract offset-naive and offset-aware datetimes
+[2m2026-08-07T07:41:50.250542Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m1042.91[0m [36mmethod[0m=[35mPOST[0m [36mpath[0m=[35m/api/v1/threat-intel/indicators/search[0m [36mrequest_id[0m=[35me6a04bfd-41cd-47e9-9ca4-69d2d141d032[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:53501 - "POST /api/v1/threat-intel/indicators/search HTTP/1.1" 200 OK
+[2m2026-08-07T07:42:32.435906Z[0m [[31m[1merror    [0m] [1munhandled_exception           [0m [[0m[1m[34mphoenix.exceptions[0m][0m [36merror[0m=[35m'1 validation error:\n  {\'type\': \'string_type\', \'loc\': (\'response\', \'data\', \'id\'), \'msg\': \'Input should be a valid string\', \'input\': UUID(\'50e41929-bd67-4fc6-aac5-2c401a5ff515\')}\n\n  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/app/api/v1/endpoints/users.py", line 13, in read_users_me\n    GET /api/v1/users/me'[0m [36mpath[0m=[35m/api/v1/users/me[0m [36mrequest_id[0m=[35m4f60a093-33ac-4c5a-aaf5-2b0dc4227a2b[0m
+INFO:     127.0.0.1:53504 - "GET /api/v1/users/me HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/uvicorn/protocols/http/httptools_impl.py", line 422, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/uvicorn/middleware/proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/applications.py", line 1163, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/applications.py", line 90, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/app/middleware/request_context.py", line 22, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/cors.py", line 96, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/cors.py", line 154, in simple_response
+    await self.app(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/routing.py", line 660, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 2685, in app
+    await route.handle(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 1766, in handle
+    await self.original_router.handle(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 2740, in handle
+    await included_router._handle_selected(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 1777, in _handle_selected
+    await route.handle(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 1766, in handle
+    await self.original_router.handle(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 2740, in handle
+    await included_router._handle_selected(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 1786, in _handle_selected
+    await original_route.handle(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 1265, in handle
+    await app(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 151, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 137, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 712, in app
+    content = await serialize_response(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 317, in serialize_response
+    raise ResponseValidationError(
+fastapi.exceptions.ResponseValidationError: 1 validation error:
+  {'type': 'string_type', 'loc': ('response', 'data', 'id'), 'msg': 'Input should be a valid string', 'input': UUID('50e41929-bd67-4fc6-aac5-2c401a5ff515')}
+
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/app/api/v1/endpoints/users.py", line 13, in read_users_me
+    GET /api/v1/users/me
+[2m2026-08-07T07:42:32.450251Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m2.46[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/investigations[0m [36mrequest_id[0m=[35md7f36060-d27d-4dfd-a153-d8414a67d4bf[0m [36mstatus_code[0m=[35m307[0m
+INFO:     127.0.0.1:53506 - "GET /api/v1/investigations HTTP/1.1" 307 Temporary Redirect
+[2m2026-08-07T07:42:32.469258Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m8.07[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/investigations/[0m [36mrequest_id[0m=[35m9bfd7ea0-9925-445b-aff2-b1ac82acb697[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:53506 - "GET /api/v1/investigations/ HTTP/1.1" 200 OK
+[2m2026-08-07T07:42:46.844599Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m4.4[0m [36mmethod[0m=[35mPOST[0m [36mpath[0m=[35m/api/v1/investigations[0m [36mrequest_id[0m=[35me9a46a59-6491-44db-a7d7-27b84b08f7c5[0m [36mstatus_code[0m=[35m307[0m
+INFO:     127.0.0.1:53516 - "POST /api/v1/investigations HTTP/1.1" 307 Temporary Redirect
+connect_tcp.started host='virustotal.com' port=443 local_address=None timeout=5.0 socket_options=None
+connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x116920f90>
+start_tls.started ssl_context=<ssl.SSLContext object at 0x1168ac4d0> server_hostname='virustotal.com' timeout=5.0
+start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x116920410>
+send_request_headers.started request=<Request [b'GET']>
+send_request_headers.complete
+send_request_body.started request=<Request [b'GET']>
+send_request_body.complete
+receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.complete return_value=(b'HTTP/1.1', 302, b'Found', [(b'content-type', b'text/html; charset=utf-8'), (b'cache-control', b'no-cache'), (b'location', b'https://www.virustotal.com/gui/'), (b'x-cloud-trace-context', b'bec551281f3b8ec4ae86429cbecc02af'), (b'date', b'Fri, 07 Aug 2026 07:42:47 GMT'), (b'server', b'Google Frontend'), (b'Content-Length', b'0')])
+HTTP Request: GET https://virustotal.com "HTTP/1.1 302 Found"
+receive_response_body.started request=<Request [b'GET']>
+receive_response_body.complete
+response_closed.started
+response_closed.complete
+connect_tcp.started host='www.virustotal.com' port=443 local_address=None timeout=5.0 socket_options=None
+connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x116923290>
+start_tls.started ssl_context=<ssl.SSLContext object at 0x1168ac4d0> server_hostname='www.virustotal.com' timeout=5.0
+start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x1169231d0>
+send_request_headers.started request=<Request [b'GET']>
+send_request_headers.complete
+send_request_body.started request=<Request [b'GET']>
+send_request_body.complete
+receive_response_headers.started request=<Request [b'GET']>
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'content-security-policy', b"frame-ancestors 'self' https://www.virustotal.com;"), (b'strict-transport-security', b'max-age=63072000; includeSubDomains; preload'), (b'date', b'Fri, 07 Aug 2026 07:42:47 GMT'), (b'expires', b'Fri, 07 Aug 2026 07:43:47 GMT'), (b'cache-control', b'public, max-age=60'), (b'etag', b'"lIRFBQ"'), (b'x-cloud-trace-context', b'c4236f5dbfdd40d45281bcddf84a647e'), (b'content-type', b'text/html'), (b'server', b'Google Frontend'), (b'via', b'1.1 google'), (b'Alt-Svc', b'h3=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+HTTP Request: GET https://www.virustotal.com/gui/ "HTTP/1.1 200 OK"
+receive_response_body.started request=<Request [b'GET']>
+receive_response_body.complete
+response_closed.started
+response_closed.complete
+close.started
+close.complete
+close.started
+close.complete
+[2m2026-08-07T07:42:47.847331Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m998.71[0m [36mmethod[0m=[35mPOST[0m [36mpath[0m=[35m/api/v1/investigations/[0m [36mrequest_id[0m=[35m19312ae5-0394-43d7-8045-4f038d3666d2[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:53516 - "POST /api/v1/investigations/ HTTP/1.1" 200 OK
+[2m2026-08-07T07:42:47.872067Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m0.46[0m [36mmethod[0m=[35mOPTIONS[0m [36mpath[0m=[35m/api/v1/investigations/bdd4fd63-e8ec-4400-b749-7d1769790653[0m [36mrequest_id[0m=[35m7372ef00-6783-4ff9-85d1-fbc27c199daf[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:53516 - "OPTIONS /api/v1/investigations/bdd4fd63-e8ec-4400-b749-7d1769790653 HTTP/1.1" 200 OK
+[2m2026-08-07T07:42:47.883919Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m9.49[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/investigations/bdd4fd63-e8ec-4400-b749-7d1769790653[0m [36mrequest_id[0m=[35m570f2857-4471-4190-90d2-05e59f9ab488[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:53516 - "GET /api/v1/investigations/bdd4fd63-e8ec-4400-b749-7d1769790653 HTTP/1.1" 200 OK
+[2m2026-08-07T07:43:48.509366Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m2.06[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/data-fabric/overview[0m [36mrequest_id[0m=[35mf2eacf8d-200c-45e9-b857-5ee0e13575e1[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:53523 - "GET /api/v1/data-fabric/overview HTTP/1.1" 200 OK
+[2m2026-08-07T07:43:52.374733Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m6.19[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/data-fabric/metadata[0m [36mrequest_id[0m=[35mbf5d85ca-735c-4506-8096-3bd35b8142ce[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:53526 - "GET /api/v1/data-fabric/metadata?skip=0&limit=100 HTTP/1.1" 200 OK
+[2m2026-08-07T07:44:07.273033Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m4.23[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/data-fabric/metadata[0m [36mrequest_id[0m=[35m92c2bb37-d493-4eec-bb10-d485baf08e8a[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:53529 - "GET /api/v1/data-fabric/metadata?skip=0&limit=100 HTTP/1.1" 200 OK
+[2m2026-08-07T07:44:10.221487Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m3.61[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/data-fabric/metadata[0m [36mrequest_id[0m=[35mddf08131-fb63-4da7-b2e8-35260b85895d[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:53532 - "GET /api/v1/data-fabric/metadata?skip=0&limit=100 HTTP/1.1" 200 OK
+[2m2026-08-07T07:50:27.061445Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m1.46[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/data-fabric/overview[0m [36mrequest_id[0m=[35m5ddc6a00-cca1-41a4-a9fe-b9de8df50ee0[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:53601 - "GET /api/v1/data-fabric/overview HTTP/1.1" 200 OK
+[2m2026-08-07T07:50:28.842632Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m3.71[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/data-fabric/metadata[0m [36mrequest_id[0m=[35mdd705075-40d9-4606-8f5e-7f1601257ca5[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:53603 - "GET /api/v1/data-fabric/metadata?skip=0&limit=100 HTTP/1.1" 200 OK
+[2m2026-08-07T07:51:11.513607Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m1.83[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/data-fabric/overview[0m [36mrequest_id[0m=[35mc8520411-a69d-4dad-99a7-6f5456ec5184[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:53606 - "GET /api/v1/data-fabric/overview HTTP/1.1" 200 OK
+[2m2026-08-07T07:51:15.900723Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m0.19[0m [36mmethod[0m=[35mOPTIONS[0m [36mpath[0m=[35m/api/v1/users/me[0m [36mrequest_id[0m=[35mf97ae294-e39a-4777-ba26-a2ac58ccbd63[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:53608 - "OPTIONS /api/v1/users/me HTTP/1.1" 200 OK
+[2m2026-08-07T07:51:15.907564Z[0m [[31m[1merror    [0m] [1munhandled_exception           [0m [[0m[1m[34mphoenix.exceptions[0m][0m [36merror[0m=[35m'1 validation error:\n  {\'type\': \'string_type\', \'loc\': (\'response\', \'data\', \'id\'), \'msg\': \'Input should be a valid string\', \'input\': UUID(\'50e41929-bd67-4fc6-aac5-2c401a5ff515\')}\n\n  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/app/api/v1/endpoints/users.py", line 13, in read_users_me\n    GET /api/v1/users/me'[0m [36mpath[0m=[35m/api/v1/users/me[0m [36mrequest_id[0m=[35m1a65180c-fc71-4535-98dd-41a27bf3e889[0m
+INFO:     127.0.0.1:53608 - "GET /api/v1/users/me HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/uvicorn/protocols/http/httptools_impl.py", line 422, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/uvicorn/middleware/proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/applications.py", line 1163, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/applications.py", line 90, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/app/middleware/request_context.py", line 22, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/cors.py", line 96, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/cors.py", line 154, in simple_response
+    await self.app(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/routing.py", line 660, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 2685, in app
+    await route.handle(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 1766, in handle
+    await self.original_router.handle(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 2740, in handle
+    await included_router._handle_selected(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 1777, in _handle_selected
+    await route.handle(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 1766, in handle
+    await self.original_router.handle(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 2740, in handle
+    await included_router._handle_selected(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 1786, in _handle_selected
+    await original_route.handle(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 1265, in handle
+    await app(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 151, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 137, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 712, in app
+    content = await serialize_response(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 317, in serialize_response
+    raise ResponseValidationError(
+fastapi.exceptions.ResponseValidationError: 1 validation error:
+  {'type': 'string_type', 'loc': ('response', 'data', 'id'), 'msg': 'Input should be a valid string', 'input': UUID('50e41929-bd67-4fc6-aac5-2c401a5ff515')}
+
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/app/api/v1/endpoints/users.py", line 13, in read_users_me
+    GET /api/v1/users/me
+[2m2026-08-07T07:51:15.921762Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m0.17[0m [36mmethod[0m=[35mOPTIONS[0m [36mpath[0m=[35m/api/v1/investigations[0m [36mrequest_id[0m=[35mcb494efa-f2a0-4367-8dae-49a74c166fc1[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:53610 - "OPTIONS /api/v1/investigations HTTP/1.1" 200 OK
+[2m2026-08-07T07:51:15.926122Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m2.74[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/investigations[0m [36mrequest_id[0m=[35m272a7f41-189d-448b-9689-5761d920fcf8[0m [36mstatus_code[0m=[35m307[0m
+INFO:     127.0.0.1:53610 - "GET /api/v1/investigations HTTP/1.1" 307 Temporary Redirect
+[2m2026-08-07T07:51:15.928573Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m0.17[0m [36mmethod[0m=[35mOPTIONS[0m [36mpath[0m=[35m/api/v1/investigations/[0m [36mrequest_id[0m=[35m580259f1-3367-4c81-b1fc-1717e7ae160f[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:53611 - "OPTIONS /api/v1/investigations/ HTTP/1.1" 200 OK
+[2m2026-08-07T07:51:15.952083Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m7.33[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/investigations/[0m [36mrequest_id[0m=[35mb844808f-d9eb-48a9-b5db-e6c50ade8116[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:53611 - "GET /api/v1/investigations/ HTTP/1.1" 200 OK
+[2m2026-08-07T07:51:29.989303Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m0.25[0m [36mmethod[0m=[35mOPTIONS[0m [36mpath[0m=[35m/api/v1/multi-agent/agents[0m [36mrequest_id[0m=[35m4d4a3cc6-003b-4c64-9621-b767efb65127[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:53613 - "OPTIONS /api/v1/multi-agent/agents HTTP/1.1" 200 OK
+[2m2026-08-07T07:51:29.999066Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m7.86[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/multi-agent/agents[0m [36mrequest_id[0m=[35m7e3bf251-4179-4a4d-abc7-de288231063e[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:53613 - "GET /api/v1/multi-agent/agents HTTP/1.1" 200 OK
+[2m2026-08-07T07:51:39.395677Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m0.37[0m [36mmethod[0m=[35mOPTIONS[0m [36mpath[0m=[35m/api/v1/multi-agent/plan[0m [36mrequest_id[0m=[35m424eea19-9a8a-414f-b27f-26dbf3bab506[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:53615 - "OPTIONS /api/v1/multi-agent/plan HTTP/1.1" 200 OK
+[2m2026-08-07T07:51:39.401367Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m3.38[0m [36mmethod[0m=[35mPOST[0m [36mpath[0m=[35m/api/v1/multi-agent/plan[0m [36mrequest_id[0m=[35mbaa5813c-8ea2-4813-a6d5-61995225fb92[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:53615 - "POST /api/v1/multi-agent/plan HTTP/1.1" 200 OK
+[2m2026-08-07T07:51:41.627215Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m0.41[0m [36mmethod[0m=[35mOPTIONS[0m [36mpath[0m=[35m/api/v1/multi-agent/execute/plan-123[0m [36mrequest_id[0m=[35m4b4659de-120c-4df2-a67f-64f4166c4903[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:53615 - "OPTIONS /api/v1/multi-agent/execute/plan-123 HTTP/1.1" 200 OK
+[2m2026-08-07T07:51:41.633552Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m3.92[0m [36mmethod[0m=[35mPOST[0m [36mpath[0m=[35m/api/v1/multi-agent/execute/plan-123[0m [36mrequest_id[0m=[35m719de556-53b7-42e7-bb63-50b449619420[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:53615 - "POST /api/v1/multi-agent/execute/plan-123 HTTP/1.1" 200 OK
+[2m2026-08-07T07:51:54.496785Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m0.45[0m [36mmethod[0m=[35mOPTIONS[0m [36mpath[0m=[35m/api/v1/multi-agent/approvals[0m [36mrequest_id[0m=[35m908749e3-9335-4be2-b0d3-3b81eb3277e1[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:53617 - "OPTIONS /api/v1/multi-agent/approvals HTTP/1.1" 200 OK
+[2m2026-08-07T07:51:54.505829Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m6.68[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/multi-agent/approvals[0m [36mrequest_id[0m=[35m72ec4175-91dd-495b-837a-90085038354c[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:53617 - "GET /api/v1/multi-agent/approvals HTTP/1.1" 200 OK
+[2m2026-08-07T07:53:55.999475Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m1.77[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/multi-agent/agents[0m [36mrequest_id[0m=[35m867775c3-f8fa-4fb4-aa8e-f20d735514d8[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:53629 - "GET /api/v1/multi-agent/agents HTTP/1.1" 200 OK
+[2m2026-08-07T07:53:58.604011Z[0m [[31m[1merror    [0m] [1munhandled_exception           [0m [[0m[1m[34mphoenix.exceptions[0m][0m [36merror[0m=[35m'1 validation error:\n  {\'type\': \'string_type\', \'loc\': (\'response\', \'data\', \'id\'), \'msg\': \'Input should be a valid string\', \'input\': UUID(\'50e41929-bd67-4fc6-aac5-2c401a5ff515\')}\n\n  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/app/api/v1/endpoints/users.py", line 13, in read_users_me\n    GET /api/v1/users/me'[0m [36mpath[0m=[35m/api/v1/users/me[0m [36mrequest_id[0m=[35m335d851f-39cb-456c-89c6-26ee42ff34fd[0m
+INFO:     127.0.0.1:53629 - "GET /api/v1/users/me HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/uvicorn/protocols/http/httptools_impl.py", line 422, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/uvicorn/middleware/proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/applications.py", line 1163, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/applications.py", line 90, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/app/middleware/request_context.py", line 22, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/cors.py", line 96, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/cors.py", line 154, in simple_response
+    await self.app(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/routing.py", line 660, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 2685, in app
+    await route.handle(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 1766, in handle
+    await self.original_router.handle(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 2740, in handle
+    await included_router._handle_selected(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 1777, in _handle_selected
+    await route.handle(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 1766, in handle
+    await self.original_router.handle(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 2740, in handle
+    await included_router._handle_selected(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 1786, in _handle_selected
+    await original_route.handle(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 1265, in handle
+    await app(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 151, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 137, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 712, in app
+    content = await serialize_response(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 317, in serialize_response
+    raise ResponseValidationError(
+fastapi.exceptions.ResponseValidationError: 1 validation error:
+  {'type': 'string_type', 'loc': ('response', 'data', 'id'), 'msg': 'Input should be a valid string', 'input': UUID('50e41929-bd67-4fc6-aac5-2c401a5ff515')}
+
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/app/api/v1/endpoints/users.py", line 13, in read_users_me
+    GET /api/v1/users/me
+[2m2026-08-07T07:53:58.623080Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m2.44[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/investigations[0m [36mrequest_id[0m=[35m116bb881-58be-4370-aff7-22cea6d33e89[0m [36mstatus_code[0m=[35m307[0m
+INFO:     127.0.0.1:53631 - "GET /api/v1/investigations HTTP/1.1" 307 Temporary Redirect
+[2m2026-08-07T07:53:58.641335Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m5.93[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/investigations/[0m [36mrequest_id[0m=[35m6eaefc54-aaa6-4388-baa0-c956065937ba[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:53631 - "GET /api/v1/investigations/ HTTP/1.1" 200 OK
+[2m2026-08-07T07:57:53.651691Z[0m [[32m[1minfo     [0m] [1morchestration_initiated       [0m [[0m[1m[34mphoenix.ai_brain.orchestrator[0m][0m [36mrequest_id[0m=[35mAI-REQ-9E7AE5EDF0[0m [36msession[0m=[35mapex-ui-session[0m
+[2m2026-08-07T07:57:53.652190Z[0m [[32m[1minfo     [0m] [1mcontext_bundle_assembled      [0m [[0m[1m[34mphoenix.ai_brain.context[0m][0m [36moptimized_len[0m=[35m123[0m [36mraw_len[0m=[35m123[0m [36mrequest_id[0m=[35m3e7fd314-7a62-4c45-9a15-7a270ac91782[0m [36msections_count[0m=[35m1[0m
+[2m2026-08-07T07:57:53.652359Z[0m [[32m[1minfo     [0m] [1mreasoning_pipeline_executed   [0m [[0m[1m[34mphoenix.ai_brain.reasoning[0m][0m [36mconfidence[0m=[35m0.62[0m [36mduration_ms[0m=[35m0[0m [36mrequest_id[0m=[35m3e7fd314-7a62-4c45-9a15-7a270ac91782[0m [36msteps[0m=[35m4[0m
+[2m2026-08-07T07:57:53.655524Z[0m [[32m[1minfo     [0m] [1mattempting_ai_execution       [0m [[0m[1m[34mphoenix.ai_brain.providers[0m][0m [36mmodel[0m=[35mclaude-3-5-sonnet[0m [36mprovider[0m=[35mclaude[0m [36mrequest_id[0m=[35m3e7fd314-7a62-4c45-9a15-7a270ac91782[0m
+[2m2026-08-07T07:57:53.957388Z[0m [[32m[1minfo     [0m] [1mtoken_consumption_recorded    [0m [[0m[1m[34mphoenix.ai_brain.optimization[0m][0m [36mcost_usd[0m=[35m0.003885[0m [36min_tokens[0m=[35m215[0m [36mmodel[0m=[35mclaude-3-5-sonnet[0m [36mout_tokens[0m=[35m216[0m [36mrequest_id[0m=[35m3e7fd314-7a62-4c45-9a15-7a270ac91782[0m [36mtenant_id[0m=[35mdefault_tenant[0m
+[2m2026-08-07T07:57:53.958039Z[0m [[32m[1minfo     [0m] [1mmemory_record_stored          [0m [[0m[1m[34mphoenix.ai_brain.memory[0m][0m [36mkey[0m=[35mapex-ui-session[0m [36mrequest_id[0m=[35m3e7fd314-7a62-4c45-9a15-7a270ac91782[0m [36mtier[0m=[35mCONVERSATION[0m [36mttl[0m=[35m259200.0[0m
+[2m2026-08-07T07:57:53.958290Z[0m [[32m[1minfo     [0m] [1mmemory_record_stored          [0m [[0m[1m[34mphoenix.ai_brain.memory[0m][0m [36mkey[0m=[35mapex-ui-session[0m [36mrequest_id[0m=[35m3e7fd314-7a62-4c45-9a15-7a270ac91782[0m [36mtier[0m=[35mCONVERSATION[0m [36mttl[0m=[35m259200.0[0m
+[2m2026-08-07T07:57:53.958665Z[0m [[32m[1minfo     [0m] [1mai_audit_log_created_and_signed[0m [[0m[1m[34mphoenix.ai_brain.governance[0m][0m [36mhmac_prefix[0m=[35m7d43b69d4bd8[0m [36mrequest_id[0m=[35mAI-REQ-9E7AE5EDF0[0m
+[2m2026-08-07T07:57:53.958832Z[0m [[32m[1minfo     [0m] [1morchestration_complete        [0m [[0m[1m[34mphoenix.ai_brain.orchestrator[0m][0m [36mconfidence[0m=[35m0.62[0m [36mlatency_ms[0m=[35m306[0m [36mprovider[0m=[35mclaude[0m [36mrequest_id[0m=[35mAI-REQ-9E7AE5EDF0[0m
+[2m2026-08-07T07:57:53.959955Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m312.0[0m [36mmethod[0m=[35mPOST[0m [36mpath[0m=[35m/api/v1/ai-brain/orchestrate[0m [36mrequest_id[0m=[35m3e7fd314-7a62-4c45-9a15-7a270ac91782[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:53674 - "POST /api/v1/ai-brain/orchestrate HTTP/1.1" 200 OK
+[2m2026-08-07T08:00:12.191916Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m1.28[0m [36mmethod[0m=[35mPOST[0m [36mpath[0m=[35m/api/v1/investigations/[0m [36mrequest_id[0m=[35mf6577ac7-bd05-4f2f-bcc4-f5023a7ba8e2[0m [36mstatus_code[0m=[35m401[0m
+INFO:     127.0.0.1:53690 - "POST /api/v1/investigations/ HTTP/1.1" 401 Unauthorized
+WARNING:  WatchFiles detected changes in 'tests/scratch/test_email.py', 'tests/scratch/scratch_email2.py', 'tests/scratch/scratch_api.py', 'tests/scratch/test_website.py', 'tests/scratch/scratch_website.py', 'tests/scratch/test_website_dump.py', 'tests/scratch/scratch_email.py', 'tests/scratch/test_url.py', 'tests/scratch/test_api.py', 'tests/scratch/scratch_url.py', 'tests/scratch/test_email2.py', 'tests/scratch/scratch_running_api.py', 'tests/scratch/scratch_website_dump.py', 'tests/scratch/test_running_api.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+[2m2026-08-07T08:00:40.220011Z[0m [[32m[1minfo     [0m] [1mapplication_shutdown          [0m [[0m[1m[34mphoenix.main[0m][0m
+INFO:     Application shutdown complete.
+INFO:     Finished server process [70981]
+2026-08-07 13:30:40 [info     ] vector_store_initialized       backend=in-memory-mock
+INFO:     Started server process [71379]
+INFO:     Waiting for application startup.
+[2m2026-08-07T08:00:42.970867Z[0m [[32m[1minfo     [0m] [1mstartup_checks_begin          [0m [[0m[1m[34mphoenix.startup[0m][0m [36menvironment[0m=[35mdevelopment[0m
+[2m2026-08-07T08:00:42.970994Z[0m [[33m[1mwarning  [0m] [1mweak_secret_key               [0m [[0m[1m[34mphoenix.startup[0m][0m [36mmessage[0m=[35m'SECRET_KEY appears shorter than recommended 256 bits. Consider regenerating with: secrets.token_hex(64)'[0m
+[2m2026-08-07T08:00:42.983742Z[0m [[32m[1minfo     [0m] [1mstartup_db_check              [0m [[0m[1m[34mphoenix.startup[0m][0m [36mstatus[0m=[35mconnected[0m [36muri_scheme[0m=[35msqlite[0m
+[2m2026-08-07T08:00:42.983853Z[0m [[32m[1minfo     [0m] [1mstartup_checks_passed         [0m [[0m[1m[34mphoenix.startup[0m][0m
+[2m2026-08-07T08:00:42.983938Z[0m [[32m[1minfo     [0m] [1mapplication_startup           [0m [[0m[1m[34mphoenix.main[0m][0m [36menv[0m=[35mdevelopment[0m [36mversion[0m=[35m0.1.0[0m
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/ciem/identity_risk_engine.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+[2m2026-08-07T08:00:52.791270Z[0m [[32m[1minfo     [0m] [1mapplication_shutdown          [0m [[0m[1m[34mphoenix.main[0m][0m
+INFO:     Application shutdown complete.
+INFO:     Finished server process [71379]
+2026-08-07 13:30:53 [info     ] vector_store_initialized       backend=in-memory-mock
+INFO:     Started server process [71389]
+INFO:     Waiting for application startup.
+[2m2026-08-07T08:00:55.323699Z[0m [[32m[1minfo     [0m] [1mstartup_checks_begin          [0m [[0m[1m[34mphoenix.startup[0m][0m [36menvironment[0m=[35mdevelopment[0m
+[2m2026-08-07T08:00:55.323813Z[0m [[33m[1mwarning  [0m] [1mweak_secret_key               [0m [[0m[1m[34mphoenix.startup[0m][0m [36mmessage[0m=[35m'SECRET_KEY appears shorter than recommended 256 bits. Consider regenerating with: secrets.token_hex(64)'[0m
+[2m2026-08-07T08:00:55.329423Z[0m [[32m[1minfo     [0m] [1mstartup_db_check              [0m [[0m[1m[34mphoenix.startup[0m][0m [36mstatus[0m=[35mconnected[0m [36muri_scheme[0m=[35msqlite[0m
+[2m2026-08-07T08:00:55.329508Z[0m [[32m[1minfo     [0m] [1mstartup_checks_passed         [0m [[0m[1m[34mphoenix.startup[0m][0m
+[2m2026-08-07T08:00:55.329576Z[0m [[32m[1minfo     [0m] [1mapplication_startup           [0m [[0m[1m[34mphoenix.main[0m][0m [36menv[0m=[35mdevelopment[0m [36mversion[0m=[35m0.1.0[0m
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/cyber_resilience/scoring_engine.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+[2m2026-08-07T08:01:23.318602Z[0m [[32m[1minfo     [0m] [1mapplication_shutdown          [0m [[0m[1m[34mphoenix.main[0m][0m
+INFO:     Application shutdown complete.
+INFO:     Finished server process [71389]
+2026-08-07 13:31:23 [info     ] vector_store_initialized       backend=in-memory-mock
+INFO:     Started server process [71391]
+INFO:     Waiting for application startup.
+[2m2026-08-07T08:01:25.827186Z[0m [[32m[1minfo     [0m] [1mstartup_checks_begin          [0m [[0m[1m[34mphoenix.startup[0m][0m [36menvironment[0m=[35mdevelopment[0m
+[2m2026-08-07T08:01:25.827298Z[0m [[33m[1mwarning  [0m] [1mweak_secret_key               [0m [[0m[1m[34mphoenix.startup[0m][0m [36mmessage[0m=[35m'SECRET_KEY appears shorter than recommended 256 bits. Consider regenerating with: secrets.token_hex(64)'[0m
+[2m2026-08-07T08:01:25.832968Z[0m [[32m[1minfo     [0m] [1mstartup_db_check              [0m [[0m[1m[34mphoenix.startup[0m][0m [36mstatus[0m=[35mconnected[0m [36muri_scheme[0m=[35msqlite[0m
+[2m2026-08-07T08:01:25.833052Z[0m [[32m[1minfo     [0m] [1mstartup_checks_passed         [0m [[0m[1m[34mphoenix.startup[0m][0m
+[2m2026-08-07T08:01:25.833119Z[0m [[32m[1minfo     [0m] [1mapplication_startup           [0m [[0m[1m[34mphoenix.main[0m][0m [36menv[0m=[35mdevelopment[0m [36mversion[0m=[35m0.1.0[0m
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/digital_twin/simulation_engine.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+[2m2026-08-07T08:01:49.473632Z[0m [[32m[1minfo     [0m] [1mapplication_shutdown          [0m [[0m[1m[34mphoenix.main[0m][0m
+INFO:     Application shutdown complete.
+INFO:     Finished server process [71391]
+2026-08-07 13:31:50 [info     ] vector_store_initialized       backend=in-memory-mock
+INFO:     Started server process [71394]
+INFO:     Waiting for application startup.
+[2m2026-08-07T08:01:52.063446Z[0m [[32m[1minfo     [0m] [1mstartup_checks_begin          [0m [[0m[1m[34mphoenix.startup[0m][0m [36menvironment[0m=[35mdevelopment[0m
+[2m2026-08-07T08:01:52.063569Z[0m [[33m[1mwarning  [0m] [1mweak_secret_key               [0m [[0m[1m[34mphoenix.startup[0m][0m [36mmessage[0m=[35m'SECRET_KEY appears shorter than recommended 256 bits. Consider regenerating with: secrets.token_hex(64)'[0m
+[2m2026-08-07T08:01:52.069295Z[0m [[32m[1minfo     [0m] [1mstartup_db_check              [0m [[0m[1m[34mphoenix.startup[0m][0m [36mstatus[0m=[35mconnected[0m [36muri_scheme[0m=[35msqlite[0m
+[2m2026-08-07T08:01:52.069382Z[0m [[32m[1minfo     [0m] [1mstartup_checks_passed         [0m [[0m[1m[34mphoenix.startup[0m][0m
+[2m2026-08-07T08:01:52.069451Z[0m [[32m[1minfo     [0m] [1mapplication_startup           [0m [[0m[1m[34mphoenix.main[0m][0m [36menv[0m=[35mdevelopment[0m [36mversion[0m=[35m0.1.0[0m
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'tests/test_cyber_resilience.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+[2m2026-08-07T08:02:33.519364Z[0m [[32m[1minfo     [0m] [1mapplication_shutdown          [0m [[0m[1m[34mphoenix.main[0m][0m
+INFO:     Application shutdown complete.
+INFO:     Finished server process [71394]
+2026-08-07 13:32:34 [info     ] vector_store_initialized       backend=in-memory-mock
+WARNING:  WatchFiles detected changes in 'tests/test_digital_twin.py'. Reloading...
+INFO:     Started server process [71429]
+INFO:     Waiting for application startup.
+[2m2026-08-07T08:02:36.092225Z[0m [[32m[1minfo     [0m] [1mstartup_checks_begin          [0m [[0m[1m[34mphoenix.startup[0m][0m [36menvironment[0m=[35mdevelopment[0m
+[2m2026-08-07T08:02:36.092338Z[0m [[33m[1mwarning  [0m] [1mweak_secret_key               [0m [[0m[1m[34mphoenix.startup[0m][0m [36mmessage[0m=[35m'SECRET_KEY appears shorter than recommended 256 bits. Consider regenerating with: secrets.token_hex(64)'[0m
+[2m2026-08-07T08:02:36.097739Z[0m [[32m[1minfo     [0m] [1mstartup_db_check              [0m [[0m[1m[34mphoenix.startup[0m][0m [36mstatus[0m=[35mconnected[0m [36muri_scheme[0m=[35msqlite[0m
+[2m2026-08-07T08:02:36.097858Z[0m [[32m[1minfo     [0m] [1mstartup_checks_passed         [0m [[0m[1m[34mphoenix.startup[0m][0m
+[2m2026-08-07T08:02:36.097947Z[0m [[32m[1minfo     [0m] [1mapplication_startup           [0m [[0m[1m[34mphoenix.main[0m][0m [36menv[0m=[35mdevelopment[0m [36mversion[0m=[35m0.1.0[0m
+INFO:     Application startup complete.
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+[2m2026-08-07T08:02:36.200116Z[0m [[32m[1minfo     [0m] [1mapplication_shutdown          [0m [[0m[1m[34mphoenix.main[0m][0m
+INFO:     Application shutdown complete.
+INFO:     Finished server process [71429]
+2026-08-07 13:32:36 [info     ] vector_store_initialized       backend=in-memory-mock
+INFO:     Started server process [71433]
+INFO:     Waiting for application startup.
+[2m2026-08-07T08:02:38.770117Z[0m [[32m[1minfo     [0m] [1mstartup_checks_begin          [0m [[0m[1m[34mphoenix.startup[0m][0m [36menvironment[0m=[35mdevelopment[0m
+[2m2026-08-07T08:02:38.770232Z[0m [[33m[1mwarning  [0m] [1mweak_secret_key               [0m [[0m[1m[34mphoenix.startup[0m][0m [36mmessage[0m=[35m'SECRET_KEY appears shorter than recommended 256 bits. Consider regenerating with: secrets.token_hex(64)'[0m
+[2m2026-08-07T08:02:38.775823Z[0m [[32m[1minfo     [0m] [1mstartup_db_check              [0m [[0m[1m[34mphoenix.startup[0m][0m [36mstatus[0m=[35mconnected[0m [36muri_scheme[0m=[35msqlite[0m
+[2m2026-08-07T08:02:38.775908Z[0m [[32m[1minfo     [0m] [1mstartup_checks_passed         [0m [[0m[1m[34mphoenix.startup[0m][0m
+[2m2026-08-07T08:02:38.775973Z[0m [[32m[1minfo     [0m] [1mapplication_startup           [0m [[0m[1m[34mphoenix.main[0m][0m [36menv[0m=[35mdevelopment[0m [36mversion[0m=[35m0.1.0[0m
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/ciem/identity_risk_engine.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+[2m2026-08-07T08:03:23.442285Z[0m [[32m[1minfo     [0m] [1mapplication_shutdown          [0m [[0m[1m[34mphoenix.main[0m][0m
+INFO:     Application shutdown complete.
+INFO:     Finished server process [71433]
+2026-08-07 13:33:24 [info     ] vector_store_initialized       backend=in-memory-mock
+INFO:     Started server process [71465]
+INFO:     Waiting for application startup.
+[2m2026-08-07T08:03:25.930644Z[0m [[32m[1minfo     [0m] [1mstartup_checks_begin          [0m [[0m[1m[34mphoenix.startup[0m][0m [36menvironment[0m=[35mdevelopment[0m
+[2m2026-08-07T08:03:25.930763Z[0m [[33m[1mwarning  [0m] [1mweak_secret_key               [0m [[0m[1m[34mphoenix.startup[0m][0m [36mmessage[0m=[35m'SECRET_KEY appears shorter than recommended 256 bits. Consider regenerating with: secrets.token_hex(64)'[0m
+[2m2026-08-07T08:03:25.936353Z[0m [[32m[1minfo     [0m] [1mstartup_db_check              [0m [[0m[1m[34mphoenix.startup[0m][0m [36mstatus[0m=[35mconnected[0m [36muri_scheme[0m=[35msqlite[0m
+[2m2026-08-07T08:03:25.936451Z[0m [[32m[1minfo     [0m] [1mstartup_checks_passed         [0m [[0m[1m[34mphoenix.startup[0m][0m
+[2m2026-08-07T08:03:25.936532Z[0m [[32m[1minfo     [0m] [1mapplication_startup           [0m [[0m[1m[34mphoenix.main[0m][0m [36menv[0m=[35mdevelopment[0m [36mversion[0m=[35m0.1.0[0m
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/digital_twin/optimization_engine.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+[2m2026-08-07T08:04:30.612163Z[0m [[32m[1minfo     [0m] [1mapplication_shutdown          [0m [[0m[1m[34mphoenix.main[0m][0m
+INFO:     Application shutdown complete.
+INFO:     Finished server process [71465]
+2026-08-07 13:34:31 [info     ] vector_store_initialized       backend=in-memory-mock
+INFO:     Started server process [71533]
+INFO:     Waiting for application startup.
+[2m2026-08-07T08:04:32.890807Z[0m [[32m[1minfo     [0m] [1mstartup_checks_begin          [0m [[0m[1m[34mphoenix.startup[0m][0m [36menvironment[0m=[35mdevelopment[0m
+[2m2026-08-07T08:04:32.890861Z[0m [[33m[1mwarning  [0m] [1mweak_secret_key               [0m [[0m[1m[34mphoenix.startup[0m][0m [36mmessage[0m=[35m'SECRET_KEY appears shorter than recommended 256 bits. Consider regenerating with: secrets.token_hex(64)'[0m
+[2m2026-08-07T08:04:32.893443Z[0m [[32m[1minfo     [0m] [1mstartup_db_check              [0m [[0m[1m[34mphoenix.startup[0m][0m [36mstatus[0m=[35mconnected[0m [36muri_scheme[0m=[35msqlite[0m
+[2m2026-08-07T08:04:32.893501Z[0m [[32m[1minfo     [0m] [1mstartup_checks_passed         [0m [[0m[1m[34mphoenix.startup[0m][0m
+[2m2026-08-07T08:04:32.893560Z[0m [[32m[1minfo     [0m] [1mapplication_startup           [0m [[0m[1m[34mphoenix.main[0m][0m [36menv[0m=[35mdevelopment[0m [36mversion[0m=[35m0.1.0[0m
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/models/digital_twin.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+[2m2026-08-07T08:04:42.396659Z[0m [[32m[1minfo     [0m] [1mapplication_shutdown          [0m [[0m[1m[34mphoenix.main[0m][0m
+INFO:     Application shutdown complete.
+INFO:     Finished server process [71533]
+2026-08-07 13:34:42 [info     ] vector_store_initialized       backend=in-memory-mock
+INFO:     Started server process [71536]
+INFO:     Waiting for application startup.
+[2m2026-08-07T08:04:43.615632Z[0m [[32m[1minfo     [0m] [1mstartup_checks_begin          [0m [[0m[1m[34mphoenix.startup[0m][0m [36menvironment[0m=[35mdevelopment[0m
+[2m2026-08-07T08:04:43.615689Z[0m [[33m[1mwarning  [0m] [1mweak_secret_key               [0m [[0m[1m[34mphoenix.startup[0m][0m [36mmessage[0m=[35m'SECRET_KEY appears shorter than recommended 256 bits. Consider regenerating with: secrets.token_hex(64)'[0m
+[2m2026-08-07T08:04:43.618250Z[0m [[32m[1minfo     [0m] [1mstartup_db_check              [0m [[0m[1m[34mphoenix.startup[0m][0m [36mstatus[0m=[35mconnected[0m [36muri_scheme[0m=[35msqlite[0m
+[2m2026-08-07T08:04:43.618297Z[0m [[32m[1minfo     [0m] [1mstartup_checks_passed         [0m [[0m[1m[34mphoenix.startup[0m][0m
+[2m2026-08-07T08:04:43.618331Z[0m [[32m[1minfo     [0m] [1mapplication_startup           [0m [[0m[1m[34mphoenix.main[0m][0m [36menv[0m=[35mdevelopment[0m [36mversion[0m=[35m0.1.0[0m
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/models/cyber_resilience.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+[2m2026-08-07T08:05:39.191538Z[0m [[32m[1minfo     [0m] [1mapplication_shutdown          [0m [[0m[1m[34mphoenix.main[0m][0m
+INFO:     Application shutdown complete.
+INFO:     Finished server process [71536]
+2026-08-07 13:35:39 [info     ] vector_store_initialized       backend=in-memory-mock
+INFO:     Started server process [71571]
+INFO:     Waiting for application startup.
+[2m2026-08-07T08:05:40.418510Z[0m [[32m[1minfo     [0m] [1mstartup_checks_begin          [0m [[0m[1m[34mphoenix.startup[0m][0m [36menvironment[0m=[35mdevelopment[0m
+[2m2026-08-07T08:05:40.418563Z[0m [[33m[1mwarning  [0m] [1mweak_secret_key               [0m [[0m[1m[34mphoenix.startup[0m][0m [36mmessage[0m=[35m'SECRET_KEY appears shorter than recommended 256 bits. Consider regenerating with: secrets.token_hex(64)'[0m
+[2m2026-08-07T08:05:40.421134Z[0m [[32m[1minfo     [0m] [1mstartup_db_check              [0m [[0m[1m[34mphoenix.startup[0m][0m [36mstatus[0m=[35mconnected[0m [36muri_scheme[0m=[35msqlite[0m
+[2m2026-08-07T08:05:40.421176Z[0m [[32m[1minfo     [0m] [1mstartup_checks_passed         [0m [[0m[1m[34mphoenix.startup[0m][0m
+[2m2026-08-07T08:05:40.421207Z[0m [[32m[1minfo     [0m] [1mapplication_startup           [0m [[0m[1m[34mphoenix.main[0m][0m [36menv[0m=[35mdevelopment[0m [36mversion[0m=[35m0.1.0[0m
+INFO:     Application startup complete.
+[2m2026-08-07T08:07:38.365832Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m0.24[0m [36mmethod[0m=[35mOPTIONS[0m [36mpath[0m=[35m/api/v1/users/me[0m [36mrequest_id[0m=[35md0873020-8aa9-420b-90b4-eedcd749203e[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:53765 - "OPTIONS /api/v1/users/me HTTP/1.1" 200 OK
+[2m2026-08-07T08:07:38.379155Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m11.17[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/users/me[0m [36mrequest_id[0m=[35ma4971371-71f8-4a8d-b0f7-0bcbd4542c8a[0m [36mstatus_code[0m=[35m401[0m
+INFO:     127.0.0.1:53765 - "GET /api/v1/users/me HTTP/1.1" 401 Unauthorized
+[2m2026-08-07T08:07:38.382113Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m0.14[0m [36mmethod[0m=[35mOPTIONS[0m [36mpath[0m=[35m/api/v1/auth/refresh[0m [36mrequest_id[0m=[35m05174e3c-0ddb-4198-a59c-9d5d2796a0fd[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:53765 - "OPTIONS /api/v1/auth/refresh HTTP/1.1" 200 OK
+[2m2026-08-07T08:07:38.382926Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m0.14[0m [36mmethod[0m=[35mOPTIONS[0m [36mpath[0m=[35m/api/v1/auth/refresh[0m [36mrequest_id[0m=[35mf1c3a20b-f496-44a5-af25-723ca06310a0[0m [36mstatus_code[0m=[35m200[0m
+INFO:     127.0.0.1:53766 - "OPTIONS /api/v1/auth/refresh HTTP/1.1" 200 OK
+[2m2026-08-07T08:07:38.386010Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m2.71[0m [36mmethod[0m=[35mPOST[0m [36mpath[0m=[35m/api/v1/auth/refresh[0m [36mrequest_id[0m=[35m14e77790-f696-4733-a7b7-c5f9f5040f43[0m [36mstatus_code[0m=[35m401[0m
+INFO:     127.0.0.1:53765 - "POST /api/v1/auth/refresh HTTP/1.1" 401 Unauthorized
+[2m2026-08-07T08:07:38.386413Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m1.68[0m [36mmethod[0m=[35mPOST[0m [36mpath[0m=[35m/api/v1/auth/refresh[0m [36mrequest_id[0m=[35m25d9584f-ff5b-4ade-b381-4ce7208d28ae[0m [36mstatus_code[0m=[35m401[0m
+INFO:     127.0.0.1:53766 - "POST /api/v1/auth/refresh HTTP/1.1" 401 Unauthorized
+[2m2026-08-07T08:07:41.059340Z[0m [[31m[1merror    [0m] [1munhandled_exception           [0m [[0m[1m[34mphoenix.exceptions[0m][0m [36merror[0m=[35m"(sqlite3.OperationalError) no such table: users\n[SQL: SELECT users.id AS users_id, users.organization_id AS users_organization_id, users.email AS users_email, users.hashed_password AS users_hashed_password, users.full_name AS users_full_name, users.is_active AS users_is_active, users.is_superuser AS users_is_superuser, users.created_at AS users_created_at, users.updated_at AS users_updated_at \nFROM users \nWHERE users.email = ?\n LIMIT ? OFFSET ?]\n[parameters: ('admin@phoenix.ai', 1, 0)]\n(Background on this error at: https://sqlalche.me/e/20/e3q8)"[0m [36mpath[0m=[35m/api/v1/auth/login[0m [36mrequest_id[0m=[35md2d1a424-1f3f-4921-a8d4-f794aa60608e[0m
+INFO:     127.0.0.1:53765 - "POST /api/v1/auth/login HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: users
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/uvicorn/protocols/http/httptools_impl.py", line 422, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/uvicorn/middleware/proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/applications.py", line 1163, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/applications.py", line 90, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/app/middleware/request_context.py", line 22, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/cors.py", line 96, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/cors.py", line 154, in simple_response
+    await self.app(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/routing.py", line 660, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 2685, in app
+    await route.handle(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 1766, in handle
+    await self.original_router.handle(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 2740, in handle
+    await included_router._handle_selected(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 1777, in _handle_selected
+    await route.handle(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 1766, in handle
+    await self.original_router.handle(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 2740, in handle
+    await included_router._handle_selected(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 1786, in _handle_selected
+    await original_route.handle(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 1265, in handle
+    await app(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 151, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 137, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 691, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 347, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/starlette/concurrency.py", line 34, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/anyio/to_thread.py", line 65, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 2641, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 1033, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/app/api/v1/endpoints/auth.py", line 50, in login
+    user = db.query(User).filter(User.email == form_data.username).first()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/sqlalchemy/orm/query.py", line 2766, in first
+    return self.limit(1)._iter().first()  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/sqlalchemy/orm/query.py", line 2864, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 2373, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 2271, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/sqlalchemy/orm/context.py", line 306, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1421, in execute
+    return meth(
+           ^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/sqlalchemy/sql/elements.py", line 526, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1643, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 2365, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/Users/umeshgupta/PhishScope AI/PhishScope AI2.0/backend/.venv/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: users
+[SQL: SELECT users.id AS users_id, users.organization_id AS users_organization_id, users.email AS users_email, users.hashed_password AS users_hashed_password, users.full_name AS users_full_name, users.is_active AS users_is_active, users.is_superuser AS users_is_superuser, users.created_at AS users_created_at, users.updated_at AS users_updated_at 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?]
+[parameters: ('admin@phoenix.ai', 1, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+WARNING:  WatchFiles detected changes in 'tests/test_copilot.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+[2m2026-08-07T08:14:03.414689Z[0m [[32m[1minfo     [0m] [1mapplication_shutdown          [0m [[0m[1m[34mphoenix.main[0m][0m
+INFO:     Application shutdown complete.
+INFO:     Finished server process [71571]
+2026-08-07 13:44:03 [info     ] vector_store_initialized       backend=in-memory-mock
+INFO:     Started server process [71793]
+INFO:     Waiting for application startup.
+[2m2026-08-07T08:14:04.664449Z[0m [[32m[1minfo     [0m] [1mstartup_checks_begin          [0m [[0m[1m[34mphoenix.startup[0m][0m [36menvironment[0m=[35mdevelopment[0m
+[2m2026-08-07T08:14:04.664505Z[0m [[33m[1mwarning  [0m] [1mweak_secret_key               [0m [[0m[1m[34mphoenix.startup[0m][0m [36mmessage[0m=[35m'SECRET_KEY appears shorter than recommended 256 bits. Consider regenerating with: secrets.token_hex(64)'[0m
+[2m2026-08-07T08:14:04.665206Z[0m [[32m[1minfo     [0m] [1mstartup_db_check              [0m [[0m[1m[34mphoenix.startup[0m][0m [36mstatus[0m=[35mconnected[0m [36muri_scheme[0m=[35msqlite[0m
+[2m2026-08-07T08:14:04.665249Z[0m [[32m[1minfo     [0m] [1mstartup_checks_passed         [0m [[0m[1m[34mphoenix.startup[0m][0m
+[2m2026-08-07T08:14:04.665281Z[0m [[32m[1minfo     [0m] [1mapplication_startup           [0m [[0m[1m[34mphoenix.main[0m][0m [36menv[0m=[35mdevelopment[0m [36mversion[0m=[35m0.1.0[0m
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'tests/test_iac.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+[2m2026-08-07T08:14:05.474579Z[0m [[32m[1minfo     [0m] [1mapplication_shutdown          [0m [[0m[1m[34mphoenix.main[0m][0m
+INFO:     Application shutdown complete.
+INFO:     Finished server process [71793]
+2026-08-07 13:44:05 [info     ] vector_store_initialized       backend=in-memory-mock
+INFO:     Started server process [71796]
+INFO:     Waiting for application startup.
+[2m2026-08-07T08:14:06.725584Z[0m [[32m[1minfo     [0m] [1mstartup_checks_begin          [0m [[0m[1m[34mphoenix.startup[0m][0m [36menvironment[0m=[35mdevelopment[0m
+[2m2026-08-07T08:14:06.725643Z[0m [[33m[1mwarning  [0m] [1mweak_secret_key               [0m [[0m[1m[34mphoenix.startup[0m][0m [36mmessage[0m=[35m'SECRET_KEY appears shorter than recommended 256 bits. Consider regenerating with: secrets.token_hex(64)'[0m
+[2m2026-08-07T08:14:06.726396Z[0m [[32m[1minfo     [0m] [1mstartup_db_check              [0m [[0m[1m[34mphoenix.startup[0m][0m [36mstatus[0m=[35mconnected[0m [36muri_scheme[0m=[35msqlite[0m
+[2m2026-08-07T08:14:06.726437Z[0m [[32m[1minfo     [0m] [1mstartup_checks_passed         [0m [[0m[1m[34mphoenix.startup[0m][0m
+[2m2026-08-07T08:14:06.726469Z[0m [[32m[1minfo     [0m] [1mapplication_startup           [0m [[0m[1m[34mphoenix.main[0m][0m [36menv[0m=[35mdevelopment[0m [36mversion[0m=[35m0.1.0[0m
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'test_engine.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+[2m2026-08-07T08:17:01.086635Z[0m [[32m[1minfo     [0m] [1mapplication_shutdown          [0m [[0m[1m[34mphoenix.main[0m][0m
+INFO:     Application shutdown complete.
+INFO:     Finished server process [71796]
+2026-08-07 13:47:01 [info     ] vector_store_initialized       backend=in-memory-mock
+INFO:     Started server process [71812]
+INFO:     Waiting for application startup.
+[2m2026-08-07T08:17:02.321960Z[0m [[32m[1minfo     [0m] [1mstartup_checks_begin          [0m [[0m[1m[34mphoenix.startup[0m][0m [36menvironment[0m=[35mdevelopment[0m
+[2m2026-08-07T08:17:02.322016Z[0m [[33m[1mwarning  [0m] [1mweak_secret_key               [0m [[0m[1m[34mphoenix.startup[0m][0m [36mmessage[0m=[35m'SECRET_KEY appears shorter than recommended 256 bits. Consider regenerating with: secrets.token_hex(64)'[0m
+[2m2026-08-07T08:17:02.322753Z[0m [[32m[1minfo     [0m] [1mstartup_db_check              [0m [[0m[1m[34mphoenix.startup[0m][0m [36mstatus[0m=[35mconnected[0m [36muri_scheme[0m=[35msqlite[0m
+[2m2026-08-07T08:17:02.322798Z[0m [[32m[1minfo     [0m] [1mstartup_checks_passed         [0m [[0m[1m[34mphoenix.startup[0m][0m
+[2m2026-08-07T08:17:02.322832Z[0m [[32m[1minfo     [0m] [1mapplication_startup           [0m [[0m[1m[34mphoenix.main[0m][0m [36menv[0m=[35mdevelopment[0m [36mversion[0m=[35m0.1.0[0m
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'test_engine.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+[2m2026-08-07T08:17:21.426064Z[0m [[32m[1minfo     [0m] [1mapplication_shutdown          [0m [[0m[1m[34mphoenix.main[0m][0m
+INFO:     Application shutdown complete.
+INFO:     Finished server process [71812]
+2026-08-07 13:47:21 [info     ] vector_store_initialized       backend=in-memory-mock
+INFO:     Started server process [71845]
+INFO:     Waiting for application startup.
+[2m2026-08-07T08:17:22.637554Z[0m [[32m[1minfo     [0m] [1mstartup_checks_begin          [0m [[0m[1m[34mphoenix.startup[0m][0m [36menvironment[0m=[35mdevelopment[0m
+[2m2026-08-07T08:17:22.637606Z[0m [[33m[1mwarning  [0m] [1mweak_secret_key               [0m [[0m[1m[34mphoenix.startup[0m][0m [36mmessage[0m=[35m'SECRET_KEY appears shorter than recommended 256 bits. Consider regenerating with: secrets.token_hex(64)'[0m
+[2m2026-08-07T08:17:22.638301Z[0m [[32m[1minfo     [0m] [1mstartup_db_check              [0m [[0m[1m[34mphoenix.startup[0m][0m [36mstatus[0m=[35mconnected[0m [36muri_scheme[0m=[35msqlite[0m
+[2m2026-08-07T08:17:22.638339Z[0m [[32m[1minfo     [0m] [1mstartup_checks_passed         [0m [[0m[1m[34mphoenix.startup[0m][0m
+[2m2026-08-07T08:17:22.638369Z[0m [[32m[1minfo     [0m] [1mapplication_startup           [0m [[0m[1m[34mphoenix.main[0m][0m [36menv[0m=[35mdevelopment[0m [36mversion[0m=[35m0.1.0[0m
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/services/investigations/website_engine.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+[2m2026-08-07T08:17:58.519292Z[0m [[32m[1minfo     [0m] [1mapplication_shutdown          [0m [[0m[1m[34mphoenix.main[0m][0m
+INFO:     Application shutdown complete.
+INFO:     Finished server process [71845]
+2026-08-07 13:47:58 [info     ] vector_store_initialized       backend=in-memory-mock
+INFO:     Started server process [71877]
+INFO:     Waiting for application startup.
+[2m2026-08-07T08:17:59.750779Z[0m [[32m[1minfo     [0m] [1mstartup_checks_begin          [0m [[0m[1m[34mphoenix.startup[0m][0m [36menvironment[0m=[35mdevelopment[0m
+[2m2026-08-07T08:17:59.750832Z[0m [[33m[1mwarning  [0m] [1mweak_secret_key               [0m [[0m[1m[34mphoenix.startup[0m][0m [36mmessage[0m=[35m'SECRET_KEY appears shorter than recommended 256 bits. Consider regenerating with: secrets.token_hex(64)'[0m
+[2m2026-08-07T08:17:59.751530Z[0m [[32m[1minfo     [0m] [1mstartup_db_check              [0m [[0m[1m[34mphoenix.startup[0m][0m [36mstatus[0m=[35mconnected[0m [36muri_scheme[0m=[35msqlite[0m
+[2m2026-08-07T08:17:59.751569Z[0m [[32m[1minfo     [0m] [1mstartup_checks_passed         [0m [[0m[1m[34mphoenix.startup[0m][0m
+[2m2026-08-07T08:17:59.751600Z[0m [[32m[1minfo     [0m] [1mapplication_startup           [0m [[0m[1m[34mphoenix.main[0m][0m [36menv[0m=[35mdevelopment[0m [36mversion[0m=[35m0.1.0[0m
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/ai_brain/providers.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+[2m2026-08-07T08:25:36.699126Z[0m [[32m[1minfo     [0m] [1mapplication_shutdown          [0m [[0m[1m[34mphoenix.main[0m][0m
+INFO:     Application shutdown complete.
+INFO:     Finished server process [71877]
+2026-08-07 13:55:36 [info     ] vector_store_initialized       backend=in-memory-mock
+INFO:     Started server process [71923]
+INFO:     Waiting for application startup.
+[2m2026-08-07T08:25:37.939009Z[0m [[32m[1minfo     [0m] [1mstartup_checks_begin          [0m [[0m[1m[34mphoenix.startup[0m][0m [36menvironment[0m=[35mdevelopment[0m
+[2m2026-08-07T08:25:37.939065Z[0m [[33m[1mwarning  [0m] [1mweak_secret_key               [0m [[0m[1m[34mphoenix.startup[0m][0m [36mmessage[0m=[35m'SECRET_KEY appears shorter than recommended 256 bits. Consider regenerating with: secrets.token_hex(64)'[0m
+[2m2026-08-07T08:25:37.939766Z[0m [[32m[1minfo     [0m] [1mstartup_db_check              [0m [[0m[1m[34mphoenix.startup[0m][0m [36mstatus[0m=[35mconnected[0m [36muri_scheme[0m=[35msqlite[0m
+[2m2026-08-07T08:25:37.939805Z[0m [[32m[1minfo     [0m] [1mstartup_checks_passed         [0m [[0m[1m[34mphoenix.startup[0m][0m
+[2m2026-08-07T08:25:37.939837Z[0m [[32m[1minfo     [0m] [1mapplication_startup           [0m [[0m[1m[34mphoenix.main[0m][0m [36menv[0m=[35mdevelopment[0m [36mversion[0m=[35m0.1.0[0m
+INFO:     Application startup complete.
