@@ -199,3 +199,4 @@ INFO:     127.0.0.1:60941 - "GET /api/v1/data-fabric/overview HTTP/1.1" 200 OK
 INFO:     127.0.0.1:60944 - "GET /api/v1/knowledge-evolution/ontology?skip=0&limit=100 HTTP/1.1" 200 OK
 [2m2026-08-07T14:38:37.218964Z[0m [[32m[1minfo     [0m] [1mrequest_completed             [0m [[0m[1m[34mphoenix.middleware[0m][0m [36mduration_ms[0m=[35m8.26[0m [36mmethod[0m=[35mGET[0m [36mpath[0m=[35m/api/v1/knowledge-evolution/ontology[0m [36mrequest_id[0m=[35m97baa4ef-de0d-4fdc-8679-f4fc0ed70c6f[0m [36mstatus_code[0m=[35m200[0m
 INFO:     127.0.0.1:60947 - "GET /api/v1/knowledge-evolution/ontology?skip=0&limit=100 HTTP/1.1" 200 OK
+./start_mac.sh: line 74: 99963 Killed: 9               uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload  (wd: ~/Downloads/PhishScope-AI-main/backend)
