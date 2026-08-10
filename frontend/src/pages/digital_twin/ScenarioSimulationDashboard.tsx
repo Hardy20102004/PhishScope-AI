@@ -4,7 +4,7 @@ import { Play, ShieldAlert, Cpu } from 'lucide-react';
 
 const SIMULATIONS = [
   { id: '1', scenario: 'Revoke AWS IAM over-permissioned roles', status: 'COMPLETED', impact: 'Risk reduced by 42%', risk: 'LOW' },
-  { id: '2', scenario: 'Simulate Zero-Day exploit on edge VPN', status: 'RUNNING', impact: 'Calculating...', risk: 'HIGH' }
+  { id: '2', scenario: 'Simulate Zero-Day exploit on edge VPN', status: 'COMPLETED', impact: 'Exploit successful, lateral movement detected', risk: 'HIGH' }
 ];
 
 export default function ScenarioSimulationDashboard() {

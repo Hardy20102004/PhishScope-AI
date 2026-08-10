@@ -113,11 +113,52 @@ export function CommandCenterDashboard() {
             </div>
           </div>
           <div className="p-6 pt-0">
-            <div className="h-[400px] w-full flex items-center justify-center border-dashed border-2 rounded-md bg-secondary/20">
-               <div className="text-center space-y-4">
-                 <Network className="h-12 w-12 text-primary/50 mx-auto" />
-                 <span className="text-muted-foreground text-sm font-medium">Global Cloud Topology & Threat Vectors</span>
-               </div>
+            <div className="w-full border rounded-md bg-background overflow-hidden">
+              <table className="w-full text-sm text-left">
+                <thead className="bg-secondary/50 text-muted-foreground border-b">
+                  <tr>
+                    <th className="px-4 py-3 font-medium">Environment</th>
+                    <th className="px-4 py-3 font-medium text-center">CSPM</th>
+                    <th className="px-4 py-3 font-medium text-center">CWPP</th>
+                    <th className="px-4 py-3 font-medium text-center">DSPM</th>
+                    <th className="px-4 py-3 font-medium text-center">Status</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-border">
+                  <tr className="hover:bg-muted/50 transition-colors">
+                    <td className="px-4 py-3 flex items-center gap-2 font-medium"><Server className="w-4 h-4 text-amber-500" /> AWS Production</td>
+                    <td className="px-4 py-3"><ShieldCheck className="w-4 h-4 text-emerald-500 mx-auto" /></td>
+                    <td className="px-4 py-3"><ShieldCheck className="w-4 h-4 text-emerald-500 mx-auto" /></td>
+                    <td className="px-4 py-3"><AlertOctagon className="w-4 h-4 text-amber-500 mx-auto" /></td>
+                    <td className="px-4 py-3 text-center"><span className="text-xs font-medium px-2 py-1 rounded bg-amber-500/10 text-amber-500">Warning</span></td>
+                  </tr>
+                  <tr className="hover:bg-muted/50 transition-colors">
+                    <td className="px-4 py-3 flex items-center gap-2 font-medium"><Network className="w-4 h-4 text-blue-500" /> Azure Corp</td>
+                    <td className="px-4 py-3"><ShieldCheck className="w-4 h-4 text-emerald-500 mx-auto" /></td>
+                    <td className="px-4 py-3"><ShieldCheck className="w-4 h-4 text-emerald-500 mx-auto" /></td>
+                    <td className="px-4 py-3"><ShieldCheck className="w-4 h-4 text-emerald-500 mx-auto" /></td>
+                    <td className="px-4 py-3 text-center"><span className="text-xs font-medium px-2 py-1 rounded bg-emerald-500/10 text-emerald-500">Healthy</span></td>
+                  </tr>
+                  <tr className="hover:bg-muted/50 transition-colors">
+                    <td className="px-4 py-3 flex items-center gap-2 font-medium"><Server className="w-4 h-4 text-destructive" /> GCP DataLake</td>
+                    <td className="px-4 py-3"><AlertOctagon className="w-4 h-4 text-destructive mx-auto" /></td>
+                    <td className="px-4 py-3"><ShieldCheck className="w-4 h-4 text-emerald-500 mx-auto" /></td>
+                    <td className="px-4 py-3"><AlertOctagon className="w-4 h-4 text-destructive mx-auto" /></td>
+                    <td className="px-4 py-3 text-center"><span className="text-xs font-medium px-2 py-1 rounded bg-destructive/10 text-destructive">Critical</span></td>
+                  </tr>
+                  <tr className="hover:bg-muted/50 transition-colors">
+                    <td className="px-4 py-3 flex items-center gap-2 font-medium"><Cpu className="w-4 h-4 text-purple-500" /> K8s Clusters</td>
+                    <td className="px-4 py-3"><ShieldCheck className="w-4 h-4 text-emerald-500 mx-auto" /></td>
+                    <td className="px-4 py-3"><ShieldCheck className="w-4 h-4 text-emerald-500 mx-auto" /></td>
+                    <td className="px-4 py-3"><ShieldCheck className="w-4 h-4 text-emerald-500 mx-auto" /></td>
+                    <td className="px-4 py-3 text-center"><span className="text-xs font-medium px-2 py-1 rounded bg-emerald-500/10 text-emerald-500">Healthy</span></td>
+                  </tr>
+                </tbody>
+              </table>
+              <div className="bg-secondary/30 p-4 border-t flex justify-between items-center">
+                <div className="text-sm text-muted-foreground flex items-center gap-2"><Shield className="w-4 h-4" /> Real-time sync active</div>
+                <div className="text-sm font-medium text-primary cursor-pointer hover:underline">View Full Topologies</div>
+              </div>
             </div>
           </div>
         </div>

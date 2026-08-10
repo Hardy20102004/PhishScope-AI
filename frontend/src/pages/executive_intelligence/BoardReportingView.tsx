@@ -16,8 +16,8 @@ export default function BoardReportingView() {
                 </h2>
                 <p className="text-slate-500 mt-1">Generated: Q3 FY2026 | Confidential</p>
             </div>
-            <Button variant="outline" className="bg-white border-slate-300 text-slate-700 gap-2 hover:bg-slate-100">
-                <Download size={16} /> Export PDF PDF
+            <Button variant="outline" onClick={() => window.print()} className="bg-white border-slate-300 text-slate-700 gap-2 hover:bg-slate-100">
+                <Download size={16} /> Export PDF
             </Button>
         </div>
 

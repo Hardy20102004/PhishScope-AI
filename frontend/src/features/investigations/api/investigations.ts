@@ -26,7 +26,7 @@ export const useGetInvestigations = () => {
   return useQuery({
     queryKey: ["investigations"],
     queryFn: async () => {
-      const { data } = await apiClient.get<{ data: Investigation[] }>("/investigations")
+      const { data } = await apiClient.get<{ data: Investigation[] }>("/investigations/")
       return data.data
     },
   })
@@ -47,7 +47,7 @@ export const useSubmitInvestigation = () => {
   const queryClient = useQueryClient()
   return useMutation({
     mutationFn: async (payload: { target: string; type: string }) => {
-      const { data } = await apiClient.post<{ data: Investigation }>("/investigations", payload)
+      const { data } = await apiClient.post<{ data: Investigation }>("/investigations/", payload)
       return data.data
     },
     onSuccess: () => {

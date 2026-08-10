@@ -76,7 +76,7 @@ export function ReportBuilder({ caseId }: { caseId: string }) {
               </div>
               <div className="pt-4 border-t flex justify-end gap-2">
                 <Button variant="outline" size="sm">View</Button>
-                <Button size="sm">Export PDF</Button>
+                <Button size="sm" onClick={() => window.print()}>Export PDF</Button>
               </div>
             </div>
           ))}

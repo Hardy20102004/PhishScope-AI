@@ -15,7 +15,7 @@ export default function ExecutiveKPIDashboard() {
                 </h2>
                 <p className="text-slate-400 mt-1">Standardized, high-level reporting metrics for non-technical stakeholders.</p>
             </div>
-            <Button variant="outline" className="bg-slate-900 border-slate-700 text-slate-300">
+            <Button variant="outline" onClick={() => window.print()} className="bg-slate-900 border-slate-700 text-slate-300">
                 Export PDF Report
             </Button>
         </div>

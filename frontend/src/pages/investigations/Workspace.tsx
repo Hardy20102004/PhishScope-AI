@@ -49,7 +49,7 @@ export function Workspace() {
           <Button variant="outline" onClick={() => setShowCopilot(!showCopilot)} className={showCopilot ? "bg-primary text-primary-foreground" : ""}>
             <Bot className="mr-2 h-4 w-4" /> Copilot
           </Button>
-          <Button variant="outline"><Download className="mr-2 h-4 w-4" /> Export PDF</Button>
+          <Button variant="outline" onClick={() => window.print()}><Download className="mr-2 h-4 w-4" /> Export PDF</Button>
         </div>
       </div>
 

@@ -56,8 +56,43 @@ export function BoardDashboard() {
 
       <div className="bg-card border rounded-lg p-6">
         <h3 className="text-lg font-medium mb-4">Quarterly Threat Landscape Summary</h3>
-        <div className="h-64 flex items-center justify-center border-2 border-dashed border-muted rounded-lg bg-secondary/20">
-          <p className="text-muted-foreground text-sm">Strategic threat landscape visualization will appear here.</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="space-y-4">
+            <div>
+              <div className="flex justify-between text-sm mb-1">
+                <span className="font-medium text-foreground">Phishing Attacks</span>
+                <span className="text-amber-500 font-medium">↑ 15%</span>
+              </div>
+              <div className="w-full bg-secondary rounded-full h-2">
+                <div className="bg-amber-500 h-2 rounded-full" style={{ width: '65%' }}></div>
+              </div>
+            </div>
+            <div>
+              <div className="flex justify-between text-sm mb-1">
+                <span className="font-medium text-foreground">Ransomware Attempts</span>
+                <span className="text-emerald-500 font-medium">↓ 8%</span>
+              </div>
+              <div className="w-full bg-secondary rounded-full h-2">
+                <div className="bg-emerald-500 h-2 rounded-full" style={{ width: '30%' }}></div>
+              </div>
+            </div>
+            <div>
+              <div className="flex justify-between text-sm mb-1">
+                <span className="font-medium text-foreground">Insider Threats</span>
+                <span className="text-muted-foreground font-medium">- 0%</span>
+              </div>
+              <div className="w-full bg-secondary rounded-full h-2">
+                <div className="bg-muted-foreground h-2 rounded-full" style={{ width: '15%' }}></div>
+              </div>
+            </div>
+          </div>
+          <div className="bg-secondary/20 rounded-lg p-4 flex flex-col justify-center items-center text-center border border-border/50">
+            <h4 className="text-3xl font-bold text-foreground mb-2">1,248</h4>
+            <p className="text-sm text-muted-foreground mb-4">Total Incidents Prevented</p>
+            <div className="text-xs text-primary bg-primary/10 px-3 py-1 rounded-full border border-primary/20">
+              High Prevention Rate
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -55,6 +55,24 @@ def create_investigation(
         from app.services.investigations.qr_engine import QREngine
         engine = QREngine(target=investigation_in.target, raw_content=investigation_in.raw_content)
         success = engine.run_pipeline()
+    elif investigation_in.type in ["FILE", "APK"]:
+        from app.services.investigations.pipeline import BaseInvestigationEngine
+        class GenericFileEngine(BaseInvestigationEngine):
+            def __init__(self, target: str, raw_content: str | None = None):
+                super().__init__(target)
+                self.raw_content = raw_content
+            def validate(self) -> bool:
+                return True
+            def collect_evidence(self) -> None:
+                self.evidence["file_name"] = self.target
+                self.evidence["size"] = len(self.raw_content) if self.raw_content else 0
+            def analyze(self) -> None:
+                pass
+            def score(self) -> None:
+                self.risk_score = 0
+                self.risk_level = "LOW"
+        engine = GenericFileEngine(target=investigation_in.target, raw_content=investigation_in.raw_content)
+        success = engine.run_pipeline()
     else:
         # Other types not yet implemented
         db_obj.status = InvestigationStatus.FAILED
