@@ -100,41 +100,36 @@ class BaseMockableProvider(ProviderInterface):
         await asyncio.sleep(0.3) # Simulate realistic asynchronous inference latency
         lower_prompt = prompt.lower()
         
-        # Threat intelligence / IOC reasoning response
-        if any(term in lower_prompt for term in ["ioc", "phishing", "malware", "ip", "url", "domain", "threat"]):
+        # Specific Answers
+        if "history" in lower_prompt and "data" in lower_prompt:
+            return (
+                "### ⚡ Apex Insight\n\n"
+                "The **historical dataset** and all investigation logs are securely stored in the local SQLite database at `backend/phoenix.db`.\n\n"
+                "This ensures your data remains completely private and air-gapped within your local environment."
+            )
+        elif "hello" in lower_prompt or "hi " in lower_prompt or lower_prompt.strip() == "hi":
+            return "Hello! I am the Apex AI Copilot. How can I assist you with your cybersecurity operations today?"
+        elif "who are you" in lower_prompt:
+            return "I am Apex Copilot, the AI brain behind PhishScope. I analyze threats and orchestrate defenses."
+        elif "status" in lower_prompt or "health" in lower_prompt:
+            return "All systems are operating normally. The enterprise posture is stable and no active breaches are detected."
+        elif any(term in lower_prompt for term in ["ioc", "phishing", "malware", "ip", "url"]):
             return (
                 f"### PHOENIX AI Executive Threat Synthesis ({model_id})\n\n"
                 f"**1. Threat Correlation Assessment**:\n"
-                f"Based on cryptographic evidence and IOC analysis, the targeted domain exhibits TTPs aligned with modern credential harvesting campaigns (MITRE ATT&CK T1566.002).\n\n"
-                f"**2. Key Indicators & Evidence Referenced**:\n"
-                f"- Suspicious infrastructure reputation score identified via Threat Intel feeds.\n"
-                f"- Anomalous DNS TTL and recently issued wildcard TLS SSL certificates observed in case evidence.\n\n"
-                f"**3. Strategic Recommendations**:\n"
-                f"1. Enforce automated domain sinkhole routing across enterprise border firewalls.\n"
-                f"2. Query endpoint telemetry for downstream beaconing to associated C2 IPs.\n"
-                f"3. Initiate expedited credential rotation for accounts interacting with this indicator.\n\n"
-                f"*Confidence Score: 0.94 | Verified via {self.name} Provider*"
+                f"Based on cryptographic evidence, this indicator exhibits TTPs aligned with credential harvesting.\n\n"
+                f"**2. Strategic Recommendations**:\n"
+                f"1. Enforce automated domain sinkhole routing.\n"
+                f"2. Query endpoint telemetry for beaconing."
             )
-        elif any(term in lower_prompt for term in ["summarize", "summary", "report", "case"]):
-            return (
-                f"### Investigation Comprehensive Summary ({model_id})\n\n"
-                f"**Executive Overview**:\n"
-                f"The active digital scam investigation involves coordinated multi-channel social engineering. Evidence aggregation indicates elevated risk to financial operational units.\n\n"
-                f"**Technical Findings**:\n"
-                f"- Primary vector: E-mail impersonation with obfuscated redirection URLs.\n"
-                f"- Automated analysis confirmed zero-day malicious macro script payloads.\n\n"
-                f"**Action Plan**:\n"
-                f"Proceed to formal case containment under incident response playbook SOP-SEC-04.\n\n"
-                f"*Confidence Score: 0.91 | Synthesized by PHOENIX Security Brain*"
-            )
+        elif "?" in lower_prompt:
+            # Echo back a contextual answer for unknown questions
+            return f"That is a great question. Based on my analysis of '{prompt}', the system architecture handles this securely within the Unified Command Center."
         else:
             return (
-                f"### AI Security Brain Analytic Output ({model_id})\n\n"
-                f"**Query Analysis**: I have processed your request regarding: *\"{prompt}\"*.\n\n"
-                f"**Response**:\n"
-                f"Based on the enterprise cybersecurity heuristics and available case context, the scenario described in your query requires rigorous monitoring and continuous log ingestion. "
-                f"I recommend reviewing the active alerts and threat intelligence feeds to contextualize this further. All security controls remain in compliance with NIST AI RMF guidelines and tenant policy mandates.\n\n"
-                f"*Confidence Score: 0.88 | Generated via {self.name}*"
+                f"### AI Analytic Output\n\n"
+                f"I have processed your command regarding: *\"{prompt}\"*.\n\n"
+                f"I am continuously monitoring the threat feeds and applying heuristics to ensure enterprise security."
             )
 
     async def execute(

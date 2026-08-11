@@ -43,14 +43,16 @@ class URLEngine(BaseInvestigationEngine):
                 })
                 
                 self.evidence = {
-                    "final_url": str(response.url),
-                    "status_code": response.status_code,
-                    "headers": dict(response.headers),
-                    "redirect_chain": redirects,
-                    "server": response.headers.get("server", "Unknown"),
+                    "http": {
+                        "final_url": str(response.url),
+                        "status_code": response.status_code,
+                        "headers": dict(response.headers),
+                        "redirect_chain": redirects,
+                        "server": response.headers.get("server", "Unknown"),
+                    }
                 }
         except httpx.RequestError as e:
-            self.evidence = {"connection_error": str(e)}
+            self.evidence = {"http": {"connection_error": str(e)}}
             
     def analyze(self) -> None:
         """Run URL heuristics against the target and collected evidence."""
@@ -86,7 +88,8 @@ class URLEngine(BaseInvestigationEngine):
             ))
             
         # 4. Redirect Analysis
-        redirects = self.evidence.get("redirect_chain", [])
+        http_ev = self.evidence.get("http", {})
+        redirects = http_ev.get("redirect_chain", [])
         if len(redirects) > 2:
              self.findings.append(Finding(
                 title="Multiple Redirects",
@@ -95,7 +98,7 @@ class URLEngine(BaseInvestigationEngine):
             ))
              
         # 5. Connection failures
-        if "connection_error" in self.evidence:
+        if "connection_error" in http_ev:
              self.findings.append(Finding(
                 title="Connection Failed",
                 description="The engine was unable to establish an HTTP connection to the target.",
