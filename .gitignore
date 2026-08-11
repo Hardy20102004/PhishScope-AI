@@ -2,8 +2,11 @@ node_modules/
 dist/
 .DS_Store
 venv/
+.venv
+backend/.venv/
 __pycache__/
 *.pyc
 .env
 *.db
 logs/
+
