@@ -35,7 +35,6 @@ class Settings(BaseSettings):
         values = info.data
         server = values.get("POSTGRES_SERVER")
         if server and server != "localhost":
-            # Pydantic v2: parameter is `username`, not `user`
             return str(PostgresDsn.build(
                 scheme="postgresql",
                 username=values.get("POSTGRES_USER"),
@@ -45,11 +44,35 @@ class Settings(BaseSettings):
             ))
         return "sqlite:///./phoenix_test.db"
 
+    # Redis
+    REDIS_URL: str = "redis://localhost:6379/0"
+
     # Security
     SECRET_KEY: str = _DEFAULT_SECRET
     ALGORITHM: str = "HS256"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 15
     REFRESH_TOKEN_EXPIRE_DAYS: int = 7
+
+    # ================================================================
+    # Google Gemini AI Configuration
+    # Confirmed working models with this API key:
+    #   models/gemini-3.6-flash (latest & fastest)
+    #   models/gemini-3.5-flash (stable, high quality)
+    #   models/gemini-3.1-flash-lite (lightweight)
+    #   models/gemini-flash-latest (always latest)
+    #   models/gemini-3-flash-preview, models/gemini-flash-lite-latest
+    # ================================================================
+    GEMINI_API_KEY: str = ""
+    GEMINI_PRIMARY_MODEL: str = "models/gemini-3.6-flash"
+    GEMINI_FAST_MODEL: str = "models/gemini-3.5-flash"
+    GEMINI_FALLBACK_MODELS: str = "models/gemini-flash-latest,models/gemini-3.1-flash-lite,models/gemini-3-flash-preview,models/gemini-flash-lite-latest,models/gemini-3.5-flash-lite"
+    GEMINI_MAX_OUTPUT_TOKENS: int = 2048
+    GEMINI_TEMPERATURE: float = 0.2
+
+    @property
+    def gemini_fallback_model_list(self) -> List[str]:
+        """Returns parsed list of fallback model names."""
+        return [m.strip() for m in self.GEMINI_FALLBACK_MODELS.split(",") if m.strip()]
 
     @model_validator(mode="after")
     def _guard_secret_key(self) -> "Settings":
@@ -72,4 +95,3 @@ class Settings(BaseSettings):
     )
 
 settings = Settings()
-

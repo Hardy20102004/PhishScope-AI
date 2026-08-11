@@ -5,6 +5,11 @@ networkx>=3.0
 pandas>=2.0.0
 requests>=2.31.0
 scikit-learn>=1.3.0
+# Google Gemini AI — all model versions (1.5, 2.0, 2.5) — new google.genai SDK
+google-genai>=1.0.0
+# Correct multi-level TLD parsing (.gov.in, .co.uk, .ac.in etc.)
+tldextract>=5.0.0
+
 amqp==5.3.1
 annotated-doc==0.0.4
 annotated-types==0.8.0

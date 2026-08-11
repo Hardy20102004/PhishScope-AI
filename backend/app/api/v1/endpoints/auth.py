@@ -1,4 +1,3 @@
-
 import uuid
 
 import jwt
@@ -89,7 +88,13 @@ def refresh_token(
             raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid refresh token")
             
         # Check if user exists and is active
-        user = db.query(User).filter(User.id == user_id).first()
+        # BUG-003 FIX: user_id from JWT is str, but User.id is uuid.UUID — must convert
+        try:
+            user_uuid = uuid.UUID(user_id)
+        except (ValueError, TypeError):
+            raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid token subject")
+        
+        user = db.query(User).filter(User.id == user_uuid).first()
         if not user or not user.is_active:
             raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="User not found or inactive")
             

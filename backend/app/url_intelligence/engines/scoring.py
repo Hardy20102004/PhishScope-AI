@@ -1,6 +1,11 @@
 class RiskScoringEngine:
     """
     Computes an overall risk score based on aggregated evidence.
+    
+    Fixed (v2):
+    - BUG-005: brand_risk now correctly reflects only the brand-specific 
+      contribution, not the total score. Previously: min(total_score, 60) 
+      which was misleading when infrastructure/URL also contributed.
     """
     
     @staticmethod
@@ -9,50 +14,73 @@ class RiskScoringEngine:
         confidence = 100
         threat_severity = "LOW"
         
+        # --- Score components tracked separately for accurate attribution ---
+        url_risk_score = 0
+        brand_risk_score = 0
+        infra_risk_score = 0
+        
         # 1. URL Intelligence Risk
         if intel.get("suspicious_keywords_found"):
-            score += 20
+            url_risk_score += 20
         if intel.get("credential_pattern"):
-            score += 40
-        if intel.get("entropy", 0) > 4.5: # High entropy
-            score += 10
+            url_risk_score += 40
+        if intel.get("entropy", 0) > 4.5:  # High entropy indicates obfuscation
+            url_risk_score += 10
+        if intel.get("nested_redirect_parameters"):
+            url_risk_score += 10  # Open redirect potential
             
-        # 2. Brand Risk
+        # 2. Brand Risk (tracked separately — BUG-005 fix)
         if brand.get("is_typosquat"):
-            score += 50
+            brand_risk_score += 50
         if brand.get("is_homograph"):
-            score += 60
+            brand_risk_score += 60
             
-        # 3. Infrastructure Risk
+        # 3. Infrastructure Risk (tracked separately)
         certs = infra.get("certificates", [])
         if not certs:
-            score += 20
+            infra_risk_score += 20
         else:
             for cert in certs:
                 if not cert.get("is_valid"):
-                    score += 30
-                    
-        # Normalize score
-        score = min(score, 100)
+                    infra_risk_score += 30
         
+        # Cap each component reasonably
+        url_risk_score = min(url_risk_score, 70)
+        brand_risk_score = min(brand_risk_score, 80)
+        infra_risk_score = min(infra_risk_score, 40)
+        
+        # Total score — weighted combination
+        score = min(url_risk_score + brand_risk_score + infra_risk_score, 100)
+        
+        # Severity thresholds
         if score >= 80:
             threat_severity = "CRITICAL"
         elif score >= 60:
             threat_severity = "HIGH"
         elif score >= 30:
             threat_severity = "MEDIUM"
-            
-        # Calculate Evidence Quality based on what data we were able to fetch
-        evidence_quality = "HIGH"
+        else:
+            threat_severity = "LOW"
+        
+        # Evidence quality — affected by what data we could actually fetch
         if not infra.get("ips"):
             confidence -= 20
             evidence_quality = "MEDIUM"
-            
+        elif not infra.get("nameservers"):
+            confidence -= 10
+            evidence_quality = "MEDIUM"
+        else:
+            evidence_quality = "HIGH"
+        
+        confidence = max(confidence, 0)
+        
         return {
             "overall_risk_score": score,
             "confidence": confidence,
             "threat_severity": threat_severity,
             "evidence_quality": evidence_quality,
-            "infrastructure_risk": min(score, 40),
-            "brand_risk": min(score, 60) if brand.get("is_typosquat") else 0
+            # BUG-005 FIX: Each component now reports its own actual contribution
+            "url_risk": url_risk_score,
+            "brand_risk": brand_risk_score,
+            "infrastructure_risk": infra_risk_score,
         }
