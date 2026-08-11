@@ -82,8 +82,70 @@ export default function EnterpriseCommandDashboard() {
               </div>
             </div>
             <div className="bg-card border rounded-lg p-6">
-               <div className="h-96 flex items-center justify-center border-2 border-dashed border-muted rounded-lg bg-secondary/20">
-                  <p className="text-muted-foreground text-sm">Enterprise Global Map Visualization will appear here.</p>
+               <div className="flex justify-between items-center mb-4">
+                 <h3 className="text-lg font-medium">Enterprise Global Topology</h3>
+                 <div className="flex space-x-4 text-xs font-medium">
+                   <div className="flex items-center"><span className="h-2 w-2 rounded-full bg-emerald-500 mr-2"></span> Healthy</div>
+                   <div className="flex items-center"><span className="h-2 w-2 rounded-full bg-amber-500 mr-2"></span> Degraded</div>
+                   <div className="flex items-center"><span className="h-2 w-2 rounded-full bg-destructive mr-2"></span> Critical</div>
+                 </div>
+               </div>
+               <div className="h-[400px] relative rounded-lg bg-secondary/10 border overflow-hidden">
+                  {/* Decorative background grid to look like a map overlay */}
+                  <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)', backgroundSize: '24px 24px' }}></div>
+                  
+                  {/* Regions */}
+                  <div className="absolute top-[25%] left-[30%] -translate-x-1/2 -translate-y-1/2 z-10 group">
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-emerald-500/10 rounded-full animate-ping opacity-75 pointer-events-none"></div>
+                    <div className="relative flex flex-col items-center bg-card border shadow-lg rounded-md p-2 hover:border-primary transition-colors cursor-pointer">
+                      <div className="flex items-center space-x-2">
+                        <span className="h-2.5 w-2.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)]"></span>
+                        <span className="font-semibold text-xs whitespace-nowrap">US East (N. Virginia)</span>
+                      </div>
+                      <div className="text-[10px] text-muted-foreground mt-1">12 active nodes</div>
+                    </div>
+                  </div>
+
+                  <div className="absolute top-[35%] left-[60%] -translate-x-1/2 -translate-y-1/2 z-10 group">
+                    <div className="relative flex flex-col items-center bg-card border shadow-lg rounded-md p-2 hover:border-primary transition-colors cursor-pointer">
+                      <div className="flex items-center space-x-2">
+                        <span className="h-2.5 w-2.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)]"></span>
+                        <span className="font-semibold text-xs whitespace-nowrap">EU West (London)</span>
+                      </div>
+                      <div className="text-[10px] text-muted-foreground mt-1">8 active nodes</div>
+                    </div>
+                  </div>
+
+                  <div className="absolute top-[65%] left-[80%] -translate-x-1/2 -translate-y-1/2 z-10 group">
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-amber-500/10 rounded-full animate-ping opacity-75 pointer-events-none"></div>
+                    <div className="relative flex flex-col items-center bg-card border-amber-500/50 shadow-[0_0_15px_rgba(245,158,11,0.2)] rounded-md p-2 hover:border-amber-500 transition-colors cursor-pointer">
+                      <div className="flex items-center space-x-2">
+                        <span className="h-2.5 w-2.5 rounded-full bg-amber-500 shadow-[0_0_8px_rgba(245,158,11,0.8)]"></span>
+                        <span className="font-semibold text-xs whitespace-nowrap">AP Southeast (Singapore)</span>
+                      </div>
+                      <div className="text-[10px] text-amber-500/80 mt-1">High latency detected</div>
+                    </div>
+                  </div>
+
+                  <div className="absolute top-[45%] left-[15%] -translate-x-1/2 -translate-y-1/2 z-10 group">
+                    <div className="relative flex flex-col items-center bg-card border shadow-lg rounded-md p-2 hover:border-primary transition-colors cursor-pointer">
+                      <div className="flex items-center space-x-2">
+                        <span className="h-2.5 w-2.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)]"></span>
+                        <span className="font-semibold text-xs whitespace-nowrap">US West (Oregon)</span>
+                      </div>
+                      <div className="text-[10px] text-muted-foreground mt-1">5 active nodes</div>
+                    </div>
+                  </div>
+                  
+                  {/* Connecting SVG Lines */}
+                  <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-30 text-primary">
+                    {/* US East to US West */}
+                    <line x1="30%" y1="25%" x2="15%" y2="45%" stroke="currentColor" strokeWidth="1.5" strokeDasharray="4 4" />
+                    {/* US East to EU West */}
+                    <line x1="30%" y1="25%" x2="60%" y2="35%" stroke="currentColor" strokeWidth="1.5" strokeDasharray="4 4" />
+                    {/* EU West to AP Southeast */}
+                    <line x1="60%" y1="35%" x2="80%" y2="65%" stroke="currentColor" strokeWidth="1.5" strokeDasharray="4 4" />
+                  </svg>
                </div>
             </div>
           </div>}

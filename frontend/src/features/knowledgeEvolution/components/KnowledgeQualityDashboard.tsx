@@ -66,8 +66,19 @@ export function KnowledgeQualityDashboard() {
 
       <div className="bg-card border rounded-lg p-6">
         <h3 className="text-lg font-medium mb-4">Quality Trends</h3>
-        <div className="h-64 flex items-center justify-center border-2 border-dashed border-muted rounded-lg bg-secondary/20">
-          <p className="text-muted-foreground text-sm">Quality trend visualization will appear here.</p>
+        <div className="flex items-end space-x-2 h-48 border-b-2 border-l-2 border-secondary p-4">
+          {[65, 72, 78, 85, 82, 88, 92].map((height, i) => (
+            <div key={i} className="flex-1 flex flex-col justify-end items-center group relative">
+              <div 
+                className="w-full bg-primary/80 hover:bg-primary transition-all rounded-t-sm"
+                style={{ height: `${height}%` }}
+              ></div>
+              <div className="absolute -top-8 opacity-0 group-hover:opacity-100 transition-opacity bg-secondary px-2 py-1 rounded text-xs">
+                {height}%
+              </div>
+              <span className="text-xs text-muted-foreground mt-2 block">Day {i + 1}</span>
+            </div>
+          ))}
         </div>
       </div>
     </div>

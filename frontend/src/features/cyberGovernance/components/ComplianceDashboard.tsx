@@ -13,8 +13,23 @@ export function ComplianceDashboard() {
 
       <div className="bg-card border rounded-lg p-6">
         <h3 className="text-lg font-medium mb-4">Framework Readiness</h3>
-        <div className="h-64 flex items-center justify-center border-2 border-dashed border-muted rounded-lg bg-secondary/20">
-          <p className="text-muted-foreground text-sm">Compliance framework trackers will appear here.</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {[
+            { name: 'SOC 2 Type II', score: 92, color: 'bg-emerald-500' },
+            { name: 'ISO 27001', score: 85, color: 'bg-emerald-500' },
+            { name: 'NIST CSF', score: 78, color: 'bg-primary' },
+            { name: 'GDPR / CCPA', score: 65, color: 'bg-amber-500' }
+          ].map((fw, idx) => (
+            <div key={idx} className="bg-secondary/30 p-4 rounded-lg border">
+              <div className="flex justify-between items-center mb-3">
+                <span className="font-medium text-foreground">{fw.name}</span>
+                <span className="text-sm font-mono text-muted-foreground">{fw.score}% Compliant</span>
+              </div>
+              <div className="w-full bg-secondary rounded-full h-2 overflow-hidden">
+                <div className={`h-full ${fw.color}`} style={{ width: `${fw.score}%` }}></div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>

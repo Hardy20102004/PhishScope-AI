@@ -3,6 +3,7 @@ import { useAuthStore } from "@/stores/authStore"
 import { Avatar } from "@/components/ui/Avatar"
 import { Button } from "@/components/ui/Button"
 import { apiClient } from "@/api/client"
+import { useState, useEffect } from "react"
 
 interface TopBarProps {
   onOpenCommandPalette: () => void;
@@ -10,6 +11,33 @@ interface TopBarProps {
 
 export function TopBar({ onOpenCommandPalette }: TopBarProps) {
   const { user, clearAuth } = useAuthStore()
+
+  // Track selected language locally
+  const [currentLang, setCurrentLang] = useState('en')
+
+  // Check cookie on mount just in case
+  useEffect(() => {
+    if (document.cookie.includes('/en/hi')) {
+      setCurrentLang('hi')
+    }
+  }, [])
+
+  const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const lang = e.target.value;
+    setCurrentLang(lang);
+    
+    // Find the hidden Google Translate dropdown and trigger it
+    const select = document.querySelector('.goog-te-combo') as HTMLSelectElement;
+    if (select) {
+      select.value = lang;
+      select.dispatchEvent(new Event('change'));
+    } else {
+      // Fallback if widget hasn't fully loaded
+      document.cookie = `googtrans=/en/${lang}; path=/`;
+      document.cookie = `googtrans=/en/${lang}; path=/; domain=` + location.hostname;
+      window.location.reload();
+    }
+  }
 
   const handleLogout = async () => {
     try {
@@ -38,6 +66,14 @@ export function TopBar({ onOpenCommandPalette }: TopBarProps) {
       </div>
       
       <div className="flex items-center gap-4">
+        <select 
+          className="hidden md:flex bg-background border rounded-md text-sm px-2 py-1.5 outline-none cursor-pointer hover:bg-accent focus:ring-2 focus:ring-ring"
+          value={currentLang}
+          onChange={handleLanguageChange}
+        >
+          <option value="en" className="bg-background">English</option>
+          <option value="hi" className="bg-background">हिन्दी (Hindi)</option>
+        </select>
         <Button variant="outline" size="sm" className="hidden border-transparent md:flex">
           <Bell className="h-5 w-5 text-muted-foreground" />
         </Button>

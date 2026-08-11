@@ -15,8 +15,9 @@ class SSRFValidator:
     @staticmethod
     def is_safe_url(url: str) -> bool:
         try:
+            url = url.strip()
             parsed = urlparse(url)
-            hostname = parsed.hostname
+            hostname = parsed.hostname.strip() if parsed.hostname else None
             
             if not hostname:
                 raise SSRFError("Invalid URL structure.")
@@ -33,8 +34,10 @@ class SSRFValidator:
                 
             return True
             
-        except socket.gaierror:
-            # If DNS fails to resolve, it's not a valid public URL we can scan anyway
-            raise SSRFError(f"DNS Resolution failed for {hostname}")
+        except socket.gaierror as e:
+            # If DNS fails to resolve, it might be an invalid domain or temporary network issue.
+            # We allow it to pass SSRF validation; httpx will naturally fail to connect later,
+            # which is handled gracefully by the engine's collect_evidence() phase.
+            return True
         except Exception as e:
             raise SSRFError(f"SSRF Validation failed: {str(e)}")

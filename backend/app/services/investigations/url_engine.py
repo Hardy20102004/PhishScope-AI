@@ -13,6 +13,7 @@ class URLEngine(BaseInvestigationEngine):
     def validate(self) -> bool:
         try:
             # Ensure it has a scheme
+            self.target = self.target.strip()
             if not self.target.startswith(("http://", "https://")):
                 self.target = "http://" + self.target
                 

@@ -56,7 +56,7 @@ export default function CloudTimelineExplorer() {
 }
 
 function TelemetryRow({ time, provider, icon, source, name, principal, resource, highlight }: any) {
-    let bg = highlight ? "bg-rose-950/20 border-l-2 border-rose-500" : "hover:bg-slate-900/50";
+    const bg = highlight ? "bg-rose-950/20 border-l-2 border-rose-500" : "hover:bg-slate-900/50";
     
     return (
         <div className={`flex p-4 transition-colors ${bg}`}>

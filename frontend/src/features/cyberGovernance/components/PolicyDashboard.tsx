@@ -5,6 +5,9 @@ import type {  GovernancePolicy  } from "../types";
 export function PolicyDashboard() {
   const [policies, setPolicies] = useState<GovernancePolicy[]>([]);
   const [loading, setLoading] = useState(true);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [showDraft, setShowDraft] = useState(false);
+  const [newPolicy, setNewPolicy] = useState({ name: '', framework: '', version: '1.0' });
 
   useEffect(() => {
     // Mock API
@@ -23,6 +26,30 @@ export function PolicyDashboard() {
     }, 500);
   }, []);
 
+  const handleDraft = () => {
+    if (!newPolicy.name || !newPolicy.framework) return;
+    setPolicies([
+      {
+        id: Math.random().toString(),
+        name: newPolicy.name,
+        description: 'Newly drafted policy',
+        version: newPolicy.version,
+        framework: newPolicy.framework,
+        status: 'DRAFT',
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString()
+      },
+      ...policies
+    ]);
+    setShowDraft(false);
+    setNewPolicy({ name: '', framework: '', version: '1.0' });
+  };
+
+  const filteredPolicies = policies.filter(p => 
+    p.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+    p.framework.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div className="space-y-6 animate-in fade-in duration-500">
       <div className="flex justify-between items-center">
@@ -33,17 +60,58 @@ export function PolicyDashboard() {
           </h2>
           <p className="text-sm text-muted-foreground">Manage organizational security policies and standards.</p>
         </div>
-        <button className="flex items-center px-4 py-2 bg-primary text-primary-foreground rounded-md text-sm font-medium hover:bg-primary/90 transition-colors">
+        <button 
+          onClick={() => setShowDraft(!showDraft)}
+          className="flex items-center px-4 py-2 bg-primary text-primary-foreground rounded-md text-sm font-medium hover:bg-primary/90 transition-colors"
+        >
           <Plus className="mr-2 h-4 w-4" />
-          Draft Policy
+          {showDraft ? 'Cancel' : 'Draft Policy'}
         </button>
       </div>
+
+      {showDraft && (
+        <div className="bg-card border rounded-lg p-5 space-y-4">
+          <h3 className="font-medium text-foreground">Draft New Policy</h3>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <input 
+              placeholder="Policy Name" 
+              value={newPolicy.name}
+              onChange={(e) => setNewPolicy({...newPolicy, name: e.target.value})}
+              className="px-3 py-2 bg-secondary border-none rounded-md text-sm focus:outline-none focus:ring-1 focus:ring-primary"
+            />
+            <input 
+              placeholder="Framework (e.g. SOC2, NIST)" 
+              value={newPolicy.framework}
+              onChange={(e) => setNewPolicy({...newPolicy, framework: e.target.value})}
+              className="px-3 py-2 bg-secondary border-none rounded-md text-sm focus:outline-none focus:ring-1 focus:ring-primary"
+            />
+            <input 
+              placeholder="Version" 
+              value={newPolicy.version}
+              onChange={(e) => setNewPolicy({...newPolicy, version: e.target.value})}
+              className="px-3 py-2 bg-secondary border-none rounded-md text-sm focus:outline-none focus:ring-1 focus:ring-primary"
+            />
+          </div>
+          <button 
+            onClick={handleDraft}
+            className="px-4 py-2 bg-primary text-primary-foreground rounded-md text-sm font-medium hover:bg-primary/90 transition-colors"
+          >
+            Save Draft
+          </button>
+        </div>
+      )}
 
       <div className="bg-card border rounded-lg overflow-hidden flex flex-col">
         <div className="p-4 border-b flex justify-between items-center bg-secondary/30">
           <div className="relative">
             <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-            <input type="text" placeholder="Search policies..." className="pl-9 pr-4 py-2 bg-background border rounded-md text-sm focus:outline-none focus:ring-1 focus:ring-primary w-64" />
+            <input 
+              type="text" 
+              placeholder="Search policies..." 
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="pl-9 pr-4 py-2 bg-background border rounded-md text-sm focus:outline-none focus:ring-1 focus:ring-primary w-64" 
+            />
           </div>
           <button className="p-2 border rounded-md hover:bg-secondary transition-colors">
             <Filter className="h-4 w-4" />
@@ -62,7 +130,7 @@ export function PolicyDashboard() {
               </tr>
             </thead>
             <tbody className="divide-y divide-border">
-              {policies.map((p, idx) => (
+              {filteredPolicies.map((p, idx) => (
                 <tr key={idx} className="hover:bg-muted/50 transition-colors">
                   <td className="px-6 py-4 font-medium text-foreground">{p.name}</td>
                   <td className="px-6 py-4 text-muted-foreground">{p.framework}</td>

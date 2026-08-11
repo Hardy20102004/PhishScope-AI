@@ -62,7 +62,8 @@ async def mock_get_current_active_user():
     return user
 
 async def mock_get_async_db():
-    db = SessionLocal()
+    from tests.conftest import TestingSessionLocal
+    db = TestingSessionLocal()
     try:
         yield AsyncMockSession(db)
     finally:

@@ -26,7 +26,7 @@ async def get_active_agents(db: Session = Depends(deps.get_db)):
 @router.post("/agents/initialize")
 async def initialize_default_agents(db: Session = Depends(deps.get_db)):
     """Seed the database with the default multi-agent workforce."""
-    audit_engine = AIAuditEngine(db)
+    audit_engine = AIAuditEngine()
     manager = AgentManager(db=db, core_audit_engine=audit_engine)
     manager.initialize_workforce()
     return {"status": "Workforce Initialized"}

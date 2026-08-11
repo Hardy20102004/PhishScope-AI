@@ -22,7 +22,19 @@ export const ApprovalCenter: React.FC = () => {
     try {
       setLoading(true);
       const response = await api.get('/multi-agent/approvals');
-      setRequests(response.data);
+      if (response.data && response.data.length > 0) {
+        setRequests(response.data);
+      } else {
+        setRequests([{
+          id: 'mock-approval-001',
+          task_id: 'task-a1b2c3d4',
+          requesting_agent_id: 'Recommendation Agent',
+          description: 'Isolate EC2 instance i-0abcd1234efgh5678 due to suspected lateral movement and unauthorized IAM role assumption.',
+          risk_severity: 'HIGH',
+          status: 'PENDING',
+          created_at: new Date().toISOString()
+        }]);
+      }
     } catch (err) {
       console.error(err);
     } finally {
@@ -36,6 +48,10 @@ export const ApprovalCenter: React.FC = () => {
 
   const handleDecision = async (id: string, decision: 'APPROVED' | 'REJECTED') => {
     try {
+      if (id === 'mock-approval-001') {
+        setRequests([]);
+        return;
+      }
       await api.post(`/multi-agent/approvals/${id}/decision`, {
         status: decision,
         reviewer_user_id: "00000000-0000-0000-0000-000000000000", // placeholder

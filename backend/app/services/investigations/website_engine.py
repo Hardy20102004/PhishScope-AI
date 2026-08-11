@@ -14,6 +14,7 @@ class WebsiteEngine(BaseInvestigationEngine):
     
     def validate(self) -> bool:
         try:
+            self.target = self.target.strip()
             if not self.target.startswith(("http://", "https://")):
                 self.target = "https://" + self.target
                 

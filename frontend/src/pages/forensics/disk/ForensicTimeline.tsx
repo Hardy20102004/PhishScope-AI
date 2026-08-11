@@ -52,11 +52,17 @@ export default function ForensicTimeline() {
 
 function TimelineEvent({ date, action, file, icon, color, bg, borderColor }: any) {
     const [expanded, setExpanded] = useState(false);
+    const [mftRecord] = useState(() => Math.floor(Math.random() * 90000) + 10000);
+    
     return (
-        <div className="relative pl-8">
-            <div className={`absolute -left-[9px] top-1 w-4 h-4 rounded-full border-4 border-slate-950 bg-slate-400`}></div>
-            <div className="flex flex-col sm:flex-row sm:items-start gap-4 cursor-pointer group" onClick={() => setExpanded(!expanded)}>
-                <div className="w-48 text-xs font-mono text-slate-500 mt-3">{date}</div>
+        <div className="relative animate-in fade-in slide-in-from-bottom-4 duration-500">
+            <div className={`absolute -left-[25px] mt-1.5 h-3 w-3 rounded-full border-2 border-slate-950 ${color} ${bg} ring-2 ring-slate-800`} />
+            
+            <div className="mb-1">
+                <span className="text-xs font-mono text-slate-500">{date}</span>
+            </div>
+            
+            <div className="cursor-pointer group" onClick={() => setExpanded(!expanded)}>
                 <Card className={`flex-1 bg-slate-900 border-slate-800 hover:border-slate-700 transition-all ${expanded ? 'border-cyan-500/50 shadow-lg shadow-cyan-500/10' : ''}`}>
                     <CardContent className="p-4 flex flex-col gap-4">
                         <div className="flex items-center gap-4">
@@ -73,7 +79,7 @@ function TimelineEvent({ date, action, file, icon, color, bg, borderColor }: any
                                 <p><span className="text-slate-500">Hash (SHA-256):</span> a1b2c3d4e5f6g7h8i9j0...</p>
                                 <p><span className="text-slate-500">Offset:</span> 0x0045B2</p>
                                 <p><span className="text-slate-500">User Context:</span> NT AUTHORITY\SYSTEM</p>
-                                <p><span className="text-slate-500">MFT Record:</span> {Math.floor(Math.random() * 90000) + 10000}</p>
+                                <p><span className="text-slate-500">MFT Record:</span> {mftRecord}</p>
                             </div>
                         )}
                     </CardContent>

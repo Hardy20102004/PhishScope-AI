@@ -2,6 +2,32 @@ import { Link, useLocation } from "react-router-dom"
 import { ShieldAlert, LayoutDashboard, ShieldCheck, Activity, Settings, GitBranch, Cpu, Users, Database, FileText, FileCode, BookOpen, Share2, BrainCircuit, Lightbulb, CloudLightning, Globe, Fingerprint, Target, Shield, Network, LineChart, Briefcase, Crosshair } from "lucide-react"
 import { cn } from "@/utils/cn"
 
+const NavItem = ({ item }: { item: any }) => {
+  const location = useLocation()
+  const isActive = location.pathname === item.path || location.pathname.startsWith(`${item.path}/`)
+  return (
+    <Link
+      to={item.path}
+      className={cn(
+        "flex items-center rounded-md px-3 py-2 text-sm font-medium transition-colors",
+        isActive
+          ? "bg-primary/10 text-primary"
+          : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
+      )}
+    >
+      {item.icon}
+      <span className="ml-3">{item.name}</span>
+    </Link>
+  )
+}
+
+const NavGroup = ({ label, children }: { label: string, children: React.ReactNode }) => (
+  <div className="mb-6">
+    <h3 className="px-3 mb-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider">{label}</h3>
+    <div className="space-y-1">{children}</div>
+  </div>
+)
+
 export function Sidebar() {
   const location = useLocation()
   
@@ -25,30 +51,6 @@ export function Sidebar() {
     ]
   }
 
-  const NavItem = ({ item }: { item: any }) => {
-    const isActive = location.pathname === item.path || location.pathname.startsWith(`${item.path}/`)
-    return (
-      <Link
-        to={item.path}
-        className={cn(
-          "flex items-center rounded-md px-3 py-2 text-sm font-medium transition-colors",
-          isActive
-            ? "bg-primary/10 text-primary"
-            : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
-        )}
-      >
-        {item.icon}
-        <span className="ml-3">{item.name}</span>
-      </Link>
-    )
-  }
-
-  const NavGroup = ({ label, children }: { label: string, children: React.ReactNode }) => (
-    <div className="mb-6">
-      <h3 className="px-3 mb-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider">{label}</h3>
-      <div className="space-y-1">{children}</div>
-    </div>
-  )
 
   return (
     <div className="flex h-full w-64 flex-col border-r bg-card text-card-foreground">

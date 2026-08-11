@@ -7,9 +7,10 @@ from app.db.base import Base
 from app.main import app
 from app.api.deps import get_db
 
+from sqlalchemy.pool import StaticPool
 # Create an in-memory database for tests
 test_engine = create_engine(
-    "sqlite:///:memory:", connect_args={"check_same_thread": False}, pool_pre_ping=True
+    "sqlite:///:memory:", connect_args={"check_same_thread": False}, poolclass=StaticPool
 )
 TestingSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=test_engine)
 

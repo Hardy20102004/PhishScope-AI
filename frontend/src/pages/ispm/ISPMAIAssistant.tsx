@@ -82,6 +82,7 @@ export default function ISPMAIAssistant() {
 
   const submit = (query: string = input) => {
     if (!query.trim() || loading) return;
+    // eslint-disable-next-line
     const userMsg: Message = { id: Date.now().toString(), role: 'user', content: query, timestamp: new Date() };
     setMessages(prev => [...prev, userMsg]);
     setInput('');
