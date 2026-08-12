@@ -36,7 +36,7 @@ class MobileInvestigationManager:
         iocs = IOCExtractionEngine.extract(communications)
         
         # 4. Score Risk
-        risk_score = RiskAssessmentEngine.calculate(applications, iocs)
+        risk_score = RiskAssessmentEngine.calculate(applications, iocs, parsed_data)
         
         # 5. AI Integration
         try:
@@ -45,11 +45,13 @@ class MobileInvestigationManager:
                 applications=applications,
                 timeline=timeline,
                 iocs=iocs,
-                risk=risk_score
+                risk=risk_score,
+                parsed_data=parsed_data
             )
         except Exception as e:
             logger.error(f"AI integration failed: {e}")
             ai_summary = {"risk_narrative": "AI unavailable.", "threat_summary": "Unknown"}
+
             
         return {
             "device_metadata": metadata,

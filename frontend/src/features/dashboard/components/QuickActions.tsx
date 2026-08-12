@@ -1,4 +1,4 @@
-import { Globe, Mail, Link2, FileText, Smartphone, Code } from "lucide-react"
+import { Globe, Mail, Link2, FileText, Smartphone } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card"
 import { useNavigate } from "react-router-dom"
 
@@ -11,7 +11,6 @@ export function QuickActions() {
     { name: "Investigate Email", icon: <Mail className="h-5 w-5 text-amber-500" /> },
     { name: "Investigate File", icon: <FileText className="h-5 w-5 text-emerald-500" /> },
     { name: "Investigate SMS", icon: <Smartphone className="h-5 w-5 text-rose-500" /> },
-    { name: "Investigate APK", icon: <Code className="h-5 w-5 text-purple-500" /> },
   ]
 
   return (
@@ -20,7 +19,7 @@ export function QuickActions() {
         <CardTitle>Quick Actions</CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-5">
           {actions.map((action) => (
             <button
               key={action.name}

@@ -49,7 +49,10 @@ class ThreatIntelManager:
             needs_refresh = True
         else:
             # Check if cache is expired (e.g., older than 24 hours)
-            if datetime.now(timezone.utc) - indicator.last_updated > timedelta(hours=24):
+            last_updated = indicator.last_updated
+            if last_updated and last_updated.tzinfo is None:
+                last_updated = last_updated.replace(tzinfo=timezone.utc)
+            if not last_updated or (datetime.now(timezone.utc) - last_updated > timedelta(hours=24)):
                 needs_refresh = True
                 
         if force_refresh or needs_refresh:

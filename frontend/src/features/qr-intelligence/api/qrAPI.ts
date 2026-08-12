@@ -18,8 +18,32 @@ export interface QRInvestigationResult {
 }
 
 export const investigateQR = async (raw_payload: string): Promise<QRInvestigationResult> => {
-    // In a full implementation, we'd upload an image file using FormData.
-    // For this prototype, we pass the decoded raw payload or a simulated string.
     const response = await axios.post(`${API_BASE_URL}/investigate`, { raw_payload });
     return response.data;
 };
+
+export interface QRScanResult {
+    success: boolean;
+    raw_payload?: string;
+    payload_type?: string;
+    message: string;
+    metadata: {
+        filename: string;
+        resolution: string;
+        file_size_bytes: number;
+        format: string;
+        contains_multiple_qrs: boolean;
+    };
+}
+
+export const scanQRImage = async (file: File): Promise<QRScanResult> => {
+    const formData = new FormData();
+    formData.append('file', file);
+    const response = await axios.post(`${API_BASE_URL}/scan-image`, formData, {
+        headers: {
+            'Content-Type': 'multipart/form-data',
+        },
+    });
+    return response.data;
+};
+

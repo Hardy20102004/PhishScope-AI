@@ -39,8 +39,13 @@ export function IndicatorSearch() {
 
   const handleSearch = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (query.trim()) {
-      setSearchParams({ q: query.trim() });
+    const trimmed = query.trim();
+    if (trimmed) {
+      if (searchParams.get("q") === trimmed) {
+        executeSearch(trimmed);
+      } else {
+        setSearchParams({ q: trimmed });
+      }
     }
   };
 

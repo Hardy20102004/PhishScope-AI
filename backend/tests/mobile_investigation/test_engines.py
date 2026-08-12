@@ -37,6 +37,6 @@ def test_risk_scoring_engine():
     
     result = RiskAssessmentEngine.calculate(apps, iocs)
     
-    # 30 + 30 = 60 -> HIGH
-    assert result["overall_risk_score"] == 60
+    # 30 + 25 + 25 = 80 -> HIGH
+    assert result["overall_risk_score"] == 80
     assert result["threat_severity"] == "HIGH"

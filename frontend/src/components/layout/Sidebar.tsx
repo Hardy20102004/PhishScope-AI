@@ -14,8 +14,7 @@ import {
   Activity, 
   PlusCircle, 
   Shield, 
-  Sparkles,
-  FileSearch
+  Sparkles
 } from "lucide-react"
 import { cn } from "@/utils/cn"
 
@@ -70,8 +69,6 @@ export function Sidebar() {
     phishing: [
       { name: "URL Intelligence", path: "/url-intelligence", icon: <Globe size={18} />, badge: "Gemini AI" },
       { name: "QR Threat Analysis", path: "/qr-intelligence", icon: <QrCode size={18} /> },
-      { name: "Email & BEC Scanner", path: "/email-intelligence", icon: <Mail size={18} /> },
-      { name: "Website Impersonation", path: "/website-investigation", icon: <FileSearch size={18} /> },
       { name: "Malware Intelligence", path: "/malware-intelligence", icon: <Bug size={18} /> },
     ],
     operations: [

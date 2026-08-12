@@ -1,4 +1,4 @@
-﻿"""
+"""
 startup_checks.py
 -----------------
 Startup sanity-check hooks for the PHOENIX backend.
@@ -43,13 +43,63 @@ def check_database_reachable(database_uri: str) -> None:
     Attempt a real database connection at startup.
     Logs a warning (not a crash) so the app can still start in degraded mode
     if the DB is warming up. Kubernetes readiness probes will block traffic.
+    Automatically creates missing tables, seeds default admin, and syncs columns.
     """
     try:
-        from sqlalchemy import create_engine, text
+        from sqlalchemy import create_engine, text, inspect
+        from app.db.base import Base
         connect_args = {"check_same_thread": False} if "sqlite" in database_uri else {}
         engine = create_engine(database_uri, connect_args=connect_args, pool_pre_ping=True)
         with engine.connect() as conn:
             conn.execute(text("SELECT 1"))
+
+        # Automatically create all tables if missing
+        Base.metadata.create_all(bind=engine)
+
+        # Automatically seed default admin user if missing
+        try:
+            from app.db.session import SessionLocal
+            from app.models.user import User
+            from app.core.security import get_password_hash
+            db = SessionLocal()
+            try:
+                admin_email = os.getenv("ADMIN_EMAIL", "admin@phoenix.ai")
+                admin_password = os.getenv("ADMIN_PASSWORD", "Phoenix@Admin123")
+                existing = db.query(User).filter(User.email == admin_email).first()
+                if not existing:
+                    admin = User(
+                        email=admin_email,
+                        hashed_password=get_password_hash(admin_password),
+                        full_name="Phoenix Admin",
+                        is_superuser=True,
+                        is_active=True,
+                    )
+                    db.add(admin)
+                    db.commit()
+                    logger.info("startup_admin_created", email=admin_email)
+            finally:
+                db.close()
+        except Exception as seed_exc:
+            logger.warning("startup_seed_warning", error=str(seed_exc))
+
+        # Auto-sync missing columns for SQLite/dev databases
+        if "sqlite" in database_uri:
+            try:
+                inspector = inspect(engine)
+                tables = inspector.get_table_names()
+                with engine.connect() as conn:
+                    for table_name, table in Base.metadata.tables.items():
+                        if table_name in tables:
+                            existing_cols = {col['name'] for col in inspector.get_columns(table_name)}
+                            for col in table.columns:
+                                if col.name not in existing_cols:
+                                    col_type = col.type.compile(engine.dialect)
+                                    sql = f"ALTER TABLE {table_name} ADD COLUMN {col.name} {col_type}"
+                                    conn.execute(text(sql))
+                    conn.commit()
+            except Exception as sync_exc:
+                logger.warning("startup_schema_sync_warning", error=str(sync_exc))
+
         logger.info("startup_db_check", status="connected", uri_scheme=database_uri.split("://")[0])
     except Exception as exc:
         logger.warning(
