@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom"
 import { Sidebar } from "@/components/layout/Sidebar"
 import { TopBar } from "@/components/layout/TopBar"
 import { CommandPalette } from "@/components/CommandPalette"
+import { ChatbotWidget } from "@/components/ChatbotWidget"
 
 export function DashboardLayout() {
   const [cmdOpen, setCmdOpen] = useState(false)
@@ -17,6 +18,8 @@ export function DashboardLayout() {
         </main>
       </div>
       <CommandPalette open={cmdOpen} setOpen={setCmdOpen} />
+      {/* Global AI Chatbot — available on every page */}
+      <ChatbotWidget />
     </div>
   )
 }

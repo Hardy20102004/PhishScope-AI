@@ -57,3 +57,7 @@ export const updateCase = async (id: string, updates: Partial<Case>): Promise<Ca
 export const linkInvestigation = async (caseId: string, investigationId: string): Promise<void> => {
   await apiClient.post(`/cases/${caseId}/link-investigation/${investigationId}`);
 };
+
+export const deleteCase = async (id: string): Promise<void> => {
+  await apiClient.delete(`/cases/${id}`);
+};

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
-import { Search, Link2, Mail, AlertCircle, MessageSquare, QrCode, Upload, FileText, Code } from "lucide-react"
+import { Search, Link2, Mail, AlertCircle, MessageSquare, QrCode, Upload, Code } from "lucide-react"
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/Card"
 import { Button } from "@/components/ui/Button"
@@ -12,7 +12,7 @@ import { useSubmitInvestigation } from "@/features/investigations/api/investigat
 
 const schema = z.object({
   target: z.string().min(1, "Target is required"),
-  type: z.enum(["URL", "WEBSITE", "EMAIL", "MESSAGING", "QR", "FILE"]),
+  type: z.enum(["URL", "WEBSITE", "EMAIL", "MESSAGING", "QR"]),
   raw_content: z.string().optional()
 })
 
@@ -118,19 +118,9 @@ export default function NewInvestigation() {
                 <span className="font-medium text-xs">QR Code</span>
               </button>
 
-              <button
-                type="button"
-                onClick={() => setValue("type", "FILE")}
-                className={`flex flex-col items-center justify-center p-4 border rounded-lg transition-colors ${
-                  currentType === "FILE" ? "border-primary bg-primary/10 text-primary" : "hover:bg-accent"
-                }`}
-              >
-                <FileText className="h-6 w-6 mb-2" />
-                <span className="font-medium text-xs">File / APK</span>
-              </button>
             </div>
 
-            {!["QR", "FILE"].includes(currentType) && (
+            {currentType !== "QR" && (
               <div className="space-y-2">
                 <label className="text-sm font-medium">Target / Description</label>
                 <div className="relative">
@@ -146,36 +136,17 @@ export default function NewInvestigation() {
               </div>
             )}
             
-            {["QR", "FILE"].includes(currentType) && (
+            {currentType === "QR" && (
                <div className="space-y-2 relative">
                   <div className="flex items-center justify-between">
-                    <label className="text-sm font-medium">
-                      Upload {currentType === "QR" ? "QR Image" : "File (All Types Supported)"}
-                    </label>
-                    {currentType === "FILE" && (
-                      <span className="text-xs text-muted-foreground font-mono">
-                        APK • EXE • PDF • DOCX • ZIP • Scripts
-                      </span>
-                    )}
+                    <label className="text-sm font-medium">Upload QR Image</label>
                   </div>
                   <div className="border-2 border-dashed rounded-lg p-8 flex flex-col items-center justify-center text-center cursor-pointer hover:bg-muted/50 transition-colors relative">
                      <Upload className="h-8 w-8 text-muted-foreground mb-4" />
                      <p className="text-sm font-medium mb-1">Drag and drop or click to upload</p>
-                     <p className="text-xs text-muted-foreground mb-3">
-                       {currentType === "QR" 
-                         ? "Upload PNG, JPG, or WebP image containing a QR code" 
-                         : "Supports all file formats (APK, PDF, EXE, DOCX, ZIP, JS/PY Scripts, Binaries)"}
-                     </p>
+                     <p className="text-xs text-muted-foreground mb-3">Upload PNG, JPG, or WebP image containing a QR code</p>
 
-                     {currentType === "FILE" && (
-                       <div className="flex flex-wrap justify-center gap-1.5 pt-1">
-                         <span className="text-[11px] bg-primary/10 text-primary border border-primary/20 px-2 py-0.5 rounded font-mono font-medium">📱 APK</span>
-                         <span className="text-[11px] bg-muted text-muted-foreground border px-2 py-0.5 rounded font-mono">💻 EXE / BIN</span>
-                         <span className="text-[11px] bg-muted text-muted-foreground border px-2 py-0.5 rounded font-mono">📄 PDF / DOCX</span>
-                         <span className="text-[11px] bg-muted text-muted-foreground border px-2 py-0.5 rounded font-mono">📦 ZIP</span>
-                         <span className="text-[11px] bg-muted text-muted-foreground border px-2 py-0.5 rounded font-mono">📜 Scripts</span>
-                       </div>
-                     )}
+
 
                      <input 
                        type="file" 
@@ -196,12 +167,12 @@ export default function NewInvestigation() {
                      <Input type="hidden" {...register("target")} />
                      <Input type="hidden" {...register("raw_content")} />
                   </div>
-                  {watch("target") && ["QR", "FILE"].includes(currentType) && (
-                    <p className="text-sm text-primary flex items-center gap-2 mt-2 font-medium">
-                      <FileText className="h-4 w-4" /> Selected File: {watch("target")}
-                    </p>
-                  )}
-                  {errors.target && <p className="text-sm text-destructive">{currentType === "QR" ? "QR image" : "File"} is required.</p>}
+                   {watch("target") && currentType === "QR" && (
+                     <p className="text-sm text-primary flex items-center gap-2 mt-2 font-medium">
+                       ✅ Selected: {watch("target")}
+                     </p>
+                   )}
+                   {errors.target && <p className="text-sm text-destructive">QR image is required.</p>}
                </div>
             )}
 

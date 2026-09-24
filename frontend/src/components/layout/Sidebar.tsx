@@ -5,7 +5,6 @@ import {
   Globe, 
   QrCode, 
   Mail, 
-  Bug, 
   Search, 
   Briefcase, 
   Cpu, 
@@ -69,7 +68,6 @@ export function Sidebar() {
     phishing: [
       { name: "URL Intelligence", path: "/url-intelligence", icon: <Globe size={18} />, badge: "Gemini AI" },
       { name: "QR Threat Analysis", path: "/qr-intelligence", icon: <QrCode size={18} /> },
-      { name: "Malware Intelligence", path: "/malware-intelligence", icon: <Bug size={18} /> },
     ],
     operations: [
       { name: "SOC Dashboard", path: "/dashboard", icon: <LayoutDashboard size={18} /> },

@@ -64,6 +64,18 @@ def update_case(
     except ValueError as e:
         raise HTTPException(status_code=404, detail=str(e))
 
+@router.delete("/{case_id}", status_code=204)
+def delete_case(
+    case_id: UUID,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user)
+):
+    try:
+        engine = CaseEngine(db)
+        engine.delete_case(case_id, current_user.id)
+    except ValueError as e:
+        raise HTTPException(status_code=404, detail=str(e))
+
 @router.post("/{case_id}/tasks", response_model=CaseTaskSchema)
 def add_task(
     case_id: UUID,

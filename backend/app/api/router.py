@@ -40,7 +40,7 @@ from app.api.v1.endpoints import (
     website_investigation,
     xai,
 )
-from app.api.routers import ioc, ti_feed, threat_actor, campaign, attack_graph, reputation, cloud, timeline, predictive, alerts, detection, ai_triage, threat_hunting, incident_response, soar, collaboration, executive, soc_copilot, digital_twin, disk_forensics, memory_forensics, mobile_forensics, browser_forensics, email_forensics, malware_analysis, cloud_forensics, unified_timeline, reporting_engine, dfir_copilot, bas_platform, red_team, blue_team, continuous_validation, attack_path, detection_gap, cyber_resilience, executive_intelligence, strategic_defense, cspm, cwpp, k8s_security, ciem, cdr, dspm, multi_cloud, governance, ctem, command_center, aspm, devsecops, sbom, sast, dast, sca, secrets, iac, copilot, appsec_command_center, ispm, zta, pam, itdr, iga, nhi, authn, federation, identity_intel, identity_command_center, cyber_fusion, orchestration, predictive_risk
+from app.api.routers import ioc, ti_feed, threat_actor, campaign, attack_graph, reputation, cloud, timeline, predictive, alerts, detection, ai_triage, threat_hunting, incident_response, soar, collaboration, executive, soc_copilot, digital_twin, disk_forensics, memory_forensics, mobile_forensics, browser_forensics, email_forensics, malware_analysis, cloud_forensics, unified_timeline, reporting_engine, dfir_copilot, bas_platform, red_team, blue_team, continuous_validation, attack_path, detection_gap, cyber_resilience, executive_intelligence, strategic_defense, cspm, cwpp, k8s_security, ciem, cdr, dspm, multi_cloud, governance, ctem, command_center, aspm, devsecops, sbom, sast, dast, sca, secrets, iac, copilot, appsec_command_center, ispm, zta, pam, itdr, iga, nhi, authn, federation, identity_intel, identity_command_center, cyber_fusion, orchestration, predictive_risk, chatbot
 
 api_router = APIRouter()
 
@@ -154,4 +154,5 @@ api_router.include_router(knowledge_evolution.router, prefix="/knowledge-evoluti
 api_router.include_router(cyber_governance.router, prefix="/cyber-governance", tags=["Cyber Governance & Executive Strategy"])
 api_router.include_router(cyber_command.router, prefix="/cyber-command", tags=["Enterprise Cyber Command"])
 api_router.include_router(cyber_os.router, prefix="/cyber-os", tags=["CyberOS Kernel"])
+api_router.include_router(chatbot.router, prefix="/chatbot", tags=["Platform Chatbot"])
 

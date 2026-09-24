@@ -78,7 +78,18 @@ class CaseEngine:
             )
             
         return case
-        
+
+    def delete_case(self, case_id: uuid.UUID, user_id: uuid.UUID) -> None:
+        case = self.get_case(case_id)
+        self.timeline.add_event(
+            case_id=case.id,
+            action="CASE_DELETED",
+            details="Case was permanently deleted.",
+            user_id=user_id
+        )
+        self.db.delete(case)
+        self.db.commit()
+
     def link_investigation(self, case_id: uuid.UUID, investigation_id: uuid.UUID, user_id: uuid.UUID):
         stmt = select(Investigation).where(Investigation.id == investigation_id)
         investigation = self.db.execute(stmt).scalar_one_or_none()
